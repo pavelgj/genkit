@@ -1,298 +1,142 @@
-{% extends "_internal/templates/intro.html" %}
-{% block variables %}
-  {% setvar pageTitle %}{{firebase_genkit}}{% endsetvar %}
-  {% setvar custom_project %}/docs/genkit/_project.yaml{% endsetvar %}
-  {% setvar supportsNode %}true{% endsetvar %}
-  {% setvar supportsGolang %}true{% endsetvar %}
-  {% setvar youtubeID %}M8rfDySBBvM{% endsetvar %}
-{% endblock variables %}
+[![Run e2e tests](https://github.com/firebase/genkit/actions/workflows/e2e-tests.yml/badge.svg)](https://github.com/firebase/genkit/actions/workflows/e2e-tests.yml)
 
-{% block extraMeta %}
-<meta name="page_type" value="Product" />
-<meta name="keywords" value="docType:Product" />
-{% endblock %}
+![Firebase Genkit logo](docs/resources/genkit-logo-dark.png#gh-dark-mode-only 'Firebase Genkit')
+![Firebase Genkit logo](docs/resources/genkit-logo.png#gh-light-mode-only 'Firebase Genkit')
 
-{% block intro %}
+Genkit is a framework for building AI-powered applications. It provides open source libraries for Node.js and Go, along with tools to help you debug and iterate quickly.
 
-Genkit is a framework designed to help you build AI-powered applications and features. It provides open source libraries for Node.js and Go, plus developer tools for testing and debugging.
+Learn more in our documentation for [Node.js](https://firebase.google.com/docs/genkit) and [Go](https://firebase.google.com/docs/genkit-go/get-started-go).
 
-This documentation covers Genkit for Node.js. If you're a Go developer, see the [Genkit Go documentation](/docs/genkit-go/get-started-go).
+## What can you build with Genkit?
 
-You can deploy and run Genkit libraries anywhere Node.js is supported. It's designed to work with any generative AI model API or vector database. While we offer integrations for Firebase and Google Cloud, you can use Genkit independently of any Google services.
+Genkit is a versatile framework, which you can use to build many different types of AI applications. Common use cases include:
 
-[Get started](/docs/genkit/get-started){: .button}
+- **Intelligent agents:** Create agents that understand user requests and perform tasks autonomously, such as personalized travel planning or itinerary generation.
 
-{% endblock intro %}
+  - Example: [Compass Travel Planning App](https://developers.google.com/solutions/compass)
 
-{% block body %}
+- **Data transformation:** Convert unstructured data, like natural language, into structured formats (e.g., objects, SQL queries, tables) for integration into your app or data pipeline.
 
-## Key capabilities
+  - Example: [Add Natural Language AI Data Filters with Genkit](https://medium.com/firebase-developers/how-to-add-natural-language-ai-data-filters-to-your-app-71d64a79624d)
 
-<table class="responsive key-functions">
-<tr>
-  <td><strong>Unified API for AI generation</strong></td>
-  <td>Use one API to generate or stream content from various AI models. Works with multimodal input/output and custom model settings.</td>
-</tr>
-<tr>
-  <td><strong>Structured output</strong></td>
-  <td>Generate or stream structured objects (like JSON) with built-in validation. Simplify integration with your app and convert unstructured data into a usable format.</td>
-</tr>
-<tr>
-  <td><strong>Tool calling</strong></td>
-  <td>Let AI models call your functions and APIs as tools to complete tasks. The model decides when and which tools to use.</td>
-</tr>
-<tr>
-  <td><strong>Chat</strong></td>
-  <td>Genkit offers a chat-specific API that facilitates multi-turn conversations with AI models, which can be stateful and persistent.</td>
-</tr>
-<tr>
-  <td><strong>Agents</strong></td>
-  <td>Create intelligent agents that use tools (including other agents) to help automate complex tasks and workflows.</td>
-</tr>
-<tr>
-  <td><strong>Data retrieval</strong></td>
-  <td>Improve the accuracy and relevance of generated output by integrating your data. Simple APIs help you embed, index, and retrieve information from various sources.</td>
-</tr>
-<tr>
-  <td><strong>Prompt templating</strong></td>
-  <td>Create effective prompts that include rich text templating, model settings, multimodal support, and tool integration - all within a compact, runnable <a href="/docs/genkit/dotprompt">prompt file</a>.</td>
-</tr>
-</table>
+- **Retrieval-augmented generation:** Create apps that provide accurate and contextually relevant responses by grounding generation with your own data sources, such as chatbots or question answering systems.
+  - Example: [Build AI features powered by your data](https://firebase.google.com/codelabs/ai-genkit-rag#0)
 
-See the following code samples for a concrete idea of how to use these capabilities in code:
+## Who should use Genkit?
 
-- {Basic generation}
+Genkit is built for developers seeking to add generative AI to their apps with Node.js or Go, and can run anywhere these runtimes are supported. It's designed around a plugin architecture that can work with any generative model API or vector database, with many integrations [already available](#plugin-ecosystem).
 
-  ```javascript
-  import { genkit } from 'genkit';
-  import { googleAI, gemini15Flash } from '@genkit-ai/googleai';
+While developed by the [Firebase](https://firebase.google.com) team, Genkit can be used independently of Firebase or Google Cloud services.
 
-  const ai = genkit({
-    plugins: [googleAI()],
-    model: gemini15Flash,  // Set default model
-  });
+## Get started
 
-  // Simple generation
-  const { text } = await ai.generate('Why is AI awesome?');
-  console.log(text);
+- [Node.js quickstart](https://firebase.google.com/docs/genkit/get-started)
+- [Next.js quickstart](https://firebase.google.com/docs/genkit/nextjs)
+- [Go quickstart](https://firebase.google.com/docs/genkit-go/get-started-go)
 
-  // Streamed generation 
-  const { stream } = await ai.generateStream('Tell me a story');
-  for await (const chunk of stream) {
-    console.log(chunk.text);
-  }
-  ```
+> [!NOTE]
+> Genkit for Go is in alpha, so we only recommend it for prototyping.
 
-- {Structured output}
+## Library key features
 
-  ```javascript
-  import { genkit, z } from 'genkit';
-  import { googleAI, gemini15Flash } from '@genkit-ai/googleai';
+- **Unified generation API:** Generate text, media, structured objects, and tool calls from any generative model using a single, adaptable API.
 
-  const ai = genkit({
-    plugins: [googleAI()],
-    model: gemini15Flash,
-  });
+- **Vector database support:** Add retrieval-augmented generation (RAG) to your apps with simple indexing and retrieval APIs that work across vector database providers.
 
-  const { output } = await ai.generate({
-    prompt: 'Create a brief profile for a character in a fantasy video game.',
-    // Specify output structure using Zod schema
-    output: {
-      format: 'json',  
-      schema: z.object({
-        name: z.string(),
-        role: z.enum(['knight', 'mage', 'archer']),
-        backstory: z.string(),
-      }),
-    },
-  });
+- **Enhanced prompt engineering:** Define rich prompt templates, model configurations, input/output schemas, and tools all within a single, runnable [.prompt](https://firebase.google.com/docs/genkit/dotprompt) file.
 
-  console.log(output);
-  ```
+- **AI workflows:** Organize your AI app logic into [Flows](https://firebase.google.com/docs/genkit/flows) - functions designed for observability, streaming, integration with Genkit devtools, and easy deployment as API endpoints.
 
-- {Function calling}
-
-  ```javascript
-  import { genkit, z } from 'genkit';
-  import { googleAI, gemini15Flash } from '@genkit-ai/googleai';
-
-  const ai = genkit({
-    plugins: [googleAI()],
-    model: gemini15Flash,
-  });
-
-  // Define tool to get current weather for a given location
-  const getWeather = ai.defineTool(
-    {
-      name: "getWeather",
-      description: "Gets the current weather in a given location",
-      inputSchema: z.object({ 
-        location: z.string().describe('The location to get the current weather for')
-      }),
-      outputSchema: z.string(),
-    },
-    async (input) => {
-      // Here, we would typically make an API call or database query. For this
-      // example, we just return a fixed value.
-      return `The current weather in ${input.location} is 63°F and sunny.`;
-    }
-  );
-
-  const { text } = await ai.generate({
-      tools: [getWeather], // Give the model a list of tools it can call
-      prompt: 'What is the weather like in New York? ',
-  });
-
-  console.log(text);
-  ```
-
-- {Chat}
-
-  ```javascript
-  import { genkit, z } from 'genkit';
-  import { googleAI, gemini15Flash } from '@genkit-ai/googleai';
-
-  const ai = genkit({
-    plugins: [googleAI()],
-    model: gemini15Flash,
-  });
-
-  const chat = ai.chat({ system: 'Talk like a pirate' });
-
-  let response = await chat.send('Hi, my name is Pavel');
-
-  response = await chat.send('What is my name?');
-  console.log(response.text);
-  // Ahoy there! Your name is Pavel, you scurvy dog
-  ```
-
-- {Agents}
-
-  ```javascript
-  import { genkit, z } from 'genkit';
-  import { googleAI, gemini15Flash } from '@genkit-ai/googleai';
-
-  const ai = genkit({
-    plugins: [googleAI()],
-    model: gemini15Flash,
-  });
-
-  // Define prompts that represent specialist agents
-  const reservationAgent = ai.definePrompt(
-    {
-      name: 'reservationAgent',
-      description: 'Reservation Agent can help manage guest reservations',
-      tools: [reservationTool, reservationCancelationTool, reservationListTool],
-      
-    },
-    `{% verbatim %}{{role "system"}}{% endverbatim %} Help guests make and manage reservations`
-  );
-
-  const menuInfoAgent = ...
-  const complaintAgent = ...
-
-  // Define a triage agent that routes to the proper specialist agent
-  const triageAgent = ai.definePrompt(
-    {
-      name: 'triageAgent',
-      description: 'Triage Agent',
-      tools: [reservationAgent, menuInfoAgent, complaintAgent],
-    },
-    `{% verbatim %}{{role "system"}}{% endverbatim %} You are an AI customer service agent for Pavel's Cafe.
-    Greet the user and ask them how you can help. If appropriate, transfer to an
-    agent that can better handle the request. If you cannot help the customer with
-    the available tools, politely explain so.`
-  );
-
-  // Create a chat to enable multi-turn agent interactions
-  const chat = ai.chat(triageAgent);
-
-  chat.send('I want a reservation at Pavel\'s Cafe for noon on Tuesday.' );
-  ```
-
-- {Data retrieval}
-
-  ```javascript
-  import { genkit } from 'genkit';
-  import { googleAI, gemini15Flash, textEmbedding004 } from '@genkit-ai/googleai';
-  import { devLocalRetrieverRef } from '@genkit-ai/dev-local-vectorstore';
-
-  const ai = genkit({ 
-    plugins: [
-      googleAI()
-      devLocalVectorstore([
-        {
-          indexName: 'BobFacts',
-          embedder: textEmbedding004,
-        },
-      ]),
-    ],
-    model: gemini15Flash,
-  });
-
-  // Reference to a local vector database storing Genkit documentation
-  const retriever = devLocalRetrieverRef('BobFacts');
-
-  // Consistent API to retrieve most relevant documents based on semantic similarity to query
-  const docs = await ai.retrieve(
-    retriever: retriever,
-    query: 'How old is bob?',
-  );
-
-  const result = await ai.generate({
-      prompt: `Use the provided context from the Genkit documentation to answer this query: ${query}`,
-      docs // Pass retrieved documents to the model
-  });
-  ```
-
-- {Prompt template}
-
-  ```yaml
-  ---
-  model: vertexai/gemini-1.5-flash
-  config:
-    temperature: 0.9
-  input:
-    schema:
-      properties:
-        location: {type: string}
-        style: {type: string}
-        name: {type: string}
-      required: [location]
-    default:
-      location: a restaurant
-  ---
-
-  You are the most welcoming AI assistant and are currently working at {% verbatim %}{{location}}{% endverbatim %}.
-
-  Greet a guest{% verbatim %}{{#if name}}{% endverbatim %} named {% verbatim %}{{name}}{% endverbatim %}{% verbatim %}{{/if}}{% endverbatim %}{% verbatim %}{{#if style}}{% endverbatim %} in the style of {% verbatim %}{{style}}{% endverbatim %}{% verbatim %}{{/if}}{% endverbatim %}.
-  ```
+- **Built-in streaming:** Stream content from your Genkit API endpoints to your client app to create snappy user experiences.
 
 ## Development tools
 
-Genkit provides a command-line interface (CLI) and a local Developer UI to make building AI applications easier. These tools help you:
+Genkit provides a CLI and a local UI to streamline your AI development workflow.
 
-- **Experiment:** Test and refine your AI functions, prompts, and queries.
-- **Debug:** Find and fix issues with detailed execution traces.
-- **Evaluate:** Assess generated results across multiple test cases.
+### CLI
 
-<div>
-  <devsite-carousel data-items-per-slide="auto">
-    <ul>
-      <li><img src="/docs/genkit/resources/devui-run.png" width="800px" alt=""></li>
-      <li><img src="/docs/genkit/resources/devui-inspect.png" width="800px" alt=""></li>
-      <li><img src="/docs/genkit/resources/devui-evals.png" width="800px" alt=""></li>
-    </ul>
-  </devsite-carousel>
-</div>
+The Genkit CLI is the quickest way to start a new Genkit project. It also includes commands for running and evaluating your Genkit functions (flows).
+
+- **Install:** `npm i -g genkit`
+- **Initialize a new project:** `genkit init`
+
+### Developer UI
+
+The Genkit developer UI is a local interface for testing, debugging, and iterating on your AI application.
+
+Key features:
+
+- **Run:** Execute and experiment with Genkit flows, prompts, queries, and more in dedicated playgrounds.
+- **Inspect:** Analyze detailed traces of past executions, including step-by-step breakdowns of complex flows.
+- **Evaluate:** Review the results of evaluations run against your flows, including performance metrics and links to relevant traces.
+
+<img src="_media/readme-ui-traces-screenshot.png" width="700" alt="Screenshot of Genkit Developer UI showing traces">
+
+## Plugin ecosystem
+
+Extend Genkit with plugins for specific AI models, vector databases, and platform integrations from providers like Google and OpenAI.
+
+- **Node.js plugins:** [Explore on npm](https://www.npmjs.com/search?q=keywords:genkit-plugin)
+- **Go plugins:** [Explore on pkg.go.dev](https://pkg.go.dev/github.com/firebase/genkit/go#section-directories)
+
+Create and share your own plugins:
+
+- **Write Node.js plugins:** [Plugin Authoring Guide](https://firebase.google.com/docs/genkit/plugin-authoring)
+- **Write Go plugins:** [Plugin Authoring Guide](https://firebase.google.com/docs/genkit-go/plugin-authoring)
+
+Find excellent examples of community-built plugins for OpenAI, Anthropic, Cohere, and more in this [repository](https://github.com/TheFireCo/genkit-plugins).
+
+## Try Genkit on IDX
+
+Want to skip the local setup? Click below to try out Genkit using [Project IDX](https://idx.dev), Google's AI-assisted workspace for full-stack app development in the cloud.
+
+<a href="https://idx.google.com/import?url=">
+  <img
+    height="32"
+    alt="Try in IDX"
+    src="https://cdn.idx.dev/btn/try_purple_32.svg">
+</a>
+
+## Sample apps
+
+Take a look at some samples of Genkit in use:
+
+- ["AI barista"](samples/js-coffee-shop/) -- demonstrates simple LLM usage
+- [A simple chatbot with a JavaScript frontend](samples/chatbot/) -- add history to LLM sessions
+- [Restaurant menu Q&A app](samples/js-menu/) -- this sample shows progressively
+  more sophisticated versions of a menu understanding app.
+- [Streaming to an Angular frontend](samples/js-angular/)
 
 ## Connect with us
 
-- **Join the community:** Stay updated, ask questions, and share your work on our [Discord server](https://discord.gg/qXt5zzQKpc).
+- **Join the community:** Stay updated, ask questions, and share your work with other Genkit users on our [Discord server](https://discord.gg/qXt5zzQKpc).
+
 - **Provide feedback:** Report issues or suggest new features using our GitHub [issue tracker](https://github.com/firebase/genkit/issues).
 
-## Next steps
+- **Engage in discussions:** Participate in conversations about Genkit on our [GitHub Discussions](https://github.com/firebase/genkit/discussions) forum.
 
-Learn how to build your first AI application with Genkit in our [Get started](/docs/genkit/get-started) guide.
+## Contributing
 
-{% endblock %}
+Contributions to Genkit are welcome and highly appreciated! See our [Contribution Guide](_media/CONTRIBUTING.md) to get started.
+
+## Authors
+
+Genkit is built by [Firebase](https://firebase.google.com/products/genkit) with contributions from the [Open Source Community](https://github.com/firebase/genkit/graphs/contributors).
+
+## Packages
+
+| Name | Description |
+| ------ | ------ |
+| [genkit](genkit/index.md) | Genkit AI framework |
+| [@genkit-ai/checks](@genkit-ai/checks/index.md) | Google Checks AI Safety plugins for classifying the safety of text against Checks AI safety policies. |
+| [genkitx-chromadb](genkitx-chromadb/index.md) | Genkit AI framework plugin for Chroma vector database. |
+| [@genkit-ai/dev-local-vectorstore](@genkit-ai/dev-local-vectorstore/index.md) | Genkit AI framework plugin for temporary local vector database. |
+| [@genkit-ai/dotprompt](@genkit-ai/dotprompt/index.md) | Genkit AI framework `.prompt` file format and management library. |
+| [@genkit-ai/evaluator](@genkit-ai/evaluator/index.md) | Genkit AI framework plugin for RAG evaluation. |
+| [@genkit-ai/firebase](@genkit-ai/firebase/index.md) | Genkit AI framework plugin for Firebase including Firestore trace/state store and deployment helpers for Cloud Functions for Firebase. |
+| [@genkit-ai/google-cloud](@genkit-ai/google-cloud/index.md) | Genkit AI framework plugin for Google Cloud Platform including Firestore trace/state store and deployment helpers for Cloud Functions for Firebase. |
+| [@genkit-ai/googleai](@genkit-ai/googleai/index.md) | Genkit AI framework plugin for Google AI APIs, including Gemini APIs. |
+| [genkitx-langchain](genkitx-langchain/index.md) | Genkit AI framework plugin for langchain. |
+| [genkitx-ollama](genkitx-ollama/index.md) | Genkit AI framework plugin for Ollama APIs. |
+| [genkitx-pinecone](genkitx-pinecone/index.md) | Genkit AI framework plugin for Pinecone vector database. |
+| [@genkit-ai/vertexai](@genkit-ai/vertexai/index.md) | Genkit AI framework plugin for Google Cloud Vertex AI APIs including Gemini APIs, Imagen, and more. |
