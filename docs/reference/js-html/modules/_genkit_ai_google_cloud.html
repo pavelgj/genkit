@@ -1,0 +1,281 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@genkit-ai/google-cloud | Genkit TypeScript reference</title><meta name="description" content="Documentation for Genkit TypeScript reference"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: #f6be46;
+    --md-sys-color-on-primary: #412d00;
+    --md-sys-color-primary-container: #5d4200;
+    --md-sys-color-on-primary-container: #ffdea3;
+    --md-sys-color-secondary: #d9c4a0;
+    --md-sys-color-on-secondary: #3b2f15;
+    --md-sys-color-secondary-container: #53452a;
+    --md-sys-color-on-secondary-container: #f6e0bb;
+    --md-sys-color-tertiary: #b2cfa8;
+    --md-sys-color-on-tertiary: #1e361a;
+    --md-sys-color-tertiary-container: #344d2f;
+    --md-sys-color-on-tertiary-container: #cdebc2;
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000a;
+    --md-sys-color-on-error-container: #ffb4ab;
+    --md-sys-color-background: #1e1b16;
+    --md-sys-color-on-background: #e9e1d9;
+    --md-sys-color-surface: #1e1b16;
+    --md-sys-color-on-surface: #e9e1d9;
+    --md-sys-color-surface-variant: #4e4639;
+    --md-sys-color-on-surface-variant: #d1c5b4;
+    --md-sys-color-outline: #9a8f80;
+    --md-sys-color-outline-variant: #4e4639;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #e9e1d9;
+    --md-sys-color-inverse-on-surface: #34302a;
+    --md-sys-color-inverse-primary: #7a5900;
+    --md-sys-color-surface-dim: #16130e;
+    --md-sys-color-surface-bright: #3d3933;
+    --md-sys-color-surface-container-lowest: #110e09;
+    --md-sys-color-surface-container-low: #1e1b16;
+    --md-sys-color-surface-container: #221f1a;
+    --md-sys-color-surface-container-high: #2d2924;
+    --md-sys-color-surface-container-highest: #38342e
+  }
+}
+:root[data-theme="dark"] {
+  --md-sys-color-primary: #f6be46;
+  --md-sys-color-on-primary: #412d00;
+  --md-sys-color-primary-container: #5d4200;
+  --md-sys-color-on-primary-container: #ffdea3;
+  --md-sys-color-secondary: #d9c4a0;
+  --md-sys-color-on-secondary: #3b2f15;
+  --md-sys-color-secondary-container: #53452a;
+  --md-sys-color-on-secondary-container: #f6e0bb;
+  --md-sys-color-tertiary: #b2cfa8;
+  --md-sys-color-on-tertiary: #1e361a;
+  --md-sys-color-tertiary-container: #344d2f;
+  --md-sys-color-on-tertiary-container: #cdebc2;
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffb4ab;
+  --md-sys-color-background: #1e1b16;
+  --md-sys-color-on-background: #e9e1d9;
+  --md-sys-color-surface: #1e1b16;
+  --md-sys-color-on-surface: #e9e1d9;
+  --md-sys-color-surface-variant: #4e4639;
+  --md-sys-color-on-surface-variant: #d1c5b4;
+  --md-sys-color-outline: #9a8f80;
+  --md-sys-color-outline-variant: #4e4639;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #e9e1d9;
+  --md-sys-color-inverse-on-surface: #34302a;
+  --md-sys-color-inverse-primary: #7a5900;
+  --md-sys-color-surface-dim: #16130e;
+  --md-sys-color-surface-bright: #3d3933;
+  --md-sys-color-surface-container-lowest: #110e09;
+  --md-sys-color-surface-container-low: #1e1b16;
+  --md-sys-color-surface-container: #221f1a;
+  --md-sys-color-surface-container-high: #2d2924;
+  --md-sys-color-surface-container-highest: #38342e
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --md-sys-color-primary: #7a5900;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #ffdea3;
+    --md-sys-color-on-primary-container: #261900;
+    --md-sys-color-secondary: #6c5c3f;
+    --md-sys-color-on-secondary: #ffffff;
+    --md-sys-color-secondary-container: #f6e0bb;
+    --md-sys-color-on-secondary-container: #251a04;
+    --md-sys-color-tertiary: #4b6545;
+    --md-sys-color-on-tertiary: #ffffff;
+    --md-sys-color-tertiary-container: #cdebc2;
+    --md-sys-color-on-tertiary-container: #092007;
+    --md-sys-color-error: #ba1a1a;
+    --md-sys-color-on-error: #ffffff;
+    --md-sys-color-error-container: #ffdad6;
+    --md-sys-color-on-error-container: #410002;
+    --md-sys-color-background: #fffbff;
+    --md-sys-color-on-background: #1e1b16;
+    --md-sys-color-surface: #fffbff;
+    --md-sys-color-on-surface: #1e1b16;
+    --md-sys-color-surface-variant: #ede1cf;
+    --md-sys-color-on-surface-variant: #4e4639;
+    --md-sys-color-outline: #7f7667;
+    --md-sys-color-outline-variant: #d1c5b4;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #34302a;
+    --md-sys-color-inverse-on-surface: #f8efe7;
+    --md-sys-color-inverse-primary: #f6be46;
+    --md-sys-color-surface-dim: #e1d9d0;
+    --md-sys-color-surface-bright: #fff8f2;
+    --md-sys-color-surface-container-lowest: #ffffff;
+    --md-sys-color-surface-container-low: #fbf2e9;
+    --md-sys-color-surface-container: #f5ede4;
+    --md-sys-color-surface-container-high: #efe7de;
+    --md-sys-color-surface-container-highest: #e9e1d9
+  }
+}
+:root[data-theme="light"] {
+  --md-sys-color-primary: #7a5900;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #ffdea3;
+  --md-sys-color-on-primary-container: #261900;
+  --md-sys-color-secondary: #6c5c3f;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #f6e0bb;
+  --md-sys-color-on-secondary-container: #251a04;
+  --md-sys-color-tertiary: #4b6545;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #cdebc2;
+  --md-sys-color-on-tertiary-container: #092007;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-background: #fffbff;
+  --md-sys-color-on-background: #1e1b16;
+  --md-sys-color-surface: #fffbff;
+  --md-sys-color-on-surface: #1e1b16;
+  --md-sys-color-surface-variant: #ede1cf;
+  --md-sys-color-on-surface-variant: #4e4639;
+  --md-sys-color-outline: #7f7667;
+  --md-sys-color-outline-variant: #d1c5b4;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #34302a;
+  --md-sys-color-inverse-on-surface: #f8efe7;
+  --md-sys-color-inverse-primary: #f6be46;
+  --md-sys-color-surface-dim: #e1d9d0;
+  --md-sys-color-surface-bright: #fff8f2;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #fbf2e9;
+  --md-sys-color-surface-container: #f5ede4;
+  --md-sys-color-surface-container-high: #efe7de;
+  --md-sys-color-surface-container-highest: #e9e1d9
+}
+</style><link rel="stylesheet" href="../assets/material-style.css"/></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base=".."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="../assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">Genkit TypeScript reference</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb"><li><a href="../modules.html">Genkit TypeScript reference</a></li><li><a href="_genkit_ai_google_cloud.html">@genkit-ai/google-cloud</a></li></ul><h1>Module @genkit-ai/google-cloud</h1></div><section class="tsd-panel tsd-typography"><p><a href="https://github.com/firebase/genkit/actions/workflows/e2e-tests.yml" target="_blank" class="external"><img src="https://github.com/firebase/genkit/actions/workflows/e2e-tests.yml/badge.svg" alt="Run e2e tests"></a></p>
+<p><img src="docs/resources/genkit-logo-dark.png#gh-dark-mode-only" alt="Firebase Genkit logo" title="Firebase Genkit">
+<img src="docs/resources/genkit-logo.png#gh-light-mode-only" alt="Firebase Genkit logo" title="Firebase Genkit"></p>
+<p>Genkit is a framework for building AI-powered applications. It provides open source libraries for Node.js and Go, along with tools to help you debug and iterate quickly.</p>
+<p>Learn more in our documentation for <a href="https://firebase.google.com/docs/genkit" target="_blank" class="external">Node.js</a> and <a href="https://firebase.google.com/docs/genkit-go/get-started-go" target="_blank" class="external">Go</a>.</p>
+<a id="md:what-can-you-build-with-genkit" class="tsd-anchor"></a><h2 class="tsd-anchor-link">What can you build with Genkit?<a href="#md:what-can-you-build-with-genkit" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Genkit is a versatile framework, which you can use to build many different types of AI applications. Common use cases include:</p>
+<ul>
+<li>
+<p><strong>Intelligent agents:</strong> Create agents that understand user requests and perform tasks autonomously, such as personalized travel planning or itinerary generation.</p>
+<ul>
+<li>Example: <a href="https://developers.google.com/solutions/compass" target="_blank" class="external">Compass Travel Planning App</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Data transformation:</strong> Convert unstructured data, like natural language, into structured formats (e.g., objects, SQL queries, tables) for integration into your app or data pipeline.</p>
+<ul>
+<li>Example: <a href="https://medium.com/firebase-developers/how-to-add-natural-language-ai-data-filters-to-your-app-71d64a79624d" target="_blank" class="external">Add Natural Language AI Data Filters with Genkit</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Retrieval-augmented generation:</strong> Create apps that provide accurate and contextually relevant responses by grounding generation with your own data sources, such as chatbots or question answering systems.</p>
+<ul>
+<li>Example: <a href="https://firebase.google.com/codelabs/ai-genkit-rag#0" target="_blank" class="external">Build AI features powered by your data</a></li>
+</ul>
+</li>
+</ul>
+<a id="md:who-should-use-genkit" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Who should use Genkit?<a href="#md:who-should-use-genkit" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Genkit is built for developers seeking to add generative AI to their apps with Node.js or Go, and can run anywhere these runtimes are supported. It's designed around a plugin architecture that can work with any generative model API or vector database, with many integrations <a href="#md:plugin-ecosystem">already available</a>.</p>
+<p>While developed by the <a href="https://firebase.google.com" target="_blank" class="external">Firebase</a> team, Genkit can be used independently of Firebase or Google Cloud services.</p>
+<a id="md:get-started" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Get started<a href="#md:get-started" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><ul>
+<li><a href="https://firebase.google.com/docs/genkit/get-started" target="_blank" class="external">Node.js quickstart</a></li>
+<li><a href="https://firebase.google.com/docs/genkit/nextjs" target="_blank" class="external">Next.js quickstart</a></li>
+<li><a href="https://firebase.google.com/docs/genkit-go/get-started-go" target="_blank" class="external">Go quickstart</a></li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+Genkit for Go is in alpha, so we only recommend it for prototyping.</p>
+</blockquote>
+<a id="md:library-key-features" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Library key features<a href="#md:library-key-features" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><ul>
+<li>
+<p><strong>Unified generation API:</strong> Generate text, media, structured objects, and tool calls from any generative model using a single, adaptable API.</p>
+</li>
+<li>
+<p><strong>Vector database support:</strong> Add retrieval-augmented generation (RAG) to your apps with simple indexing and retrieval APIs that work across vector database providers.</p>
+</li>
+<li>
+<p><strong>Enhanced prompt engineering:</strong> Define rich prompt templates, model configurations, input/output schemas, and tools all within a single, runnable <a href="https://firebase.google.com/docs/genkit/dotprompt" target="_blank" class="external">.prompt</a> file.</p>
+</li>
+<li>
+<p><strong>AI workflows:</strong> Organize your AI app logic into <a href="https://firebase.google.com/docs/genkit/flows" target="_blank" class="external">Flows</a> - functions designed for observability, streaming, integration with Genkit devtools, and easy deployment as API endpoints.</p>
+</li>
+<li>
+<p><strong>Built-in streaming:</strong> Stream content from your Genkit API endpoints to your client app to create snappy user experiences.</p>
+</li>
+</ul>
+<a id="md:development-tools" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Development tools<a href="#md:development-tools" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Genkit provides a CLI and a local UI to streamline your AI development workflow.</p>
+<a id="md:cli" class="tsd-anchor"></a><h3 class="tsd-anchor-link">CLI<a href="#md:cli" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>The Genkit CLI is the quickest way to start a new Genkit project. It also includes commands for running and evaluating your Genkit functions (flows).</p>
+<ul>
+<li><strong>Install:</strong> <code>npm i -g genkit</code></li>
+<li><strong>Initialize a new project:</strong> <code>genkit init</code></li>
+</ul>
+<a id="md:developer-ui" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Developer UI<a href="#md:developer-ui" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>The Genkit developer UI is a local interface for testing, debugging, and iterating on your AI application.</p>
+<p>Key features:</p>
+<ul>
+<li><strong>Run:</strong> Execute and experiment with Genkit flows, prompts, queries, and more in dedicated playgrounds.</li>
+<li><strong>Inspect:</strong> Analyze detailed traces of past executions, including step-by-step breakdowns of complex flows.</li>
+<li><strong>Evaluate:</strong> Review the results of evaluations run against your flows, including performance metrics and links to relevant traces.</li>
+</ul>
+<img src="../media/readme-ui-traces-screenshot.png" width="700" alt="Screenshot of Genkit Developer UI showing traces">
+<a id="md:plugin-ecosystem" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Plugin ecosystem<a href="#md:plugin-ecosystem" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Extend Genkit with plugins for specific AI models, vector databases, and platform integrations from providers like Google and OpenAI.</p>
+<ul>
+<li><strong>Node.js plugins:</strong> <a href="https://www.npmjs.com/search?q=keywords:genkit-plugin" target="_blank" class="external">Explore on npm</a></li>
+<li><strong>Go plugins:</strong> <a href="https://pkg.go.dev/github.com/firebase/genkit/go#section-directories" target="_blank" class="external">Explore on pkg.go.dev</a></li>
+</ul>
+<p>Create and share your own plugins:</p>
+<ul>
+<li><strong>Write Node.js plugins:</strong> <a href="https://firebase.google.com/docs/genkit/plugin-authoring" target="_blank" class="external">Plugin Authoring Guide</a></li>
+<li><strong>Write Go plugins:</strong> <a href="https://firebase.google.com/docs/genkit-go/plugin-authoring" target="_blank" class="external">Plugin Authoring Guide</a></li>
+</ul>
+<p>Find excellent examples of community-built plugins for OpenAI, Anthropic, Cohere, and more in this <a href="https://github.com/TheFireCo/genkit-plugins" target="_blank" class="external">repository</a>.</p>
+<a id="md:try-genkit-on-idx" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Try Genkit on IDX<a href="#md:try-genkit-on-idx" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Want to skip the local setup? Click below to try out Genkit using <a href="https://idx.dev" target="_blank" class="external">Project IDX</a>, Google's AI-assisted workspace for full-stack app development in the cloud.</p>
+<a href="https://idx.google.com/import?url=">
+  <img
+    height="32"
+    alt="Try in IDX"
+    src="https://cdn.idx.dev/btn/try_purple_32.svg">
+</a>
+<a id="md:sample-apps" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Sample apps<a href="#md:sample-apps" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Take a look at some samples of Genkit in use:</p>
+<ul>
+<li><a href="samples/js-coffee-shop/">&quot;AI barista&quot;</a> -- demonstrates simple LLM usage</li>
+<li><a href="samples/chatbot/">A simple chatbot with a JavaScript frontend</a> -- add history to LLM sessions</li>
+<li><a href="samples/js-menu/">Restaurant menu Q&amp;A app</a> -- this sample shows progressively
+more sophisticated versions of a menu understanding app.</li>
+<li><a href="samples/js-angular/">Streaming to an Angular frontend</a></li>
+</ul>
+<a id="md:connect-with-us" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Connect with us<a href="#md:connect-with-us" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><ul>
+<li>
+<p><strong>Join the community:</strong> Stay updated, ask questions, and share your work with other Genkit users on our <a href="https://discord.gg/qXt5zzQKpc" target="_blank" class="external">Discord server</a>.</p>
+</li>
+<li>
+<p><strong>Provide feedback:</strong> Report issues or suggest new features using our GitHub <a href="https://github.com/firebase/genkit/issues" target="_blank" class="external">issue tracker</a>.</p>
+</li>
+<li>
+<p><strong>Engage in discussions:</strong> Participate in conversations about Genkit on our <a href="https://github.com/firebase/genkit/discussions" target="_blank" class="external">GitHub Discussions</a> forum.</p>
+</li>
+</ul>
+<a id="md:contributing" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Contributing<a href="#md:contributing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Contributions to Genkit are welcome and highly appreciated! See our <a href="../media/CONTRIBUTING.md">Contribution Guide</a> to get started.</p>
+<a id="md:authors" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Authors<a href="#md:authors" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Genkit is built by <a href="https://firebase.google.com/products/genkit" target="_blank" class="external">Firebase</a> with contributions from the <a href="https://github.com/firebase/genkit/graphs/contributors" target="_blank" class="external">Open Source Community</a>.</p>
+</section></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:what-can-you-build-with-genkit"><span>What can you build with <wbr/>Genkit?</span></a><a href="#md:who-should-use-genkit"><span>Who should use <wbr/>Genkit?</span></a><a href="#md:get-started"><span>Get started</span></a><a href="#md:library-key-features"><span>Library key features</span></a><a href="#md:development-tools"><span>Development tools</span></a><ul><li><a href="#md:cli"><span>CLI</span></a></li><li><a href="#md:developer-ui"><span>Developer UI</span></a></li></ul><a href="#md:plugin-ecosystem"><span>Plugin ecosystem</span></a><a href="#md:try-genkit-on-idx"><span>Try <wbr/>Genkit on IDX</span></a><a href="#md:sample-apps"><span>Sample apps</span></a><a href="#md:connect-with-us"><span>Connect with us</span></a><a href="#md:contributing"><span>Contributing</span></a><a href="#md:authors"><span>Authors</span></a></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="../modules.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-1"></use></svg><span>Genkit TypeScript reference</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base=".."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div><script>
+          try {
+            const generateLinkElement = document.querySelector(".tsd-generator a");
+            const link = document.createElement("a");
+            Object.assign(link, {
+              href: "https://github.com/dmnsgn/typedoc-material-theme",
+              target: "_blank",
+              rel: "noreferrer",
+              innerText: "typedoc-material-theme."
+            });
+            generateLinkElement.insertAdjacentElement("afterend", link);
+            generateLinkElement.insertAdjacentText("afterend", " with ");
+          } catch (error) {
+
+          }
+        </script></body></html>
