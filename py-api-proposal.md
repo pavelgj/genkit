@@ -77,7 +77,7 @@ def sayHi(input: str, sendChunk: StreamCallback[int]):
     return f'"hi {name}"
 
 def handleChunk(chunk: int):
-  print(chunk)
+    print(chunk)
 
 response = sayHi("Pavel", onChunk=handleChunk)
 
@@ -97,7 +97,7 @@ def sayHi(input: str, sendChunk: StreamCallback[int]):
     return f"hi {name}"
 
 def handleChunk(chunk: int):
-  print(chunk)
+    print(chunk)
 
 stream, response = streamFlow(sayHi, "Pavel")
 
@@ -178,8 +178,8 @@ Pass messages:
 
 ```py
 response = ai.generate([{
-  "role": "user",
-  "content": [{"text": "say hi"}]
+    "role": "user",
+    "content": [{"text": "say hi"}]
 }])
 ```
 
