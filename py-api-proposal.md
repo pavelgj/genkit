@@ -177,6 +177,24 @@ response = ai.generate([{
 }])
 ```
 
+### Tools
+
+```py
+class WeatherToolInput(BaseModel):
+    location: str = Field(description="location")
+    date: str = Field(description="ISO format date")
+
+class WeatherToolOutput(BaseModel):
+    temperature_metric: float
+    humidity: int
+
+@ai.tool()
+def weather_tool(input: WeatherToolInput) -> WeatherToolOutput:
+    return WeatherToolOutput(temperature_metric=22, humidity=61)
+
+response = ai.generate("what's the weather today", tools=['weather_tool'])
+```
+
 ### Streaming
 
 using asyncio
@@ -249,6 +267,23 @@ def add_two_numbers(input: TwoNumbers):
         ])
 ```
 
+structured output:
+
+```py
+
+# see Chracter pydantic model definition above
+
+class GeneratorInput(BaseModel):
+    name: str = Field(description="name of the character")
+
+@ai.prompt(output_schema=Chracter, format='json')
+def character_generator(input: GeneratorInput):
+    return """
+      Generate an PRG game character named {{ name }}
+    """
+```
+
+
 Alternative:
 
 ```py
@@ -280,6 +315,23 @@ ai.define_prompt(
     fn=add_two_numbers) # input_type will be inferred from fn
 ```
 
+structured output:
+
+```py
+# see Chracter pydantic model definition above
+
+class GeneratorInput(BaseModel):
+    name: str = Field(description="name of the character")
+
+ai.define_prompt(
+    name="character_generator",
+    input_schema=GeneratorInput,
+    output_schema=Chracter,
+    format='json',
+    template="""
+      Generate an PRG game character named {{ name }}
+    """)
+```
 
 
 ## Chat and Sessions
