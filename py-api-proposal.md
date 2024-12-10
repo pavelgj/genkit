@@ -378,7 +378,8 @@ print((await response).text)
 ```
 
 Pros:
- - slightly more declarative
+ - more declarative
+
 Cons:
  - misleading function return type: that prompt can be called as a function, but the decortor will alter the return type of the function -- instead if returning whatever that function returns, it will return a `GenerateResponse`.
 
