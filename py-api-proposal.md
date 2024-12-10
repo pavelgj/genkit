@@ -64,7 +64,7 @@ print(sum_two_numbers(TwoNumbers(a=1, b=3)))
 
 ### Streaming
 
-Flows can be streamed as well (WIP):
+Flows can be streamed as well (WIP).
 
 ```py
 from genkit import StreamCallback
@@ -83,6 +83,30 @@ response = sayHi("Pavel", onChunk=handleChunk)
 
 print(response)
 ```
+
+using asyncio we can do something like this
+
+```py
+from genkit import StreamCallback
+
+@ai.flow()
+def sayHi(input: str, sendChunk: StreamCallback[int]):
+    sendChunk(1)
+    sendChunk(2)
+    sendChunk(3)
+    return f'hi {name}'
+
+def handleChunk(chunk: int):
+  print(chunk)
+
+response, stream = streamFlow(sayHi, "Pavel")
+
+for chunk in stream:
+    print(chunk) # 1,2,3
+
+print(await response) # hi Pavel
+```
+
 
 ### Question: should we allow multiple named args for flows?
 
