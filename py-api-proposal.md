@@ -177,6 +177,20 @@ response = ai.generate([{
 }])
 ```
 
+### Streaming
+
+using asyncio
+
+```py
+response, stream = ai.generateStream(prompt='hi')
+
+for chunk in stream:
+    print(chunk.text)
+
+print(await response.text)
+```
+
+
 ### Structured Output
 
 Use pydantic to define data models:
@@ -234,6 +248,39 @@ def add_two_numbers(input: TwoNumbers):
             ])
         ])
 ```
+
+Alternative:
+
+```py
+class TwoNumbers(BaseModel):
+    a: int = Field(description="a field")
+    b: int = Field(description="b field")
+
+# dotprompt
+
+ai.define_prompt(
+    name="add_two_numbers",
+    input_type=Schema[TwoNumbers],
+    template="""
+      add {{ a }} to {{ b }}
+    """)
+
+# functional prompt
+
+def add_two_numbers(input: TwoNumbers):
+    return GenerateRequest(
+        messages=[
+            Message(role="user", content=[
+                TextPart(text=f"add {input.a} to {input.b}")
+            ])
+        ])
+
+ai.define_prompt(
+    name="add_two_numbers",
+    fn=add_two_numbers) # input_type will be inferred from fn
+```
+
+
 
 ## Chat and Sessions
 
