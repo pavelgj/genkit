@@ -243,6 +243,8 @@ response = ai.generate("generate an RPG character", output_schema=Chracter, form
 print(response.output)
 ```
 
+Question: Using "schema" term for consistency with JS, but for pydantic the term is "model". Should we say `input_model`/`output_model`?
+
 ## Prompts
 
 
@@ -255,7 +257,7 @@ class TwoNumbers(BaseModel):
 
 ai.define_prompt(
     name="add_two_numbers",
-    input_type=Schema[TwoNumbers],
+    input_schema=TwoNumbers,
     template="""
       add {{ a }} to {{ b }}
     """)
