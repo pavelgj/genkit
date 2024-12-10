@@ -245,6 +245,81 @@ print(response.output)
 
 ## Prompts
 
+
+```py
+class TwoNumbers(BaseModel):
+    a: int = Field(description="a field")
+    b: int = Field(description="b field")
+
+# dotprompt
+
+ai.define_prompt(
+    name="add_two_numbers",
+    input_type=Schema[TwoNumbers],
+    template="""
+      add {{ a }} to {{ b }}
+    """)
+
+# functional prompt
+
+def add_two_numbers(input: TwoNumbers):
+    return GenerateRequest(
+        messages=[
+            Message(role="user", content=[
+                TextPart(text=f"add {input.a} to {input.b}")
+            ])
+        ])
+
+adder = ai.define_prompt(
+    name="add_two_numbers",
+    fn=add_two_numbers) # input_type will be inferred from fn
+```
+
+structured output:
+
+```py
+# see Chracter pydantic model definition above
+
+class GeneratorInput(BaseModel):
+    name: str = Field(description="name of the character")
+
+generator = ai.define_prompt(
+    name="character_generator",
+    input_schema=GeneratorInput,
+    output_schema=Chracter,
+    format="json",
+    template="""
+      Generate an PRG game character named {{ name }}
+    """)
+```
+
+calling the prompt:
+
+```py
+# (optional) can retrieve the prompt
+adder = ai.prompt("add_two_numbers")
+
+response = adder(TwoNumbers(a=1, b=3))
+
+print(response.text)
+
+# structured output:
+response = generator(GeneratorInput(name="Glorb"))
+
+print(response.output)
+
+# streaming
+
+stream, response = adder.stream(TwoNumbers(a=1, b=3))
+
+for chunk in stream:
+    print(chunk.text)
+
+print((await response).text)
+```
+
+Alternative:
+
 ```py
 class TwoNumbers(BaseModel):
     a: int = Field(description="a field")
@@ -273,7 +348,6 @@ def add_two_numbers(input: TwoNumbers):
 structured output:
 
 ```py
-
 # see Chracter pydantic model definition above
 
 class GeneratorInput(BaseModel):
@@ -286,56 +360,27 @@ def character_generator(input: GeneratorInput):
     """
 ```
 
-
-Alternative:
-
-```py
-class TwoNumbers(BaseModel):
-    a: int = Field(description="a field")
-    b: int = Field(description="b field")
-
-# dotprompt
-
-ai.define_prompt(
-    name="add_two_numbers",
-    input_type=Schema[TwoNumbers],
-    template="""
-      add {{ a }} to {{ b }}
-    """)
-
-# functional prompt
-
-def add_two_numbers(input: TwoNumbers):
-    return GenerateRequest(
-        messages=[
-            Message(role="user", content=[
-                TextPart(text=f"add {input.a} to {input.b}")
-            ])
-        ])
-
-ai.define_prompt(
-    name="add_two_numbers",
-    fn=add_two_numbers) # input_type will be inferred from fn
-```
-
-structured output:
+calling the prompt:
 
 ```py
-# see Chracter pydantic model definition above
+response = add_two_numbers(TwoNumbers(a=1, b=3))
 
-class GeneratorInput(BaseModel):
-    name: str = Field(description="name of the character")
+print(response.text)
 
-ai.define_prompt(
-    name="character_generator",
-    input_schema=GeneratorInput,
-    output_schema=Chracter,
-    format="json",
-    template="""
-      Generate an PRG game character named {{ name }}
-    """)
+# streaming is tricky.......
+
+stream, response = streamPrompt(add_two_numbers, TwoNumbers(a=1, b=3))
+
+for chunk in stream:
+    print(chunk.text)
+
+print((await response).text)
 ```
 
+Pros:
+ - slightly more declarative
+Cons:
+ - misleading function return type: that prompt can be called as a function, but the decortor will alter the return type of the function -- instead if returning whatever that function returns, it will return a `GenerateResponse`.
 
 ## Chat and Sessions
 
