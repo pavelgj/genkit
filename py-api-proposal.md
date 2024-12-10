@@ -74,7 +74,7 @@ def sayHi(input: str, sendChunk: StreamCallback[int]):
     sendChunk(1)
     sendChunk(2)
     sendChunk(3)
-    return f'hi {name}'
+    return f'"hi {name}"
 
 def handleChunk(chunk: int):
   print(chunk)
@@ -94,7 +94,7 @@ def sayHi(input: str, sendChunk: StreamCallback[int]):
     sendChunk(1)
     sendChunk(2)
     sendChunk(3)
-    return f'hi {name}'
+    return f"hi {name}"
 
 def handleChunk(chunk: int):
   print(chunk)
@@ -236,7 +236,7 @@ class Chracter(BaseModel):
     role: Role = Field(description="primary role")
     weapon: Weapon = Field(description="primary weapon")
 
-response = ai.generate("generate an RPG character", output_schema=Chracter, format='json')
+response = ai.generate("generate an RPG character", output_schema=Chracter, format="json")
 print(response.output)
 ```
 
@@ -276,7 +276,7 @@ structured output:
 class GeneratorInput(BaseModel):
     name: str = Field(description="name of the character")
 
-@ai.prompt(output_schema=Chracter, format='json')
+@ai.prompt(output_schema=Chracter, format="json")
 def character_generator(input: GeneratorInput):
     return """
       Generate an PRG game character named {{ name }}
@@ -327,7 +327,7 @@ ai.define_prompt(
     name="character_generator",
     input_schema=GeneratorInput,
     output_schema=Chracter,
-    format='json',
+    format="json",
     template="""
       Generate an PRG game character named {{ name }}
     """)
