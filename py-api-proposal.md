@@ -84,7 +84,7 @@ response = sayHi("Pavel", onChunk=handleChunk)
 print(response)
 ```
 
-### Question: should we allow multiple named vars for flows?
+### Question: should we allow multiple named args for flows?
 
 Ex:
 
