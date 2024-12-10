@@ -99,7 +99,7 @@ def sayHi(input: str, sendChunk: StreamCallback[int]):
 def handleChunk(chunk: int):
   print(chunk)
 
-response, stream = streamFlow(sayHi, "Pavel")
+stream, response = streamFlow(sayHi, "Pavel")
 
 for chunk in stream:
     print(chunk) # 1,2,3
@@ -162,6 +162,12 @@ response = ai.generate(prompt='hi')
 print(response.text)
 ```
 
+system prompt:
+
+```py
+response = ai.generate(prompt='hi', system="talk like a pirate")
+```
+
 Explicitly pass a model:
 
 ```py
@@ -184,13 +190,9 @@ class WeatherToolInput(BaseModel):
     location: str = Field(description="location")
     date: str = Field(description="ISO format date")
 
-class WeatherToolOutput(BaseModel):
-    temperature_metric: float
-    humidity: int
-
 @ai.tool()
-def weather_tool(input: WeatherToolInput) -> WeatherToolOutput:
-    return WeatherToolOutput(temperature_metric=22, humidity=61)
+def weather_tool(input: WeatherToolInput):
+    return {"temperature_metric": 22, "humidity_percent": 61}
 
 response = ai.generate("what's the weather today", tools=['weather_tool'])
 ```
@@ -200,7 +202,7 @@ response = ai.generate("what's the weather today", tools=['weather_tool'])
 using asyncio
 
 ```py
-response, stream = ai.generateStream(prompt='hi')
+stream, response = ai.generateStream(prompt='hi')
 
 for chunk in stream:
     print(chunk.text)
@@ -237,6 +239,7 @@ class Chracter(BaseModel):
     weapon: Weapon = Field(description="primary weapon")
 
 response = ai.generate("generate an RPG character", output_schema=Chracter, format="json")
+
 print(response.output)
 ```
 
