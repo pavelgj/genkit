@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / KeySchema
+
 # Type Alias: KeySchema
 
-```ts
-type KeySchema: ZodType<string | number | symbol, any, any>;
-```
+> **KeySchema**: [`ZodType`](../classes/ZodType.md)\<`string` \| `number` \| `symbol`, `any`, `any`\>
 
 ## Defined in
 

@@ -1,3 +1,9 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / GenerationResponseError
+
 # Class: GenerationResponseError
 
 Base error class for Genkit errors.
@@ -14,38 +20,25 @@ Base error class for Genkit errors.
 
 ### new GenerationResponseError()
 
-```ts
-new GenerationResponseError(
-   response: GenerateResponse<any>, 
-   message: string, 
-   status?: 
-  | "CANCELLED"
-  | "UNKNOWN"
-  | "INVALID_ARGUMENT"
-  | "DEADLINE_EXCEEDED"
-  | "NOT_FOUND"
-  | "ALREADY_EXISTS"
-  | "PERMISSION_DENIED"
-  | "UNAUTHENTICATED"
-  | "RESOURCE_EXHAUSTED"
-  | "FAILED_PRECONDITION"
-  | "ABORTED"
-  | "OUT_OF_RANGE"
-  | "UNIMPLEMENTED"
-  | "INTERNAL"
-  | "UNAVAILABLE"
-  | "DATA_LOSS", 
-   detail?: Record<string, any>): GenerationResponseError
-```
+> **new GenerationResponseError**(`response`, `message`, `status`?, `detail`?): [`GenerationResponseError`](GenerationResponseError.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `response` | [`GenerateResponse`](GenerateResponse.md)\<`any`\> |
-| `message` | `string` |
-| `status`? | \| `"CANCELLED"` \| `"UNKNOWN"` \| `"INVALID_ARGUMENT"` \| `"DEADLINE_EXCEEDED"` \| `"NOT_FOUND"` \| `"ALREADY_EXISTS"` \| `"PERMISSION_DENIED"` \| `"UNAUTHENTICATED"` \| `"RESOURCE_EXHAUSTED"` \| `"FAILED_PRECONDITION"` \| `"ABORTED"` \| `"OUT_OF_RANGE"` \| `"UNIMPLEMENTED"` \| `"INTERNAL"` \| `"UNAVAILABLE"` \| `"DATA_LOSS"` |
-| `detail`? | `Record`\<`string`, `any`\> |
+##### response
+
+[`GenerateResponse`](GenerateResponse.md)\<`any`\>
+
+##### message
+
+`string`
+
+##### status?
+
+`"CANCELLED"` | `"UNKNOWN"` | `"INVALID_ARGUMENT"` | `"DEADLINE_EXCEEDED"` | `"NOT_FOUND"` | `"ALREADY_EXISTS"` | `"PERMISSION_DENIED"` | `"UNAUTHENTICATED"` | `"RESOURCE_EXHAUSTED"` | `"FAILED_PRECONDITION"` | `"ABORTED"` | `"OUT_OF_RANGE"` | `"UNIMPLEMENTED"` | `"INTERNAL"` | `"UNAVAILABLE"` | `"DATA_LOSS"`
+
+##### detail?
+
+`Record`\<`string`, `any`\>
 
 #### Returns
 
@@ -57,38 +50,165 @@ new GenerationResponseError(
 
 #### Defined in
 
-ai/lib/generate-C8Qor0QX.d.ts:225
+ai/lib/generate-OYA442tG.d.ts:248
 
 ## Properties
 
-| Property | Modifier | Type | Description | Overrides | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| `detail` | `public` | \{ `[otherDetails: string]`: `any`; `response`: [`GenerateResponse`](GenerateResponse.md)\<`unknown`\>; \} | - | [`GenkitError`](GenkitError.md).`detail` | - | ai/lib/generate-C8Qor0QX.d.ts:221 |
-| `detail.response` | `public` | [`GenerateResponse`](GenerateResponse.md)\<`unknown`\> | - | - | - | ai/lib/generate-C8Qor0QX.d.ts:222 |
-| `message` | `public` | `string` | - | - | [`GenkitError`](GenkitError.md).`message` | node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1054 |
-| `name` | `public` | `string` | - | - | [`GenkitError`](GenkitError.md).`name` | node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1053 |
-| `source?` | `public` | `string` | - | - | [`GenkitError`](GenkitError.md).`source` | core/lib/error.d.ts:24 |
-| `stack?` | `public` | `string` | - | - | [`GenkitError`](GenkitError.md).`stack` | node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1055 |
-| `status` | `public` | \| `"CANCELLED"` \| `"UNKNOWN"` \| `"INVALID_ARGUMENT"` \| `"DEADLINE_EXCEEDED"` \| `"NOT_FOUND"` \| `"ALREADY_EXISTS"` \| `"PERMISSION_DENIED"` \| `"UNAUTHENTICATED"` \| `"RESOURCE_EXHAUSTED"` \| `"FAILED_PRECONDITION"` \| `"ABORTED"` \| `"OUT_OF_RANGE"` \| `"UNIMPLEMENTED"` \| `"INTERNAL"` \| `"UNAVAILABLE"` \| `"DATA_LOSS"` | - | - | [`GenkitError`](GenkitError.md).`status` | core/lib/error.d.ts:25 |
-| `prepareStackTrace?` | `static` | (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any` | Optional override for formatting stack traces **See** https://v8.dev/docs/stack-trace-api#customizing-stack-traces | - | [`GenkitError`](GenkitError.md).`prepareStackTrace` | node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:143 |
-| `stackTraceLimit` | `static` | `number` | - | - | [`GenkitError`](GenkitError.md).`stackTraceLimit` | node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:145 |
+### detail
+
+> **detail**: `object`
+
+#### Index Signature
+
+ \[`otherDetails`: `string`\]: `any`
+
+#### response
+
+> **response**: [`GenerateResponse`](GenerateResponse.md)\<`unknown`\>
+
+#### Overrides
+
+[`GenkitError`](GenkitError.md).[`detail`](GenkitError.md#detail-1)
+
+#### Defined in
+
+ai/lib/generate-OYA442tG.d.ts:244
+
+***
+
+### message
+
+> **message**: `string`
+
+#### Inherited from
+
+[`GenkitError`](GenkitError.md).[`message`](GenkitError.md#message-1)
+
+#### Defined in
+
+node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1054
+
+***
+
+### name
+
+> **name**: `string`
+
+#### Inherited from
+
+[`GenkitError`](GenkitError.md).[`name`](GenkitError.md#name)
+
+#### Defined in
+
+node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1053
+
+***
+
+### source?
+
+> `optional` **source**: `string`
+
+#### Inherited from
+
+[`GenkitError`](GenkitError.md).[`source`](GenkitError.md#source-1)
+
+#### Defined in
+
+core/lib/error.d.ts:24
+
+***
+
+### stack?
+
+> `optional` **stack**: `string`
+
+#### Inherited from
+
+[`GenkitError`](GenkitError.md).[`stack`](GenkitError.md#stack)
+
+#### Defined in
+
+node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1055
+
+***
+
+### status
+
+> **status**: `"CANCELLED"` \| `"UNKNOWN"` \| `"INVALID_ARGUMENT"` \| `"DEADLINE_EXCEEDED"` \| `"NOT_FOUND"` \| `"ALREADY_EXISTS"` \| `"PERMISSION_DENIED"` \| `"UNAUTHENTICATED"` \| `"RESOURCE_EXHAUSTED"` \| `"FAILED_PRECONDITION"` \| `"ABORTED"` \| `"OUT_OF_RANGE"` \| `"UNIMPLEMENTED"` \| `"INTERNAL"` \| `"UNAVAILABLE"` \| `"DATA_LOSS"`
+
+#### Inherited from
+
+[`GenkitError`](GenkitError.md).[`status`](GenkitError.md#status-1)
+
+#### Defined in
+
+core/lib/error.d.ts:25
+
+***
+
+### prepareStackTrace()?
+
+> `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
+
+Optional override for formatting stack traces
+
+#### Parameters
+
+##### err
+
+`Error`
+
+##### stackTraces
+
+`CallSite`[]
+
+#### Returns
+
+`any`
+
+#### See
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+#### Inherited from
+
+[`GenkitError`](GenkitError.md).[`prepareStackTrace`](GenkitError.md#preparestacktrace)
+
+#### Defined in
+
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:98
+
+***
+
+### stackTraceLimit
+
+> `static` **stackTraceLimit**: `number`
+
+#### Inherited from
+
+[`GenkitError`](GenkitError.md).[`stackTraceLimit`](GenkitError.md#stacktracelimit)
+
+#### Defined in
+
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:100
 
 ## Methods
 
 ### captureStackTrace()
 
-```ts
-static captureStackTrace(targetObject: object, constructorOpt?: Function): void
-```
+> `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
 
 Create .stack property on a target object
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `targetObject` | `object` |
-| `constructorOpt`? | `Function` |
+##### targetObject
+
+`object`
+
+##### constructorOpt?
+
+`Function`
 
 #### Returns
 
@@ -100,4 +220,4 @@ Create .stack property on a target object
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:136
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:91

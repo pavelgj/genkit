@@ -1,20 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / isValid
+
 # Function: isValid()
 
-```ts
-function isValid<T>(x: ParseReturnType<T>): x is OK<T>
-```
+> **isValid**\<`T`\>(`x`): `x is OK<T>`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `x` | [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`T`\> |
+### x
+
+[`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`T`\>
 
 ## Returns
 

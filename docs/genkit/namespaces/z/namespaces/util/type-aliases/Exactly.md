@@ -1,15 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / Exactly
+
 # Type Alias: Exactly\<T, X\>
 
-```ts
-type Exactly<T, X>: T & Record<Exclude<keyof X, keyof T>, never>;
-```
+> **Exactly**\<`T`, `X`\>: `T` & `Record`\<`Exclude`\<keyof `X`, keyof `T`\>, `never`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
-| `X` |
+• **T**
+
+• **X**
 
 ## Defined in
 

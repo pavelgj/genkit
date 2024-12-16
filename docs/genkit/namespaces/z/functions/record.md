@@ -1,23 +1,28 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / record
+
 # Function: record()
 
-## record(valueType, params)
+## Call Signature
 
-```ts
-function record<Value>(valueType: Value, params?: RawCreateParams): ZodRecord<ZodString, Value>
-```
+> **record**\<`Value`\>(`valueType`, `params`?): [`ZodRecord`](../classes/ZodRecord.md)\<[`ZodString`](../classes/ZodString.md), `Value`\>
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Value` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `Value`\> |
+• **Value** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `Value`\>
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `valueType` | `Value` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+#### valueType
+
+`Value`
+
+#### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ### Returns
 
@@ -27,29 +32,29 @@ function record<Value>(valueType: Value, params?: RawCreateParams): ZodRecord<Zo
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:1062
 
-## record(keySchema, valueType, params)
+## Call Signature
 
-```ts
-function record<Keys, Value>(
-   keySchema: Keys, 
-   valueType: Value, 
-params?: RawCreateParams): ZodRecord<Keys, Value>
-```
+> **record**\<`Keys`, `Value`\>(`keySchema`, `valueType`, `params`?): [`ZodRecord`](../classes/ZodRecord.md)\<`Keys`, `Value`\>
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Keys` *extends* [`ZodType`](../classes/ZodType.md)\<`string` \| `number` \| `symbol`, `any`, `any`, `Keys`\> |
-| `Value` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `Value`\> |
+• **Keys** *extends* [`ZodType`](../classes/ZodType.md)\<`string` \| `number` \| `symbol`, `any`, `any`, `Keys`\>
+
+• **Value** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `Value`\>
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `keySchema` | `Keys` |
-| `valueType` | `Value` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+#### keySchema
+
+`Keys`
+
+#### valueType
+
+`Value`
+
+#### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ### Returns
 

@@ -1,20 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / isAsync
+
 # Function: isAsync()
 
-```ts
-function isAsync<T>(x: ParseReturnType<T>): x is AsyncParseReturnType<T>
-```
+> **isAsync**\<`T`\>(`x`): `x is AsyncParseReturnType<T>`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `x` | [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`T`\> |
+### x
+
+[`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`T`\>
 
 ## Returns
 

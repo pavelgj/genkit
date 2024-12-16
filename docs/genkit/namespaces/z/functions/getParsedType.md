@@ -1,57 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / getParsedType
+
 # Function: getParsedType()
 
-```ts
-function getParsedType(data: any): 
-  | "string"
-  | "number"
-  | "bigint"
-  | "boolean"
-  | "symbol"
-  | "undefined"
-  | "object"
-  | "function"
-  | "map"
-  | "unknown"
-  | "nan"
-  | "integer"
-  | "float"
-  | "date"
-  | "null"
-  | "array"
-  | "promise"
-  | "void"
-  | "never"
-  | "set"
-```
+> **getParsedType**(`data`): `"string"` \| `"number"` \| `"bigint"` \| `"boolean"` \| `"symbol"` \| `"undefined"` \| `"object"` \| `"function"` \| `"map"` \| `"unknown"` \| `"nan"` \| `"integer"` \| `"float"` \| `"date"` \| `"null"` \| `"array"` \| `"promise"` \| `"void"` \| `"never"` \| `"set"`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `any` |
+### data
+
+`any`
 
 ## Returns
 
-  \| `"string"`
-  \| `"number"`
-  \| `"bigint"`
-  \| `"boolean"`
-  \| `"symbol"`
-  \| `"undefined"`
-  \| `"object"`
-  \| `"function"`
-  \| `"map"`
-  \| `"unknown"`
-  \| `"nan"`
-  \| `"integer"`
-  \| `"float"`
-  \| `"date"`
-  \| `"null"`
-  \| `"array"`
-  \| `"promise"`
-  \| `"void"`
-  \| `"never"`
-  \| `"set"`
+`"string"` \| `"number"` \| `"bigint"` \| `"boolean"` \| `"symbol"` \| `"undefined"` \| `"object"` \| `"function"` \| `"map"` \| `"unknown"` \| `"nan"` \| `"integer"` \| `"float"` \| `"date"` \| `"null"` \| `"array"` \| `"promise"` \| `"void"` \| `"never"` \| `"set"`
 
 ## Defined in
 

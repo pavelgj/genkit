@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / SuperRefinement
+
 # Type Alias: SuperRefinement()\<T\>
 
-```ts
-type SuperRefinement<T>: (arg: T, ctx: RefinementCtx) => void | Promise<void>;
-```
+> **SuperRefinement**\<`T`\>: (`arg`, `ctx`) => `void` \| `Promise`\<`void`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `arg` | `T` |
-| `ctx` | [`RefinementCtx`](../interfaces/RefinementCtx.md) |
+### arg
+
+`T`
+
+### ctx
+
+[`RefinementCtx`](../interfaces/RefinementCtx.md)
 
 ## Returns
 

@@ -1,14 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / objectValues
+
 # Function: objectValues()
 
-```ts
-function objectValues(obj: any): any[]
-```
+> **objectValues**(`obj`): `any`[]
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `obj` | `any` |
+### obj
+
+`any`
 
 ## Returns
 

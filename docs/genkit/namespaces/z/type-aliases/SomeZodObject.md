@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / SomeZodObject
+
 # Type Alias: SomeZodObject
 
-```ts
-type SomeZodObject: ZodObject<ZodRawShape, UnknownKeysParam, ZodTypeAny>;
-```
+> **SomeZodObject**: [`ZodObject`](../classes/ZodObject.md)\<[`ZodRawShape`](ZodRawShape.md), [`UnknownKeysParam`](UnknownKeysParam.md), [`ZodTypeAny`](ZodTypeAny.md)\>
 
 ## Defined in
 

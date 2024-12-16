@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodRecord
+
 # Class: ZodRecord\<Key, Value\>
 
 ## Extends
@@ -6,24 +12,21 @@
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `Key` *extends* [`KeySchema`](../type-aliases/KeySchema.md) | [`ZodString`](ZodString.md) |
-| `Value` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
+• **Key** *extends* [`KeySchema`](../type-aliases/KeySchema.md) = [`ZodString`](ZodString.md)
+
+• **Value** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
 
 ## Constructors
 
 ### new ZodRecord()
 
-```ts
-new ZodRecord<Key, Value>(def: ZodRecordDef<Key, Value>): ZodRecord<Key, Value>
-```
+> **new ZodRecord**\<`Key`, `Value`\>(`def`): [`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodRecordDef`](../interfaces/ZodRecordDef.md)\<`Key`, `Value`\> |
+##### def
+
+[`ZodRecordDef`](../interfaces/ZodRecordDef.md)\<`Key`, `Value`\>
 
 #### Returns
 
@@ -39,13 +42,89 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodRecordDef`](../interfaces/ZodRecordDef.md)\<`Key`, `Value`\> | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\> | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
+### \_def
+
+> `readonly` **\_def**: [`ZodRecordDef`](../interfaces/ZodRecordDef.md)\<`Key`, `Value`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
 
 ## Accessors
 
@@ -53,9 +132,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -75,9 +152,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 #### Get Signature
 
-```ts
-get element(): Value
-```
+> **get** **element**(): `Value`
 
 ##### Returns
 
@@ -93,9 +168,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:685
 
 #### Get Signature
 
-```ts
-get keySchema(): Key
-```
+> **get** **keySchema**(): `Key`
 
 ##### Returns
 
@@ -111,9 +184,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:682
 
 #### Get Signature
 
-```ts
-get valueSchema(): Value
-```
+> **get** **valueSchema**(): `Value`
 
 ##### Returns
 
@@ -127,16 +198,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:683
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -154,15 +226,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -180,15 +250,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<RecordType<Key["_output"], Value["_output"]>>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -206,15 +274,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:684
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<RecordType<Key["_output"], Value["_output"]>>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -232,15 +298,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<RecordType<Key["_output"], Value["_output"]>>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -258,32 +322,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -297,15 +354,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: RecordType<Key["_output"], Value["_output"]>, ctx: RefinementCtx) => any): ZodEffects<ZodRecord<Key, Value>, RecordType<Key["_output"], Value["_output"]>, RecordType<Key["_input"], Value["_input"]>>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -323,21 +378,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodRecord<Key, Value>, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -355,9 +406,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodRecord<Key, Value>, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `"many"`\>
 
 #### Returns
 
@@ -375,21 +424,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodRecord<Key, Value>, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -407,17 +452,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: RecordType<Key["_output"], Value["_output"]>): ZodCatch<ZodRecord<Key, Value>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> |
+###### def
+
+[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>
 
 ##### Returns
 
@@ -431,20 +474,15 @@ catch(def: RecordType<Key["_output"], Value["_output"]>): ZodCatch<ZodRecord<Key
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: RecordType<Key["_input"], Value["_input"]>;
-}) => RecordType<Key["_output"], Value["_output"]>): ZodCatch<ZodRecord<Key, Value>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>; \}) => [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> |
+###### def
+
+(`ctx`) => [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>
 
 ##### Returns
 
@@ -462,17 +500,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: noUndefined<RecordType<Key["_input"], Value["_input"]>>): ZodDefault<ZodRecord<Key, Value>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\> |
+###### def
+
+[`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Returns
 
@@ -486,17 +522,15 @@ default(def: noUndefined<RecordType<Key["_input"], Value["_input"]>>): ZodDefaul
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => noUndefined<RecordType<Key["_input"], Value["_input"]>>): ZodDefault<ZodRecord<Key, Value>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\> |
+###### def
+
+() => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Returns
 
@@ -514,15 +548,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -540,9 +572,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -560,9 +590,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -580,9 +608,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodRecord<Key, Value>>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>
 
 #### Returns
 
@@ -600,9 +626,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodRecord<Key, Value>>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>\>
 
 #### Returns
 
@@ -620,9 +644,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodRecord<Key, Value>>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>
 
 #### Returns
 
@@ -640,21 +662,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodRecord<Key, Value>, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -672,16 +690,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): RecordType<Key["_output"], Value["_output"]>
-```
+> **parse**(`data`, `params`?): [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -699,16 +718,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<RecordType<Key["_output"], Value["_output"]>>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -726,21 +746,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodRecord<Key, Value>, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -758,9 +774,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodRecord<Key, Value>>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>
 
 #### Returns
 
@@ -778,9 +792,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodRecord<Key, Value>>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>\>
 
 #### Returns
 
@@ -798,24 +810,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: RecordType<Key["_output"], Value["_output"]>) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: RecordType<Key["_output"], Value["_output"]>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodRecord<Key, Value>, RefinedOutput, RecordType<Key["_input"], Value["_input"]>>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `RefinedOutput`, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> \| `Partial`\<`Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\> |
+• **RefinedOutput** *extends* `Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> \| `Partial`\<`Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -829,18 +840,19 @@ refine<RefinedOutput>(check: (arg: RecordType<Key["_output"], Value["_output"]>)
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: RecordType<Key["_output"], Value["_output"]>) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: RecordType<Key["_output"], Value["_output"]>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodRecord<Key, Value>, RecordType<Key["_output"], Value["_output"]>, RecordType<Key["_input"], Value["_input"]>>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -858,24 +870,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: RecordType<Key["_output"], Value["_output"]>) => arg is RefinedOutput, refinementData: IssueData | (arg: RecordType<Key["_output"], Value["_output"]>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodRecord<Key, Value>, RefinedOutput, RecordType<Key["_input"], Value["_input"]>>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `RefinedOutput`, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> \| `Partial`\<`Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\> |
+• **RefinedOutput** *extends* `Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> \| `Partial`\<`Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -883,24 +894,25 @@ refinement<RefinedOutput>(check: (arg: RecordType<Key["_output"], Value["_output
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: RecordType<Key["_output"], Value["_output"]>) => boolean, refinementData: IssueData | (arg: RecordType<Key["_output"], Value["_output"]>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodRecord<Key, Value>, RecordType<Key["_output"], Value["_output"]>, RecordType<Key["_input"], Value["_input"]>>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -908,7 +920,7 @@ refinement(check: (arg: RecordType<Key["_output"], Value["_output"]>) => boolean
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -918,16 +930,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<RecordType<Key["_input"], Value["_input"]>, RecordType<Key["_output"], Value["_output"]>>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -945,16 +958,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<RecordType<Key["_input"], Value["_input"]>, RecordType<Key["_output"], Value["_output"]>>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -972,23 +986,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: RecordType<Key["_output"], Value["_output"]>, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodRecord<Key, Value>, RefinedOutput, RecordType<Key["_input"], Value["_input"]>>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `RefinedOutput`, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> \| `Partial`\<`Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\> |
+• **RefinedOutput** *extends* `Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\> \| `Partial`\<`Record`\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -1002,17 +1012,15 @@ superRefine<RefinedOutput>(refinement: (arg: RecordType<Key["_output"], Value["_
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: RecordType<Key["_output"], Value["_output"]>, ctx: RefinementCtx) => void): ZodEffects<ZodRecord<Key, Value>, RecordType<Key["_output"], Value["_output"]>, RecordType<Key["_input"], Value["_input"]>>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -1026,17 +1034,15 @@ superRefine(refinement: (arg: RecordType<Key["_output"], Value["_output"]>, ctx:
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: RecordType<Key["_output"], Value["_output"]>, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodRecord<Key, Value>, RecordType<Key["_output"], Value["_output"]>, RecordType<Key["_input"], Value["_input"]>>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1054,21 +1060,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: RecordType<Key["_output"], Value["_output"]>, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodRecord<Key, Value>, NewOut, RecordType<Key["_input"], Value["_input"]>>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodRecord`](ZodRecord.md)\<`Key`, `Value`\>, `NewOut`, [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_input"`\], `Value`\[`"_input"`\]\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: [`RecordType`](../type-aliases/RecordType.md)\<`Key`\[`"_output"`\], `Value`\[`"_output"`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 
@@ -1086,24 +1088,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:84
 
 ### create()
 
-#### create(valueType, params)
+#### Call Signature
 
-```ts
-static create<Value>(valueType: Value, params?: RawCreateParams): ZodRecord<ZodString, Value>
-```
+> `static` **create**\<`Value`\>(`valueType`, `params`?): [`ZodRecord`](ZodRecord.md)\<[`ZodString`](ZodString.md), `Value`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Value` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Value`\> |
+• **Value** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Value`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `valueType` | `Value` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+###### valueType
+
+`Value`
+
+###### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ##### Returns
 
@@ -1113,29 +1114,29 @@ static create<Value>(valueType: Value, params?: RawCreateParams): ZodRecord<ZodS
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:686
 
-#### create(keySchema, valueType, params)
+#### Call Signature
 
-```ts
-static create<Keys, Value>(
-   keySchema: Keys, 
-   valueType: Value, 
-params?: RawCreateParams): ZodRecord<Keys, Value>
-```
+> `static` **create**\<`Keys`, `Value`\>(`keySchema`, `valueType`, `params`?): [`ZodRecord`](ZodRecord.md)\<`Keys`, `Value`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Keys` *extends* [`ZodType`](ZodType.md)\<`string` \| `number` \| `symbol`, `any`, `any`, `Keys`\> |
-| `Value` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Value`\> |
+• **Keys** *extends* [`ZodType`](ZodType.md)\<`string` \| `number` \| `symbol`, `any`, `any`, `Keys`\>
+
+• **Value** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Value`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `keySchema` | `Keys` |
-| `valueType` | `Value` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+###### keySchema
+
+`Keys`
+
+###### valueType
+
+`Value`
+
+###### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ##### Returns
 

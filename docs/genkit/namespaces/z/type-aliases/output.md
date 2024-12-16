@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / output
+
 # Type Alias: output\<T\>
 
-```ts
-type output<T>: T["_output"];
-```
+> **output**\<`T`\>: `T`\[`"_output"`\]
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`\> |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`\>
 
 ## Defined in
 

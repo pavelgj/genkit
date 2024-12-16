@@ -1,3 +1,9 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / RankedDocument
+
 # Class: RankedDocument
 
 Document represents document content along with its metadata that can be embedded, indexed or
@@ -9,37 +15,25 @@ retrieved. Each document can contain multiple parts (for example text and an ima
 
 ## Implements
 
-- `RankedDocumentData`
+- [`RankedDocumentData`](../reranker/type-aliases/RankedDocumentData.md)
 
 ## Constructors
 
 ### new RankedDocument()
 
-```ts
-new RankedDocument(data: {
-  content: ({
-     media: undefined;
-     text: string;
-    } | {
-     media: {
-        contentType: string;
-        url: string;
-       };
-     text: undefined;
-    })[];
-  metadata: {
-     score: number;
-    } & {};
- }): RankedDocument
-```
+> **new RankedDocument**(`data`): [`RankedDocument`](RankedDocument.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `object` |
-| `data.content` | (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[] |
-| `data.metadata` | \{ `score`: `number`; \} & \{\} |
+##### data
+
+###### content
+
+(\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]
+
+###### metadata
+
+`object` & `object`
 
 #### Returns
 
@@ -55,10 +49,45 @@ ai/lib/reranker.d.ts:107
 
 ## Properties
 
-| Property | Type | Overrides | Defined in |
-| ------ | ------ | ------ | ------ |
-| `content` | (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[] | `RankedDocumentData.content` [`Document`](Document.md).`content` | ai/lib/reranker.d.ts:103 |
-| `metadata` | \{ `score`: `number`; \} & `Record`\<`string`, `any`\> | `RankedDocumentData.metadata` [`Document`](Document.md).`metadata` | ai/lib/reranker.d.ts:104 |
+### content
+
+> **content**: (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]
+
+#### Implementation of
+
+`RankedDocumentData.content`
+
+#### Overrides
+
+[`Document`](Document.md).[`content`](Document.md#content-1)
+
+#### Defined in
+
+ai/lib/reranker.d.ts:103
+
+***
+
+### metadata
+
+> **metadata**: `object` & `Record`\<`string`, `any`\>
+
+#### Type declaration
+
+##### score
+
+> **score**: `number`
+
+#### Implementation of
+
+`RankedDocumentData.metadata`
+
+#### Overrides
+
+[`Document`](Document.md).[`metadata`](Document.md#metadata-1)
+
+#### Defined in
+
+ai/lib/reranker.d.ts:104
 
 ## Accessors
 
@@ -66,22 +95,14 @@ ai/lib/reranker.d.ts:107
 
 #### Get Signature
 
-```ts
-get media(): null | {
-  contentType: string;
-  url: string;
-}
-```
+> **get** **media**(): `null` \| \{ `contentType`: `string`; `url`: `string`; \}
 
 Returns the first media part detected in the document. Useful for extracting
 (for example) an image.
 
 ##### Returns
 
-`null` \| \{
-  `contentType`: `string`;
-  `url`: `string`;
- \}
+`null` \| \{ `contentType`: `string`; `url`: `string`; \}
 
 The first detected `media` part in the document.
 
@@ -99,9 +120,7 @@ ai/lib/document.d.ts:193
 
 #### Get Signature
 
-```ts
-get text(): string
-```
+> **get** **text**(): `string`
 
 Concatenates all `text` parts present in the document with no delimiter.
 
@@ -123,9 +142,7 @@ ai/lib/document.d.ts:187
 
 ### score()
 
-```ts
-score(): number
-```
+> **score**(): `number`
 
 Returns the score of the document.
 
@@ -143,44 +160,19 @@ ai/lib/reranker.d.ts:112
 
 ### toJSON()
 
-```ts
-toJSON(): {
-  content: ({
-     media: undefined;
-     text: string;
-    } | {
-     media: {
-        contentType: string;
-        url: string;
-       };
-     text: undefined;
-    })[];
-  metadata: Record<string, any>;
-}
-```
+> **toJSON**(): `object`
 
 #### Returns
 
-```ts
-{
-  content: ({
-     media: undefined;
-     text: string;
-    } | {
-     media: {
-        contentType: string;
-        url: string;
-       };
-     text: undefined;
-    })[];
-  metadata: Record<string, any>;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `content` | (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[] | ai/lib/document.d.ts:149 |
-| `metadata`? | `Record`\<`string`, `any`\> | ai/lib/document.d.ts:159 |
+##### content
+
+> **content**: (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]
+
+##### metadata?
+
+> `optional` **metadata**: `Record`\<`string`, `any`\>
 
 #### Inherited from
 
@@ -194,16 +186,17 @@ ai/lib/document.d.ts:197
 
 ### fromText()
 
-```ts
-static fromText(text: string, metadata?: Record<string, any>): Document
-```
+> `static` **fromText**(`text`, `metadata`?): [`Document`](Document.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `text` | `string` |
-| `metadata`? | `Record`\<`string`, `any`\> |
+##### text
+
+`string`
+
+##### metadata?
+
+`Record`\<`string`, `any`\>
 
 #### Returns
 

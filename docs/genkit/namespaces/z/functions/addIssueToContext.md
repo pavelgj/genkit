@@ -1,15 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / addIssueToContext
+
 # Function: addIssueToContext()
 
-```ts
-function addIssueToContext(ctx: ParseContext, issueData: IssueData): void
-```
+> **addIssueToContext**(`ctx`, `issueData`): `void`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) |
-| `issueData` | [`IssueData`](../type-aliases/IssueData.md) |
+### ctx
+
+[`ParseContext`](../interfaces/ParseContext.md)
+
+### issueData
+
+[`IssueData`](../type-aliases/IssueData.md)
 
 ## Returns
 

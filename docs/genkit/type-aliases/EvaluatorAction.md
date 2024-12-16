@@ -1,25 +1,28 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / EvaluatorAction
+
 # Type Alias: EvaluatorAction\<DataPoint, CustomOptions\>
 
-```ts
-type EvaluatorAction<DataPoint, CustomOptions>: Action<typeof EvalRequestSchema, typeof EvalResponsesSchema> & {
-  __configSchema: CustomOptions;
-  __dataPointType: DataPoint;
-};
-```
+> **EvaluatorAction**\<`DataPoint`, `CustomOptions`\>: [`Action`](Action.md)\<*typeof* `EvalRequestSchema`, *typeof* [`EvalResponsesSchema`](../evaluator/variables/EvalResponsesSchema.md)\> & `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `__configSchema`? | `CustomOptions` | ai/lib/evaluator.d.ts:300 |
-| `__dataPointType`? | `DataPoint` | ai/lib/evaluator.d.ts:299 |
+### \_\_configSchema?
+
+> `optional` **\_\_configSchema**: `CustomOptions`
+
+### \_\_dataPointType?
+
+> `optional` **\_\_dataPointType**: `DataPoint`
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `DataPoint` *extends* *typeof* [`BaseDataPointSchema`](../variables/BaseDataPointSchema.md) | *typeof* [`BaseDataPointSchema`](../variables/BaseDataPointSchema.md) |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **DataPoint** *extends* *typeof* [`BaseDataPointSchema`](../variables/BaseDataPointSchema.md) = *typeof* [`BaseDataPointSchema`](../variables/BaseDataPointSchema.md)
+
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Defined in
 

@@ -1,29 +1,34 @@
-# Interface: CallableFlow()\<I, O\>
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / CallableFlow
+
+# Interface: CallableFlow()\<I, O, S\>
 
 Non-streaming flow that can be called directly like a function.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `O` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **I** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
-```ts
-interface CallableFlow(input?: TypeOf<I>, opts?: {
-  withLocalAuthContext: unknown;
-}): Promise<TypeOf<O>>
-```
+• **O** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **S** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+> **CallableFlow**(`input`?, `opts`?): `Promise`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\>
 
 Non-streaming flow that can be called directly like a function.
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input`? | [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\> |
-| `opts`? | `object` |
-| `opts.withLocalAuthContext`? | `unknown` |
+### input?
+
+[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>
+
+### opts?
+
+`FlowCallOptions`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`S`\>\>
 
 ## Returns
 
@@ -31,10 +36,38 @@ Non-streaming flow that can be called directly like a function.
 
 ## Defined in
 
-core/lib/flow.d.ts:68
+core/lib/flow.d.ts:76
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `flow` | [`Flow`](../classes/Flow.md)\<`I`, `O`, [`ZodVoid`](../namespaces/z/classes/ZodVoid.md)\> | core/lib/flow.d.ts:71 |
+### flow
+
+> **flow**: [`Flow`](../classes/Flow.md)\<`I`, `O`, `S`\>
+
+#### Defined in
+
+core/lib/flow.d.ts:78
+
+## Methods
+
+### stream()
+
+> **stream**(`input`?, `opts`?): `StreamingResponse`\<`O`, `S`\>
+
+#### Parameters
+
+##### input?
+
+[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>
+
+##### opts?
+
+`FlowCallOptions`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`S`\>\>
+
+#### Returns
+
+`StreamingResponse`\<`O`, `S`\>
+
+#### Defined in
+
+core/lib/flow.d.ts:77

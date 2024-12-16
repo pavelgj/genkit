@@ -1,18 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ObjectPair
+
 # Type Alias: ObjectPair
 
-```ts
-type ObjectPair: {
-  key: SyncParseReturnType<any>;
-  value: SyncParseReturnType<any>;
-};
-```
+> **ObjectPair**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `key` | [`SyncParseReturnType`](SyncParseReturnType.md)\<`any`\> | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:36 |
-| `value` | [`SyncParseReturnType`](SyncParseReturnType.md)\<`any`\> | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:37 |
+### key
+
+> **key**: [`SyncParseReturnType`](SyncParseReturnType.md)\<`any`\>
+
+### value
+
+> **value**: [`SyncParseReturnType`](SyncParseReturnType.md)\<`any`\>
 
 ## Defined in
 

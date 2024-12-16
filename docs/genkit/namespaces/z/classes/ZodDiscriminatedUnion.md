@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodDiscriminatedUnion
+
 # Class: ZodDiscriminatedUnion\<Discriminator, Options\>
 
 ## Extends
@@ -6,24 +12,21 @@
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Discriminator` *extends* `string` |
-| `Options` *extends* [`ZodDiscriminatedUnionOption`](../type-aliases/ZodDiscriminatedUnionOption.md)\<`Discriminator`\>[] |
+• **Discriminator** *extends* `string`
+
+• **Options** *extends* [`ZodDiscriminatedUnionOption`](../type-aliases/ZodDiscriminatedUnionOption.md)\<`Discriminator`\>[]
 
 ## Constructors
 
 ### new ZodDiscriminatedUnion()
 
-```ts
-new ZodDiscriminatedUnion<Discriminator, Options>(def: ZodDiscriminatedUnionDef<Discriminator, Options>): ZodDiscriminatedUnion<Discriminator, Options>
-```
+> **new ZodDiscriminatedUnion**\<`Discriminator`, `Options`\>(`def`): [`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodDiscriminatedUnionDef`](../interfaces/ZodDiscriminatedUnionDef.md)\<`Discriminator`, `Options`\> |
+##### def
+
+[`ZodDiscriminatedUnionDef`](../interfaces/ZodDiscriminatedUnionDef.md)\<`Discriminator`, `Options`\>
 
 #### Returns
 
@@ -39,13 +42,89 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodDiscriminatedUnionDef`](../interfaces/ZodDiscriminatedUnionDef.md)\<`Discriminator`, `Options`\> | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\> | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\> | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\> | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
+### \_def
+
+> `readonly` **\_def**: [`ZodDiscriminatedUnionDef`](../interfaces/ZodDiscriminatedUnionDef.md)\<`Discriminator`, `Options`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
 
 ## Accessors
 
@@ -53,9 +132,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -75,9 +152,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 #### Get Signature
 
-```ts
-get discriminator(): Discriminator
-```
+> **get** **discriminator**(): `Discriminator`
 
 ##### Returns
 
@@ -93,9 +168,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:622
 
 #### Get Signature
 
-```ts
-get options(): Options
-```
+> **get** **options**(): `Options`
 
 ##### Returns
 
@@ -111,9 +184,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:623
 
 #### Get Signature
 
-```ts
-get optionsMap(): Map<Primitive, ZodDiscriminatedUnionOption<any>>
-```
+> **get** **optionsMap**(): `Map`\<[`Primitive`](../type-aliases/Primitive.md), [`ZodDiscriminatedUnionOption`](../type-aliases/ZodDiscriminatedUnionOption.md)\<`any`\>\>
 
 ##### Returns
 
@@ -127,16 +198,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:624
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -154,15 +226,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -180,15 +250,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<output<Options[number]>>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<[`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -206,15 +274,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:621
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<output<Options[number]>>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<[`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -232,15 +298,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<output<Options[number]>>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<[`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -258,32 +322,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -297,15 +354,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: output<Options[number]>, ctx: RefinementCtx) => any): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, output<Options[number]>, input<Options[number]>>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -323,21 +378,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodDiscriminatedUnion<Discriminator, Options>, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -355,9 +406,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodDiscriminatedUnion<Discriminator, Options>, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `"many"`\>
 
 #### Returns
 
@@ -375,21 +424,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodDiscriminatedUnion<Discriminator, Options>, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -407,17 +452,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: output<Options[number]>): ZodCatch<ZodDiscriminatedUnion<Discriminator, Options>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\> |
+###### def
+
+[`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>
 
 ##### Returns
 
@@ -431,20 +474,15 @@ catch(def: output<Options[number]>): ZodCatch<ZodDiscriminatedUnion<Discriminato
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: input<Options[number]>;
-}) => output<Options[number]>): ZodCatch<ZodDiscriminatedUnion<Discriminator, Options>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>; \}) => [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\> |
+###### def
+
+(`ctx`) => [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>
 
 ##### Returns
 
@@ -462,17 +500,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: noUndefined<input<Options[number]>>): ZodDefault<ZodDiscriminatedUnion<Discriminator, Options>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\> |
+###### def
+
+[`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Returns
 
@@ -486,17 +522,15 @@ default(def: noUndefined<input<Options[number]>>): ZodDefault<ZodDiscriminatedUn
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => noUndefined<input<Options[number]>>): ZodDefault<ZodDiscriminatedUnion<Discriminator, Options>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\> |
+###### def
+
+() => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Returns
 
@@ -514,15 +548,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -540,9 +572,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -560,9 +590,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -580,9 +608,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodDiscriminatedUnion<Discriminator, Options>>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>
 
 #### Returns
 
@@ -600,9 +626,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodDiscriminatedUnion<Discriminator, Options>>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>\>
 
 #### Returns
 
@@ -620,9 +644,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodDiscriminatedUnion<Discriminator, Options>>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>
 
 #### Returns
 
@@ -640,21 +662,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodDiscriminatedUnion<Discriminator, Options>, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -672,16 +690,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): output<Options[number]>
-```
+> **parse**(`data`, `params`?): [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -699,16 +718,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<output<Options[number]>>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<[`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -726,21 +746,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodDiscriminatedUnion<Discriminator, Options>, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -758,9 +774,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodDiscriminatedUnion<Discriminator, Options>>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>
 
 #### Returns
 
@@ -778,9 +792,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodDiscriminatedUnion<Discriminator, Options>>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>\>
 
 #### Returns
 
@@ -798,24 +810,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: output<Options[number]>) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: output<Options[number]>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, RefinedOutput, input<Options[number]>>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `RefinedOutput`, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* \{ \[k in string \| number\]: addQuestionMarks\<baseObjectOutputType\<\{ \[key in string\]: ZodTypeAny \} & ZodRawShape\>, any\>\[k\] \} |
+• **RefinedOutput** *extends* \{ \[k in string \| number\]: addQuestionMarks\<baseObjectOutputType\<\{ \[key in string\]: ZodTypeAny \} & ZodRawShape\>, any\>\[k\] \}
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -829,18 +840,19 @@ refine<RefinedOutput>(check: (arg: output<Options[number]>) => arg is RefinedOut
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: output<Options[number]>) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: output<Options[number]>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, output<Options[number]>, input<Options[number]>>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -858,24 +870,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: output<Options[number]>) => arg is RefinedOutput, refinementData: IssueData | (arg: output<Options[number]>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, RefinedOutput, input<Options[number]>>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `RefinedOutput`, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* \{ \[k in string \| number\]: addQuestionMarks\<baseObjectOutputType\<\{ \[key in string\]: ZodTypeAny \} & ZodRawShape\>, any\>\[k\] \} |
+• **RefinedOutput** *extends* \{ \[k in string \| number\]: addQuestionMarks\<baseObjectOutputType\<\{ \[key in string\]: ZodTypeAny \} & ZodRawShape\>, any\>\[k\] \}
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -883,24 +894,25 @@ refinement<RefinedOutput>(check: (arg: output<Options[number]>) => arg is Refine
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: output<Options[number]>) => boolean, refinementData: IssueData | (arg: output<Options[number]>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, output<Options[number]>, input<Options[number]>>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -908,7 +920,7 @@ refinement(check: (arg: output<Options[number]>) => boolean, refinementData: Iss
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -918,16 +930,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<input<Options[number]>, output<Options[number]>>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -945,16 +958,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<input<Options[number]>, output<Options[number]>>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -972,23 +986,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: output<Options[number]>, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, RefinedOutput, input<Options[number]>>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `RefinedOutput`, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* \{ \[k in string \| number\]: addQuestionMarks\<baseObjectOutputType\<\{ \[key in string\]: ZodTypeAny \} & ZodRawShape\>, any\>\[k\] \} |
+• **RefinedOutput** *extends* \{ \[k in string \| number\]: addQuestionMarks\<baseObjectOutputType\<\{ \[key in string\]: ZodTypeAny \} & ZodRawShape\>, any\>\[k\] \}
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -1002,17 +1012,15 @@ superRefine<RefinedOutput>(refinement: (arg: output<Options[number]>, ctx: Refin
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: output<Options[number]>, ctx: RefinementCtx) => void): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, output<Options[number]>, input<Options[number]>>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -1026,17 +1034,15 @@ superRefine(refinement: (arg: output<Options[number]>, ctx: RefinementCtx) => vo
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: output<Options[number]>, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, output<Options[number]>, input<Options[number]>>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1054,21 +1060,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: output<Options[number]>, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodDiscriminatedUnion<Discriminator, Options>, NewOut, input<Options[number]>>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Options`\>, `NewOut`, [`input`](../type-aliases/input.md)\<`Options`\[`number`\]\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: [`output`](../type-aliases/output.md)\<`Options`\[`number`\]\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 
@@ -1086,12 +1088,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:84
 
 ### create()
 
-```ts
-static create<Discriminator, Types>(
-   discriminator: Discriminator, 
-   options: Types, 
-params?: RawCreateParams): ZodDiscriminatedUnion<Discriminator, Types>
-```
+> `static` **create**\<`Discriminator`, `Types`\>(`discriminator`, `options`, `params`?): [`ZodDiscriminatedUnion`](ZodDiscriminatedUnion.md)\<`Discriminator`, `Types`\>
 
 The constructor of the discriminated union schema. Its behaviour is very similar to that of the normal z.union() constructor.
 However, it only allows a union of objects, all of which need to share a discriminator property. This property must
@@ -1099,18 +1096,25 @@ have a different value for each object in the union.
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Discriminator` *extends* `string` |
-| `Types` *extends* [[`ZodDiscriminatedUnionOption`](../type-aliases/ZodDiscriminatedUnionOption.md)\<`Discriminator`\>, `...ZodDiscriminatedUnionOption<Discriminator>[]`] |
+• **Discriminator** *extends* `string`
+
+• **Types** *extends* [[`ZodDiscriminatedUnionOption`](../type-aliases/ZodDiscriminatedUnionOption.md)\<`Discriminator`\>, `...ZodDiscriminatedUnionOption<Discriminator>[]`]
 
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `discriminator` | `Discriminator` | the name of the discriminator property |
-| `options` | `Types` | - |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) | - |
+##### discriminator
+
+`Discriminator`
+
+the name of the discriminator property
+
+##### options
+
+`Types`
+
+##### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 #### Returns
 

@@ -1,26 +1,29 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / PromptMetadata
+
 # Type Alias: PromptMetadata\<Input, Options\>
 
-```ts
-type PromptMetadata<Input, Options>: Omit<DotpromptPromptMetadata<Input, Options>, "name"> & {
-  name: string;
-};
-```
+> **PromptMetadata**\<`Input`, `Options`\>: `Omit`\<`DotpromptPromptMetadata`\<`Input`, `Options`\>, `"name"`\> & `object`
 
 Metadata for a prompt.
 
 ## Type declaration
 
-| Name | Type | Description | Defined in |
-| ------ | ------ | ------ | ------ |
-| `name` | `string` | The name of the prompt. | [genkit/src/genkit.ts:157](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L157) |
+### name
+
+> **name**: `string`
+
+The name of the prompt.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `Input` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `Options` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **Input** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **Options** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Defined in
 
-[genkit/src/genkit.ts:152](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L152)
+[genkit/src/genkit.ts:158](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L158)

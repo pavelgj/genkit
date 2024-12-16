@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / promise
+
 # Function: promise()
 
-```ts
-function promise<T>(schema: T, params?: RawCreateParams): ZodPromise<T>
-```
+> **promise**\<`T`\>(`schema`, `params`?): [`ZodPromise`](../classes/ZodPromise.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `schema` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### schema
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

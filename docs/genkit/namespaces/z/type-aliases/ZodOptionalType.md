@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodOptionalType
+
 # Type Alias: ZodOptionalType\<T\>
 
-```ts
-type ZodOptionalType<T>: ZodOptional<T>;
-```
+> **ZodOptionalType**\<`T`\>: [`ZodOptional`](../classes/ZodOptional.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodTypeAny`](ZodTypeAny.md) |
+• **T** *extends* [`ZodTypeAny`](ZodTypeAny.md)
 
 ## Defined in
 

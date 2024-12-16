@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodLazy
+
 # Class: ZodLazy\<T\>
 
 ## Extends
@@ -6,23 +12,19 @@
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
+• **T** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
 
 ## Constructors
 
 ### new ZodLazy()
 
-```ts
-new ZodLazy<T>(def: ZodLazyDef<T>): ZodLazy<T>
-```
+> **new ZodLazy**\<`T`\>(`def`): [`ZodLazy`](ZodLazy.md)\<`T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodLazyDef`](../interfaces/ZodLazyDef.md)\<`T`\> |
+##### def
+
+[`ZodLazyDef`](../interfaces/ZodLazyDef.md)\<`T`\>
 
 #### Returns
 
@@ -38,14 +40,117 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodLazyDef`](../interfaces/ZodLazyDef.md)\<`T`\> | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | [`input`](../type-aliases/input.md)\<`T`\> | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | [`output`](../type-aliases/output.md)\<`T`\> | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | [`output`](../type-aliases/output.md)\<`T`\> | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
-| `create` | `static` | \<`T_1`\>(`getter`: () => `T_1`, `params`?: [`RawCreateParams`](../type-aliases/RawCreateParams.md)) => [`ZodLazy`](ZodLazy.md)\<`T_1`\> | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:748 |
+### \_def
+
+> `readonly` **\_def**: [`ZodLazyDef`](../interfaces/ZodLazyDef.md)\<`T`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: [`input`](../type-aliases/input.md)\<`T`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: [`output`](../type-aliases/output.md)\<`T`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: [`output`](../type-aliases/output.md)\<`T`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
+
+***
+
+### create()
+
+> `static` **create**: \<`T_1`\>(`getter`, `params`?) => [`ZodLazy`](ZodLazy.md)\<`T_1`\>
+
+#### Type Parameters
+
+• **T_1** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T_1`\>
+
+#### Parameters
+
+##### getter
+
+() => `T_1`
+
+##### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
+
+#### Returns
+
+[`ZodLazy`](ZodLazy.md)\<`T_1`\>
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:748
 
 ## Accessors
 
@@ -53,9 +158,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -75,9 +178,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 #### Get Signature
 
-```ts
-get schema(): T
-```
+> **get** **schema**(): `T`
 
 ##### Returns
 
@@ -91,16 +192,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:746
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -118,15 +220,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -144,15 +244,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<output<T>>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<[`output`](../type-aliases/output.md)\<`T`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -170,15 +268,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:747
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<output<T>>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<[`output`](../type-aliases/output.md)\<`T`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -196,15 +292,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<output<T>>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<[`output`](../type-aliases/output.md)\<`T`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -222,32 +316,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -261,15 +348,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: output<T>, ctx: RefinementCtx) => any): ZodEffects<ZodLazy<T>, output<T>, input<T>>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -287,21 +372,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodLazy<T>, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -319,9 +400,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodLazy<T>, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, `"many"`\>
 
 #### Returns
 
@@ -339,21 +418,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodLazy<T>, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -371,17 +446,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: output<T>): ZodCatch<ZodLazy<T>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`output`](../type-aliases/output.md)\<`T`\> |
+###### def
+
+[`output`](../type-aliases/output.md)\<`T`\>
 
 ##### Returns
 
@@ -395,20 +468,15 @@ catch(def: output<T>): ZodCatch<ZodLazy<T>>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: input<T>;
-}) => output<T>): ZodCatch<ZodLazy<T>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: [`input`](../type-aliases/input.md)\<`T`\>; \}) => [`output`](../type-aliases/output.md)\<`T`\> |
+###### def
+
+(`ctx`) => [`output`](../type-aliases/output.md)\<`T`\>
 
 ##### Returns
 
@@ -426,17 +494,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: noUndefined<input<T>>): ZodDefault<ZodLazy<T>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`input`](../type-aliases/input.md)\<`T`\>\> |
+###### def
+
+[`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Returns
 
@@ -450,17 +516,15 @@ default(def: noUndefined<input<T>>): ZodDefault<ZodLazy<T>>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => noUndefined<input<T>>): ZodDefault<ZodLazy<T>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`input`](../type-aliases/input.md)\<`T`\>\> |
+###### def
+
+() => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Returns
 
@@ -478,15 +542,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -504,9 +566,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -524,9 +584,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -544,9 +602,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodLazy<T>>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>
 
 #### Returns
 
@@ -564,9 +620,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodLazy<T>>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>\>
 
 #### Returns
 
@@ -584,9 +638,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodLazy<T>>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>
 
 #### Returns
 
@@ -604,21 +656,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodLazy<T>, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodLazy`](ZodLazy.md)\<`T`\>, `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -636,16 +684,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): output<T>
-```
+> **parse**(`data`, `params`?): [`output`](../type-aliases/output.md)\<`T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -663,16 +712,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<output<T>>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<[`output`](../type-aliases/output.md)\<`T`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -690,21 +740,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodLazy<T>, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -722,9 +768,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodLazy<T>>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>
 
 #### Returns
 
@@ -742,9 +786,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodLazy<T>>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>\>
 
 #### Returns
 
@@ -762,24 +804,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: output<T>) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: output<T>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodLazy<T>, RefinedOutput, input<T>>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, `RefinedOutput`, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `any` |
+• **RefinedOutput** *extends* `any`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`output`](../type-aliases/output.md)\<`T`\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -793,18 +834,19 @@ refine<RefinedOutput>(check: (arg: output<T>) => arg is RefinedOutput, message?:
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: output<T>) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: output<T>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodLazy<T>, output<T>, input<T>>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`output`](../type-aliases/output.md)\<`T`\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -822,24 +864,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: output<T>) => arg is RefinedOutput, refinementData: IssueData | (arg: output<T>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodLazy<T>, RefinedOutput, input<T>>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, `RefinedOutput`, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `any` |
+• **RefinedOutput** *extends* `any`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`output`](../type-aliases/output.md)\<`T`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -847,24 +888,25 @@ refinement<RefinedOutput>(check: (arg: output<T>) => arg is RefinedOutput, refin
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: output<T>) => boolean, refinementData: IssueData | (arg: output<T>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodLazy<T>, output<T>, input<T>>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`output`](../type-aliases/output.md)\<`T`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -872,7 +914,7 @@ refinement(check: (arg: output<T>) => boolean, refinementData: IssueData | (arg:
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -882,16 +924,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<input<T>, output<T>>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -909,16 +952,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<input<T>, output<T>>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`input`](../type-aliases/input.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -936,23 +980,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: output<T>, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodLazy<T>, RefinedOutput, input<T>>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, `RefinedOutput`, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `any` |
+• **RefinedOutput** *extends* `any`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -966,17 +1006,15 @@ superRefine<RefinedOutput>(refinement: (arg: output<T>, ctx: RefinementCtx) => a
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: output<T>, ctx: RefinementCtx) => void): ZodEffects<ZodLazy<T>, output<T>, input<T>>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -990,17 +1028,15 @@ superRefine(refinement: (arg: output<T>, ctx: RefinementCtx) => void): ZodEffect
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: output<T>, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodLazy<T>, output<T>, input<T>>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, [`output`](../type-aliases/output.md)\<`T`\>, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1018,21 +1054,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: output<T>, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodLazy<T>, NewOut, input<T>>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodLazy`](ZodLazy.md)\<`T`\>, `NewOut`, [`input`](../type-aliases/input.md)\<`T`\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: [`output`](../type-aliases/output.md)\<`T`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 

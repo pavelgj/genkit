@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / set
+
 # Function: set()
 
-```ts
-function set<Value>(valueType: Value, params?: RawCreateParams): ZodSet<Value>
-```
+> **set**\<`Value`\>(`valueType`, `params`?): [`ZodSet`](../classes/ZodSet.md)\<`Value`\>
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `Value` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `Value`\> | [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
+• **Value** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `Value`\> = [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `valueType` | `Value` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### valueType
+
+`Value`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

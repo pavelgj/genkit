@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodTypeDef
+
 # Interface: ZodTypeDef
 
 ## Extended by
@@ -41,7 +47,20 @@
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `description?` | `string` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23 |
-| `errorMap?` | [`ZodErrorMap`](../type-aliases/ZodErrorMap.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22 |
+### description?
+
+> `optional` **description**: `string`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23
+
+***
+
+### errorMap?
+
+> `optional` **errorMap**: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22

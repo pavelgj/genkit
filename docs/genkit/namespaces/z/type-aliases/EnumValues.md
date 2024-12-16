@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / EnumValues
+
 # Type Alias: EnumValues\<T\>
 
-```ts
-type EnumValues<T>: readonly [T, ...T[]];
-```
+> **EnumValues**\<`T`\>: readonly [`T`, `...T[]`]
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* `string` | `string` |
+• **T** *extends* `string` = `string`
 
 ## Defined in
 

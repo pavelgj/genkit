@@ -1,8 +1,12 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / isDevEnv
+
 # Function: isDevEnv()
 
-```ts
-function isDevEnv(): boolean
-```
+> **isDevEnv**(): `boolean`
 
 Whether the current environment is `dev`.
 
@@ -12,4 +16,4 @@ Whether the current environment is `dev`.
 
 ## Defined in
 
-core/lib/utils.d.ts:28
+core/lib/utils.d.ts:30

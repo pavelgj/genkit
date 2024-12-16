@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / oboolean
+
 # Function: oboolean()
 
-```ts
-function oboolean(): ZodOptional<ZodBoolean>
-```
+> **oboolean**(): [`ZodOptional`](../classes/ZodOptional.md)\<[`ZodBoolean`](../classes/ZodBoolean.md)\>
 
 ## Returns
 

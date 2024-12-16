@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / typecast
+
 # Type Alias: typecast\<A, T\>
 
-```ts
-type typecast<A, T>: A extends T ? A : never;
-```
+> **typecast**\<`A`, `T`\>: `A` *extends* `T` ? `A` : `never`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `A` |
-| `T` |
+• **A**
+
+• **T**
 
 ## Defined in
 

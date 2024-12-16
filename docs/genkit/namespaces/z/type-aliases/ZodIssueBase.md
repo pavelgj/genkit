@@ -1,18 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodIssueBase
+
 # Type Alias: ZodIssueBase
 
-```ts
-type ZodIssueBase: {
-  message: string;
-  path: (string | number)[];
-};
-```
+> **ZodIssueBase**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `message`? | `string` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:33 |
-| `path` | (`string` \| `number`)[] | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:32 |
+### message?
+
+> `optional` **message**: `string`
+
+### path
+
+> **path**: (`string` \| `number`)[]
 
 ## Defined in
 

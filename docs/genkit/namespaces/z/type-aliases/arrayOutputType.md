@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / arrayOutputType
+
 # Type Alias: arrayOutputType\<T, Cardinality\>
 
-```ts
-type arrayOutputType<T, Cardinality>: Cardinality extends "atleastone" ? [T["_output"], ...T["_output"][]] : T["_output"][];
-```
+> **arrayOutputType**\<`T`, `Cardinality`\>: `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_output"`\], `...T["_output"][]`] : `T`\[`"_output"`\][]
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* [`ZodTypeAny`](ZodTypeAny.md) | - |
-| `Cardinality` *extends* [`ArrayCardinality`](ArrayCardinality.md) | `"many"` |
+• **T** *extends* [`ZodTypeAny`](ZodTypeAny.md)
+
+• **Cardinality** *extends* [`ArrayCardinality`](ArrayCardinality.md) = `"many"`
 
 ## Defined in
 

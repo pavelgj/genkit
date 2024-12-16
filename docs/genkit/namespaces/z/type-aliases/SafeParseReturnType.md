@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / SafeParseReturnType
+
 # Type Alias: SafeParseReturnType\<Input, Output\>
 
-```ts
-type SafeParseReturnType<Input, Output>: SafeParseSuccess<Output> | SafeParseError<Input>;
-```
+> **SafeParseReturnType**\<`Input`, `Output`\>: [`SafeParseSuccess`](SafeParseSuccess.md)\<`Output`\> \| [`SafeParseError`](SafeParseError.md)\<`Input`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Input` |
-| `Output` |
+• **Input**
+
+• **Output**
 
 ## Defined in
 

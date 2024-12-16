@@ -1,22 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / BRAND
+
 # Type Alias: BRAND\<T\>
 
-```ts
-type BRAND<T>: {
-  [BRAND]: { [k in T]: true };
-};
-```
+> **BRAND**\<`T`\>: `object`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* `string` \| `number` \| `symbol` |
+• **T** *extends* `string` \| `number` \| `symbol`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `[BRAND]` | `{ [k in T]: true }` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:910 |
+### \[BRAND\]
+
+> **\[BRAND\]**: `{ [k in T]: true }`
 
 ## Defined in
 

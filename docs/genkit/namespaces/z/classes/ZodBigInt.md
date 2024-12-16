@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodBigInt
+
 # Class: ZodBigInt
 
 ## Extends
@@ -8,15 +14,13 @@
 
 ### new ZodBigInt()
 
-```ts
-new ZodBigInt(def: ZodBigIntDef): ZodBigInt
-```
+> **new ZodBigInt**(`def`): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodBigIntDef`](../interfaces/ZodBigIntDef.md) |
+##### def
+
+[`ZodBigIntDef`](../interfaces/ZodBigIntDef.md)
 
 #### Returns
 
@@ -32,16 +36,157 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodBigIntDef`](../interfaces/ZodBigIntDef.md) | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | `bigint` | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | `bigint` | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | `bigint` | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| `max` | `public` | (`value`: `bigint`, `message`?: `ErrMessage`) => [`ZodBigInt`](ZodBigInt.md) | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:363 |
-| `min` | `public` | (`value`: `bigint`, `message`?: `ErrMessage`) => [`ZodBigInt`](ZodBigInt.md) | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:360 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`bigint`, `bigint`\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
-| `create` | `static` | (`params`?: \{ `description`: `string`; `errorMap`: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md); `invalid_type_error`: `string`; `message`: `string`; `required_error`: `string`; \} & \{ `coerce`: `boolean`; \}) => [`ZodBigInt`](ZodBigInt.md) | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:350 |
+### \_def
+
+> `readonly` **\_def**: [`ZodBigIntDef`](../interfaces/ZodBigIntDef.md)
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: `bigint`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: `bigint`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: `bigint`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### max()
+
+> **max**: (`value`, `message`?) => [`ZodBigInt`](ZodBigInt.md)
+
+#### Parameters
+
+##### value
+
+`bigint`
+
+##### message?
+
+`ErrMessage`
+
+#### Returns
+
+[`ZodBigInt`](ZodBigInt.md)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:363
+
+***
+
+### min()
+
+> **min**: (`value`, `message`?) => [`ZodBigInt`](ZodBigInt.md)
+
+#### Parameters
+
+##### value
+
+`bigint`
+
+##### message?
+
+`ErrMessage`
+
+#### Returns
+
+[`ZodBigInt`](ZodBigInt.md)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:360
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`bigint`, `bigint`\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`bigint`, `bigint`\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
+
+***
+
+### create()
+
+> `static` **create**: (`params`?) => [`ZodBigInt`](ZodBigInt.md)
+
+#### Parameters
+
+##### params?
+
+`object` & `object`
+
+#### Returns
+
+[`ZodBigInt`](ZodBigInt.md)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:350
 
 ## Accessors
 
@@ -49,9 +194,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -71,9 +214,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 #### Get Signature
 
-```ts
-get maxValue(): null | bigint
-```
+> **get** **maxValue**(): `null` \| `bigint`
 
 ##### Returns
 
@@ -89,9 +230,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:373
 
 #### Get Signature
 
-```ts
-get minValue(): null | bigint
-```
+> **get** **minValue**(): `null` \| `bigint`
 
 ##### Returns
 
@@ -105,15 +244,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:372
 
 ### \_addCheck()
 
-```ts
-_addCheck(check: ZodBigIntCheck): ZodBigInt
-```
+> **\_addCheck**(`check`): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | [`ZodBigIntCheck`](../type-aliases/ZodBigIntCheck.md) |
+##### check
+
+[`ZodBigIntCheck`](../type-aliases/ZodBigIntCheck.md)
 
 #### Returns
 
@@ -127,16 +264,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:366
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -154,15 +292,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -180,15 +316,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<bigint>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`bigint`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -206,15 +340,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:349
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<bigint>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<`bigint`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -232,15 +364,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<bigint>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`bigint`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -258,32 +388,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -297,15 +420,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: bigint, ctx: RefinementCtx) => any): ZodEffects<ZodBigInt, bigint, bigint>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `bigint`, `bigint`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `bigint`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -323,21 +444,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodBigInt, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodBigInt`](ZodBigInt.md), `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -355,9 +472,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodBigInt, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodBigInt`](ZodBigInt.md), `"many"`\>
 
 #### Returns
 
@@ -375,21 +490,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodBigInt, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodBigInt`](ZodBigInt.md), `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -407,17 +518,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: bigint): ZodCatch<ZodBigInt>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodBigInt`](ZodBigInt.md)\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | `bigint` |
+###### def
+
+`bigint`
 
 ##### Returns
 
@@ -431,20 +540,15 @@ catch(def: bigint): ZodCatch<ZodBigInt>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: bigint;
-}) => bigint): ZodCatch<ZodBigInt>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodBigInt`](ZodBigInt.md)\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: `bigint`; \}) => `bigint` |
+###### def
+
+(`ctx`) => `bigint`
 
 ##### Returns
 
@@ -462,17 +566,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: bigint): ZodDefault<ZodBigInt>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodBigInt`](ZodBigInt.md)\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | `bigint` |
+###### def
+
+`bigint`
 
 ##### Returns
 
@@ -486,17 +588,15 @@ default(def: bigint): ZodDefault<ZodBigInt>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => bigint): ZodDefault<ZodBigInt>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodBigInt`](ZodBigInt.md)\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => `bigint` |
+###### def
+
+() => `bigint`
 
 ##### Returns
 
@@ -514,15 +614,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -540,16 +638,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### gt()
 
-```ts
-gt(value: bigint, message?: ErrMessage): ZodBigInt
-```
+> **gt**(`value`, `message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `bigint` |
-| `message`? | `ErrMessage` |
+##### value
+
+`bigint`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -563,16 +662,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:361
 
 ### gte()
 
-```ts
-gte(value: bigint, message?: ErrMessage): ZodBigInt
-```
+> **gte**(`value`, `message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `bigint` |
-| `message`? | `ErrMessage` |
+##### value
+
+`bigint`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -586,9 +686,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:359
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -606,9 +704,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -626,16 +722,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### lt()
 
-```ts
-lt(value: bigint, message?: ErrMessage): ZodBigInt
-```
+> **lt**(`value`, `message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `bigint` |
-| `message`? | `ErrMessage` |
+##### value
+
+`bigint`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -649,16 +746,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:364
 
 ### lte()
 
-```ts
-lte(value: bigint, message?: ErrMessage): ZodBigInt
-```
+> **lte**(`value`, `message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `bigint` |
-| `message`? | `ErrMessage` |
+##### value
+
+`bigint`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -672,16 +770,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:362
 
 ### multipleOf()
 
-```ts
-multipleOf(value: bigint, message?: ErrMessage): ZodBigInt
-```
+> **multipleOf**(`value`, `message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `bigint` |
-| `message`? | `ErrMessage` |
+##### value
+
+`bigint`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -695,15 +794,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:371
 
 ### negative()
 
-```ts
-negative(message?: ErrMessage): ZodBigInt
-```
+> **negative**(`message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -717,15 +814,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:368
 
 ### nonnegative()
 
-```ts
-nonnegative(message?: ErrMessage): ZodBigInt
-```
+> **nonnegative**(`message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -739,15 +834,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:370
 
 ### nonpositive()
 
-```ts
-nonpositive(message?: ErrMessage): ZodBigInt
-```
+> **nonpositive**(`message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -761,9 +854,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:369
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodBigInt>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodBigInt`](ZodBigInt.md)\>
 
 #### Returns
 
@@ -781,9 +872,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodBigInt>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodBigInt`](ZodBigInt.md)\>\>
 
 #### Returns
 
@@ -801,9 +890,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodBigInt>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodBigInt`](ZodBigInt.md)\>
 
 #### Returns
 
@@ -821,21 +908,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodBigInt, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodBigInt`](ZodBigInt.md), `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -853,16 +936,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): bigint
-```
+> **parse**(`data`, `params`?): `bigint`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -880,16 +964,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<bigint>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<`bigint`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -907,21 +992,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodBigInt, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodBigInt`](ZodBigInt.md), `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -939,15 +1020,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### positive()
 
-```ts
-positive(message?: ErrMessage): ZodBigInt
-```
+> **positive**(`message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -961,9 +1040,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:367
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodBigInt>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodBigInt`](ZodBigInt.md)\>
 
 #### Returns
 
@@ -981,9 +1058,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodBigInt>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodBigInt`](ZodBigInt.md)\>
 
 #### Returns
 
@@ -1001,24 +1076,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: bigint) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: bigint) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodBigInt, RefinedOutput, bigint>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `RefinedOutput`, `bigint`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `bigint` |
+• **RefinedOutput** *extends* `bigint`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `bigint`) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: `bigint`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -1032,18 +1106,19 @@ refine<RefinedOutput>(check: (arg: bigint) => arg is RefinedOutput, message?: st
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: bigint) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: bigint) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodBigInt, bigint, bigint>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `bigint`, `bigint`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `bigint`) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: `bigint`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -1061,24 +1136,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: bigint) => arg is RefinedOutput, refinementData: IssueData | (arg: bigint, ctx: RefinementCtx) => IssueData): ZodEffects<ZodBigInt, RefinedOutput, bigint>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `RefinedOutput`, `bigint`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `bigint` |
+• **RefinedOutput** *extends* `bigint`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `bigint`) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: `bigint`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -1086,24 +1160,25 @@ refinement<RefinedOutput>(check: (arg: bigint) => arg is RefinedOutput, refineme
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: bigint) => boolean, refinementData: IssueData | (arg: bigint, ctx: RefinementCtx) => IssueData): ZodEffects<ZodBigInt, bigint, bigint>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `bigint`, `bigint`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `bigint`) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: `bigint`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -1111,7 +1186,7 @@ refinement(check: (arg: bigint) => boolean, refinementData: IssueData | (arg: bi
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -1121,16 +1196,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<bigint, bigint>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`bigint`, `bigint`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1148,16 +1224,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<bigint, bigint>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`bigint`, `bigint`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1175,22 +1252,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### setLimit()
 
-```ts
-protected setLimit(
-   kind: "min" | "max", 
-   value: bigint, 
-   inclusive: boolean, 
-   message?: string): ZodBigInt
-```
+> `protected` **setLimit**(`kind`, `value`, `inclusive`, `message`?): [`ZodBigInt`](ZodBigInt.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `kind` | `"min"` \| `"max"` |
-| `value` | `bigint` |
-| `inclusive` | `boolean` |
-| `message`? | `string` |
+##### kind
+
+`"min"` | `"max"`
+
+##### value
+
+`bigint`
+
+##### inclusive
+
+`boolean`
+
+##### message?
+
+`string`
 
 #### Returns
 
@@ -1204,23 +1284,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:365
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: bigint, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodBigInt, RefinedOutput, bigint>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `RefinedOutput`, `bigint`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `bigint` |
+• **RefinedOutput** *extends* `bigint`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `bigint`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -1234,17 +1310,15 @@ superRefine<RefinedOutput>(refinement: (arg: bigint, ctx: RefinementCtx) => arg 
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: bigint, ctx: RefinementCtx) => void): ZodEffects<ZodBigInt, bigint, bigint>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `bigint`, `bigint`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `bigint`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -1258,17 +1332,15 @@ superRefine(refinement: (arg: bigint, ctx: RefinementCtx) => void): ZodEffects<Z
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: bigint, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodBigInt, bigint, bigint>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `bigint`, `bigint`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `bigint`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1286,21 +1358,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: bigint, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodBigInt, NewOut, bigint>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodBigInt`](ZodBigInt.md), `NewOut`, `bigint`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: `bigint`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 

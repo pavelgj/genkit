@@ -1,18 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ErrorMapCtx
+
 # Type Alias: ErrorMapCtx
 
-```ts
-type ErrorMapCtx: {
-  data: any;
-  defaultError: string;
-};
-```
+> **ErrorMapCtx**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `data` | `any` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:159 |
-| `defaultError` | `string` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:158 |
+### data
+
+> **data**: `any`
+
+### defaultError
+
+> **defaultError**: `string`
 
 ## Defined in
 

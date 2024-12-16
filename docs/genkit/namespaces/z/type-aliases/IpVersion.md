@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / IpVersion
+
 # Type Alias: IpVersion
 
-```ts
-type IpVersion: "v4" | "v6";
-```
+> **IpVersion**: `"v4"` \| `"v6"`
 
 ## Defined in
 

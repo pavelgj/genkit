@@ -1,15 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / OmitKeys
+
 # Type Alias: OmitKeys\<T, K\>
 
-```ts
-type OmitKeys<T, K>: Pick<T, Exclude<keyof T, K>>;
-```
+> **OmitKeys**\<`T`, `K`\>: `Pick`\<`T`, `Exclude`\<keyof `T`, `K`\>\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
-| `K` *extends* `string` |
+• **T**
+
+• **K** *extends* `string`
 
 ## Defined in
 

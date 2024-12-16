@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / BRAND
+
 # Variable: BRAND
 
-```ts
-const BRAND: unique symbol;
-```
+> `const` **BRAND**: unique `symbol`
 
 ## Defined in
 

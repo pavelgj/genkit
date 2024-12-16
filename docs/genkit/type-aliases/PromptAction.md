@@ -1,29 +1,33 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / PromptAction
+
 # Type Alias: PromptAction\<I\>
 
-```ts
-type PromptAction<I>: Action<I, typeof GenerateRequestSchema> & {
-  __action: {
-     metadata: {
-        type: "prompt";
-       };
-    };
-};
-```
+> **PromptAction**\<`I`\>: [`Action`](Action.md)\<`I`, *typeof* [`GenerateRequestSchema`](../model/variables/GenerateRequestSchema.md), *typeof* [`GenerateResponseChunkSchema`](../model/variables/GenerateResponseChunkSchema.md)\> & `object`
+
+Prompt action.
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `__action` | \{ `metadata`: \{ `type`: `"prompt"`; \}; \} | ai/lib/generate-C8Qor0QX.d.ts:26 |
-| `__action.metadata` | \{ `type`: `"prompt"`; \} | ai/lib/generate-C8Qor0QX.d.ts:27 |
-| `__action.metadata.type` | `"prompt"` | ai/lib/generate-C8Qor0QX.d.ts:28 |
+### \_\_action
+
+> **\_\_action**: `object`
+
+#### \_\_action.metadata
+
+> **\_\_action.metadata**: `object`
+
+#### \_\_action.metadata.type
+
+> **\_\_action.metadata.type**: `"prompt"`
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **I** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Defined in
 
-ai/lib/generate-C8Qor0QX.d.ts:25
+ai/lib/generate-OYA442tG.d.ts:31

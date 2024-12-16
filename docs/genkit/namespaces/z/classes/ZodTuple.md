@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodTuple
+
 # Class: ZodTuple\<T, Rest\>
 
 ## Extends
@@ -6,24 +12,21 @@
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `...ZodTypeAny[]`] \| [] | [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `...ZodTypeAny[]`] |
-| `Rest` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) \| `null` | `null` |
+• **T** *extends* [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `...ZodTypeAny[]`] \| [] = [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `...ZodTypeAny[]`]
+
+• **Rest** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) \| `null` = `null`
 
 ## Constructors
 
 ### new ZodTuple()
 
-```ts
-new ZodTuple<T, Rest>(def: ZodTupleDef<T, Rest>): ZodTuple<T, Rest>
-```
+> **new ZodTuple**\<`T`, `Rest`\>(`def`): [`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodTupleDef`](../interfaces/ZodTupleDef.md)\<`T`, `Rest`\> |
+##### def
+
+[`ZodTupleDef`](../interfaces/ZodTupleDef.md)\<`T`, `Rest`\>
 
 #### Returns
 
@@ -39,14 +42,117 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodTupleDef`](../interfaces/ZodTupleDef.md)\<`T`, `Rest`\> | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\> | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\> | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\> | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
-| `create` | `static` | \<`T_1`\>(`schemas`: `T_1`, `params`?: [`RawCreateParams`](../type-aliases/RawCreateParams.md)) => [`ZodTuple`](ZodTuple.md)\<`T_1`, `null`\> | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:670 |
+### \_def
+
+> `readonly` **\_def**: [`ZodTupleDef`](../interfaces/ZodTupleDef.md)\<`T`, `Rest`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
+
+***
+
+### create()
+
+> `static` **create**: \<`T_1`\>(`schemas`, `params`?) => [`ZodTuple`](ZodTuple.md)\<`T_1`, `null`\>
+
+#### Type Parameters
+
+• **T_1** *extends* [] \| [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `...ZodTypeAny[]`]
+
+#### Parameters
+
+##### schemas
+
+`T_1`
+
+##### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
+
+#### Returns
+
+[`ZodTuple`](ZodTuple.md)\<`T_1`, `null`\>
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:670
 
 ## Accessors
 
@@ -54,9 +160,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -76,9 +180,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 #### Get Signature
 
-```ts
-get items(): T
-```
+> **get** **items**(): `T`
 
 ##### Returns
 
@@ -92,16 +194,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:668
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -119,15 +222,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -145,15 +246,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<OutputTypeOfTupleWithRest<T, Rest>>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<[`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -171,15 +270,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:667
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<OutputTypeOfTupleWithRest<T, Rest>>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<[`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -197,15 +294,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<OutputTypeOfTupleWithRest<T, Rest>>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<[`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -223,32 +318,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -262,15 +350,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: OutputTypeOfTupleWithRest<T, Rest>, ctx: RefinementCtx) => any): ZodEffects<ZodTuple<T, Rest>, OutputTypeOfTupleWithRest<T, Rest>, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -288,21 +374,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodTuple<T, Rest>, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -320,9 +402,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodTuple<T, Rest>, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `"many"`\>
 
 #### Returns
 
@@ -340,21 +420,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodTuple<T, Rest>, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -372,17 +448,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: OutputTypeOfTupleWithRest<T, Rest>): ZodCatch<ZodTuple<T, Rest>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\> |
+###### def
+
+[`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>
 
 ##### Returns
 
@@ -396,20 +470,15 @@ catch(def: OutputTypeOfTupleWithRest<T, Rest>): ZodCatch<ZodTuple<T, Rest>>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: InputTypeOfTupleWithRest<T, Rest>;
-}) => OutputTypeOfTupleWithRest<T, Rest>): ZodCatch<ZodTuple<T, Rest>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>; \}) => [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\> |
+###### def
+
+(`ctx`) => [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>
 
 ##### Returns
 
@@ -427,17 +496,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: noUndefined<InputTypeOfTupleWithRest<T, Rest>>): ZodDefault<ZodTuple<T, Rest>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\> |
+###### def
+
+[`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Returns
 
@@ -451,17 +518,15 @@ default(def: noUndefined<InputTypeOfTupleWithRest<T, Rest>>): ZodDefault<ZodTupl
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => noUndefined<InputTypeOfTupleWithRest<T, Rest>>): ZodDefault<ZodTuple<T, Rest>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\> |
+###### def
+
+() => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Returns
 
@@ -479,15 +544,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -505,9 +568,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -525,9 +586,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -545,9 +604,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodTuple<T, Rest>>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>
 
 #### Returns
 
@@ -565,9 +622,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodTuple<T, Rest>>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>\>
 
 #### Returns
 
@@ -585,9 +640,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodTuple<T, Rest>>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>
 
 #### Returns
 
@@ -605,21 +658,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodTuple<T, Rest>, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -637,16 +686,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): OutputTypeOfTupleWithRest<T, Rest>
-```
+> **parse**(`data`, `params`?): [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -664,16 +714,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<OutputTypeOfTupleWithRest<T, Rest>>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<[`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -691,21 +742,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodTuple<T, Rest>, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -723,9 +770,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodTuple<T, Rest>>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>
 
 #### Returns
 
@@ -743,9 +788,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodTuple<T, Rest>>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>\>
 
 #### Returns
 
@@ -763,24 +806,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: OutputTypeOfTupleWithRest<T, Rest>) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: OutputTypeOfTupleWithRest<T, Rest>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodTuple<T, Rest>, RefinedOutput, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `RefinedOutput`, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* [...AssertArray\<\{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}\>\[\], `...any[]`] \| `any`[] & \{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \} |
+• **RefinedOutput** *extends* [...AssertArray\<\{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}\>\[\], `...any[]`] \| `any`[] & \{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -794,18 +836,19 @@ refine<RefinedOutput>(check: (arg: OutputTypeOfTupleWithRest<T, Rest>) => arg is
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: OutputTypeOfTupleWithRest<T, Rest>) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: OutputTypeOfTupleWithRest<T, Rest>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodTuple<T, Rest>, OutputTypeOfTupleWithRest<T, Rest>, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -823,24 +866,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: OutputTypeOfTupleWithRest<T, Rest>) => arg is RefinedOutput, refinementData: IssueData | (arg: OutputTypeOfTupleWithRest<T, Rest>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodTuple<T, Rest>, RefinedOutput, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `RefinedOutput`, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* [...AssertArray\<\{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}\>\[\], `...any[]`] \| `any`[] & \{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \} |
+• **RefinedOutput** *extends* [...AssertArray\<\{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}\>\[\], `...any[]`] \| `any`[] & \{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -848,24 +890,25 @@ refinement<RefinedOutput>(check: (arg: OutputTypeOfTupleWithRest<T, Rest>) => ar
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: OutputTypeOfTupleWithRest<T, Rest>) => boolean, refinementData: IssueData | (arg: OutputTypeOfTupleWithRest<T, Rest>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodTuple<T, Rest>, OutputTypeOfTupleWithRest<T, Rest>, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -873,7 +916,7 @@ refinement(check: (arg: OutputTypeOfTupleWithRest<T, Rest>) => boolean, refineme
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -883,21 +926,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### rest()
 
-```ts
-rest<Rest>(rest: Rest): ZodTuple<T, Rest>
-```
+> **rest**\<`Rest`\>(`rest`): [`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Rest` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Rest`\> |
+• **Rest** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Rest`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `rest` | `Rest` |
+##### rest
+
+`Rest`
 
 #### Returns
 
@@ -911,16 +950,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:669
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<InputTypeOfTupleWithRest<T, Rest>, OutputTypeOfTupleWithRest<T, Rest>>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -938,16 +978,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<InputTypeOfTupleWithRest<T, Rest>, OutputTypeOfTupleWithRest<T, Rest>>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<[`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -965,23 +1006,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: OutputTypeOfTupleWithRest<T, Rest>, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodTuple<T, Rest>, RefinedOutput, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `RefinedOutput`, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* [...AssertArray\<\{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}\>\[\], `...any[]`] \| `any`[] & \{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \} |
+• **RefinedOutput** *extends* [...AssertArray\<\{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}\>\[\], `...any[]`] \| `any`[] & \{ \[k in string \| number \| symbol\]: T\[k\<k\>\] extends ZodType\<any, any, any\> ? any\[any\]\["\_output"\] : never \}
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -995,17 +1032,15 @@ superRefine<RefinedOutput>(refinement: (arg: OutputTypeOfTupleWithRest<T, Rest>,
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: OutputTypeOfTupleWithRest<T, Rest>, ctx: RefinementCtx) => void): ZodEffects<ZodTuple<T, Rest>, OutputTypeOfTupleWithRest<T, Rest>, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -1019,17 +1054,15 @@ superRefine(refinement: (arg: OutputTypeOfTupleWithRest<T, Rest>, ctx: Refinemen
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: OutputTypeOfTupleWithRest<T, Rest>, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodTuple<T, Rest>, OutputTypeOfTupleWithRest<T, Rest>, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1047,21 +1080,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: OutputTypeOfTupleWithRest<T, Rest>, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodTuple<T, Rest>, NewOut, InputTypeOfTupleWithRest<T, Rest>>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodTuple`](ZodTuple.md)\<`T`, `Rest`\>, `NewOut`, [`InputTypeOfTupleWithRest`](../type-aliases/InputTypeOfTupleWithRest.md)\<`T`, `Rest`\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: [`OutputTypeOfTupleWithRest`](../type-aliases/OutputTypeOfTupleWithRest.md)\<`T`, `Rest`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 

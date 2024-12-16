@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ParsePath
+
 # Type Alias: ParsePath
 
-```ts
-type ParsePath: ParsePathComponent[];
-```
+> **ParsePath**: [`ParsePathComponent`](ParsePathComponent.md)[]
 
 ## Defined in
 

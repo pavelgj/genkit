@@ -1,24 +1,22 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / RerankerAction
+
 # Type Alias: RerankerAction\<CustomOptions\>
 
-```ts
-type RerankerAction<CustomOptions>: Action<typeof RerankerRequestSchema, typeof RerankerResponseSchema, {
-  model: RerankerInfo;
- }> & {
-  __configSchema: CustomOptions;
-};
-```
+> **RerankerAction**\<`CustomOptions`\>: [`Action`](Action.md)\<*typeof* `RerankerRequestSchema`, *typeof* `RerankerResponseSchema`\> & `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `__configSchema`? | `CustomOptions` | ai/lib/reranker.d.ts:447 |
+### \_\_configSchema?
+
+> `optional` **\_\_configSchema**: `CustomOptions`
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Defined in
 

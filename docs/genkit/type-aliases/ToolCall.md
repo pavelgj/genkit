@@ -1,19 +1,23 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / ToolCall
+
 # Type Alias: ToolCall
 
-```ts
-type ToolCall: {
-  arguments: any;
-  toolName: string;
-};
-```
+> **ToolCall**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `arguments`? | `any` | ai/lib/types.d.ts:63 |
-| `toolName` | `string` | ai/lib/types.d.ts:62 |
+### arguments?
+
+> `optional` **arguments**: `any`
+
+### toolName
+
+> **toolName**: `string`
 
 ## Defined in
 
-ai/lib/types.d.ts:68
+ai/lib/types.d.ts:57

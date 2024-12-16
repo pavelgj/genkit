@@ -1,20 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / DIRTY
+
 # Function: DIRTY()
 
-```ts
-function DIRTY<T>(value: T): DIRTY<T>
-```
+> **DIRTY**\<`T`\>(`value`): [`DIRTY`](../type-aliases/DIRTY.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `T` |
+### value
+
+`T`
 
 ## Returns
 

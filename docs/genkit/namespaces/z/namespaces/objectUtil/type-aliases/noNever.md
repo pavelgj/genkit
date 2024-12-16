@@ -1,14 +1,16 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [objectUtil](../README.md) / noNever
+
 # Type Alias: noNever\<T\>
 
-```ts
-type noNever<T>: identity<{ [k in noNeverKeys<T>]: k extends keyof T ? T[k] : never }>;
-```
+> **noNever**\<`T`\>: [`identity`](identity.md)\<`{ [k in noNeverKeys<T>]: k extends keyof T ? T[k] : never }`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Defined in
 

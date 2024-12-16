@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / optional
+
 # Function: optional()
 
-```ts
-function optional<T>(type: T, params?: RawCreateParams): ZodOptional<T>
-```
+> **optional**\<`T`\>(`type`, `params`?): [`ZodOptional`](../classes/ZodOptional.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `type` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### type
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

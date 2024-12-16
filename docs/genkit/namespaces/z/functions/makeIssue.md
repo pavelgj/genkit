@@ -1,23 +1,32 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / makeIssue
+
 # Function: makeIssue()
 
-```ts
-function makeIssue(params: {
-  data: any;
-  errorMaps: ZodErrorMap[];
-  issueData: IssueData;
-  path: (string | number)[];
- }): ZodIssue
-```
+> **makeIssue**(`params`): [`ZodIssue`](../type-aliases/ZodIssue.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | `object` |
-| `params.data` | `any` |
-| `params.errorMaps` | [`ZodErrorMap`](../type-aliases/ZodErrorMap.md)[] |
-| `params.issueData` | [`IssueData`](../type-aliases/IssueData.md) |
-| `params.path` | (`string` \| `number`)[] |
+### params
+
+#### data
+
+`any`
+
+#### errorMaps
+
+[`ZodErrorMap`](../type-aliases/ZodErrorMap.md)[]
+
+#### issueData
+
+[`IssueData`](../type-aliases/IssueData.md)
+
+#### path
+
+(`string` \| `number`)[]
 
 ## Returns
 

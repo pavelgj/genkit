@@ -1,14 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / quotelessJson
+
 # Function: quotelessJson()
 
-```ts
-function quotelessJson(obj: any): string
-```
+> **quotelessJson**(`obj`): `string`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `obj` | `any` |
+### obj
+
+`any`
 
 ## Returns
 

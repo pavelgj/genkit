@@ -1,8 +1,12 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / DocumentDataSchema
+
 # Variable: DocumentDataSchema
 
-```ts
-const DocumentDataSchema: ZodObject<DocumentData>;
-```
+> `const` **DocumentDataSchema**: [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<[`DocumentData`](../type-aliases/DocumentData.md)\>
 
 ## Defined in
 

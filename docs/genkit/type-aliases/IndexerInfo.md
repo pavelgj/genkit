@@ -1,22 +1,29 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / IndexerInfo
+
 # Type Alias: IndexerInfo
 
-```ts
-type IndexerInfo: {
-  label: string;
-  supports: {
-     media: boolean;
-    };
-};
-```
+> **IndexerInfo**: `object`
+
+Indexer metadata.
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `label`? | `string` | ai/lib/retriever.d.ts:412 |
-| `supports`? | \{ `media`: `boolean`; \} | ai/lib/retriever.d.ts:413 |
-| `supports.media`? | `boolean` | ai/lib/retriever.d.ts:414 |
+### label?
+
+> `optional` **label**: `string`
+
+### supports?
+
+> `optional` **supports**: `object`
+
+#### supports.media?
+
+> `optional` **supports.media**: `boolean`
 
 ## Defined in
 
-ai/lib/retriever.d.ts:422
+ai/lib/retriever.d.ts:462

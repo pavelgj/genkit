@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / InputTypeOfTuple
+
 # Type Alias: InputTypeOfTuple\<T\>
 
-```ts
-type InputTypeOfTuple<T>: AssertArray<{ [k in keyof T]: T[k] extends ZodType<any, any, any> ? T[k]["_input"] : never }>;
-```
+> **InputTypeOfTuple**\<`T`\>: [`AssertArray`](AssertArray.md)\<`{ [k in keyof T]: T[k] extends ZodType<any, any, any> ? T[k]["_input"] : never }`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodTupleItems`](ZodTupleItems.md) \| [] |
+• **T** *extends* [`ZodTupleItems`](ZodTupleItems.md) \| []
 
 ## Defined in
 

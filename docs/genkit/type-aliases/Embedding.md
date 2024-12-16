@@ -1,9 +1,15 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / Embedding
+
 # Type Alias: Embedding
 
-```ts
-type Embedding: number[];
-```
+> **Embedding**: `number`[]
+
+Embedding vector.
 
 ## Defined in
 
-ai/lib/embedder.d.ts:25
+ai/lib/embedder.d.ts:34

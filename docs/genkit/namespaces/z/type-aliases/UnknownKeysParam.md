@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / UnknownKeysParam
+
 # Type Alias: UnknownKeysParam
 
-```ts
-type UnknownKeysParam: "passthrough" | "strict" | "strip";
-```
+> **UnknownKeysParam**: `"passthrough"` \| `"strict"` \| `"strip"`
 
 ## Defined in
 

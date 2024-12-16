@@ -1,14 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / setErrorMap
+
 # Function: setErrorMap()
 
-```ts
-function setErrorMap(map: ZodErrorMap): void
-```
+> **setErrorMap**(`map`): `void`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `map` | [`ZodErrorMap`](../type-aliases/ZodErrorMap.md) |
+### map
+
+[`ZodErrorMap`](../type-aliases/ZodErrorMap.md)
 
 ## Returns
 

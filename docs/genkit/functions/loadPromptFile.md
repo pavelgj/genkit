@@ -1,15 +1,22 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / loadPromptFile
+
 # Function: loadPromptFile()
 
-```ts
-function loadPromptFile(registry: Registry, path: string): Dotprompt
-```
+> **loadPromptFile**(`registry`, `path`): `Dotprompt`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `registry` | `Registry` |
-| `path` | `string` |
+### registry
+
+[`Registry`](../registry/classes/Registry.md)
+
+### path
+
+`string`
 
 ## Returns
 

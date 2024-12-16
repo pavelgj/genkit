@@ -1,22 +1,24 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / rerankerRef
+
 # Function: rerankerRef()
 
-```ts
-function rerankerRef<CustomOptionsSchema>(options: RerankerReference<CustomOptionsSchema>): RerankerReference<CustomOptionsSchema>
-```
+> **rerankerRef**\<`CustomOptionsSchema`\>(`options`): [`RerankerReference`](../interfaces/RerankerReference.md)\<`CustomOptionsSchema`\>
 
 Helper method to configure a [RerankerReference](../interfaces/RerankerReference.md) to a plugin.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptionsSchema` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptionsSchema`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptionsSchema** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptionsSchema`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | [`RerankerReference`](../interfaces/RerankerReference.md)\<`CustomOptionsSchema`\> |
+### options
+
+[`RerankerReference`](../interfaces/RerankerReference.md)\<`CustomOptionsSchema`\>
 
 ## Returns
 
@@ -24,4 +26,4 @@ Helper method to configure a [RerankerReference](../interfaces/RerankerReference
 
 ## Defined in
 
-ai/lib/reranker.d.ts:483
+ai/lib/reranker.d.ts:481

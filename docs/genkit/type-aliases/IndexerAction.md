@@ -1,23 +1,25 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / IndexerAction
+
 # Type Alias: IndexerAction\<IndexerOptions\>
 
-```ts
-type IndexerAction<IndexerOptions>: Action<typeof IndexerRequestSchema, ZodVoid> & {
-  __configSchema: IndexerOptions;
-};
-```
+> **IndexerAction**\<`IndexerOptions`\>: [`Action`](Action.md)\<*typeof* `IndexerRequestSchema`, [`ZodVoid`](../namespaces/z/classes/ZodVoid.md)\> & `object`
+
+An indexer action type.
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `__configSchema`? | `IndexerOptions` | ai/lib/retriever.d.ts:346 |
+### \_\_configSchema?
+
+> `optional` **\_\_configSchema**: `IndexerOptions`
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `IndexerOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **IndexerOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Defined in
 
-ai/lib/retriever.d.ts:345
+ai/lib/retriever.d.ts:367

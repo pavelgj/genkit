@@ -1,22 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / bigint
+
 # Function: bigint()
 
-```ts
-function bigint(params?: {
-  description: string;
-  errorMap: ZodErrorMap;
-  invalid_type_error: string;
-  message: string;
-  required_error: string;
- } & {
-  coerce: boolean;
- }): ZodBigInt
-```
+> **bigint**(`params`?): [`ZodBigInt`](../classes/ZodBigInt.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params`? | \{ `description`: `string`; `errorMap`: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md); `invalid_type_error`: `string`; `message`: `string`; `required_error`: `string`; \} & \{ `coerce`: `boolean`; \} |
+### params?
+
+`object` & `object`
 
 ## Returns
 

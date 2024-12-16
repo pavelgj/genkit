@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / NEVER
+
 # Variable: NEVER
 
-```ts
-const NEVER: never;
-```
+> `const` **NEVER**: `never`
 
 ## Defined in
 

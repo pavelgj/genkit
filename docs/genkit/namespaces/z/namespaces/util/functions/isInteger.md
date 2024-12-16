@@ -1,16 +1,22 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / isInteger
+
 # Function: isInteger()
 
-```ts
-function isInteger(number: unknown): boolean
-```
+> **isInteger**(`number`): `boolean`
 
 Returns true if the value passed is an integer, false otherwise.
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `number` | `unknown` | A numeric value. |
+### number
+
+`unknown`
+
+A numeric value.
 
 ## Returns
 

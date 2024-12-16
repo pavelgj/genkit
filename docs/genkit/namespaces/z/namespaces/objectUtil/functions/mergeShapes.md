@@ -1,22 +1,28 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [objectUtil](../README.md) / mergeShapes
+
 # Function: mergeShapes()
 
-```ts
-function mergeShapes<U, T>(first: U, second: T): T & U
-```
+> **mergeShapes**\<`U`, `T`\>(`first`, `second`): `T` & `U`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `U` |
-| `T` |
+• **U**
+
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `first` | `U` |
-| `second` | `T` |
+### first
+
+`U`
+
+### second
+
+`T`
 
 ## Returns
 

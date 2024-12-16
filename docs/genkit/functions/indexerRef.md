@@ -1,22 +1,24 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / indexerRef
+
 # Function: indexerRef()
 
-```ts
-function indexerRef<CustomOptionsSchema>(options: IndexerReference<CustomOptionsSchema>): IndexerReference<CustomOptionsSchema>
-```
+> **indexerRef**\<`CustomOptionsSchema`\>(`options`): [`IndexerReference`](../interfaces/IndexerReference.md)\<`CustomOptionsSchema`\>
 
 Helper method to configure a [IndexerReference](../interfaces/IndexerReference.md) to a plugin.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptionsSchema` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptionsSchema`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptionsSchema** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptionsSchema`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | [`IndexerReference`](../interfaces/IndexerReference.md)\<`CustomOptionsSchema`\> |
+### options
+
+[`IndexerReference`](../interfaces/IndexerReference.md)\<`CustomOptionsSchema`\>
 
 ## Returns
 
@@ -24,4 +26,4 @@ Helper method to configure a [IndexerReference](../interfaces/IndexerReference.m
 
 ## Defined in
 
-ai/lib/retriever.d.ts:431
+ai/lib/retriever.d.ts:471

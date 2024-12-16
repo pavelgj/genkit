@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / instanceof
+
 # Function: instanceof()
 
-```ts
-function instanceof<T>(cls: T, params?: CustomParams): ZodType<InstanceType<T>, ZodTypeDef, InstanceType<T>>
-```
+> **instanceof**\<`T`\>(`cls`, `params`?): [`ZodType`](../classes/ZodType.md)\<`InstanceType`\<`T`\>, [`ZodTypeDef`](../interfaces/ZodTypeDef.md), `InstanceType`\<`T`\>\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* *typeof* `Class` |
+• **T** *extends* *typeof* `Class`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `cls` | `T` |
-| `params`? | `CustomParams` |
+### cls
+
+`T`
+
+### params?
+
+`CustomParams`
 
 ## Returns
 

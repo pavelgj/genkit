@@ -1,24 +1,30 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / enum
+
 # Function: enum()
 
-## enum(values, params)
+## Call Signature
 
-```ts
-function enum<U, T>(values: T, params?: RawCreateParams): ZodEnum<Writeable<T>>
-```
+> **enum**\<`U`, `T`\>(`values`, `params`?): [`ZodEnum`](../classes/ZodEnum.md)\<[`Writeable`](../type-aliases/Writeable.md)\<`T`\>\>
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `U` *extends* `string` |
-| `T` *extends* readonly [`U`, `U`, `T`] |
+• **U** *extends* `string`
+
+• **T** *extends* readonly [`U`, `U`, `T`]
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `values` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+#### values
+
+`T`
+
+#### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ### Returns
 
@@ -28,25 +34,25 @@ function enum<U, T>(values: T, params?: RawCreateParams): ZodEnum<Writeable<T>>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:1068
 
-## enum(values, params)
+## Call Signature
 
-```ts
-function enum<U, T>(values: T, params?: RawCreateParams): ZodEnum<T>
-```
+> **enum**\<`U`, `T`\>(`values`, `params`?): [`ZodEnum`](../classes/ZodEnum.md)\<`T`\>
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `U` *extends* `string` |
-| `T` *extends* [`U`, `...U[]`] |
+• **U** *extends* `string`
+
+• **T** *extends* [`U`, `...U[]`]
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `values` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+#### values
+
+`T`
+
+#### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ### Returns
 

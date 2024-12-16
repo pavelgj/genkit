@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / CatchallOutput
+
 # Type Alias: CatchallOutput\<T\>
 
-```ts
-type CatchallOutput<T>: ZodType extends T ? unknown : {};
-```
+> **CatchallOutput**\<`T`\>: [`ZodType`](../classes/ZodType.md) *extends* `T` ? `unknown` : `object`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md) |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)
 
 ## Defined in
 

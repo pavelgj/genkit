@@ -1,25 +1,28 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / typeToFlattenedError
+
 # Type Alias: typeToFlattenedError\<T, U\>
 
-```ts
-type typeToFlattenedError<T, U>: {
-  fieldErrors: { [P in allKeys<T>]?: U[] };
-  formErrors: U[];
-};
-```
+> **typeToFlattenedError**\<`T`, `U`\>: `object`
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` | - |
-| `U` | `string` |
+• **T**
+
+• **U** = `string`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `fieldErrors` | `{ [P in allKeys<T>]?: U[] }` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:8 |
-| `formErrors` | `U`[] | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:7 |
+### fieldErrors
+
+> **fieldErrors**: `{ [P in allKeys<T>]?: U[] }`
+
+### formErrors
+
+> **formErrors**: `U`[]
 
 ## Defined in
 

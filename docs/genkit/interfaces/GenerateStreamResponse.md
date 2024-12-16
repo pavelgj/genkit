@@ -1,10 +1,14 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / GenerateStreamResponse
+
 # Interface: GenerateStreamResponse\<O\>
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `O` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **O** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Accessors
 
@@ -12,9 +16,7 @@
 
 #### Get Signature
 
-```ts
-get response(): Promise<GenerateResponse<O>>
-```
+> **get** **response**(): `Promise`\<[`GenerateResponse`](../classes/GenerateResponse.md)\<`O`\>\>
 
 ##### Returns
 
@@ -22,7 +24,7 @@ get response(): Promise<GenerateResponse<O>>
 
 #### Defined in
 
-ai/lib/generate-C8Qor0QX.d.ts:245
+ai/lib/generate-OYA442tG.d.ts:268
 
 ***
 
@@ -30,9 +32,7 @@ ai/lib/generate-C8Qor0QX.d.ts:245
 
 #### Get Signature
 
-```ts
-get stream(): AsyncIterable<GenerateResponseChunk<unknown>>
-```
+> **get** **stream**(): `AsyncIterable`\<`GenerateResponseChunk`\<`unknown`\>\>
 
 ##### Returns
 
@@ -40,4 +40,4 @@ get stream(): AsyncIterable<GenerateResponseChunk<unknown>>
 
 #### Defined in
 
-ai/lib/generate-C8Qor0QX.d.ts:244
+ai/lib/generate-OYA442tG.d.ts:267

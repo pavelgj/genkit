@@ -1,15 +1,17 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / RerankerArgument
+
 # Type Alias: RerankerArgument\<CustomOptions\>
 
-```ts
-type RerankerArgument<CustomOptions>: RerankerAction<CustomOptions> | RerankerReference<CustomOptions> | string;
-```
+> **RerankerArgument**\<`CustomOptions`\>: [`RerankerAction`](RerankerAction.md)\<`CustomOptions`\> \| [`RerankerReference`](../interfaces/RerankerReference.md)\<`CustomOptions`\> \| `string`
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Defined in
 
-ai/lib/reranker.d.ts:463
+ai/lib/reranker.d.ts:461

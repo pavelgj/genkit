@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodInvalidStringIssue
+
 # Interface: ZodInvalidStringIssue
 
 ## Extends
@@ -6,9 +12,48 @@
 
 ## Properties
 
-| Property | Type | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ |
-| `code` | `"invalid_string"` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:82 |
-| `message?` | `string` | `ZodIssueBase.message` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:33 |
-| `path` | (`string` \| `number`)[] | `ZodIssueBase.path` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:32 |
-| `validation` | [`StringValidation`](../type-aliases/StringValidation.md) | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:83 |
+### code
+
+> **code**: `"invalid_string"`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:82
+
+***
+
+### message?
+
+> `optional` **message**: `string`
+
+#### Inherited from
+
+`ZodIssueBase.message`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:33
+
+***
+
+### path
+
+> **path**: (`string` \| `number`)[]
+
+#### Inherited from
+
+`ZodIssueBase.path`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:32
+
+***
+
+### validation
+
+> **validation**: [`StringValidation`](../type-aliases/StringValidation.md)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:83

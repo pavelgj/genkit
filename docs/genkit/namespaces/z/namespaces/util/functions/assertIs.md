@@ -1,20 +1,22 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / assertIs
+
 # Function: assertIs()
 
-```ts
-function assertIs<T>(_arg: T): void
-```
+> **assertIs**\<`T`\>(`_arg`): `void`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `_arg` | `T` |
+### \_arg
+
+`T`
 
 ## Returns
 

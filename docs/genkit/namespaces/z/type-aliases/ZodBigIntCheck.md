@@ -1,22 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodBigIntCheck
+
 # Type Alias: ZodBigIntCheck
 
-```ts
-type ZodBigIntCheck: {
-  inclusive: boolean;
-  kind: "min";
-  message: string;
-  value: bigint;
- } | {
-  inclusive: boolean;
-  kind: "max";
-  message: string;
-  value: bigint;
- } | {
-  kind: "multipleOf";
-  message: string;
-  value: bigint;
-};
-```
+> **ZodBigIntCheck**: \{ `inclusive`: `boolean`; `kind`: `"min"`; `message`: `string`; `value`: `bigint`; \} \| \{ `inclusive`: `boolean`; `kind`: `"max"`; `message`: `string`; `value`: `bigint`; \} \| \{ `kind`: `"multipleOf"`; `message`: `string`; `value`: `bigint`; \}
 
 ## Defined in
 

@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / EMPTY\_PATH
+
 # Variable: EMPTY\_PATH
 
-```ts
-const EMPTY_PATH: ParsePath;
-```
+> `const` **EMPTY\_PATH**: [`ParsePath`](../type-aliases/ParsePath.md)
 
 ## Defined in
 

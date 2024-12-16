@@ -1,18 +1,53 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / RerankerReference
+
 # Interface: RerankerReference\<CustomOptions\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `configSchema?` | `CustomOptions` | ai/lib/reranker.d.ts:477 |
-| `info?` | \{ `label`: `string`; `supports`: \{ `media`: `boolean`; \}; \} | ai/lib/reranker.d.ts:478 |
-| `info.label?` | `string` | ai/lib/reranker.d.ts:433 |
-| `info.supports?` | \{ `media`: `boolean`; \} | ai/lib/reranker.d.ts:434 |
-| `info.supports.media?` | `boolean` | ai/lib/reranker.d.ts:435 |
-| `name` | `string` | ai/lib/reranker.d.ts:476 |
+### configSchema?
+
+> `optional` **configSchema**: `CustomOptions`
+
+#### Defined in
+
+ai/lib/reranker.d.ts:475
+
+***
+
+### info?
+
+> `optional` **info**: `object`
+
+#### label?
+
+> `optional` **label**: `string`
+
+#### supports?
+
+> `optional` **supports**: `object`
+
+##### supports.media?
+
+> `optional` **supports.media**: `boolean`
+
+#### Defined in
+
+ai/lib/reranker.d.ts:476
+
+***
+
+### name
+
+> **name**: `string`
+
+#### Defined in
+
+ai/lib/reranker.d.ts:474

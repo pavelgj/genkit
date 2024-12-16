@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodError
+
 # Class: ZodError\<T\>
 
 ## Extends
@@ -6,23 +12,19 @@
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` | `any` |
+• **T** = `any`
 
 ## Constructors
 
 ### new ZodError()
 
-```ts
-new ZodError<T>(issues: ZodIssue[]): ZodError<T>
-```
+> **new ZodError**\<`T`\>(`issues`): [`ZodError`](ZodError.md)\<`T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `issues` | [`ZodIssue`](../type-aliases/ZodIssue.md)[] |
+##### issues
+
+[`ZodIssue`](../type-aliases/ZodIssue.md)[]
 
 #### Returns
 
@@ -38,16 +40,149 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:138
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `addIssue` | `public` | (`sub`: [`ZodIssue`](../type-aliases/ZodIssue.md)) => `void` | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:146 |
-| `addIssues` | `public` | (`subs`?: [`ZodIssue`](../type-aliases/ZodIssue.md)[]) => `void` | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:147 |
-| `issues` | `public` | [`ZodIssue`](../type-aliases/ZodIssue.md)[] | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:136 |
-| `name` | `public` | `string` | - | `Error.name` | node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1053 |
-| `stack?` | `public` | `string` | - | `Error.stack` | node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1055 |
-| `create` | `static` | (`issues`: [`ZodIssue`](../type-aliases/ZodIssue.md)[]) => [`ZodError`](ZodError.md)\<`any`\> | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:141 |
-| `prepareStackTrace?` | `static` | (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any` | Optional override for formatting stack traces **See** https://v8.dev/docs/stack-trace-api#customizing-stack-traces | `Error.prepareStackTrace` | node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:143 |
-| `stackTraceLimit` | `static` | `number` | - | `Error.stackTraceLimit` | node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:145 |
+### addIssue()
+
+> **addIssue**: (`sub`) => `void`
+
+#### Parameters
+
+##### sub
+
+[`ZodIssue`](../type-aliases/ZodIssue.md)
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:146
+
+***
+
+### addIssues()
+
+> **addIssues**: (`subs`?) => `void`
+
+#### Parameters
+
+##### subs?
+
+[`ZodIssue`](../type-aliases/ZodIssue.md)[]
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:147
+
+***
+
+### issues
+
+> **issues**: [`ZodIssue`](../type-aliases/ZodIssue.md)[]
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:136
+
+***
+
+### name
+
+> **name**: `string`
+
+#### Inherited from
+
+`Error.name`
+
+#### Defined in
+
+node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1053
+
+***
+
+### stack?
+
+> `optional` **stack**: `string`
+
+#### Inherited from
+
+`Error.stack`
+
+#### Defined in
+
+node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1055
+
+***
+
+### create()
+
+> `static` **create**: (`issues`) => [`ZodError`](ZodError.md)\<`any`\>
+
+#### Parameters
+
+##### issues
+
+[`ZodIssue`](../type-aliases/ZodIssue.md)[]
+
+#### Returns
+
+[`ZodError`](ZodError.md)\<`any`\>
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:141
+
+***
+
+### prepareStackTrace()?
+
+> `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
+
+Optional override for formatting stack traces
+
+#### Parameters
+
+##### err
+
+`Error`
+
+##### stackTraces
+
+`CallSite`[]
+
+#### Returns
+
+`any`
+
+#### See
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+#### Inherited from
+
+`Error.prepareStackTrace`
+
+#### Defined in
+
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:98
+
+***
+
+### stackTraceLimit
+
+> `static` **stackTraceLimit**: `number`
+
+#### Inherited from
+
+`Error.stackTraceLimit`
+
+#### Defined in
+
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:100
 
 ## Accessors
 
@@ -55,9 +190,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:138
 
 #### Get Signature
 
-```ts
-get errors(): ZodIssue[]
-```
+> **get** **errors**(): [`ZodIssue`](../type-aliases/ZodIssue.md)[]
 
 ##### Returns
 
@@ -73,9 +206,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:137
 
 #### Get Signature
 
-```ts
-get formErrors(): typeToFlattenedError<T, string>
-```
+> **get** **formErrors**(): [`typeToFlattenedError`](../type-aliases/typeToFlattenedError.md)\<`T`, `string`\>
 
 ##### Returns
 
@@ -91,9 +222,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:150
 
 #### Get Signature
 
-```ts
-get isEmpty(): boolean
-```
+> **get** **isEmpty**(): `boolean`
 
 ##### Returns
 
@@ -109,9 +238,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:145
 
 #### Get Signature
 
-```ts
-get message(): string
-```
+> **get** **message**(): `string`
 
 ##### Returns
 
@@ -129,11 +256,9 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:144
 
 ### flatten()
 
-#### flatten(undefined)
+#### Call Signature
 
-```ts
-flatten(): typeToFlattenedError<T, string>
-```
+> **flatten**(): [`typeToFlattenedError`](../type-aliases/typeToFlattenedError.md)\<`T`, `string`\>
 
 ##### Returns
 
@@ -143,23 +268,19 @@ flatten(): typeToFlattenedError<T, string>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:148
 
-#### flatten(mapper)
+#### Call Signature
 
-```ts
-flatten<U>(mapper?: (issue: ZodIssue) => U): typeToFlattenedError<T, U>
-```
+> **flatten**\<`U`\>(`mapper`?): [`typeToFlattenedError`](../type-aliases/typeToFlattenedError.md)\<`T`, `U`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `U` |
+• **U**
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `mapper`? | (`issue`: [`ZodIssue`](../type-aliases/ZodIssue.md)) => `U` |
+###### mapper?
+
+(`issue`) => `U`
 
 ##### Returns
 
@@ -173,11 +294,9 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:149
 
 ### format()
 
-#### format(undefined)
+#### Call Signature
 
-```ts
-format(): ZodFormattedError<T, string>
-```
+> **format**(): [`ZodFormattedError`](../type-aliases/ZodFormattedError.md)\<`T`, `string`\>
 
 ##### Returns
 
@@ -187,23 +306,19 @@ format(): ZodFormattedError<T, string>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:139
 
-#### format(mapper)
+#### Call Signature
 
-```ts
-format<U>(mapper: (issue: ZodIssue) => U): ZodFormattedError<T, U>
-```
+> **format**\<`U`\>(`mapper`): [`ZodFormattedError`](../type-aliases/ZodFormattedError.md)\<`T`, `U`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `U` |
+• **U**
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `mapper` | (`issue`: [`ZodIssue`](../type-aliases/ZodIssue.md)) => `U` |
+###### mapper
+
+(`issue`) => `U`
 
 ##### Returns
 
@@ -217,9 +332,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:140
 
 ### toString()
 
-```ts
-toString(): string
-```
+> **toString**(): `string`
 
 Returns a string representation of an object.
 
@@ -235,15 +348,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:143
 
 ### assert()
 
-```ts
-static assert(value: unknown): asserts value is ZodError<any>
-```
+> `static` **assert**(`value`): `asserts value is ZodError<any>`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `unknown` |
+##### value
+
+`unknown`
 
 #### Returns
 
@@ -257,18 +368,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:142
 
 ### captureStackTrace()
 
-```ts
-static captureStackTrace(targetObject: object, constructorOpt?: Function): void
-```
+> `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
 
 Create .stack property on a target object
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `targetObject` | `object` |
-| `constructorOpt`? | `Function` |
+##### targetObject
+
+`object`
+
+##### constructorOpt?
+
+`Function`
 
 #### Returns
 
@@ -280,4 +392,4 @@ Create .stack property on a target object
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:136
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:91

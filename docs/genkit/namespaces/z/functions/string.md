@@ -1,22 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / string
+
 # Function: string()
 
-```ts
-function string(params?: {
-  description: string;
-  errorMap: ZodErrorMap;
-  invalid_type_error: string;
-  message: string;
-  required_error: string;
- } & {
-  coerce: true;
- }): ZodString
-```
+> **string**(`params`?): [`ZodString`](../classes/ZodString.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params`? | \{ `description`: `string`; `errorMap`: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md); `invalid_type_error`: `string`; `message`: `string`; `required_error`: `string`; \} & \{ `coerce`: `true`; \} |
+### params?
+
+`object` & `object`
 
 ## Returns
 

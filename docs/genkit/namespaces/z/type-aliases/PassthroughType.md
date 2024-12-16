@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / PassthroughType
+
 # Type Alias: PassthroughType\<T\>
 
-```ts
-type PassthroughType<T>: T extends "passthrough" ? {} : unknown;
-```
+> **PassthroughType**\<`T`\>: `T` *extends* `"passthrough"` ? `object` : `unknown`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`UnknownKeysParam`](UnknownKeysParam.md) |
+• **T** *extends* [`UnknownKeysParam`](UnknownKeysParam.md)
 
 ## Defined in
 

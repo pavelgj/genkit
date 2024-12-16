@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodBranded
+
 # Class: ZodBranded\<T, B\>
 
 ## Extends
@@ -6,24 +12,21 @@
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **T** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
+
+• **B** *extends* `string` \| `number` \| `symbol`
 
 ## Constructors
 
 ### new ZodBranded()
 
-```ts
-new ZodBranded<T, B>(def: ZodBrandedDef<T>): ZodBranded<T, B>
-```
+> **new ZodBranded**\<`T`, `B`\>(`def`): [`ZodBranded`](ZodBranded.md)\<`T`, `B`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodBrandedDef`](../interfaces/ZodBrandedDef.md)\<`T`\> |
+##### def
+
+[`ZodBrandedDef`](../interfaces/ZodBrandedDef.md)\<`T`\>
 
 #### Returns
 
@@ -39,13 +42,89 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodBrandedDef`](../interfaces/ZodBrandedDef.md)\<`T`\> | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | `T`\[`"_input"`\] | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\> | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\> | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`T`\[`"_input"`\], `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
+### \_def
+
+> `readonly` **\_def**: [`ZodBrandedDef`](../interfaces/ZodBrandedDef.md)\<`T`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: `T`\[`"_input"`\]
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`T`\[`"_input"`\], `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`T`\[`"_input"`\], `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
 
 ## Accessors
 
@@ -53,9 +132,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -73,16 +150,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -100,15 +178,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -126,15 +202,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<any>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`any`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -152,15 +226,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:915
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<T["_output"] & BRAND<B>>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<`T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -178,15 +250,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<T["_output"] & BRAND<B>>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -204,32 +274,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -243,15 +306,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: T["_output"] & BRAND<B>, ctx: RefinementCtx) => any): ZodEffects<ZodBranded<T, B>, T["_output"] & BRAND<B>, T["_input"]>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `T`\[`"_input"`\]\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -269,21 +330,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodBranded<T, B>, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -301,9 +358,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodBranded<T, B>, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `"many"`\>
 
 #### Returns
 
@@ -321,21 +376,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodBranded<T, B>, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -353,17 +404,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: T["_output"] & BRAND<B>): ZodCatch<ZodBranded<T, B>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\> |
+###### def
+
+`T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>
 
 ##### Returns
 
@@ -377,20 +426,15 @@ catch(def: T["_output"] & BRAND<B>): ZodCatch<ZodBranded<T, B>>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: T["_input"];
-}) => T["_output"] & BRAND<B>): ZodCatch<ZodBranded<T, B>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: `T`\[`"_input"`\]; \}) => `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\> |
+###### def
+
+(`ctx`) => `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>
 
 ##### Returns
 
@@ -408,17 +452,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: noUndefined<T["_input"]>): ZodDefault<ZodBranded<T, B>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`T`\[`"_input"`\]\> |
+###### def
+
+[`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`T`\[`"_input"`\]\>
 
 ##### Returns
 
@@ -432,17 +474,15 @@ default(def: noUndefined<T["_input"]>): ZodDefault<ZodBranded<T, B>>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => noUndefined<T["_input"]>): ZodDefault<ZodBranded<T, B>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`T`\[`"_input"`\]\> |
+###### def
+
+() => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`T`\[`"_input"`\]\>
 
 ##### Returns
 
@@ -460,15 +500,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -486,9 +524,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -506,9 +542,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -526,9 +560,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodBranded<T, B>>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>
 
 #### Returns
 
@@ -546,9 +578,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodBranded<T, B>>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>\>
 
 #### Returns
 
@@ -566,9 +596,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodBranded<T, B>>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>
 
 #### Returns
 
@@ -586,21 +614,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodBranded<T, B>, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -618,16 +642,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): T["_output"] & BRAND<B>
-```
+> **parse**(`data`, `params`?): `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -645,16 +670,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<T["_output"] & BRAND<B>>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<`T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -672,21 +698,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodBranded<T, B>, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -704,9 +726,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodBranded<T, B>>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>
 
 #### Returns
 
@@ -724,9 +744,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodBranded<T, B>>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>\>
 
 #### Returns
 
@@ -744,24 +762,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: T["_output"] & BRAND<B>) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: T["_output"] & BRAND<B>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodBranded<T, B>, RefinedOutput, T["_input"]>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `RefinedOutput`, `T`\[`"_input"`\]\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `any` |
+• **RefinedOutput** *extends* `any`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -775,18 +792,19 @@ refine<RefinedOutput>(check: (arg: T["_output"] & BRAND<B>) => arg is RefinedOut
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: T["_output"] & BRAND<B>) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: T["_output"] & BRAND<B>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodBranded<T, B>, T["_output"] & BRAND<B>, T["_input"]>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `T`\[`"_input"`\]\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -804,24 +822,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: T["_output"] & BRAND<B>) => arg is RefinedOutput, refinementData: IssueData | (arg: T["_output"] & BRAND<B>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodBranded<T, B>, RefinedOutput, T["_input"]>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `RefinedOutput`, `T`\[`"_input"`\]\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `any` |
+• **RefinedOutput** *extends* `any`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -829,24 +846,25 @@ refinement<RefinedOutput>(check: (arg: T["_output"] & BRAND<B>) => arg is Refine
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: T["_output"] & BRAND<B>) => boolean, refinementData: IssueData | (arg: T["_output"] & BRAND<B>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodBranded<T, B>, T["_output"] & BRAND<B>, T["_input"]>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `T`\[`"_input"`\]\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -854,7 +872,7 @@ refinement(check: (arg: T["_output"] & BRAND<B>) => boolean, refinementData: Iss
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -864,16 +882,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<T["_input"], T["_output"] & BRAND<B>>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`T`\[`"_input"`\], `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -891,16 +910,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<T["_input"], T["_output"] & BRAND<B>>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`T`\[`"_input"`\], `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -918,23 +938,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: T["_output"] & BRAND<B>, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodBranded<T, B>, RefinedOutput, T["_input"]>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `RefinedOutput`, `T`\[`"_input"`\]\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `any` |
+• **RefinedOutput** *extends* `any`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -948,17 +964,15 @@ superRefine<RefinedOutput>(refinement: (arg: T["_output"] & BRAND<B>, ctx: Refin
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: T["_output"] & BRAND<B>, ctx: RefinementCtx) => void): ZodEffects<ZodBranded<T, B>, T["_output"] & BRAND<B>, T["_input"]>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `T`\[`"_input"`\]\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -972,17 +986,15 @@ superRefine(refinement: (arg: T["_output"] & BRAND<B>, ctx: RefinementCtx) => vo
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: T["_output"] & BRAND<B>, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodBranded<T, B>, T["_output"] & BRAND<B>, T["_input"]>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `T`\[`"_input"`\]\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1000,21 +1012,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: T["_output"] & BRAND<B>, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodBranded<T, B>, NewOut, T["_input"]>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodBranded`](ZodBranded.md)\<`T`, `B`\>, `NewOut`, `T`\[`"_input"`\]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: `T`\[`"_output"`\] & [`BRAND`](../type-aliases/BRAND.md)\<`B`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 
@@ -1032,9 +1040,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:84
 
 ### unwrap()
 
-```ts
-unwrap(): T
-```
+> **unwrap**(): `T`
 
 #### Returns
 

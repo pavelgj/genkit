@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / tuple
+
 # Function: tuple()
 
-```ts
-function tuple<T>(schemas: T, params?: RawCreateParams): ZodTuple<T, null>
-```
+> **tuple**\<`T`\>(`schemas`, `params`?): [`ZodTuple`](../classes/ZodTuple.md)\<`T`, `null`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [] \| [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `...ZodTypeAny[]`] |
+• **T** *extends* [] \| [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `...ZodTypeAny[]`]
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `schemas` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### schemas
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

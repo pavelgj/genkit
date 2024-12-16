@@ -1,21 +1,24 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / assertEqual
+
 # Function: assertEqual()
 
-```ts
-function assertEqual<A, B>(val: AssertEqual<A, B>): AssertEqual<A, B>
-```
+> **assertEqual**\<`A`, `B`\>(`val`): `AssertEqual`\<`A`, `B`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `A` |
-| `B` |
+• **A**
+
+• **B**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `val` | `AssertEqual`\<`A`, `B`\> |
+### val
+
+`AssertEqual`\<`A`, `B`\>
 
 ## Returns
 

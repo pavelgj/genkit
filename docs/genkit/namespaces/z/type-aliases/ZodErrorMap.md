@@ -1,29 +1,30 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodErrorMap
+
 # Type Alias: ZodErrorMap()
 
-```ts
-type ZodErrorMap: (issue: ZodIssueOptionalMessage, _ctx: ErrorMapCtx) => {
-  message: string;
-};
-```
+> **ZodErrorMap**: (`issue`, `_ctx`) => `object`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `issue` | [`ZodIssueOptionalMessage`](ZodIssueOptionalMessage.md) |
-| `_ctx` | [`ErrorMapCtx`](ErrorMapCtx.md) |
+### issue
+
+[`ZodIssueOptionalMessage`](ZodIssueOptionalMessage.md)
+
+### \_ctx
+
+[`ErrorMapCtx`](ErrorMapCtx.md)
 
 ## Returns
 
-```ts
-{
-  message: string;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `message` | `string` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:162 |
+### message
+
+> **message**: `string`
 
 ## Defined in
 

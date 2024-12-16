@@ -1,15 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / Primitive
+
 # Type Alias: Primitive
 
-```ts
-type Primitive: 
-  | string
-  | number
-  | symbol
-  | bigint
-  | boolean
-  | null
-  | undefined;
-```
+> **Primitive**: `string` \| `number` \| `symbol` \| `bigint` \| `boolean` \| `null` \| `undefined`
 
 ## Defined in
 

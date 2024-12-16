@@ -1,21 +1,27 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / Status
+
 # Type Alias: Status
 
-```ts
-type Status: {
-  code: StatusCodes;
-  details: any;
-  message: string;
-};
-```
+> **Status**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `code` | [`StatusCodes`](../enumerations/StatusCodes.md) | core/lib/statusTypes.d.ts:45 |
-| `details`? | `any` | core/lib/statusTypes.d.ts:47 |
-| `message` | `string` | core/lib/statusTypes.d.ts:46 |
+### code
+
+> **code**: [`StatusCodes`](../enumerations/StatusCodes.md)
+
+### details?
+
+> `optional` **details**: `any`
+
+### message
+
+> **message**: `string`
 
 ## Defined in
 
-core/lib/statusTypes.d.ts:53
+core/lib/statusTypes.d.ts:56

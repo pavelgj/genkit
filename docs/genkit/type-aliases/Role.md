@@ -1,9 +1,15 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / Role
+
 # Type Alias: Role
 
-```ts
-type Role: "model" | "tool" | "system" | "user";
-```
+> **Role**: `"model"` \| `"tool"` \| `"system"` \| `"user"`
+
+Message role.
 
 ## Defined in
 
-ai/lib/model.d.ts:479
+ai/lib/model.d.ts:527

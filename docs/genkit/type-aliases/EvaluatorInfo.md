@@ -1,18 +1,22 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / EvaluatorInfo
+
 # Type Alias: EvaluatorInfo
 
-```ts
-type EvaluatorInfo: {
-  label: string;
-  metrics: string[];
-};
-```
+> **EvaluatorInfo**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `label`? | `string` | ai/lib/evaluator.d.ts:378 |
-| `metrics` | `string`[] | ai/lib/evaluator.d.ts:377 |
+### label?
+
+> `optional` **label**: `string`
+
+### metrics
+
+> **metrics**: `string`[]
 
 ## Defined in
 

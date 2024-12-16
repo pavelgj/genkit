@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / literal
+
 # Function: literal()
 
-```ts
-function literal<T>(value: T, params?: RawCreateParams): ZodLiteral<T>
-```
+> **literal**\<`T`\>(`value`, `params`?): [`ZodLiteral`](../classes/ZodLiteral.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`Primitive`](../type-aliases/Primitive.md) |
+• **T** *extends* [`Primitive`](../type-aliases/Primitive.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### value
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

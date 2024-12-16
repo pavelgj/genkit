@@ -1,36 +1,107 @@
-# Interface: ActionMetadata\<I, O, M\>
+[**genkit**](../README.md)
 
-Copyright 2024 Google LLC
+***
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / ActionMetadata
 
-    http://www.apache.org/licenses/LICENSE-2.0
+# Interface: ActionMetadata\<I, O, S\>
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Action metadata.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | - |
-| `O` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | - |
-| `M` *extends* `Record`\<`string`, `any`\> | `Record`\<`string`, `any`\> |
+• **I** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **O** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **S** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `actionType?` | `ActionType` | core/lib/action-BLstGZbj.d.ts:209 |
-| `description?` | `string` | core/lib/action-BLstGZbj.d.ts:211 |
-| `inputJsonSchema?` | `any` | core/lib/action-BLstGZbj.d.ts:213 |
-| `inputSchema?` | `I` | core/lib/action-BLstGZbj.d.ts:212 |
-| `metadata?` | `M` | core/lib/action-BLstGZbj.d.ts:216 |
-| `name` | `string` | core/lib/action-BLstGZbj.d.ts:210 |
-| `outputJsonSchema?` | `any` | core/lib/action-BLstGZbj.d.ts:215 |
-| `outputSchema?` | `O` | core/lib/action-BLstGZbj.d.ts:214 |
+### actionType?
+
+> `optional` **actionType**: [`ActionType`](../registry/type-aliases/ActionType.md)
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:258
+
+***
+
+### description?
+
+> `optional` **description**: `string`
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:260
+
+***
+
+### inputJsonSchema?
+
+> `optional` **inputJsonSchema**: `any`
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:262
+
+***
+
+### inputSchema?
+
+> `optional` **inputSchema**: `I`
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:261
+
+***
+
+### metadata?
+
+> `optional` **metadata**: `Record`\<`string`, `any`\>
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:266
+
+***
+
+### name
+
+> **name**: `string`
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:259
+
+***
+
+### outputJsonSchema?
+
+> `optional` **outputJsonSchema**: `any`
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:264
+
+***
+
+### outputSchema?
+
+> `optional` **outputSchema**: `O`
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:263
+
+***
+
+### streamSchema?
+
+> `optional` **streamSchema**: `S`
+
+#### Defined in
+
+core/lib/action-Bp720DPN.d.ts:265

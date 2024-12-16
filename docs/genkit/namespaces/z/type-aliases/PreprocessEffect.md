@@ -1,24 +1,40 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / PreprocessEffect
+
 # Type Alias: PreprocessEffect\<T\>
 
-```ts
-type PreprocessEffect<T>: {
-  transform: (arg: T, ctx: RefinementCtx) => any;
-  type: "preprocess";
-};
-```
+> **PreprocessEffect**\<`T`\>: `object`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `transform` | (`arg`: `T`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:822 |
-| `type` | `"preprocess"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:821 |
+### transform()
+
+> **transform**: (`arg`, `ctx`) => `any`
+
+#### Parameters
+
+##### arg
+
+`T`
+
+##### ctx
+
+[`RefinementCtx`](../interfaces/RefinementCtx.md)
+
+#### Returns
+
+`any`
+
+### type
+
+> **type**: `"preprocess"`
 
 ## Defined in
 

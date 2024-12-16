@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / Writeable
+
 # Type Alias: Writeable\<T\>
 
-```ts
-type Writeable<T>: { -readonly [P in keyof T]: T[P] };
-```
+> **Writeable**\<`T`\>: `{ -readonly [P in keyof T]: T[P] }`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Defined in
 

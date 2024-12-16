@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodCatchDef
+
 # Interface: ZodCatchDef\<T\>
 
 ## Extends
@@ -6,16 +12,78 @@
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
+• **T** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ |
-| `catchValue` | (`ctx`: \{ `error`: [`ZodError`](../classes/ZodError.md)\<`any`\>; `input`: `unknown`; \}) => `T`\[`"_input"`\] | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:878 |
-| `description?` | `string` | [`ZodTypeDef`](ZodTypeDef.md).`description` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23 |
-| `errorMap?` | [`ZodErrorMap`](../type-aliases/ZodErrorMap.md) | [`ZodTypeDef`](ZodTypeDef.md).`errorMap` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22 |
-| `innerType` | `T` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:877 |
-| `typeName` | `ZodCatch` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:882 |
+### catchValue()
+
+> **catchValue**: (`ctx`) => `T`\[`"_input"`\]
+
+#### Parameters
+
+##### ctx
+
+###### error
+
+[`ZodError`](../classes/ZodError.md)\<`any`\>
+
+###### input
+
+`unknown`
+
+#### Returns
+
+`T`\[`"_input"`\]
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:878
+
+***
+
+### description?
+
+> `optional` **description**: `string`
+
+#### Inherited from
+
+[`ZodTypeDef`](ZodTypeDef.md).[`description`](ZodTypeDef.md#description)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23
+
+***
+
+### errorMap?
+
+> `optional` **errorMap**: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md)
+
+#### Inherited from
+
+[`ZodTypeDef`](ZodTypeDef.md).[`errorMap`](ZodTypeDef.md#errormap)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22
+
+***
+
+### innerType
+
+> **innerType**: `T`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:877
+
+***
+
+### typeName
+
+> **typeName**: [`ZodCatch`](../enumerations/ZodFirstPartyTypeKind.md#zodcatch)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:882

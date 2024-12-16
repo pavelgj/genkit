@@ -1,22 +1,29 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / RetrieverInfo
+
 # Type Alias: RetrieverInfo
 
-```ts
-type RetrieverInfo: {
-  label: string;
-  supports: {
-     media: boolean;
-    };
-};
-```
+> **RetrieverInfo**: `object`
+
+Zod schema of retriever info metadata.
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `label`? | `string` | ai/lib/retriever.d.ts:329 |
-| `supports`? | \{ `media`: `boolean`; \} | ai/lib/retriever.d.ts:330 |
-| `supports.media`? | `boolean` | ai/lib/retriever.d.ts:331 |
+### label?
+
+> `optional` **label**: `string`
+
+### supports?
+
+> `optional` **supports**: `object`
+
+#### supports.media?
+
+> `optional` **supports.media**: `boolean`
 
 ## Defined in
 
-ai/lib/retriever.d.ts:339
+ai/lib/retriever.d.ts:357

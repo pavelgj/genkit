@@ -1,27 +1,22 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / DocumentData
+
 # Type Alias: DocumentData
 
-```ts
-type DocumentData: {
-  content: ({
-     media: undefined;
-     text: string;
-    } | {
-     media: {
-        contentType: string;
-        url: string;
-       };
-     text: undefined;
-    })[];
-  metadata: Record<string, any>;
-};
-```
+> **DocumentData**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `content` | (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[] | ai/lib/document.d.ts:149 |
-| `metadata`? | `Record`\<`string`, `any`\> | ai/lib/document.d.ts:159 |
+### content
+
+> **content**: (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]
+
+### metadata?
+
+> `optional` **metadata**: `Record`\<`string`, `any`\>
 
 ## Defined in
 

@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / deoptional
+
 # Type Alias: deoptional\<T\>
 
-```ts
-type deoptional<T>: T extends ZodOptional<infer U> ? deoptional<U> : T extends ZodNullable<infer U> ? ZodNullable<deoptional<U>> : T;
-```
+> **deoptional**\<`T`\>: `T` *extends* [`ZodOptional`](../classes/ZodOptional.md)\<infer U\> ? [`deoptional`](deoptional.md)\<`U`\> : `T` *extends* [`ZodNullable`](../classes/ZodNullable.md)\<infer U\> ? [`ZodNullable`](../classes/ZodNullable.md)\<[`deoptional`](deoptional.md)\<`U`\>\> : `T`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodTypeAny`](ZodTypeAny.md) |
+• **T** *extends* [`ZodTypeAny`](ZodTypeAny.md)
 
 ## Defined in
 

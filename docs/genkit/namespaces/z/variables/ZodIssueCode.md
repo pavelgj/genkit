@@ -1,46 +1,78 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodIssueCode
+
 # Variable: ZodIssueCode
 
-```ts
-const ZodIssueCode: {
-  custom: "custom";
-  invalid_arguments: "invalid_arguments";
-  invalid_date: "invalid_date";
-  invalid_enum_value: "invalid_enum_value";
-  invalid_intersection_types: "invalid_intersection_types";
-  invalid_literal: "invalid_literal";
-  invalid_return_type: "invalid_return_type";
-  invalid_string: "invalid_string";
-  invalid_type: "invalid_type";
-  invalid_union: "invalid_union";
-  invalid_union_discriminator: "invalid_union_discriminator";
-  not_finite: "not_finite";
-  not_multiple_of: "not_multiple_of";
-  too_big: "too_big";
-  too_small: "too_small";
-  unrecognized_keys: "unrecognized_keys";
-};
-```
+> `const` **ZodIssueCode**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `custom` | `"custom"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:15 |
-| `invalid_arguments` | `"invalid_arguments"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:20 |
-| `invalid_date` | `"invalid_date"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:22 |
-| `invalid_enum_value` | `"invalid_enum_value"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:18 |
-| `invalid_intersection_types` | `"invalid_intersection_types"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:26 |
-| `invalid_literal` | `"invalid_literal"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:14 |
-| `invalid_return_type` | `"invalid_return_type"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:21 |
-| `invalid_string` | `"invalid_string"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:23 |
-| `invalid_type` | `"invalid_type"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:13 |
-| `invalid_union` | `"invalid_union"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:16 |
-| `invalid_union_discriminator` | `"invalid_union_discriminator"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:17 |
-| `not_finite` | `"not_finite"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:28 |
-| `not_multiple_of` | `"not_multiple_of"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:27 |
-| `too_big` | `"too_big"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:25 |
-| `too_small` | `"too_small"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:24 |
-| `unrecognized_keys` | `"unrecognized_keys"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:19 |
+### custom
+
+> **custom**: `"custom"`
+
+### invalid\_arguments
+
+> **invalid\_arguments**: `"invalid_arguments"`
+
+### invalid\_date
+
+> **invalid\_date**: `"invalid_date"`
+
+### invalid\_enum\_value
+
+> **invalid\_enum\_value**: `"invalid_enum_value"`
+
+### invalid\_intersection\_types
+
+> **invalid\_intersection\_types**: `"invalid_intersection_types"`
+
+### invalid\_literal
+
+> **invalid\_literal**: `"invalid_literal"`
+
+### invalid\_return\_type
+
+> **invalid\_return\_type**: `"invalid_return_type"`
+
+### invalid\_string
+
+> **invalid\_string**: `"invalid_string"`
+
+### invalid\_type
+
+> **invalid\_type**: `"invalid_type"`
+
+### invalid\_union
+
+> **invalid\_union**: `"invalid_union"`
+
+### invalid\_union\_discriminator
+
+> **invalid\_union\_discriminator**: `"invalid_union_discriminator"`
+
+### not\_finite
+
+> **not\_finite**: `"not_finite"`
+
+### not\_multiple\_of
+
+> **not\_multiple\_of**: `"not_multiple_of"`
+
+### too\_big
+
+> **too\_big**: `"too_big"`
+
+### too\_small
+
+> **too\_small**: `"too_small"`
+
+### unrecognized\_keys
+
+> **unrecognized\_keys**: `"unrecognized_keys"`
 
 ## Defined in
 

@@ -1,20 +1,22 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / OK
+
 # Function: OK()
 
-```ts
-function OK<T>(value: T): OK<T>
-```
+> **OK**\<`T`\>(`value`): [`OK`](../type-aliases/OK.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `T` |
+### value
+
+`T`
 
 ## Returns
 

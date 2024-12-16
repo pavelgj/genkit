@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / SyncParseReturnType
+
 # Type Alias: SyncParseReturnType\<T\>
 
-```ts
-type SyncParseReturnType<T>: OK<T> | DIRTY<T> | INVALID;
-```
+> **SyncParseReturnType**\<`T`\>: [`OK`](OK.md)\<`T`\> \| [`DIRTY`](DIRTY.md)\<`T`\> \| [`INVALID`](INVALID.md)
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` | `any` |
+• **T** = `any`
 
 ## Defined in
 

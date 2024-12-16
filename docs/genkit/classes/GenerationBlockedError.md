@@ -1,3 +1,9 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / GenerationBlockedError
+
 # Class: GenerationBlockedError
 
 A GenerationBlockedError is thrown when a generation is blocked.
@@ -10,38 +16,25 @@ A GenerationBlockedError is thrown when a generation is blocked.
 
 ### new GenerationBlockedError()
 
-```ts
-new GenerationBlockedError(
-   response: GenerateResponse<any>, 
-   message: string, 
-   status?: 
-  | "CANCELLED"
-  | "UNKNOWN"
-  | "INVALID_ARGUMENT"
-  | "DEADLINE_EXCEEDED"
-  | "NOT_FOUND"
-  | "ALREADY_EXISTS"
-  | "PERMISSION_DENIED"
-  | "UNAUTHENTICATED"
-  | "RESOURCE_EXHAUSTED"
-  | "FAILED_PRECONDITION"
-  | "ABORTED"
-  | "OUT_OF_RANGE"
-  | "UNIMPLEMENTED"
-  | "INTERNAL"
-  | "UNAVAILABLE"
-  | "DATA_LOSS", 
-   detail?: Record<string, any>): GenerationBlockedError
-```
+> **new GenerationBlockedError**(`response`, `message`, `status`?, `detail`?): [`GenerationBlockedError`](GenerationBlockedError.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `response` | [`GenerateResponse`](GenerateResponse.md)\<`any`\> |
-| `message` | `string` |
-| `status`? | \| `"CANCELLED"` \| `"UNKNOWN"` \| `"INVALID_ARGUMENT"` \| `"DEADLINE_EXCEEDED"` \| `"NOT_FOUND"` \| `"ALREADY_EXISTS"` \| `"PERMISSION_DENIED"` \| `"UNAUTHENTICATED"` \| `"RESOURCE_EXHAUSTED"` \| `"FAILED_PRECONDITION"` \| `"ABORTED"` \| `"OUT_OF_RANGE"` \| `"UNIMPLEMENTED"` \| `"INTERNAL"` \| `"UNAVAILABLE"` \| `"DATA_LOSS"` |
-| `detail`? | `Record`\<`string`, `any`\> |
+##### response
+
+[`GenerateResponse`](GenerateResponse.md)\<`any`\>
+
+##### message
+
+`string`
+
+##### status?
+
+`"CANCELLED"` | `"UNKNOWN"` | `"INVALID_ARGUMENT"` | `"DEADLINE_EXCEEDED"` | `"NOT_FOUND"` | `"ALREADY_EXISTS"` | `"PERMISSION_DENIED"` | `"UNAUTHENTICATED"` | `"RESOURCE_EXHAUSTED"` | `"FAILED_PRECONDITION"` | `"ABORTED"` | `"OUT_OF_RANGE"` | `"UNIMPLEMENTED"` | `"INTERNAL"` | `"UNAVAILABLE"` | `"DATA_LOSS"`
+
+##### detail?
+
+`Record`\<`string`, `any`\>
 
 #### Returns
 
@@ -53,38 +46,165 @@ new GenerationBlockedError(
 
 #### Defined in
 
-ai/lib/generate-C8Qor0QX.d.ts:225
+ai/lib/generate-OYA442tG.d.ts:248
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `detail` | `public` | \{ `[otherDetails: string]`: `any`; `response`: [`GenerateResponse`](GenerateResponse.md)\<`unknown`\>; \} | - | [`GenerationResponseError`](GenerationResponseError.md).`detail` | ai/lib/generate-C8Qor0QX.d.ts:221 |
-| `detail.response` | `public` | [`GenerateResponse`](GenerateResponse.md)\<`unknown`\> | - | - | ai/lib/generate-C8Qor0QX.d.ts:222 |
-| `message` | `public` | `string` | - | [`GenerationResponseError`](GenerationResponseError.md).`message` | node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1054 |
-| `name` | `public` | `string` | - | [`GenerationResponseError`](GenerationResponseError.md).`name` | node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1053 |
-| `source?` | `public` | `string` | - | [`GenerationResponseError`](GenerationResponseError.md).`source` | core/lib/error.d.ts:24 |
-| `stack?` | `public` | `string` | - | [`GenerationResponseError`](GenerationResponseError.md).`stack` | node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1055 |
-| `status` | `public` | \| `"CANCELLED"` \| `"UNKNOWN"` \| `"INVALID_ARGUMENT"` \| `"DEADLINE_EXCEEDED"` \| `"NOT_FOUND"` \| `"ALREADY_EXISTS"` \| `"PERMISSION_DENIED"` \| `"UNAUTHENTICATED"` \| `"RESOURCE_EXHAUSTED"` \| `"FAILED_PRECONDITION"` \| `"ABORTED"` \| `"OUT_OF_RANGE"` \| `"UNIMPLEMENTED"` \| `"INTERNAL"` \| `"UNAVAILABLE"` \| `"DATA_LOSS"` | - | [`GenerationResponseError`](GenerationResponseError.md).`status` | core/lib/error.d.ts:25 |
-| `prepareStackTrace?` | `static` | (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any` | Optional override for formatting stack traces **See** https://v8.dev/docs/stack-trace-api#customizing-stack-traces | [`GenerationResponseError`](GenerationResponseError.md).`prepareStackTrace` | node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:143 |
-| `stackTraceLimit` | `static` | `number` | - | [`GenerationResponseError`](GenerationResponseError.md).`stackTraceLimit` | node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:145 |
+### detail
+
+> **detail**: `object`
+
+#### Index Signature
+
+ \[`otherDetails`: `string`\]: `any`
+
+#### response
+
+> **response**: [`GenerateResponse`](GenerateResponse.md)\<`unknown`\>
+
+#### Inherited from
+
+[`GenerationResponseError`](GenerationResponseError.md).[`detail`](GenerationResponseError.md#detail-1)
+
+#### Defined in
+
+ai/lib/generate-OYA442tG.d.ts:244
+
+***
+
+### message
+
+> **message**: `string`
+
+#### Inherited from
+
+[`GenerationResponseError`](GenerationResponseError.md).[`message`](GenerationResponseError.md#message-1)
+
+#### Defined in
+
+node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1054
+
+***
+
+### name
+
+> **name**: `string`
+
+#### Inherited from
+
+[`GenerationResponseError`](GenerationResponseError.md).[`name`](GenerationResponseError.md#name)
+
+#### Defined in
+
+node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1053
+
+***
+
+### source?
+
+> `optional` **source**: `string`
+
+#### Inherited from
+
+[`GenerationResponseError`](GenerationResponseError.md).[`source`](GenerationResponseError.md#source)
+
+#### Defined in
+
+core/lib/error.d.ts:24
+
+***
+
+### stack?
+
+> `optional` **stack**: `string`
+
+#### Inherited from
+
+[`GenerationResponseError`](GenerationResponseError.md).[`stack`](GenerationResponseError.md#stack)
+
+#### Defined in
+
+node\_modules/.pnpm/typescript@4.9.5/node\_modules/typescript/lib/lib.es5.d.ts:1055
+
+***
+
+### status
+
+> **status**: `"CANCELLED"` \| `"UNKNOWN"` \| `"INVALID_ARGUMENT"` \| `"DEADLINE_EXCEEDED"` \| `"NOT_FOUND"` \| `"ALREADY_EXISTS"` \| `"PERMISSION_DENIED"` \| `"UNAUTHENTICATED"` \| `"RESOURCE_EXHAUSTED"` \| `"FAILED_PRECONDITION"` \| `"ABORTED"` \| `"OUT_OF_RANGE"` \| `"UNIMPLEMENTED"` \| `"INTERNAL"` \| `"UNAVAILABLE"` \| `"DATA_LOSS"`
+
+#### Inherited from
+
+[`GenerationResponseError`](GenerationResponseError.md).[`status`](GenerationResponseError.md#status-1)
+
+#### Defined in
+
+core/lib/error.d.ts:25
+
+***
+
+### prepareStackTrace()?
+
+> `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
+
+Optional override for formatting stack traces
+
+#### Parameters
+
+##### err
+
+`Error`
+
+##### stackTraces
+
+`CallSite`[]
+
+#### Returns
+
+`any`
+
+#### See
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+#### Inherited from
+
+[`GenerationResponseError`](GenerationResponseError.md).[`prepareStackTrace`](GenerationResponseError.md#preparestacktrace)
+
+#### Defined in
+
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:98
+
+***
+
+### stackTraceLimit
+
+> `static` **stackTraceLimit**: `number`
+
+#### Inherited from
+
+[`GenerationResponseError`](GenerationResponseError.md).[`stackTraceLimit`](GenerationResponseError.md#stacktracelimit)
+
+#### Defined in
+
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:100
 
 ## Methods
 
 ### captureStackTrace()
 
-```ts
-static captureStackTrace(targetObject: object, constructorOpt?: Function): void
-```
+> `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
 
 Create .stack property on a target object
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `targetObject` | `object` |
-| `constructorOpt`? | `Function` |
+##### targetObject
+
+`object`
+
+##### constructorOpt?
+
+`Function`
 
 #### Returns
 
@@ -96,4 +216,4 @@ Create .stack property on a target object
 
 #### Defined in
 
-node\_modules/.pnpm/@types+node@22.9.0/node\_modules/@types/node/globals.d.ts:136
+node\_modules/.pnpm/@types+node@20.16.9/node\_modules/@types/node/globals.d.ts:91

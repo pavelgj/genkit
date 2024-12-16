@@ -1,25 +1,30 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / preprocess
+
 # Function: preprocess()
 
-```ts
-function preprocess<I>(
-   preprocess: (arg: unknown, ctx: RefinementCtx) => unknown, 
-   schema: I, 
-params?: RawCreateParams): ZodEffects<I, I["_output"], unknown>
-```
+> **preprocess**\<`I`\>(`preprocess`, `schema`, `params`?): [`ZodEffects`](../classes/ZodEffects.md)\<`I`, `I`\[`"_output"`\], `unknown`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `I` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `I`\> |
+• **I** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `I`\>
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `preprocess` | (`arg`: `unknown`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `unknown` |
-| `schema` | `I` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### preprocess
+
+(`arg`, `ctx`) => `unknown`
+
+### schema
+
+`I`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / nullable
+
 # Function: nullable()
 
-```ts
-function nullable<T>(type: T, params?: RawCreateParams): ZodNullable<T>
-```
+> **nullable**\<`T`\>(`type`, `params`?): [`ZodNullable`](../classes/ZodNullable.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `type` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### type
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

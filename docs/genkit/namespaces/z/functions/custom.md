@@ -1,25 +1,38 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / custom
+
 # Function: custom()
 
-```ts
-function custom<T>(
-   check?: (data: any) => any, 
-   params?: string | CustomParams | (input: any) => CustomParams, 
-fatal?: boolean): ZodType<T, ZodTypeDef, T>
-```
+> **custom**\<`T`\>(`check`?, `params`?, `fatal`?): [`ZodType`](../classes/ZodType.md)\<`T`, [`ZodTypeDef`](../interfaces/ZodTypeDef.md), `T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `check`? | (`data`: `any`) => `any` | - |
-| `params`? | `string` \| `CustomParams` \| (`input`: `any`) => `CustomParams` | - |
-| `fatal`? | `boolean` | **Deprecated** Pass `fatal` into the params object instead: `z.string().custom((val) => val.length > 5, { fatal: false })` |
+### check?
+
+(`data`) => `any`
+
+### params?
+
+`string` | `CustomParams` | (`input`) => `CustomParams`
+
+### fatal?
+
+`boolean`
+
+**Deprecated**
+
+Pass `fatal` into the params object instead:
+
+```ts
+z.string().custom((val) => val.length > 5, { fatal: false })
+```
 
 ## Returns
 

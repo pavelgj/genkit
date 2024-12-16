@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodString
+
 # Class: ZodString
 
 ## Extends
@@ -8,15 +14,13 @@
 
 ### new ZodString()
 
-```ts
-new ZodString(def: ZodStringDef): ZodString
-```
+> **new ZodString**(`def`): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodStringDef`](../interfaces/ZodStringDef.md) |
+##### def
+
+[`ZodStringDef`](../interfaces/ZodStringDef.md)
 
 #### Returns
 
@@ -32,14 +36,109 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodStringDef`](../interfaces/ZodStringDef.md) | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | `string` | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | `string` | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | `string` | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`string`, `string`\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
-| `create` | `static` | (`params`?: \{ `description`: `string`; `errorMap`: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md); `invalid_type_error`: `string`; `message`: `string`; `required_error`: `string`; \} & \{ `coerce`: `true`; \}) => [`ZodString`](ZodString.md) | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:259 |
+### \_def
+
+> `readonly` **\_def**: [`ZodStringDef`](../interfaces/ZodStringDef.md)
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: `string`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: `string`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: `string`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`string`, `string`\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`string`, `string`\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
+
+***
+
+### create()
+
+> `static` **create**: (`params`?) => [`ZodString`](ZodString.md)
+
+#### Parameters
+
+##### params?
+
+`object` & `object`
+
+#### Returns
+
+[`ZodString`](ZodString.md)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:259
 
 ## Accessors
 
@@ -47,9 +146,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -69,9 +166,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 #### Get Signature
 
-```ts
-get isBase64(): boolean
-```
+> **get** **isBase64**(): `boolean`
 
 ##### Returns
 
@@ -87,9 +182,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:256
 
 #### Get Signature
 
-```ts
-get isCUID(): boolean
-```
+> **get** **isCUID**(): `boolean`
 
 ##### Returns
 
@@ -105,9 +198,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:252
 
 #### Get Signature
 
-```ts
-get isCUID2(): boolean
-```
+> **get** **isCUID2**(): `boolean`
 
 ##### Returns
 
@@ -123,9 +214,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:253
 
 #### Get Signature
 
-```ts
-get isDate(): boolean
-```
+> **get** **isDate**(): `boolean`
 
 ##### Returns
 
@@ -141,9 +230,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:244
 
 #### Get Signature
 
-```ts
-get isDatetime(): boolean
-```
+> **get** **isDatetime**(): `boolean`
 
 ##### Returns
 
@@ -159,9 +246,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:243
 
 #### Get Signature
 
-```ts
-get isDuration(): boolean
-```
+> **get** **isDuration**(): `boolean`
 
 ##### Returns
 
@@ -177,9 +262,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:246
 
 #### Get Signature
 
-```ts
-get isEmail(): boolean
-```
+> **get** **isEmail**(): `boolean`
 
 ##### Returns
 
@@ -195,9 +278,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:247
 
 #### Get Signature
 
-```ts
-get isEmoji(): boolean
-```
+> **get** **isEmoji**(): `boolean`
 
 ##### Returns
 
@@ -213,9 +294,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:249
 
 #### Get Signature
 
-```ts
-get isIP(): boolean
-```
+> **get** **isIP**(): `boolean`
 
 ##### Returns
 
@@ -231,9 +310,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:255
 
 #### Get Signature
 
-```ts
-get isNANOID(): boolean
-```
+> **get** **isNANOID**(): `boolean`
 
 ##### Returns
 
@@ -249,9 +326,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:251
 
 #### Get Signature
 
-```ts
-get isTime(): boolean
-```
+> **get** **isTime**(): `boolean`
 
 ##### Returns
 
@@ -267,9 +342,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:245
 
 #### Get Signature
 
-```ts
-get isULID(): boolean
-```
+> **get** **isULID**(): `boolean`
 
 ##### Returns
 
@@ -285,9 +358,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:254
 
 #### Get Signature
 
-```ts
-get isURL(): boolean
-```
+> **get** **isURL**(): `boolean`
 
 ##### Returns
 
@@ -303,9 +374,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:248
 
 #### Get Signature
 
-```ts
-get isUUID(): boolean
-```
+> **get** **isUUID**(): `boolean`
 
 ##### Returns
 
@@ -321,9 +390,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:250
 
 #### Get Signature
 
-```ts
-get maxLength(): null | number
-```
+> **get** **maxLength**(): `null` \| `number`
 
 ##### Returns
 
@@ -339,9 +406,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:258
 
 #### Get Signature
 
-```ts
-get minLength(): null | number
-```
+> **get** **minLength**(): `null` \| `number`
 
 ##### Returns
 
@@ -355,15 +420,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:257
 
 ### \_addCheck()
 
-```ts
-_addCheck(check: ZodStringCheck): ZodString
-```
+> **\_addCheck**(`check`): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | [`ZodStringCheck`](../type-aliases/ZodStringCheck.md) |
+##### check
+
+[`ZodStringCheck`](../type-aliases/ZodStringCheck.md)
 
 #### Returns
 
@@ -377,16 +440,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:199
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -404,15 +468,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -430,15 +492,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<string>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`string`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -456,15 +516,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:197
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<string>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<`string`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -482,15 +540,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<string>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`string`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -508,32 +564,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -547,15 +596,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: string, ctx: RefinementCtx) => any): ZodEffects<ZodString, string, string>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `string`, `string`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `string`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -573,20 +620,21 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### \_regex()
 
-```ts
-protected _regex(
-   regex: RegExp, 
-   validation: StringValidation, 
-message?: ErrMessage): ZodEffects<ZodString, string, string>
-```
+> `protected` **\_regex**(`regex`, `validation`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `string`, `string`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `regex` | `RegExp` |
-| `validation` | [`StringValidation`](../type-aliases/StringValidation.md) |
-| `message`? | `ErrMessage` |
+##### regex
+
+`RegExp`
+
+##### validation
+
+[`StringValidation`](../type-aliases/StringValidation.md)
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -600,21 +648,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:198
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodString, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodString`](ZodString.md), `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -632,9 +676,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodString, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodString`](ZodString.md), `"many"`\>
 
 #### Returns
 
@@ -652,15 +694,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### base64()
 
-```ts
-base64(message?: ErrMessage): ZodString
-```
+> **base64**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -674,21 +714,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:208
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodString, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodString`](ZodString.md), `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -706,17 +742,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: string): ZodCatch<ZodString>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodString`](ZodString.md)\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | `string` |
+###### def
+
+`string`
 
 ##### Returns
 
@@ -730,20 +764,15 @@ catch(def: string): ZodCatch<ZodString>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: string;
-}) => string): ZodCatch<ZodString>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodString`](ZodString.md)\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: `string`; \}) => `string` |
+###### def
+
+(`ctx`) => `string`
 
 ##### Returns
 
@@ -761,15 +790,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### cuid()
 
-```ts
-cuid(message?: ErrMessage): ZodString
-```
+> **cuid**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -783,15 +810,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:205
 
 ### cuid2()
 
-```ts
-cuid2(message?: ErrMessage): ZodString
-```
+> **cuid2**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -805,15 +830,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:206
 
 ### date()
 
-```ts
-date(message?: string): ZodString
-```
+> **date**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `string` |
+##### message?
+
+`string`
 
 #### Returns
 
@@ -827,20 +850,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:219
 
 ### datetime()
 
-```ts
-datetime(options?: string | {
-  local: boolean;
-  message: string;
-  offset: boolean;
-  precision: null | number;
- }): ZodString
-```
+> **datetime**(`options`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options`? | `string` \| \{ `local`: `boolean`; `message`: `string`; `offset`: `boolean`; `precision`: `null` \| `number`; \} |
+##### options?
+
+`string` | \{ `local`: `boolean`; `message`: `string`; `offset`: `boolean`; `precision`: `null` \| `number`; \}
 
 #### Returns
 
@@ -854,17 +870,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:213
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: string): ZodDefault<ZodString>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodString`](ZodString.md)\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | `string` |
+###### def
+
+`string`
 
 ##### Returns
 
@@ -878,17 +892,15 @@ default(def: string): ZodDefault<ZodString>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => string): ZodDefault<ZodString>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodString`](ZodString.md)\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => `string` |
+###### def
+
+() => `string`
 
 ##### Returns
 
@@ -906,15 +918,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -932,15 +942,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### duration()
 
-```ts
-duration(message?: ErrMessage): ZodString
-```
+> **duration**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -954,15 +962,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:224
 
 ### email()
 
-```ts
-email(message?: ErrMessage): ZodString
-```
+> **email**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -976,15 +982,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:200
 
 ### emoji()
 
-```ts
-emoji(message?: ErrMessage): ZodString
-```
+> **emoji**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -998,16 +1002,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:202
 
 ### endsWith()
 
-```ts
-endsWith(value: string, message?: ErrMessage): ZodString
-```
+> **endsWith**(`value`, `message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `string` |
-| `message`? | `ErrMessage` |
+##### value
+
+`string`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1021,21 +1026,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:231
 
 ### includes()
 
-```ts
-includes(value: string, options?: {
-  message: string;
-  position: number;
- }): ZodString
-```
+> **includes**(`value`, `options`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `string` |
-| `options`? | `object` |
-| `options.message`? | `string` |
-| `options.position`? | `number` |
+##### value
+
+`string`
+
+##### options?
+
+###### message
+
+`string`
+
+###### position
+
+`number`
 
 #### Returns
 
@@ -1049,18 +1056,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:226
 
 ### ip()
 
-```ts
-ip(options?: string | {
-  message: string;
-  version: "v4" | "v6";
- }): ZodString
-```
+> **ip**(`options`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options`? | `string` \| \{ `message`: `string`; `version`: `"v4"` \| `"v6"`; \} |
+##### options?
+
+`string` | \{ `message`: `string`; `version`: `"v4"` \| `"v6"`; \}
 
 #### Returns
 
@@ -1074,9 +1076,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:209
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -1094,9 +1094,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -1114,16 +1112,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### length()
 
-```ts
-length(len: number, message?: ErrMessage): ZodString
-```
+> **length**(`len`, `message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `len` | `number` |
-| `message`? | `ErrMessage` |
+##### len
+
+`number`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1137,16 +1136,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:234
 
 ### max()
 
-```ts
-max(maxLength: number, message?: ErrMessage): ZodString
-```
+> **max**(`maxLength`, `message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `maxLength` | `number` |
-| `message`? | `ErrMessage` |
+##### maxLength
+
+`number`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1160,16 +1160,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:233
 
 ### min()
 
-```ts
-min(minLength: number, message?: ErrMessage): ZodString
-```
+> **min**(`minLength`, `message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `minLength` | `number` |
-| `message`? | `ErrMessage` |
+##### minLength
+
+`number`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1183,15 +1184,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:232
 
 ### nanoid()
 
-```ts
-nanoid(message?: ErrMessage): ZodString
-```
+> **nanoid**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1205,15 +1204,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:204
 
 ### ~~nonempty()~~
 
-```ts
-nonempty(message?: ErrMessage): ZodString
-```
+> **nonempty**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1235,9 +1232,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:239
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodString>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodString`](ZodString.md)\>
 
 #### Returns
 
@@ -1255,9 +1250,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodString>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodString`](ZodString.md)\>\>
 
 #### Returns
 
@@ -1275,9 +1268,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodString>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodString`](ZodString.md)\>
 
 #### Returns
 
@@ -1295,21 +1286,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodString, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodString`](ZodString.md), `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -1327,16 +1314,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): string
-```
+> **parse**(`data`, `params`?): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1354,16 +1342,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<string>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<`string`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1381,21 +1370,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodString, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodString`](ZodString.md), `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -1413,9 +1398,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodString>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodString`](ZodString.md)\>
 
 #### Returns
 
@@ -1433,9 +1416,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodString>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodString`](ZodString.md)\>
 
 #### Returns
 
@@ -1453,24 +1434,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: string) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: string) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodString, RefinedOutput, string>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `RefinedOutput`, `string`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `string` |
+• **RefinedOutput** *extends* `string`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `string`) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: `string`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -1484,18 +1464,19 @@ refine<RefinedOutput>(check: (arg: string) => arg is RefinedOutput, message?: st
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: string) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: string) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodString, string, string>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `string`, `string`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `string`) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: `string`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -1513,24 +1494,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: string) => arg is RefinedOutput, refinementData: IssueData | (arg: string, ctx: RefinementCtx) => IssueData): ZodEffects<ZodString, RefinedOutput, string>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `RefinedOutput`, `string`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `string` |
+• **RefinedOutput** *extends* `string`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `string`) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: `string`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -1538,24 +1518,25 @@ refinement<RefinedOutput>(check: (arg: string) => arg is RefinedOutput, refineme
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: string) => boolean, refinementData: IssueData | (arg: string, ctx: RefinementCtx) => IssueData): ZodEffects<ZodString, string, string>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `string`, `string`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `string`) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: `string`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -1563,7 +1544,7 @@ refinement(check: (arg: string) => boolean, refinementData: IssueData | (arg: st
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -1573,16 +1554,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### regex()
 
-```ts
-regex(regex: RegExp, message?: ErrMessage): ZodString
-```
+> **regex**(`regex`, `message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `regex` | `RegExp` |
-| `message`? | `ErrMessage` |
+##### regex
+
+`RegExp`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1596,16 +1578,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:225
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<string, string>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`string`, `string`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1623,16 +1606,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<string, string>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`string`, `string`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1650,16 +1634,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### startsWith()
 
-```ts
-startsWith(value: string, message?: ErrMessage): ZodString
-```
+> **startsWith**(`value`, `message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `string` |
-| `message`? | `ErrMessage` |
+##### value
+
+`string`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1673,23 +1658,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:230
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: string, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodString, RefinedOutput, string>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `RefinedOutput`, `string`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* `string` |
+• **RefinedOutput** *extends* `string`
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `string`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -1703,17 +1684,15 @@ superRefine<RefinedOutput>(refinement: (arg: string, ctx: RefinementCtx) => arg 
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: string, ctx: RefinementCtx) => void): ZodEffects<ZodString, string, string>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `string`, `string`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `string`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -1727,17 +1706,15 @@ superRefine(refinement: (arg: string, ctx: RefinementCtx) => void): ZodEffects<Z
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: string, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodString, string, string>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `string`, `string`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `string`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1755,18 +1732,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### time()
 
-```ts
-time(options?: string | {
-  message: string;
-  precision: null | number;
- }): ZodString
-```
+> **time**(`options`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options`? | `string` \| \{ `message`: `string`; `precision`: `null` \| `number`; \} |
+##### options?
+
+`string` | \{ `message`: `string`; `precision`: `null` \| `number`; \}
 
 #### Returns
 
@@ -1780,9 +1752,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:220
 
 ### toLowerCase()
 
-```ts
-toLowerCase(): ZodString
-```
+> **toLowerCase**(): [`ZodString`](ZodString.md)
 
 #### Returns
 
@@ -1796,9 +1766,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:241
 
 ### toUpperCase()
 
-```ts
-toUpperCase(): ZodString
-```
+> **toUpperCase**(): [`ZodString`](ZodString.md)
 
 #### Returns
 
@@ -1812,21 +1780,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:242
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: string, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodString, NewOut, string>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodString`](ZodString.md), `NewOut`, `string`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: `string`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 
@@ -1844,9 +1808,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:84
 
 ### trim()
 
-```ts
-trim(): ZodString
-```
+> **trim**(): [`ZodString`](ZodString.md)
 
 #### Returns
 
@@ -1860,15 +1822,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:240
 
 ### ulid()
 
-```ts
-ulid(message?: ErrMessage): ZodString
-```
+> **ulid**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1882,15 +1842,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:207
 
 ### url()
 
-```ts
-url(message?: ErrMessage): ZodString
-```
+> **url**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1904,15 +1862,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:201
 
 ### uuid()
 
-```ts
-uuid(message?: ErrMessage): ZodString
-```
+> **uuid**(`message`?): [`ZodString`](ZodString.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 

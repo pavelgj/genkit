@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / AssertArray
+
 # Type Alias: AssertArray\<T\>
 
-```ts
-type AssertArray<T>: T extends any[] ? T : never;
-```
+> **AssertArray**\<`T`\>: `T` *extends* `any`[] ? `T` : `never`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Defined in
 

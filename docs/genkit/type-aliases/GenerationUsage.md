@@ -1,39 +1,65 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / GenerationUsage
+
 # Type Alias: GenerationUsage
 
-```ts
-type GenerationUsage: {
-  custom: Record<string, number>;
-  inputAudioFiles: number;
-  inputCharacters: number;
-  inputImages: number;
-  inputTokens: number;
-  inputVideos: number;
-  outputAudioFiles: number;
-  outputCharacters: number;
-  outputImages: number;
-  outputTokens: number;
-  outputVideos: number;
-  totalTokens: number;
-};
-```
+> **GenerationUsage**: `object`
+
+Usage info from a generate request.
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `custom`? | `Record`\<`string`, `number`\> | ai/lib/model.d.ts:2277 |
-| `inputAudioFiles`? | `number` | ai/lib/model.d.ts:2287 |
-| `inputCharacters`? | `number` | ai/lib/model.d.ts:2281 |
-| `inputImages`? | `number` | ai/lib/model.d.ts:2283 |
-| `inputTokens`? | `number` | ai/lib/model.d.ts:2278 |
-| `inputVideos`? | `number` | ai/lib/model.d.ts:2285 |
-| `outputAudioFiles`? | `number` | ai/lib/model.d.ts:2288 |
-| `outputCharacters`? | `number` | ai/lib/model.d.ts:2282 |
-| `outputImages`? | `number` | ai/lib/model.d.ts:2284 |
-| `outputTokens`? | `number` | ai/lib/model.d.ts:2279 |
-| `outputVideos`? | `number` | ai/lib/model.d.ts:2286 |
-| `totalTokens`? | `number` | ai/lib/model.d.ts:2280 |
+### custom?
+
+> `optional` **custom**: `Record`\<`string`, `number`\>
+
+### inputAudioFiles?
+
+> `optional` **inputAudioFiles**: `number`
+
+### inputCharacters?
+
+> `optional` **inputCharacters**: `number`
+
+### inputImages?
+
+> `optional` **inputImages**: `number`
+
+### inputTokens?
+
+> `optional` **inputTokens**: `number`
+
+### inputVideos?
+
+> `optional` **inputVideos**: `number`
+
+### outputAudioFiles?
+
+> `optional` **outputAudioFiles**: `number`
+
+### outputCharacters?
+
+> `optional` **outputCharacters**: `number`
+
+### outputImages?
+
+> `optional` **outputImages**: `number`
+
+### outputTokens?
+
+> `optional` **outputTokens**: `number`
+
+### outputVideos?
+
+> `optional` **outputVideos**: `number`
+
+### totalTokens?
+
+> `optional` **totalTokens**: `number`
 
 ## Defined in
 
-ai/lib/model.d.ts:2303
+ai/lib/model.d.ts:2409

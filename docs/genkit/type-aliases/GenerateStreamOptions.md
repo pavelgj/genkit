@@ -1,16 +1,19 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / GenerateStreamOptions
+
 # Type Alias: GenerateStreamOptions\<O, CustomOptions\>
 
-```ts
-type GenerateStreamOptions<O, CustomOptions>: Omit<GenerateOptions<O, CustomOptions>, "streamingCallback">;
-```
+> **GenerateStreamOptions**\<`O`, `CustomOptions`\>: `Omit`\<[`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\>, `"streamingCallback"`\>
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `O` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | *typeof* [`GenerationCommonConfigSchema`](../variables/GenerationCommonConfigSchema.md) |
+• **O** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = *typeof* [`GenerationCommonConfigSchema`](../variables/GenerationCommonConfigSchema.md)
 
 ## Defined in
 
-ai/lib/generate-C8Qor0QX.d.ts:242
+ai/lib/generate-OYA442tG.d.ts:265

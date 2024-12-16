@@ -1,25 +1,35 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / runWithStreamingCallback
+
 # Function: runWithStreamingCallback()
 
-```ts
-function runWithStreamingCallback<S, O>(streamingCallback: undefined | StreamingCallback<S>, fn: () => O): O
-```
+> **runWithStreamingCallback**\<`S`, `O`\>(`registry`, `streamingCallback`, `fn`): `O`
 
 Executes provided function with streaming callback in async local storage which can be retrieved
-using [getStreamingCallback](getStreamingCallback.md).
+using getStreamingCallback.
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `S` |
-| `O` |
+• **S**
+
+• **O**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `streamingCallback` | `undefined` \| [`StreamingCallback`](../type-aliases/StreamingCallback.md)\<`S`\> |
-| `fn` | () => `O` |
+### registry
+
+[`Registry`](../registry/classes/Registry.md)
+
+### streamingCallback
+
+`undefined` | [`StreamingCallback`](../type-aliases/StreamingCallback.md)\<`S`\>
+
+### fn
+
+() => `O`
 
 ## Returns
 
@@ -27,4 +37,4 @@ using [getStreamingCallback](getStreamingCallback.md).
 
 ## Defined in
 
-core/lib/action-BLstGZbj.d.ts:254
+core/lib/action-Bp720DPN.d.ts:358

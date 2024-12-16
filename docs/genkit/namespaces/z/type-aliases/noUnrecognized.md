@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / noUnrecognized
+
 # Type Alias: noUnrecognized\<Obj, Shape\>
 
-```ts
-type noUnrecognized<Obj, Shape>: { [k in keyof Obj]: k extends keyof Shape ? Obj[k] : never };
-```
+> **noUnrecognized**\<`Obj`, `Shape`\>: `{ [k in keyof Obj]: k extends keyof Shape ? Obj[k] : never }`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Obj` *extends* `object` |
-| `Shape` *extends* `object` |
+• **Obj** *extends* `object`
+
+• **Shape** *extends* `object`
 
 ## Defined in
 

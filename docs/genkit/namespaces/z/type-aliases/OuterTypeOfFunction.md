@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / OuterTypeOfFunction
+
 # Type Alias: OuterTypeOfFunction\<Args, Returns\>
 
-```ts
-type OuterTypeOfFunction<Args, Returns>: Args["_input"] extends any[] ? (...args: Args["_input"]) => Returns["_output"] : never;
-```
+> **OuterTypeOfFunction**\<`Args`, `Returns`\>: `Args`\[`"_input"`\] *extends* `any`[] ? (...`args`) => `Returns`\[`"_output"`\] : `never`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Args` *extends* [`ZodTuple`](../classes/ZodTuple.md)\<`any`, `any`\> |
-| `Returns` *extends* [`ZodTypeAny`](ZodTypeAny.md) |
+• **Args** *extends* [`ZodTuple`](../classes/ZodTuple.md)\<`any`, `any`\>
+
+• **Returns** *extends* [`ZodTypeAny`](ZodTypeAny.md)
 
 ## Defined in
 

@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / mergeTypes
+
 # Type Alias: mergeTypes\<A, B\>
 
-```ts
-type mergeTypes<A, B>: { [k in keyof A | keyof B]: k extends keyof B ? B[k] : k extends keyof A ? A[k] : never };
-```
+> **mergeTypes**\<`A`, `B`\>: \{ \[k in keyof A \| keyof B\]: k extends keyof B ? B\[k\] : k extends keyof A ? A\[k\] : never \}
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `A` |
-| `B` |
+• **A**
+
+• **B**
 
 ## Defined in
 

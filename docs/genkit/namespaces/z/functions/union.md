@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / union
+
 # Function: union()
 
-```ts
-function union<T>(types: T, params?: RawCreateParams): ZodUnion<T>
-```
+> **union**\<`T`\>(`types`, `params`?): [`ZodUnion`](../classes/ZodUnion.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* readonly [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `T`] |
+• **T** *extends* readonly [[`ZodTypeAny`](../type-aliases/ZodTypeAny.md), [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), `T`]
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `types` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### types
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

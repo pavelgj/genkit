@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / inferFormattedError
+
 # Type Alias: inferFormattedError\<T, U\>
 
-```ts
-type inferFormattedError<T, U>: ZodFormattedError<TypeOf<T>, U>;
-```
+> **inferFormattedError**\<`T`, `U`\>: [`ZodFormattedError`](ZodFormattedError.md)\<[`TypeOf`](TypeOf.md)\<`T`\>, `U`\>
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`\> | - |
-| `U` | `string` |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`\>
+
+• **U** = `string`
 
 ## Defined in
 

@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / baseObjectOutputType
+
 # Type Alias: baseObjectOutputType\<Shape\>
 
-```ts
-type baseObjectOutputType<Shape>: { [k in keyof Shape]: Shape[k]["_output"] };
-```
+> **baseObjectOutputType**\<`Shape`\>: `{ [k in keyof Shape]: Shape[k]["_output"] }`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Shape` *extends* [`ZodRawShape`](ZodRawShape.md) |
+• **Shape** *extends* [`ZodRawShape`](ZodRawShape.md)
 
 ## Defined in
 

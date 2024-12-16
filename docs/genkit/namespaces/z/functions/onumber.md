@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / onumber
+
 # Function: onumber()
 
-```ts
-function onumber(): ZodOptional<ZodNumber>
-```
+> **onumber**(): [`ZodOptional`](../classes/ZodOptional.md)\<[`ZodNumber`](../classes/ZodNumber.md)\>
 
 ## Returns
 

@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodDiscriminatedUnionOption
+
 # Type Alias: ZodDiscriminatedUnionOption\<Discriminator\>
 
-```ts
-type ZodDiscriminatedUnionOption<Discriminator>: ZodObject<{ [key in Discriminator]: ZodTypeAny } & ZodRawShape, UnknownKeysParam, ZodTypeAny>;
-```
+> **ZodDiscriminatedUnionOption**\<`Discriminator`\>: [`ZodObject`](../classes/ZodObject.md)\<`{ [key in Discriminator]: ZodTypeAny }` & [`ZodRawShape`](ZodRawShape.md), [`UnknownKeysParam`](UnknownKeysParam.md), [`ZodTypeAny`](ZodTypeAny.md)\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Discriminator` *extends* `string` |
+• **Discriminator** *extends* `string`
 
 ## Defined in
 

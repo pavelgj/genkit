@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ArrayKeys
+
 # Type Alias: ArrayKeys
 
-```ts
-type ArrayKeys: keyof any[];
-```
+> **ArrayKeys**: keyof `any`[]
 
 ## Defined in
 

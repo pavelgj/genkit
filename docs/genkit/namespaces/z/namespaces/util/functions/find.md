@@ -1,21 +1,26 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / find
+
 # Function: find()
 
-```ts
-function find<T>(arr: T[], checker: (arg: T) => any): undefined | T
-```
+> **find**\<`T`\>(`arr`, `checker`): `undefined` \| `T`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `arr` | `T`[] |
-| `checker` | (`arg`: `T`) => `any` |
+### arr
+
+`T`[]
+
+### checker
+
+(`arg`) => `any`
 
 ## Returns
 

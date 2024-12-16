@@ -1,24 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / OK
+
 # Type Alias: OK\<T\>
 
-```ts
-type OK<T>: {
-  status: "valid";
-  value: T;
-};
-```
+> **OK**\<`T`\>: `object`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `status` | `"valid"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:68 |
-| `value` | `T` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:69 |
+### status
+
+> **status**: `"valid"`
+
+### value
+
+> **value**: `T`
 
 ## Defined in
 

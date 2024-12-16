@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / TypeOf
+
 # Type Alias: TypeOf\<T\>
 
-```ts
-type TypeOf<T>: T["_output"];
-```
+> **TypeOf**\<`T`\>: `T`\[`"_output"`\]
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`\> |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`\>
 
 ## Defined in
 

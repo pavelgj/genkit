@@ -1,26 +1,37 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / EmbedderInfo
+
 # Type Alias: EmbedderInfo
 
-```ts
-type EmbedderInfo: {
-  dimensions: number;
-  label: string;
-  supports: {
-     input: ("text" | "image")[];
-     multilingual: boolean;
-    };
-};
-```
+> **EmbedderInfo**: `object`
+
+Zod schema of embedder info object.
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `dimensions`? | `number` | ai/lib/embedder.d.ts:198 |
-| `label`? | `string` | ai/lib/embedder.d.ts:193 |
-| `supports`? | \{ `input`: (`"text"` \| `"image"`)[]; `multilingual`: `boolean`; \} | ai/lib/embedder.d.ts:194 |
-| `supports.input`? | (`"text"` \| `"image"`)[] | ai/lib/embedder.d.ts:195 |
-| `supports.multilingual`? | `boolean` | ai/lib/embedder.d.ts:196 |
+### dimensions?
+
+> `optional` **dimensions**: `number`
+
+### label?
+
+> `optional` **label**: `string`
+
+### supports?
+
+> `optional` **supports**: `object`
+
+#### supports.input?
+
+> `optional` **supports.input**: (`"text"` \| `"image"`)[]
+
+#### supports.multilingual?
+
+> `optional` **supports.multilingual**: `boolean`
 
 ## Defined in
 
-ai/lib/embedder.d.ts:207
+ai/lib/embedder.d.ts:237

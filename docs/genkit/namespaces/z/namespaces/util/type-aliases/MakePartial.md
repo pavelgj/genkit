@@ -1,15 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / MakePartial
+
 # Type Alias: MakePartial\<T, K\>
 
-```ts
-type MakePartial<T, K>: Omit<T, K> & Partial<Pick<T, K>>;
-```
+> **MakePartial**\<`T`, `K`\>: [`Omit`](Omit.md)\<`T`, `K`\> & `Partial`\<`Pick`\<`T`, `K`\>\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
-| `K` *extends* keyof `T` |
+• **T**
+
+• **K** *extends* keyof `T`
 
 ## Defined in
 

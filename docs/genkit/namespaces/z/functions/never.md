@@ -1,14 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / never
+
 # Function: never()
 
-```ts
-function never(params?: RawCreateParams): ZodNever
-```
+> **never**(`params`?): [`ZodNever`](../classes/ZodNever.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

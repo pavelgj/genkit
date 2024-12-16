@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / RecordType
+
 # Type Alias: RecordType\<K, V\>
 
-```ts
-type RecordType<K, V>: [string] extends [K] ? Record<K, V> : [number] extends [K] ? Record<K, V> : [symbol] extends [K] ? Record<K, V> : [BRAND<string | number | symbol>] extends [K] ? Record<K, V> : Partial<Record<K, V>>;
-```
+> **RecordType**\<`K`, `V`\>: [`string`] *extends* [`K`] ? `Record`\<`K`, `V`\> : [`number`] *extends* [`K`] ? `Record`\<`K`, `V`\> : [`symbol`] *extends* [`K`] ? `Record`\<`K`, `V`\> : [[`BRAND`](BRAND.md)\<`string` \| `number` \| `symbol`\>] *extends* [`K`] ? `Record`\<`K`, `V`\> : `Partial`\<`Record`\<`K`, `V`\>\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `K` *extends* `string` \| `number` \| `symbol` |
-| `V` |
+• **K** *extends* `string` \| `number` \| `symbol`
+
+• **V**
 
 ## Defined in
 

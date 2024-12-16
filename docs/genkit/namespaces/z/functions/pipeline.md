@@ -1,22 +1,28 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / pipeline
+
 # Function: pipeline()
 
-```ts
-function pipeline<A, B>(a: A, b: B): ZodPipeline<A, B>
-```
+> **pipeline**\<`A`, `B`\>(`a`, `b`): [`ZodPipeline`](../classes/ZodPipeline.md)\<`A`, `B`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `A` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `A`\> |
-| `B` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `B`\> |
+• **A** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `A`\>
+
+• **B** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `B`\>
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `a` | `A` |
-| `b` | `B` |
+### a
+
+`A`
+
+### b
+
+`B`
 
 ## Returns
 

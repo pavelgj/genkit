@@ -1,15 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [objectUtil](../README.md) / extendShape
+
 # Type Alias: extendShape\<A, B\>
 
-```ts
-type extendShape<A, B>: { [K in keyof A as K extends keyof B ? never : K]: A[K] } & { [K in keyof B]: B[K] };
-```
+> **extendShape**\<`A`, `B`\>: `{ [K in keyof A as K extends keyof B ? never : K]: A[K] }` & `{ [K in keyof B]: B[K] }`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `A` *extends* `object` |
-| `B` *extends* `object` |
+• **A** *extends* `object`
+
+• **B** *extends* `object`
 
 ## Defined in
 

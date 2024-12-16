@@ -1,12 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ParseStatus
+
 # Class: ParseStatus
 
 ## Constructors
 
 ### new ParseStatus()
 
-```ts
-new ParseStatus(): ParseStatus
-```
+> **new ParseStatus**(): [`ParseStatus`](ParseStatus.md)
 
 #### Returns
 
@@ -14,17 +18,19 @@ new ParseStatus(): ParseStatus
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `value` | `"valid"` \| `"dirty"` \| `"aborted"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:40 |
+### value
+
+> **value**: `"valid"` \| `"dirty"` \| `"aborted"`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:40
 
 ## Methods
 
 ### abort()
 
-```ts
-abort(): void
-```
+> **abort**(): `void`
 
 #### Returns
 
@@ -38,9 +44,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:42
 
 ### dirty()
 
-```ts
-dirty(): void
-```
+> **dirty**(): `void`
 
 #### Returns
 
@@ -54,16 +58,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:41
 
 ### mergeArray()
 
-```ts
-static mergeArray(status: ParseStatus, results: SyncParseReturnType<any>[]): SyncParseReturnType<any>
-```
+> `static` **mergeArray**(`status`, `results`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`any`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `status` | [`ParseStatus`](ParseStatus.md) |
-| `results` | [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`any`\>[] |
+##### status
+
+[`ParseStatus`](ParseStatus.md)
+
+##### results
+
+[`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`any`\>[]
 
 #### Returns
 
@@ -77,19 +82,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:43
 
 ### mergeObjectAsync()
 
-```ts
-static mergeObjectAsync(status: ParseStatus, pairs: {
-  key: ParseReturnType<any>;
-  value: ParseReturnType<any>;
-}[]): Promise<SyncParseReturnType<any>>
-```
+> `static` **mergeObjectAsync**(`status`, `pairs`): `Promise`\<[`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`any`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `status` | [`ParseStatus`](ParseStatus.md) |
-| `pairs` | \{ `key`: [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`any`\>; `value`: [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`any`\>; \}[] |
+##### status
+
+[`ParseStatus`](ParseStatus.md)
+
+##### pairs
+
+`object`[]
 
 #### Returns
 
@@ -103,20 +106,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/helpers/parseUtil.d.ts:44
 
 ### mergeObjectSync()
 
-```ts
-static mergeObjectSync(status: ParseStatus, pairs: {
-  alwaysSet: boolean;
-  key: SyncParseReturnType<any>;
-  value: SyncParseReturnType<any>;
-}[]): SyncParseReturnType<any>
-```
+> `static` **mergeObjectSync**(`status`, `pairs`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`any`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `status` | [`ParseStatus`](ParseStatus.md) |
-| `pairs` | \{ `alwaysSet`: `boolean`; `key`: [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`any`\>; `value`: [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`any`\>; \}[] |
+##### status
+
+[`ParseStatus`](ParseStatus.md)
+
+##### pairs
+
+`object`[]
 
 #### Returns
 

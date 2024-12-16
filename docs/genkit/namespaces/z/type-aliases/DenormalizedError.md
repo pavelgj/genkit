@@ -1,12 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / DenormalizedError
+
 # Type Alias: DenormalizedError
 
-```ts
-type DenormalizedError: {};
-```
+> **DenormalizedError**: `object`
 
 ## Index Signature
 
- \[`k`: `string`\]: [`DenormalizedError`](DenormalizedError.md) \| `string`[]
+ \[`k`: `string`\]: `string`[] \| [`DenormalizedError`](DenormalizedError.md)
 
 ## Defined in
 

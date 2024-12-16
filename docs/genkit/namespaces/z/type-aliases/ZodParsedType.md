@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodParsedType
+
 # Type Alias: ZodParsedType
 
-```ts
-type ZodParsedType: keyof typeof ZodParsedType;
-```
+> **ZodParsedType**: keyof *typeof* [`ZodParsedType`](../variables/ZodParsedType.md)
 
 ## Defined in
 

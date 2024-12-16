@@ -1,14 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / void
+
 # Function: void()
 
-```ts
-function void(params?: RawCreateParams): ZodVoid
-```
+> **void**(`params`?): [`ZodVoid`](../classes/ZodVoid.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

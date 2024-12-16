@@ -1,14 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / null
+
 # Function: null()
 
-```ts
-function null(params?: RawCreateParams): ZodNull
-```
+> **null**(`params`?): [`ZodNull`](../classes/ZodNull.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

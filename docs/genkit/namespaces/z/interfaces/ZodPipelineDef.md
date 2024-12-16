@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodPipelineDef
+
 # Interface: ZodPipelineDef\<A, B\>
 
 ## Extends
@@ -6,17 +12,64 @@
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `A` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
-| `B` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
+• **A** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
+
+• **B** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ |
-| `description?` | `string` | [`ZodTypeDef`](ZodTypeDef.md).`description` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23 |
-| `errorMap?` | [`ZodErrorMap`](../type-aliases/ZodErrorMap.md) | [`ZodTypeDef`](ZodTypeDef.md).`errorMap` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22 |
-| `in` | `A` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:919 |
-| `out` | `B` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:920 |
-| `typeName` | `ZodPipeline` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:921 |
+### description?
+
+> `optional` **description**: `string`
+
+#### Inherited from
+
+[`ZodTypeDef`](ZodTypeDef.md).[`description`](ZodTypeDef.md#description)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23
+
+***
+
+### errorMap?
+
+> `optional` **errorMap**: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md)
+
+#### Inherited from
+
+[`ZodTypeDef`](ZodTypeDef.md).[`errorMap`](ZodTypeDef.md#errormap)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22
+
+***
+
+### in
+
+> **in**: `A`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:919
+
+***
+
+### out
+
+> **out**: `B`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:920
+
+***
+
+### typeName
+
+> **typeName**: [`ZodPipeline`](../enumerations/ZodFirstPartyTypeKind.md#zodpipeline)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:921

@@ -1,8 +1,12 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / genkit
+
 # Function: genkit()
 
-```ts
-function genkit(options: GenkitOptions): Genkit
-```
+> **genkit**(`options`): [`Genkit`](../classes/Genkit.md)
 
 Initializes Genkit with a set of options.
 
@@ -11,9 +15,9 @@ should be called before any flows are registered.
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | [`GenkitOptions`](../interfaces/GenkitOptions.md) |
+### options
+
+[`GenkitOptions`](../interfaces/GenkitOptions.md)
 
 ## Returns
 
@@ -21,4 +25,4 @@ should be called before any flows are registered.
 
 ## Defined in
 
-[genkit/src/genkit.ts:1074](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L1074)
+[genkit/src/genkit.ts:1151](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L1151)

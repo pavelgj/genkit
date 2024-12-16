@@ -1,21 +1,24 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / arrayToEnum
+
 # Function: arrayToEnum()
 
-```ts
-function arrayToEnum<T, U>(items: U): { [k in string]: k }
-```
+> **arrayToEnum**\<`T`, `U`\>(`items`): `{ [k in string]: k }`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* `string` |
-| `U` *extends* [`T`, `...T[]`] |
+• **T** *extends* `string`
+
+• **U** *extends* [`T`, `...T[]`]
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `items` | `U` |
+### items
+
+`U`
 
 ## Returns
 

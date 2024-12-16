@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodRawShape
+
 # Type Alias: ZodRawShape
 
-```ts
-type ZodRawShape: {};
-```
+> **ZodRawShape**: `object`
 
 ## Index Signature
 

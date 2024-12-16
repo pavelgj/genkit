@@ -1,14 +1,16 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / noUndefined
+
 # Type Alias: noUndefined\<T\>
 
-```ts
-type noUndefined<T>: T extends undefined ? never : T;
-```
+> **noUndefined**\<`T`\>: `T` *extends* `undefined` ? `never` : `T`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Defined in
 

@@ -1,8 +1,12 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / TelemetryConfig
+
 # Type Alias: TelemetryConfig
 
-```ts
-type TelemetryConfig: Partial<NodeSDKConfiguration>;
-```
+> **TelemetryConfig**: `Partial`\<`NodeSDKConfiguration`\>
 
 Provides a {NodeSDKConfiguration} configuration for use with the
 Open-Telemetry SDK. This configuration allows plugins to specify how and

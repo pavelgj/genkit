@@ -1,23 +1,32 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / run
+
 # Function: run()
 
-## run(name, func)
+## Call Signature
 
-```ts
-function run<T>(name: string, func: () => Promise<T>): Promise<T>
-```
+> **run**\<`T`\>(`name`, `func`, `registry`?): `Promise`\<`T`\>
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `name` | `string` |
-| `func` | () => `Promise`\<`T`\> |
+#### name
+
+`string`
+
+#### func
+
+() => `Promise`\<`T`\>
+
+#### registry?
+
+[`Registry`](../registry/classes/Registry.md)
 
 ### Returns
 
@@ -25,30 +34,33 @@ function run<T>(name: string, func: () => Promise<T>): Promise<T>
 
 ### Defined in
 
-core/lib/flow.d.ts:195
+core/lib/flow.d.ts:204
 
-## run(name, input, func)
+## Call Signature
 
-```ts
-function run<T>(
-   name: string, 
-   input: any, 
-func: (input?: any) => Promise<T>): Promise<T>
-```
+> **run**\<`T`\>(`name`, `input`, `func`, `registry`?): `Promise`\<`T`\>
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `name` | `string` |
-| `input` | `any` |
-| `func` | (`input`?: `any`) => `Promise`\<`T`\> |
+#### name
+
+`string`
+
+#### input
+
+`any`
+
+#### func
+
+(`input`?) => `Promise`\<`T`\>
+
+#### registry?
+
+[`Registry`](../registry/classes/Registry.md)
 
 ### Returns
 
@@ -56,4 +68,4 @@ func: (input?: any) => Promise<T>): Promise<T>
 
 ### Defined in
 
-core/lib/flow.d.ts:196
+core/lib/flow.d.ts:205

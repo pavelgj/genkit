@@ -1,14 +1,16 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / isAny
+
 # Type Alias: isAny\<T\>
 
-```ts
-type isAny<T>: 0 extends 1 & T ? true : false;
-```
+> **isAny**\<`T`\>: `0` *extends* `1` & `T` ? `true` : `false`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Defined in
 

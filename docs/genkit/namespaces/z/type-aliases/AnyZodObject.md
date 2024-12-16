@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / AnyZodObject
+
 # Type Alias: AnyZodObject
 
-```ts
-type AnyZodObject: ZodObject<any, any, any>;
-```
+> **AnyZodObject**: [`ZodObject`](../classes/ZodObject.md)\<`any`, `any`, `any`\>
 
 ## Defined in
 

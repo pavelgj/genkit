@@ -1,21 +1,26 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / RerankerInfo
+
 # Type Alias: RerankerInfo
 
-```ts
-type RerankerInfo: {
-  label: string;
-  supports: {
-     media: boolean;
-    };
-};
-```
+> **RerankerInfo**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `label`? | `string` | ai/lib/reranker.d.ts:433 |
-| `supports`? | \{ `media`: `boolean`; \} | ai/lib/reranker.d.ts:434 |
-| `supports.media`? | `boolean` | ai/lib/reranker.d.ts:435 |
+### label?
+
+> `optional` **label**: `string`
+
+### supports?
+
+> `optional` **supports**: `object`
+
+#### supports.media?
+
+> `optional` **supports.media**: `boolean`
 
 ## Defined in
 

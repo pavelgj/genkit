@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / array
+
 # Function: array()
 
-```ts
-function array<T>(schema: T, params?: RawCreateParams): ZodArray<T, "many">
-```
+> **array**\<`T`\>(`schema`, `params`?): [`ZodArray`](../classes/ZodArray.md)\<`T`, `"many"`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `schema` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### schema
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

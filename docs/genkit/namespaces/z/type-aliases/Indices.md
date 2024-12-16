@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / Indices
+
 # Type Alias: Indices\<T\>
 
-```ts
-type Indices<T>: Exclude<keyof T, ArrayKeys>;
-```
+> **Indices**\<`T`\>: `Exclude`\<keyof `T`, [`ArrayKeys`](ArrayKeys.md)\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Defined in
 

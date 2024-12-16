@@ -1,21 +1,26 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / joinValues
+
 # Function: joinValues()
 
-```ts
-function joinValues<T>(array: T, separator?: string): string
-```
+> **joinValues**\<`T`\>(`array`, `separator`?): `string`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* `any`[] |
+• **T** *extends* `any`[]
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `array` | `T` |
-| `separator`? | `string` |
+### array
+
+`T`
+
+### separator?
+
+`string`
 
 ## Returns
 

@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / CustomErrorParams
+
 # Type Alias: CustomErrorParams
 
-```ts
-type CustomErrorParams: Partial<Omit<ZodCustomIssue, "code">>;
-```
+> **CustomErrorParams**: `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ## Defined in
 

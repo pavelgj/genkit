@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodSetDef
+
 # Interface: ZodSetDef\<Value\>
 
 ## Extends
@@ -6,17 +12,72 @@
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `Value` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
+• **Value** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ |
-| `description?` | `string` | [`ZodTypeDef`](ZodTypeDef.md).`description` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23 |
-| `errorMap?` | [`ZodErrorMap`](../type-aliases/ZodErrorMap.md) | [`ZodTypeDef`](ZodTypeDef.md).`errorMap` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22 |
-| `maxSize` | `null` \| \{ `message`: `string`; `value`: `number`; \} | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:707 |
-| `minSize` | `null` \| \{ `message`: `string`; `value`: `number`; \} | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:703 |
-| `typeName` | `ZodSet` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:702 |
-| `valueType` | `Value` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:701 |
+### description?
+
+> `optional` **description**: `string`
+
+#### Inherited from
+
+[`ZodTypeDef`](ZodTypeDef.md).[`description`](ZodTypeDef.md#description)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23
+
+***
+
+### errorMap?
+
+> `optional` **errorMap**: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md)
+
+#### Inherited from
+
+[`ZodTypeDef`](ZodTypeDef.md).[`errorMap`](ZodTypeDef.md#errormap)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22
+
+***
+
+### maxSize
+
+> **maxSize**: `null` \| \{ `message`: `string`; `value`: `number`; \}
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:707
+
+***
+
+### minSize
+
+> **minSize**: `null` \| \{ `message`: `string`; `value`: `number`; \}
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:703
+
+***
+
+### typeName
+
+> **typeName**: [`ZodSet`](../enumerations/ZodFirstPartyTypeKind.md#zodset)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:702
+
+***
+
+### valueType
+
+> **valueType**: `Value`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:701

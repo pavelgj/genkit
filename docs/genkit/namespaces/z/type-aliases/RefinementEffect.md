@@ -1,24 +1,40 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / RefinementEffect
+
 # Type Alias: RefinementEffect\<T\>
 
-```ts
-type RefinementEffect<T>: {
-  refinement: (arg: T, ctx: RefinementCtx) => any;
-  type: "refinement";
-};
-```
+> **RefinementEffect**\<`T`\>: `object`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `refinement` | (`arg`: `T`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:814 |
-| `type` | `"refinement"` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:813 |
+### refinement()
+
+> **refinement**: (`arg`, `ctx`) => `any`
+
+#### Parameters
+
+##### arg
+
+`T`
+
+##### ctx
+
+[`RefinementCtx`](../interfaces/RefinementCtx.md)
+
+#### Returns
+
+`any`
+
+### type
+
+> **type**: `"refinement"`
 
 ## Defined in
 

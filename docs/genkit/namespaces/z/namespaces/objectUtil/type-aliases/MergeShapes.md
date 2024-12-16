@@ -1,15 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [objectUtil](../README.md) / MergeShapes
+
 # Type Alias: MergeShapes\<U, V\>
 
-```ts
-type MergeShapes<U, V>: { [k in Exclude<keyof U, keyof V>]: U[k] } & V;
-```
+> **MergeShapes**\<`U`, `V`\>: `{ [k in Exclude<keyof U, keyof V>]: U[k] }` & `V`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `U` |
-| `V` |
+• **U**
+
+• **V**
 
 ## Defined in
 

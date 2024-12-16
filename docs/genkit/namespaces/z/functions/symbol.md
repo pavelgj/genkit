@@ -1,14 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / symbol
+
 # Function: symbol()
 
-```ts
-function symbol(params?: RawCreateParams): ZodSymbol
-```
+> **symbol**(`params`?): [`ZodSymbol`](../classes/ZodSymbol.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

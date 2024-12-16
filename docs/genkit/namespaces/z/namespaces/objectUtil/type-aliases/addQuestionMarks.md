@@ -1,15 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [objectUtil](../README.md) / addQuestionMarks
+
 # Type Alias: addQuestionMarks\<T, _O\>
 
-```ts
-type addQuestionMarks<T, _O>: { [K in requiredKeys<T>]: T[K] } & { [K in optionalKeys<T>]?: T[K] } & { [k in keyof T]?: unknown };
-```
+> **addQuestionMarks**\<`T`, `_O`\>: `{ [K in requiredKeys<T>]: T[K] }` & `{ [K in optionalKeys<T>]?: T[K] }` & `{ [k in keyof T]?: unknown }`
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* `object` | - |
-| `_O` | `any` |
+• **T** *extends* `object`
+
+• **_O** = `any`
 
 ## Defined in
 

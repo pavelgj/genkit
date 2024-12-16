@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / Scalars
+
 # Type Alias: Scalars
 
-```ts
-type Scalars: Primitive | Primitive[];
-```
+> **Scalars**: [`Primitive`](Primitive.md) \| [`Primitive`](Primitive.md)[]
 
 ## Defined in
 

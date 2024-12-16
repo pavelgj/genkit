@@ -1,14 +1,16 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [objectUtil](../README.md) / flatten
+
 # Type Alias: flatten\<T\>
 
-```ts
-type flatten<T>: identity<{ [k in keyof T]: T[k] }>;
-```
+> **flatten**\<`T`\>: [`identity`](identity.md)\<`{ [k in keyof T]: T[k] }`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Defined in
 

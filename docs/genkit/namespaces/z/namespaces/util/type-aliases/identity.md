@@ -1,14 +1,16 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / identity
+
 # Type Alias: identity\<T\>
 
-```ts
-type identity<T>: identity<T>;
-```
+> **identity**\<`T`\>: [`identity`](../../objectUtil/type-aliases/identity.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Defined in
 

@@ -1,23 +1,24 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodFormattedError
+
 # Type Alias: ZodFormattedError\<T, U\>
 
-```ts
-type ZodFormattedError<T, U>: {
-  _errors: U[];
-} & recursiveZodFormattedError<NonNullable<T>>;
-```
+> **ZodFormattedError**\<`T`, `U`\>: `object` & `recursiveZodFormattedError`\<`NonNullable`\<`T`\>\>
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `_errors` | `U`[] | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/ZodError.d.ts:132 |
+### \_errors
+
+> **\_errors**: `U`[]
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` | - |
-| `U` | `string` |
+• **T**
+
+• **U** = `string`
 
 ## Defined in
 

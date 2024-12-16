@@ -1,15 +1,22 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / jsonStringifyReplacer
+
 # Function: jsonStringifyReplacer()
 
-```ts
-function jsonStringifyReplacer(_: string, value: any): any
-```
+> **jsonStringifyReplacer**(`_`, `value`): `any`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `_` | `string` |
-| `value` | `any` |
+### \_
+
+`string`
+
+### value
+
+`any`
 
 ## Returns
 

@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ArrayCardinality
+
 # Type Alias: ArrayCardinality
 
-```ts
-type ArrayCardinality: "many" | "atleastone";
-```
+> **ArrayCardinality**: `"many"` \| `"atleastone"`
 
 ## Defined in
 

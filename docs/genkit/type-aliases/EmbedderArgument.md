@@ -1,15 +1,19 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / EmbedderArgument
+
 # Type Alias: EmbedderArgument\<CustomOptions\>
 
-```ts
-type EmbedderArgument<CustomOptions>: string | EmbedderAction<CustomOptions> | EmbedderReference<CustomOptions>;
-```
+> **EmbedderArgument**\<`CustomOptions`\>: `string` \| [`EmbedderAction`](EmbedderAction.md)\<`CustomOptions`\> \| [`EmbedderReference`](../interfaces/EmbedderReference.md)\<`CustomOptions`\>
+
+A union type representing all the types that can refer to an embedder.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Defined in
 
-ai/lib/embedder.d.ts:160
+ai/lib/embedder.d.ts:187

@@ -1,16 +1,59 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / RerankerParams
+
 # Interface: RerankerParams\<CustomOptions\>
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `documents` | \{ `content`: (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]; `metadata`: `Record`\<`string`, `any`\>; \}[] | ai/lib/reranker.d.ts:460 |
-| `options?` | [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`CustomOptions`\> | ai/lib/reranker.d.ts:461 |
-| `query` | `string` \| \{ `content`: (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]; `metadata`: `Record`\<`string`, `any`\>; \} | ai/lib/reranker.d.ts:459 |
-| `reranker` | [`RerankerArgument`](../type-aliases/RerankerArgument.md)\<`CustomOptions`\> | ai/lib/reranker.d.ts:458 |
+### documents
+
+> **documents**: `object`[]
+
+#### content
+
+> **content**: (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]
+
+#### metadata?
+
+> `optional` **metadata**: `Record`\<`string`, `any`\>
+
+#### Defined in
+
+ai/lib/reranker.d.ts:458
+
+***
+
+### options?
+
+> `optional` **options**: [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`CustomOptions`\>
+
+#### Defined in
+
+ai/lib/reranker.d.ts:459
+
+***
+
+### query
+
+> **query**: `string` \| \{ `content`: (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]; `metadata`: `Record`\<`string`, `any`\>; \}
+
+#### Defined in
+
+ai/lib/reranker.d.ts:457
+
+***
+
+### reranker
+
+> **reranker**: [`RerankerArgument`](../type-aliases/RerankerArgument.md)\<`CustomOptions`\>
+
+#### Defined in
+
+ai/lib/reranker.d.ts:456

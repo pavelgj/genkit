@@ -1,16 +1,20 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / objectOutputType
+
 # Type Alias: objectOutputType\<Shape, Catchall, UnknownKeys\>
 
-```ts
-type objectOutputType<Shape, Catchall, UnknownKeys>: flatten<addQuestionMarks<baseObjectOutputType<Shape>>> & CatchallOutput<Catchall> & PassthroughType<UnknownKeys>;
-```
+> **objectOutputType**\<`Shape`, `Catchall`, `UnknownKeys`\>: [`flatten`](../namespaces/objectUtil/type-aliases/flatten.md)\<[`addQuestionMarks`](../namespaces/objectUtil/type-aliases/addQuestionMarks.md)\<[`baseObjectOutputType`](baseObjectOutputType.md)\<`Shape`\>\>\> & [`CatchallOutput`](CatchallOutput.md)\<`Catchall`\> & [`PassthroughType`](PassthroughType.md)\<`UnknownKeys`\>
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `Shape` *extends* [`ZodRawShape`](ZodRawShape.md) | - |
-| `Catchall` *extends* [`ZodTypeAny`](ZodTypeAny.md) | - |
-| `UnknownKeys` *extends* [`UnknownKeysParam`](UnknownKeysParam.md) | [`UnknownKeysParam`](UnknownKeysParam.md) |
+• **Shape** *extends* [`ZodRawShape`](ZodRawShape.md)
+
+• **Catchall** *extends* [`ZodTypeAny`](ZodTypeAny.md)
+
+• **UnknownKeys** *extends* [`UnknownKeysParam`](UnknownKeysParam.md) = [`UnknownKeysParam`](UnknownKeysParam.md)
 
 ## Defined in
 

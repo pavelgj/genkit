@@ -1,25 +1,25 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / RetrieverAction
+
 # Type Alias: RetrieverAction\<CustomOptions\>
 
-```ts
-type RetrieverAction<CustomOptions>: Action<typeof RetrieverRequestSchema, typeof RetrieverResponseSchema, {
-  model: RetrieverInfo;
- }> & {
-  __configSchema: CustomOptions;
-};
-```
+> **RetrieverAction**\<`CustomOptions`\>: [`Action`](Action.md)\<*typeof* `RetrieverRequestSchema`, *typeof* `RetrieverResponseSchema`\> & `object`
+
+A retriever action type.
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `__configSchema`? | `CustomOptions` | ai/lib/retriever.d.ts:343 |
+### \_\_configSchema?
+
+> `optional` **\_\_configSchema**: `CustomOptions`
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Defined in
 
-ai/lib/retriever.d.ts:340
+ai/lib/retriever.d.ts:361

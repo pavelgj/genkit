@@ -1,45 +1,120 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / ModelReference
+
 # Interface: ModelReference\<CustomOptions\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `config?` | [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`CustomOptions`\> | ai/lib/model.d.ts:7178 |
-| `configSchema?` | `CustomOptions` | ai/lib/model.d.ts:7175 |
-| `info?` | \{ `label`: `string`; `stage`: \| `"featured"` \| `"stable"` \| `"unstable"` \| `"legacy"` \| `"deprecated"`; `supports`: \{ `contentType`: `string`[]; `context`: `boolean`; `media`: `boolean`; `multiturn`: `boolean`; `output`: `string`[]; `systemRole`: `boolean`; `tools`: `boolean`; \}; `versions`: `string`[]; \} | ai/lib/model.d.ts:7176 |
-| `info.label?` | `string` | ai/lib/model.d.ts:882 |
-| `info.stage?` | \| `"featured"` \| `"stable"` \| `"unstable"` \| `"legacy"` \| `"deprecated"` | ai/lib/model.d.ts:892 |
-| `info.supports?` | \{ `contentType`: `string`[]; `context`: `boolean`; `media`: `boolean`; `multiturn`: `boolean`; `output`: `string`[]; `systemRole`: `boolean`; `tools`: `boolean`; \} | ai/lib/model.d.ts:883 |
-| `info.supports.contentType?` | `string`[] | ai/lib/model.d.ts:887 |
-| `info.supports.context?` | `boolean` | ai/lib/model.d.ts:890 |
-| `info.supports.media?` | `boolean` | ai/lib/model.d.ts:886 |
-| `info.supports.multiturn?` | `boolean` | ai/lib/model.d.ts:888 |
-| `info.supports.output?` | `string`[] | ai/lib/model.d.ts:885 |
-| `info.supports.systemRole?` | `boolean` | ai/lib/model.d.ts:889 |
-| `info.supports.tools?` | `boolean` | ai/lib/model.d.ts:884 |
-| `info.versions?` | `string`[] | ai/lib/model.d.ts:881 |
-| `name` | `string` | ai/lib/model.d.ts:7174 |
-| `version?` | `string` | ai/lib/model.d.ts:7177 |
+### config?
+
+> `optional` **config**: [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`CustomOptions`\>
+
+#### Defined in
+
+ai/lib/model.d.ts:7308
+
+***
+
+### configSchema?
+
+> `optional` **configSchema**: `CustomOptions`
+
+#### Defined in
+
+ai/lib/model.d.ts:7305
+
+***
+
+### info?
+
+> `optional` **info**: `object`
+
+#### label?
+
+> `optional` **label**: `string`
+
+#### stage?
+
+> `optional` **stage**: `"featured"` \| `"stable"` \| `"unstable"` \| `"legacy"` \| `"deprecated"`
+
+#### supports?
+
+> `optional` **supports**: `object`
+
+##### supports.contentType?
+
+> `optional` **supports.contentType**: `string`[]
+
+##### supports.context?
+
+> `optional` **supports.context**: `boolean`
+
+##### supports.media?
+
+> `optional` **supports.media**: `boolean`
+
+##### supports.multiturn?
+
+> `optional` **supports.multiturn**: `boolean`
+
+##### supports.output?
+
+> `optional` **supports.output**: `string`[]
+
+##### supports.systemRole?
+
+> `optional` **supports.systemRole**: `boolean`
+
+##### supports.tools?
+
+> `optional` **supports.tools**: `boolean`
+
+#### versions?
+
+> `optional` **versions**: `string`[]
+
+#### Defined in
+
+ai/lib/model.d.ts:7306
+
+***
+
+### name
+
+> **name**: `string`
+
+#### Defined in
+
+ai/lib/model.d.ts:7304
+
+***
+
+### version?
+
+> `optional` **version**: `string`
+
+#### Defined in
+
+ai/lib/model.d.ts:7307
 
 ## Methods
 
 ### withConfig()
 
-```ts
-withConfig(cfg: TypeOf<CustomOptions>): ModelReference<CustomOptions>
-```
+> **withConfig**(`cfg`): [`ModelReference`](ModelReference.md)\<`CustomOptions`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `cfg` | [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`CustomOptions`\> |
+##### cfg
+
+[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`CustomOptions`\>
 
 #### Returns
 
@@ -47,21 +122,19 @@ withConfig(cfg: TypeOf<CustomOptions>): ModelReference<CustomOptions>
 
 #### Defined in
 
-ai/lib/model.d.ts:7179
+ai/lib/model.d.ts:7309
 
 ***
 
 ### withVersion()
 
-```ts
-withVersion(version: string): ModelReference<CustomOptions>
-```
+> **withVersion**(`version`): [`ModelReference`](ModelReference.md)\<`CustomOptions`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `version` | `string` |
+##### version
+
+`string`
 
 #### Returns
 
@@ -69,4 +142,4 @@ withVersion(version: string): ModelReference<CustomOptions>
 
 #### Defined in
 
-ai/lib/model.d.ts:7180
+ai/lib/model.d.ts:7310

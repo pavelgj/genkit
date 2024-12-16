@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / baseObjectInputType
+
 # Type Alias: baseObjectInputType\<Shape\>
 
-```ts
-type baseObjectInputType<Shape>: addQuestionMarks<{ [k in keyof Shape]: Shape[k]["_input"] }>;
-```
+> **baseObjectInputType**\<`Shape`\>: [`addQuestionMarks`](../namespaces/objectUtil/type-aliases/addQuestionMarks.md)\<`{ [k in keyof Shape]: Shape[k]["_input"] }`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Shape` *extends* [`ZodRawShape`](ZodRawShape.md) |
+• **Shape** *extends* [`ZodRawShape`](ZodRawShape.md)
 
 ## Defined in
 

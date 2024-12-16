@@ -1,14 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / unknown
+
 # Function: unknown()
 
-```ts
-function unknown(params?: RawCreateParams): ZodUnknown
-```
+> **unknown**(`params`?): [`ZodUnknown`](../classes/ZodUnknown.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

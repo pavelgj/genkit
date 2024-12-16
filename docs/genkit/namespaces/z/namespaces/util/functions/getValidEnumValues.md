@@ -1,14 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / getValidEnumValues
+
 # Function: getValidEnumValues()
 
-```ts
-function getValidEnumValues(obj: any): any[]
-```
+> **getValidEnumValues**(`obj`): `any`[]
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `obj` | `any` |
+### obj
+
+`any`
 
 ## Returns
 

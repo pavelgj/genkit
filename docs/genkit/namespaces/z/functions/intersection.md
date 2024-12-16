@@ -1,26 +1,32 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / intersection
+
 # Function: intersection()
 
-```ts
-function intersection<T, U>(
-   left: T, 
-   right: U, 
-params?: RawCreateParams): ZodIntersection<T, U>
-```
+> **intersection**\<`T`, `U`\>(`left`, `right`, `params`?): [`ZodIntersection`](../classes/ZodIntersection.md)\<`T`, `U`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\> |
-| `U` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `U`\> |
+• **T** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `T`\>
+
+• **U** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `U`\>
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `left` | `T` |
-| `right` | `U` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### left
+
+`T`
+
+### right
+
+`U`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

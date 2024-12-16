@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodObject
+
 # Class: ZodObject\<T, UnknownKeys, Catchall, Output, Input\>
 
 ## Extends
@@ -6,27 +12,27 @@
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md) | - |
-| `UnknownKeys` *extends* [`UnknownKeysParam`](../type-aliases/UnknownKeysParam.md) | [`UnknownKeysParam`](../type-aliases/UnknownKeysParam.md) |
-| `Catchall` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
-| `Output` | [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Catchall`, `UnknownKeys`\> |
-| `Input` | [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Catchall`, `UnknownKeys`\> |
+• **T** *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md)
+
+• **UnknownKeys** *extends* [`UnknownKeysParam`](../type-aliases/UnknownKeysParam.md) = [`UnknownKeysParam`](../type-aliases/UnknownKeysParam.md)
+
+• **Catchall** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
+
+• **Output** = [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Catchall`, `UnknownKeys`\>
+
+• **Input** = [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Catchall`, `UnknownKeys`\>
 
 ## Constructors
 
 ### new ZodObject()
 
-```ts
-new ZodObject<T, UnknownKeys, Catchall, Output, Input>(def: ZodObjectDef<T, UnknownKeys, Catchall>): ZodObject<T, UnknownKeys, Catchall, Output, Input>
-```
+> **new ZodObject**\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>(`def`): [`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodObjectDef`](../interfaces/ZodObjectDef.md)\<`T`, `UnknownKeys`, `Catchall`\> |
+##### def
+
+[`ZodObjectDef`](../interfaces/ZodObjectDef.md)\<`T`, `UnknownKeys`, `Catchall`\>
 
 #### Returns
 
@@ -42,18 +48,220 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodObjectDef`](../interfaces/ZodObjectDef.md)\<`T`, `UnknownKeys`, `Catchall`\> | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | `Input` | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | `Output` | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | `Output` | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| ~~`augment`~~ | `public` | \<`Augmentation`\>(`augmentation`: `Augmentation`) => [`ZodObject`](ZodObject.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Catchall`, `UnknownKeys`\>\> | **Deprecated** Use `.extend` instead | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:554 |
-| ~~`nonstrict`~~ | `public` | () => [`ZodObject`](ZodObject.md)\<`T`, `"passthrough"`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Catchall`, `"passthrough"`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Catchall`, `"passthrough"`\>\> | **Deprecated** In most cases, this is no longer needed - unknown properties are now silently stripped. If you want to pass through unknown properties, use `.passthrough()` instead. | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:549 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Input`, `Output`\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
-| `create` | `static` | \<`T_1`\>(`shape`: `T_1`, `params`?: [`RawCreateParams`](../type-aliases/RawCreateParams.md)) => [`ZodObject`](ZodObject.md)\<`T_1`, `"strip"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\> | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:592 |
-| `lazycreate` | `static` | \<`T_1`\>(`shape`: () => `T_1`, `params`?: [`RawCreateParams`](../type-aliases/RawCreateParams.md)) => [`ZodObject`](ZodObject.md)\<`T_1`, `"strip"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\> | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:594 |
-| `strictCreate` | `static` | \<`T_1`\>(`shape`: `T_1`, `params`?: [`RawCreateParams`](../type-aliases/RawCreateParams.md)) => [`ZodObject`](ZodObject.md)\<`T_1`, `"strict"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\> | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:593 |
+### \_def
+
+> `readonly` **\_def**: [`ZodObjectDef`](../interfaces/ZodObjectDef.md)\<`T`, `UnknownKeys`, `Catchall`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: `Input`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: `Output`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: `Output`
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### ~~augment()~~
+
+> **augment**: \<`Augmentation`\>(`augmentation`) => [`ZodObject`](ZodObject.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Catchall`, `UnknownKeys`\>\>
+
+#### Type Parameters
+
+• **Augmentation** *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md)
+
+#### Parameters
+
+##### augmentation
+
+`Augmentation`
+
+#### Returns
+
+[`ZodObject`](ZodObject.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Catchall`, `UnknownKeys`\>\>
+
+#### Deprecated
+
+Use `.extend` instead
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:554
+
+***
+
+### ~~nonstrict()~~
+
+> **nonstrict**: () => [`ZodObject`](ZodObject.md)\<`T`, `"passthrough"`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Catchall`, `"passthrough"`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Catchall`, `"passthrough"`\>\>
+
+#### Returns
+
+[`ZodObject`](ZodObject.md)\<`T`, `"passthrough"`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Catchall`, `"passthrough"`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Catchall`, `"passthrough"`\>\>
+
+#### Deprecated
+
+In most cases, this is no longer needed - unknown properties are now silently stripped.
+If you want to pass through unknown properties, use `.passthrough()` instead.
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:549
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Input`, `Output`\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Input`, `Output`\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
+
+***
+
+### create()
+
+> `static` **create**: \<`T_1`\>(`shape`, `params`?) => [`ZodObject`](ZodObject.md)\<`T_1`, `"strip"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\>
+
+#### Type Parameters
+
+• **T_1** *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md)
+
+#### Parameters
+
+##### shape
+
+`T_1`
+
+##### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
+
+#### Returns
+
+[`ZodObject`](ZodObject.md)\<`T_1`, `"strip"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\>
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:592
+
+***
+
+### lazycreate()
+
+> `static` **lazycreate**: \<`T_1`\>(`shape`, `params`?) => [`ZodObject`](ZodObject.md)\<`T_1`, `"strip"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\>
+
+#### Type Parameters
+
+• **T_1** *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md)
+
+#### Parameters
+
+##### shape
+
+() => `T_1`
+
+##### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
+
+#### Returns
+
+[`ZodObject`](ZodObject.md)\<`T_1`, `"strip"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\>
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:594
+
+***
+
+### strictCreate()
+
+> `static` **strictCreate**: \<`T_1`\>(`shape`, `params`?) => [`ZodObject`](ZodObject.md)\<`T_1`, `"strict"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\>
+
+#### Type Parameters
+
+• **T_1** *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md)
+
+#### Parameters
+
+##### shape
+
+`T_1`
+
+##### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
+
+#### Returns
+
+[`ZodObject`](ZodObject.md)\<`T_1`, `"strict"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\_1\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\_1\>\[k\_1\] \}\>
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:593
 
 ## Accessors
 
@@ -61,9 +269,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -83,9 +289,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 #### Get Signature
 
-```ts
-get shape(): T
-```
+> **get** **shape**(): `T`
 
 ##### Returns
 
@@ -99,26 +303,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:541
 
 ### \_getCached()
 
-```ts
-_getCached(): {
-  keys: string[];
-  shape: T;
-}
-```
+> **\_getCached**(): `object`
 
 #### Returns
 
-```ts
-{
-  keys: string[];
-  shape: T;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `keys` | `string`[] | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:538 |
-| `shape` | `T` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:537 |
+##### keys
+
+> **keys**: `string`[]
+
+##### shape
+
+> **shape**: `T`
 
 #### Defined in
 
@@ -128,16 +325,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:536
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -155,15 +353,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -181,15 +377,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<Output>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`Output`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -207,15 +401,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:540
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<Output>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<`Output`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -233,15 +425,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<Output>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<`Output`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -259,32 +449,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -298,15 +481,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: Output, ctx: RefinementCtx) => any): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, Output, Input>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `Output`, `Input`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `Output`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -324,21 +505,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodObject<T, UnknownKeys, Catchall, Output, Input>, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -356,9 +533,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodObject<T, UnknownKeys, Catchall, Output, Input>, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `"many"`\>
 
 #### Returns
 
@@ -376,21 +551,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodObject<T, UnknownKeys, Catchall, Output, Input>, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -408,17 +579,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: Output): ZodCatch<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | `Output` |
+###### def
+
+`Output`
 
 ##### Returns
 
@@ -432,20 +601,15 @@ catch(def: Output): ZodCatch<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: Input;
-}) => Output): ZodCatch<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: `Input`; \}) => `Output` |
+###### def
+
+(`ctx`) => `Output`
 
 ##### Returns
 
@@ -463,21 +627,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### catchall()
 
-```ts
-catchall<Index>(index: Index): ZodObject<T, UnknownKeys, Index, objectOutputType<T, Index, UnknownKeys>, objectInputType<T, Index, UnknownKeys>>
-```
+> **catchall**\<`Index`\>(`index`): [`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Index`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Index`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Index`, `UnknownKeys`\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Index` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Index`\> |
+• **Index** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Index`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `index` | `Index` |
+##### index
+
+`Index`
 
 #### Returns
 
@@ -491,9 +651,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:564
 
 ### ~~deepPartial()~~
 
-```ts
-deepPartial(): DeepPartial<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **deepPartial**(): `DeepPartial`\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 #### Returns
 
@@ -509,17 +667,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:574
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: noUndefined<Input>): ZodDefault<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`Input`\> |
+###### def
+
+[`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`Input`\>
 
 ##### Returns
 
@@ -533,17 +689,15 @@ default(def: noUndefined<Input>): ZodDefault<ZodObject<T, UnknownKeys, Catchall,
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => noUndefined<Input>): ZodDefault<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`Input`\> |
+###### def
+
+() => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`Input`\>
 
 ##### Returns
 
@@ -561,15 +715,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -587,21 +739,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### extend()
 
-```ts
-extend<Augmentation>(augmentation: Augmentation): ZodObject<extendShape<T, Augmentation>, UnknownKeys, Catchall, objectOutputType<extendShape<T, Augmentation>, Catchall, UnknownKeys>, objectInputType<extendShape<T, Augmentation>, Catchall, UnknownKeys>>
-```
+> **extend**\<`Augmentation`\>(`augmentation`): [`ZodObject`](ZodObject.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Catchall`, `UnknownKeys`\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Augmentation` *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md) |
+• **Augmentation** *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `augmentation` | `Augmentation` |
+##### augmentation
+
+`Augmentation`
 
 #### Returns
 
@@ -615,9 +763,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:550
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -635,9 +781,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -655,9 +799,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### keyof()
 
-```ts
-keyof(): ZodEnum<CastToStringTuple<UnionToTuple<keyof T, []>>>
-```
+> **keyof**(): [`ZodEnum`](ZodEnum.md)\<`CastToStringTuple`\<`UnionToTuple`\<keyof `T`, []\>\>\>
 
 #### Returns
 
@@ -671,9 +813,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:591
 
 ### merge()
 
-```ts
-merge<Incoming, Augmentation>(merging: Incoming): ZodObject<extendShape<T, Augmentation>, Incoming["_def"]["unknownKeys"], Incoming["_def"]["catchall"], objectOutputType<extendShape<T, Augmentation>, Incoming["_def"]["catchall"], Incoming["_def"]["unknownKeys"]>, objectInputType<extendShape<T, Augmentation>, Incoming["_def"]["catchall"], Incoming["_def"]["unknownKeys"]>>
-```
+> **merge**\<`Incoming`, `Augmentation`\>(`merging`): [`ZodObject`](ZodObject.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Incoming`\[`"_def"`\]\[`"unknownKeys"`\], `Incoming`\[`"_def"`\]\[`"catchall"`\], [`objectOutputType`](../type-aliases/objectOutputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Incoming`\[`"_def"`\]\[`"catchall"`\], `Incoming`\[`"_def"`\]\[`"unknownKeys"`\]\>, [`objectInputType`](../type-aliases/objectInputType.md)\<[`extendShape`](../namespaces/objectUtil/type-aliases/extendShape.md)\<`T`, `Augmentation`\>, `Incoming`\[`"_def"`\]\[`"catchall"`\], `Incoming`\[`"_def"`\]\[`"unknownKeys"`\]\>\>
 
 Prior to zod@1.0.12 there was a bug in the
 inferred type of merged objects. Please
@@ -681,16 +821,15 @@ upgrade if you are experiencing issues.
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Incoming` *extends* [`ZodObject`](ZodObject.md)\<`any`, `any`, `any`, \{\}, \{\}, `Incoming`\> |
-| `Augmentation` *extends* `any` |
+• **Incoming** *extends* [`ZodObject`](ZodObject.md)\<`any`, `any`, `any`, \{\}, \{\}, `Incoming`\>
+
+• **Augmentation** *extends* `any`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `merging` | `Incoming` |
+##### merging
+
+`Incoming`
 
 #### Returns
 
@@ -704,9 +843,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:560
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 #### Returns
 
@@ -724,9 +861,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodObject<T, UnknownKeys, Catchall, Output, Input>>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>\>
 
 #### Returns
 
@@ -744,21 +879,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### omit()
 
-```ts
-omit<Mask>(mask: Mask): ZodObject<Omit<T, keyof Mask>, UnknownKeys, Catchall, objectOutputType<Omit<T, keyof Mask>, Catchall, UnknownKeys>, objectInputType<Omit<T, keyof Mask>, Catchall, UnknownKeys>>
-```
+> **omit**\<`Mask`\>(`mask`): [`ZodObject`](ZodObject.md)\<`Omit`\<`T`, keyof `Mask`\>, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`Omit`\<`T`, keyof `Mask`\>, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`Omit`\<`T`, keyof `Mask`\>, `Catchall`, `UnknownKeys`\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Mask` *extends* [`Exactly`](../namespaces/util/type-aliases/Exactly.md)\<\{ \[k in string \| number \| symbol\]?: true \}, `Mask`\> |
+• **Mask** *extends* [`Exactly`](../namespaces/util/type-aliases/Exactly.md)\<\{ \[k in string \| number \| symbol\]?: true \}, `Mask`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `mask` | `Mask` |
+##### mask
+
+`Mask`
 
 #### Returns
 
@@ -772,9 +903,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:568
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 #### Returns
 
@@ -792,21 +921,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodObject<T, UnknownKeys, Catchall, Output, Input>, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -824,16 +949,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): Output
-```
+> **parse**(`data`, `params`?): `Output`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -851,16 +977,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<Output>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<`Output`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -878,11 +1005,9 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### partial()
 
-#### partial(undefined)
+#### Call Signature
 
-```ts
-partial(): ZodObject<{ [k in string | number | symbol]: ZodOptional<T[k]> }, UnknownKeys, Catchall, objectOutputType<{ [k in string | number | symbol]: ZodOptional<T[k]> }, Catchall, UnknownKeys>, objectInputType<{ [k in string | number | symbol]: ZodOptional<T[k]> }, Catchall, UnknownKeys>>
-```
+> **partial**(): [`ZodObject`](ZodObject.md)\<\{ \[k in string \| number \| symbol\]: ZodOptional\<T\[k\]\> \}, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<\{ \[k in string \| number \| symbol\]: ZodOptional\<T\[k\]\> \}, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<\{ \[k in string \| number \| symbol\]: ZodOptional\<T\[k\]\> \}, `Catchall`, `UnknownKeys`\>\>
 
 ##### Returns
 
@@ -892,23 +1017,19 @@ partial(): ZodObject<{ [k in string | number | symbol]: ZodOptional<T[k]> }, Unk
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:575
 
-#### partial(mask)
+#### Call Signature
 
-```ts
-partial<Mask>(mask: Mask): ZodObject<{ [k in string | number | symbol]: k extends keyof T ? { [k in string | number | symbol]: k extends keyof Mask ? ZodOptional<T[k<k>]> : T[k] }[k<k>] : never }, UnknownKeys, Catchall, objectOutputType<{ [k in string | number | symbol]: k extends keyof T ? { [k in string | number | symbol]: k extends keyof Mask ? ZodOptional<T[k<k>]> : T[k] }[k<k>] : never }, Catchall, UnknownKeys>, objectInputType<{ [k in string | number | symbol]: k extends keyof T ? { [k in string | number | symbol]: k extends keyof Mask ? ZodOptional<T[k<k>]> : T[k] }[k<k>] : never }, Catchall, UnknownKeys>>
-```
+> **partial**\<`Mask`\>(`mask`): [`ZodObject`](ZodObject.md)\<\{ \[k in string \| number \| symbol\]: k extends keyof T ? \{ \[k in string \| number \| symbol\]: k extends keyof Mask ? ZodOptional\<T\[k\<k\>\]\> : T\[k\] \}\[k\<k\>\] : never \}, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<\{ \[k in string \| number \| symbol\]: k extends keyof T ? \{ \[k in string \| number \| symbol\]: k extends keyof Mask ? ZodOptional\<T\[k\<k\>\]\> : T\[k\] \}\[k\<k\>\] : never \}, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<\{ \[k in string \| number \| symbol\]: k extends keyof T ? \{ \[k in string \| number \| symbol\]: k extends keyof Mask ? ZodOptional\<T\[k\<k\>\]\> : T\[k\] \}\[k\<k\>\] : never \}, `Catchall`, `UnknownKeys`\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Mask` *extends* [`Exactly`](../namespaces/util/type-aliases/Exactly.md)\<\{ \[k in string \| number \| symbol\]?: true \}, `Mask`\> |
+• **Mask** *extends* [`Exactly`](../namespaces/util/type-aliases/Exactly.md)\<\{ \[k in string \| number \| symbol\]?: true \}, `Mask`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `mask` | `Mask` |
+###### mask
+
+`Mask`
 
 ##### Returns
 
@@ -922,9 +1043,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:578
 
 ### passthrough()
 
-```ts
-passthrough(): ZodObject<T, "passthrough", Catchall, objectOutputType<T, Catchall, "passthrough">, objectInputType<T, Catchall, "passthrough">>
-```
+> **passthrough**(): [`ZodObject`](ZodObject.md)\<`T`, `"passthrough"`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Catchall`, `"passthrough"`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Catchall`, `"passthrough"`\>\>
 
 #### Returns
 
@@ -938,21 +1057,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:544
 
 ### pick()
 
-```ts
-pick<Mask>(mask: Mask): ZodObject<Pick<T, Extract<keyof T, keyof Mask>>, UnknownKeys, Catchall, objectOutputType<Pick<T, Extract<keyof T, keyof Mask>>, Catchall, UnknownKeys>, objectInputType<Pick<T, Extract<keyof T, keyof Mask>>, Catchall, UnknownKeys>>
-```
+> **pick**\<`Mask`\>(`mask`): [`ZodObject`](ZodObject.md)\<`Pick`\<`T`, `Extract`\<keyof `T`, keyof `Mask`\>\>, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`Pick`\<`T`, `Extract`\<keyof `T`, keyof `Mask`\>\>, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`Pick`\<`T`, `Extract`\<keyof `T`, keyof `Mask`\>\>, `Catchall`, `UnknownKeys`\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Mask` *extends* [`Exactly`](../namespaces/util/type-aliases/Exactly.md)\<\{ \[k in string \| number \| symbol\]?: true \}, `Mask`\> |
+• **Mask** *extends* [`Exactly`](../namespaces/util/type-aliases/Exactly.md)\<\{ \[k in string \| number \| symbol\]?: true \}, `Mask`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `mask` | `Mask` |
+##### mask
+
+`Mask`
 
 #### Returns
 
@@ -966,21 +1081,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:565
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodObject<T, UnknownKeys, Catchall, Output, Input>, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -998,9 +1109,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 #### Returns
 
@@ -1018,9 +1127,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodObject<T, UnknownKeys, Catchall, Output, Input>>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>\>
 
 #### Returns
 
@@ -1038,24 +1145,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: Output) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: Output) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, RefinedOutput, Input>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `RefinedOutput`, `Input`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` |
+• **RefinedOutput**
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `Output`) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: `Output`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -1069,18 +1175,19 @@ refine<RefinedOutput>(check: (arg: Output) => arg is RefinedOutput, message?: st
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: Output) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: Output) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, Output, Input>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `Output`, `Input`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `Output`) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: `Output`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -1098,24 +1205,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: Output) => arg is RefinedOutput, refinementData: IssueData | (arg: Output, ctx: RefinementCtx) => IssueData): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, RefinedOutput, Input>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `RefinedOutput`, `Input`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` |
+• **RefinedOutput**
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `Output`) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: `Output`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -1123,24 +1229,25 @@ refinement<RefinedOutput>(check: (arg: Output) => arg is RefinedOutput, refineme
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: Output) => boolean, refinementData: IssueData | (arg: Output, ctx: RefinementCtx) => IssueData): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, Output, Input>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `Output`, `Input`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: `Output`) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: `Output`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -1148,7 +1255,7 @@ refinement(check: (arg: Output) => boolean, refinementData: IssueData | (arg: Ou
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -1158,11 +1265,9 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### required()
 
-#### required(undefined)
+#### Call Signature
 
-```ts
-required(): ZodObject<{ [k in string | number | symbol]: deoptional<T[k]> }, UnknownKeys, Catchall, objectOutputType<{ [k in string | number | symbol]: deoptional<T[k]> }, Catchall, UnknownKeys>, objectInputType<{ [k in string | number | symbol]: deoptional<T[k]> }, Catchall, UnknownKeys>>
-```
+> **required**(): [`ZodObject`](ZodObject.md)\<\{ \[k in string \| number \| symbol\]: deoptional\<T\[k\]\> \}, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<\{ \[k in string \| number \| symbol\]: deoptional\<T\[k\]\> \}, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<\{ \[k in string \| number \| symbol\]: deoptional\<T\[k\]\> \}, `Catchall`, `UnknownKeys`\>\>
 
 ##### Returns
 
@@ -1172,23 +1277,19 @@ required(): ZodObject<{ [k in string | number | symbol]: deoptional<T[k]> }, Unk
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:583
 
-#### required(mask)
+#### Call Signature
 
-```ts
-required<Mask>(mask: Mask): ZodObject<{ [k in string | number | symbol]: k extends keyof T ? { [k in string | number | symbol]: k extends keyof Mask ? deoptional<T[k<k>]> : T[k] }[k<k>] : never }, UnknownKeys, Catchall, objectOutputType<{ [k in string | number | symbol]: k extends keyof T ? { [k in string | number | symbol]: k extends keyof Mask ? deoptional<T[k<k>]> : T[k] }[k<k>] : never }, Catchall, UnknownKeys>, objectInputType<{ [k in string | number | symbol]: k extends keyof T ? { [k in string | number | symbol]: k extends keyof Mask ? deoptional<T[k<k>]> : T[k] }[k<k>] : never }, Catchall, UnknownKeys>>
-```
+> **required**\<`Mask`\>(`mask`): [`ZodObject`](ZodObject.md)\<\{ \[k in string \| number \| symbol\]: k extends keyof T ? \{ \[k in string \| number \| symbol\]: k extends keyof Mask ? deoptional\<T\[k\<k\>\]\> : T\[k\] \}\[k\<k\>\] : never \}, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<\{ \[k in string \| number \| symbol\]: k extends keyof T ? \{ \[k in string \| number \| symbol\]: k extends keyof Mask ? deoptional\<T\[k\<k\>\]\> : T\[k\] \}\[k\<k\>\] : never \}, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<\{ \[k in string \| number \| symbol\]: k extends keyof T ? \{ \[k in string \| number \| symbol\]: k extends keyof Mask ? deoptional\<T\[k\<k\>\]\> : T\[k\] \}\[k\<k\>\] : never \}, `Catchall`, `UnknownKeys`\>\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Mask` *extends* [`Exactly`](../namespaces/util/type-aliases/Exactly.md)\<\{ \[k in string \| number \| symbol\]?: true \}, `Mask`\> |
+• **Mask** *extends* [`Exactly`](../namespaces/util/type-aliases/Exactly.md)\<\{ \[k in string \| number \| symbol\]?: true \}, `Mask`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `mask` | `Mask` |
+###### mask
+
+`Mask`
 
 ##### Returns
 
@@ -1202,16 +1303,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:586
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<Input, Output>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Input`, `Output`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1229,16 +1331,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<Input, Output>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Input`, `Output`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1256,23 +1359,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### setKey()
 
-```ts
-setKey<Key, Schema>(key: Key, schema: Schema): ZodObject<T & { [k in string]: Schema }, UnknownKeys, Catchall, objectOutputType<T & { [k in string]: Schema }, Catchall, UnknownKeys>, objectInputType<T & { [k in string]: Schema }, Catchall, UnknownKeys>>
-```
+> **setKey**\<`Key`, `Schema`\>(`key`, `schema`): [`ZodObject`](ZodObject.md)\<`T` & `{ [k in string]: Schema }`, `UnknownKeys`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T` & `{ [k in string]: Schema }`, `Catchall`, `UnknownKeys`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`T` & `{ [k in string]: Schema }`, `Catchall`, `UnknownKeys`\>\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Key` *extends* `string` |
-| `Schema` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Schema`\> |
+• **Key** *extends* `string`
+
+• **Schema** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `Schema`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `key` | `Key` |
-| `schema` | `Schema` |
+##### key
+
+`Key`
+
+##### schema
+
+`Schema`
 
 #### Returns
 
@@ -1286,15 +1389,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:561
 
 ### strict()
 
-```ts
-strict(message?: ErrMessage): ZodObject<T, "strict", Catchall, objectOutputType<T, Catchall, "strict">, objectInputType<T, Catchall, "strict">>
-```
+> **strict**(`message`?): [`ZodObject`](ZodObject.md)\<`T`, `"strict"`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Catchall`, `"strict"`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Catchall`, `"strict"`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -1308,9 +1409,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:542
 
 ### strip()
 
-```ts
-strip(): ZodObject<T, "strip", Catchall, objectOutputType<T, Catchall, "strip">, objectInputType<T, Catchall, "strip">>
-```
+> **strip**(): [`ZodObject`](ZodObject.md)\<`T`, `"strip"`, `Catchall`, [`objectOutputType`](../type-aliases/objectOutputType.md)\<`T`, `Catchall`, `"strip"`\>, [`objectInputType`](../type-aliases/objectInputType.md)\<`T`, `Catchall`, `"strip"`\>\>
 
 #### Returns
 
@@ -1324,23 +1423,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:543
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: Output, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, RefinedOutput, Input>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `RefinedOutput`, `Input`\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` |
+• **RefinedOutput**
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `Output`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -1354,17 +1449,15 @@ superRefine<RefinedOutput>(refinement: (arg: Output, ctx: RefinementCtx) => arg 
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: Output, ctx: RefinementCtx) => void): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, Output, Input>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `Output`, `Input`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `Output`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -1378,17 +1471,15 @@ superRefine(refinement: (arg: Output, ctx: RefinementCtx) => void): ZodEffects<Z
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: Output, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, Output, Input>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `Output`, `Input`\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: `Output`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1406,21 +1497,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: Output, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodObject<T, UnknownKeys, Catchall, Output, Input>, NewOut, Input>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodObject`](ZodObject.md)\<`T`, `UnknownKeys`, `Catchall`, `Output`, `Input`\>, `NewOut`, `Input`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: `Output`, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 

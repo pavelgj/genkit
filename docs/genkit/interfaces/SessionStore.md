@@ -1,26 +1,28 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / SessionStore
+
 # Interface: SessionStore\<S\>
 
 Session store persists session data such as state and chat messages.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `S` | `any` |
+• **S** = `any`
 
 ## Methods
 
 ### get()
 
-```ts
-get(sessionId: string): Promise<undefined | SessionData<S>>
-```
+> **get**(`sessionId`): `Promise`\<`undefined` \| [`SessionData`](SessionData.md)\<`S`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `sessionId` | `string` |
+##### sessionId
+
+`string`
 
 #### Returns
 
@@ -28,22 +30,23 @@ get(sessionId: string): Promise<undefined | SessionData<S>>
 
 #### Defined in
 
-ai/lib/chat-B4kXEZdZ.d.ts:146
+ai/lib/chat-BD8unKFH.d.ts:146
 
 ***
 
 ### save()
 
-```ts
-save(sessionId: string, data: Omit<SessionData<S>, "id">): Promise<void>
-```
+> **save**(`sessionId`, `data`): `Promise`\<`void`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `sessionId` | `string` |
-| `data` | `Omit`\<[`SessionData`](SessionData.md)\<`S`\>, `"id"`\> |
+##### sessionId
+
+`string`
+
+##### data
+
+`Omit`\<[`SessionData`](SessionData.md)\<`S`\>, `"id"`\>
 
 #### Returns
 
@@ -51,4 +54,4 @@ save(sessionId: string, data: Omit<SessionData<S>, "id">): Promise<void>
 
 #### Defined in
 
-ai/lib/chat-B4kXEZdZ.d.ts:147
+ai/lib/chat-BD8unKFH.d.ts:147

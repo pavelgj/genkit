@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodNonEmptyArray
+
 # Type Alias: ZodNonEmptyArray\<T\>
 
-```ts
-type ZodNonEmptyArray<T>: ZodArray<T, "atleastone">;
-```
+> **ZodNonEmptyArray**\<`T`\>: [`ZodArray`](../classes/ZodArray.md)\<`T`, `"atleastone"`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodTypeAny`](ZodTypeAny.md) |
+• **T** *extends* [`ZodTypeAny`](ZodTypeAny.md)
 
 ## Defined in
 

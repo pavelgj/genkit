@@ -1,37 +1,179 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / StatusCodes
+
 # Enumeration: StatusCodes
 
-Copyright 2024 Google LLC
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Enumeration of response status codes.
 
 ## Enumeration Members
 
-| Enumeration Member | Value | Defined in |
-| ------ | ------ | ------ |
-| `ABORTED` | `10` | core/lib/statusTypes.d.ts:31 |
-| `ALREADY_EXISTS` | `6` | core/lib/statusTypes.d.ts:26 |
-| `CANCELLED` | `1` | core/lib/statusTypes.d.ts:21 |
-| `DATA_LOSS` | `15` | core/lib/statusTypes.d.ts:36 |
-| `DEADLINE_EXCEEDED` | `4` | core/lib/statusTypes.d.ts:24 |
-| `FAILED_PRECONDITION` | `9` | core/lib/statusTypes.d.ts:30 |
-| `INTERNAL` | `13` | core/lib/statusTypes.d.ts:34 |
-| `INVALID_ARGUMENT` | `3` | core/lib/statusTypes.d.ts:23 |
-| `NOT_FOUND` | `5` | core/lib/statusTypes.d.ts:25 |
-| `OK` | `0` | core/lib/statusTypes.d.ts:20 |
-| `OUT_OF_RANGE` | `11` | core/lib/statusTypes.d.ts:32 |
-| `PERMISSION_DENIED` | `7` | core/lib/statusTypes.d.ts:27 |
-| `RESOURCE_EXHAUSTED` | `8` | core/lib/statusTypes.d.ts:29 |
-| `UNAUTHENTICATED` | `16` | core/lib/statusTypes.d.ts:28 |
-| `UNAVAILABLE` | `14` | core/lib/statusTypes.d.ts:35 |
-| `UNIMPLEMENTED` | `12` | core/lib/statusTypes.d.ts:33 |
-| `UNKNOWN` | `2` | core/lib/statusTypes.d.ts:22 |
+### ABORTED
+
+> **ABORTED**: `10`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:34
+
+***
+
+### ALREADY\_EXISTS
+
+> **ALREADY\_EXISTS**: `6`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:29
+
+***
+
+### CANCELLED
+
+> **CANCELLED**: `1`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:24
+
+***
+
+### DATA\_LOSS
+
+> **DATA\_LOSS**: `15`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:39
+
+***
+
+### DEADLINE\_EXCEEDED
+
+> **DEADLINE\_EXCEEDED**: `4`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:27
+
+***
+
+### FAILED\_PRECONDITION
+
+> **FAILED\_PRECONDITION**: `9`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:33
+
+***
+
+### INTERNAL
+
+> **INTERNAL**: `13`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:37
+
+***
+
+### INVALID\_ARGUMENT
+
+> **INVALID\_ARGUMENT**: `3`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:26
+
+***
+
+### NOT\_FOUND
+
+> **NOT\_FOUND**: `5`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:28
+
+***
+
+### OK
+
+> **OK**: `0`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:23
+
+***
+
+### OUT\_OF\_RANGE
+
+> **OUT\_OF\_RANGE**: `11`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:35
+
+***
+
+### PERMISSION\_DENIED
+
+> **PERMISSION\_DENIED**: `7`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:30
+
+***
+
+### RESOURCE\_EXHAUSTED
+
+> **RESOURCE\_EXHAUSTED**: `8`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:32
+
+***
+
+### UNAUTHENTICATED
+
+> **UNAUTHENTICATED**: `16`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:31
+
+***
+
+### UNAVAILABLE
+
+> **UNAVAILABLE**: `14`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:38
+
+***
+
+### UNIMPLEMENTED
+
+> **UNIMPLEMENTED**: `12`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:36
+
+***
+
+### UNKNOWN
+
+> **UNKNOWN**: `2`
+
+#### Defined in
+
+core/lib/statusTypes.d.ts:25

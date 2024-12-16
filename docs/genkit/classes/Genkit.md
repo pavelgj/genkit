@@ -1,24 +1,34 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / Genkit
+
 # Class: Genkit
 
-`Genkit` encapsulates a single Genkit instance including the Registry, [ReflectionServer](ReflectionServer.md), [FlowServer](FlowServer.md), and configuration.
+`Genkit` encapsulates a single Genkit instance including the [Registry](../registry/classes/Registry.md), ReflectionServer, FlowServer, and configuration.
+
+Do not instantiate this class directly. Use [genkit](../functions/genkit.md).
 
 Registry keeps track of actions, flows, tools, and many other components. Reflection server exposes an API to inspect the registry and trigger executions of actions in the registry. Flow server exposes flows as HTTP endpoints for production use.
 
 There may be multiple Genkit instances in a single codebase.
 
+## Implements
+
+- `HasRegistry`
+
 ## Constructors
 
 ### new Genkit()
 
-```ts
-new Genkit(options?: GenkitOptions): Genkit
-```
+> **new Genkit**(`options`?): [`Genkit`](Genkit.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options`? | [`GenkitOptions`](../interfaces/GenkitOptions.md) |
+##### options?
+
+[`GenkitOptions`](../interfaces/GenkitOptions.md)
 
 #### Returns
 
@@ -26,15 +36,59 @@ new Genkit(options?: GenkitOptions): Genkit
 
 #### Defined in
 
-[genkit/src/genkit.ts:181](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L181)
+[genkit/src/genkit.ts:189](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L189)
 
 ## Properties
 
-| Property | Modifier | Type | Description | Defined in |
-| ------ | ------ | ------ | ------ | ------ |
-| `configuredEnvs` | `readonly` | `Set`\<`string`\> | Environments that have been configured (at minimum dev). | [genkit/src/genkit.ts:171](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L171) |
-| `options` | `readonly` | [`GenkitOptions`](../interfaces/GenkitOptions.md) | Developer-configured options. | [genkit/src/genkit.ts:169](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L169) |
-| `registry` | `readonly` | `Registry` | Registry instance that is exclusively modified by this Genkit instance. | [genkit/src/genkit.ts:173](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L173) |
+### configuredEnvs
+
+> `readonly` **configuredEnvs**: `Set`\<`string`\>
+
+Environments that have been configured (at minimum dev).
+
+#### Defined in
+
+[genkit/src/genkit.ts:179](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L179)
+
+***
+
+### flows
+
+> `readonly` **flows**: [`Flow`](Flow.md)\<`any`, `any`, `any`\>[] = `[]`
+
+List of flows that have been registered in this instance.
+
+#### Defined in
+
+[genkit/src/genkit.ts:187](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L187)
+
+***
+
+### options
+
+> `readonly` **options**: [`GenkitOptions`](../interfaces/GenkitOptions.md)
+
+Developer-configured options.
+
+#### Defined in
+
+[genkit/src/genkit.ts:177](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L177)
+
+***
+
+### registry
+
+> `readonly` **registry**: [`Registry`](../registry/classes/Registry.md)
+
+Registry instance that is exclusively modified by this Genkit instance.
+
+#### Implementation of
+
+`HasRegistry.registry`
+
+#### Defined in
+
+[genkit/src/genkit.ts:181](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L181)
 
 ## Methods
 
@@ -50,11 +104,9 @@ let response = await chat.send('tell me a joke')
 response = await chat.send('another one')
 ```
 
-#### chat(options)
+#### Call Signature
 
-```ts
-chat<I>(options?: ChatOptions<I, any>): Chat
-```
+> **chat**\<`I`\>(`options`?): `Chat`
 
 Create a chat session with the provided options.
 
@@ -68,15 +120,13 @@ response = await chat.send('another one')
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `I` |
+• **I**
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options`? | `ChatOptions`\<`I`, `any`\> |
+###### options?
+
+`ChatOptions`\<`I`, `any`\>
 
 ##### Returns
 
@@ -84,13 +134,11 @@ response = await chat.send('another one')
 
 ##### Defined in
 
-[genkit/src/genkit.ts:895](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L895)
+[genkit/src/genkit.ts:972](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L972)
 
-#### chat(preamble, options)
+#### Call Signature
 
-```ts
-chat<I>(preamble: ExecutablePrompt<I, ZodTypeAny, ZodTypeAny>, options?: ChatOptions<I, any>): Chat
-```
+> **chat**\<`I`\>(`preamble`, `options`?): `Chat`
 
 Create a chat session with the provided preabmle.
 
@@ -104,16 +152,17 @@ const { text } = await chat.send('my phone feels hot');
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `I` |
+• **I**
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `preamble` | `ExecutablePrompt`\<`I`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)\> |
-| `options`? | `ChatOptions`\<`I`, `any`\> |
+###### preamble
+
+`ExecutablePrompt`\<`I`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)\>
+
+###### options?
+
+`ChatOptions`\<`I`, `any`\>
 
 ##### Returns
 
@@ -121,29 +170,25 @@ const { text } = await chat.send('my phone feels hot');
 
 ##### Defined in
 
-[genkit/src/genkit.ts:908](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L908)
+[genkit/src/genkit.ts:985](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L985)
 
 ***
 
 ### createSession()
 
-```ts
-createSession<S>(options?: SessionOptions<S>): Session<S>
-```
+> **createSession**\<`S`\>(`options`?): `Session`\<`S`\>
 
 Create a session for this environment.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `S` | `any` |
+• **S** = `any`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options`? | `SessionOptions`\<`S`\> |
+##### options?
+
+`SessionOptions`\<`S`\>
 
 #### Returns
 
@@ -151,23 +196,19 @@ Create a session for this environment.
 
 #### Defined in
 
-[genkit/src/genkit.ts:948](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L948)
+[genkit/src/genkit.ts:1025](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L1025)
 
 ***
 
 ### currentSession()
 
-```ts
-currentSession<S>(): Session<S>
-```
+> **currentSession**\<`S`\>(): `Session`\<`S`\>
 
 Gets the current session from async local storage.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `S` | `any` |
+• **S** = `any`
 
 #### Returns
 
@@ -175,49 +216,59 @@ Gets the current session from async local storage.
 
 #### Defined in
 
-[genkit/src/genkit.ts:983](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L983)
+[genkit/src/genkit.ts:1060](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L1060)
 
 ***
 
 ### defineEmbedder()
 
-```ts
-defineEmbedder<ConfigSchema>(options: {
-  configSchema: ConfigSchema;
-  info: {
-     dimensions: number;
-     label: string;
-     supports: {
-        input: ("text" | "image")[];
-        multilingual: boolean;
-       };
-    };
-  name: string;
-}, runner: EmbedderFn<ConfigSchema>): EmbedderAction<ConfigSchema>
-```
+> **defineEmbedder**\<`ConfigSchema`\>(`options`, `runner`): [`EmbedderAction`](../type-aliases/EmbedderAction.md)\<`ConfigSchema`\>
 
 Creates embedder model for the provided EmbedderFn model implementation.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `ConfigSchema` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `ConfigSchema`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **ConfigSchema** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `ConfigSchema`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | `object` |
-| `options.configSchema`? | `ConfigSchema` |
-| `options.info`? | `object` |
-| `options.info.dimensions`? | `number` |
-| `options.info.label`? | `string` |
-| `options.info.supports`? | `object` |
-| `options.info.supports.input`? | (`"text"` \| `"image"`)[] |
-| `options.info.supports.multilingual`? | `boolean` |
-| `options.name` | `string` |
-| `runner` | `EmbedderFn`\<`ConfigSchema`\> |
+##### options
+
+###### configSchema
+
+`ConfigSchema`
+
+###### info
+
+\{ `dimensions`: `number`; `label`: `string`; `supports`: \{ `input`: (`"text"` \| `"image"`)[]; `multilingual`: `boolean`; \}; \}
+
+###### info.dimensions
+
+`number`
+
+###### info.label
+
+`string`
+
+###### info.supports
+
+\{ `input`: (`"text"` \| `"image"`)[]; `multilingual`: `boolean`; \}
+
+###### info.supports.input
+
+(`"text"` \| `"image"`)[]
+
+###### info.supports.multilingual
+
+`boolean`
+
+###### name
+
+`string`
+
+##### runner
+
+`EmbedderFn`\<`ConfigSchema`\>
 
 #### Returns
 
@@ -225,123 +276,93 @@ Creates embedder model for the provided EmbedderFn model implementation.
 
 #### Defined in
 
-[genkit/src/genkit.ts:591](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L591)
+[genkit/src/genkit.ts:668](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L668)
 
 ***
 
 ### defineEvaluator()
 
-```ts
-defineEvaluator<DataPoint, EvalDataPoint, EvaluatorOptions>(options: {
-  configSchema: EvaluatorOptions;
-  dataPointType: DataPoint;
-  definition: string;
-  displayName: string;
-  isBilled: boolean;
-  name: string;
- }, runner: EvaluatorFn<EvalDataPoint, EvaluatorOptions>): EvaluatorAction<ZodObject<{
-  context: ZodOptional<ZodArray<ZodUnknown, "many">>;
-  input: ZodUnknown;
-  output: ZodOptional<ZodUnknown>;
-  reference: ZodOptional<ZodUnknown>;
-  testCaseId: ZodOptional<ZodString>;
-  traceIds: ZodOptional<ZodArray<ZodString, "many">>;
- }, "strip", ZodTypeAny, {
-  context: unknown[];
-  input: unknown;
-  output: unknown;
-  reference: unknown;
-  testCaseId: string;
-  traceIds: string[];
- }, {
-  context: unknown[];
-  input: unknown;
-  output: unknown;
-  reference: unknown;
-  testCaseId: string;
-  traceIds: string[];
-}>, ZodTypeAny>
-```
+> **defineEvaluator**\<`DataPoint`, `EvalDataPoint`, `EvaluatorOptions`\>(`options`, `runner`): [`EvaluatorAction`](../type-aliases/EvaluatorAction.md)\<[`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}\>, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)\>
 
 Creates evaluator action for the provided EvaluatorFn implementation.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `DataPoint` *extends* [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, `DataPoint`\> | [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}\> |
-| `EvalDataPoint` *extends* [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<[`extendShape`](../namespaces/z/namespaces/objectUtil/type-aliases/extendShape.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, \{ `testCaseId`: [`ZodString`](../namespaces/z/classes/ZodString.md); \}\>, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, `EvalDataPoint`\> | [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<[`extendShape`](../namespaces/z/namespaces/objectUtil/type-aliases/extendShape.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, \{ `testCaseId`: [`ZodString`](../namespaces/z/classes/ZodString.md); \}\>, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}\> |
-| `EvaluatorOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `EvaluatorOptions`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **DataPoint** *extends* [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, `DataPoint`\> = [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}\>
+
+• **EvalDataPoint** *extends* [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<[`extendShape`](../namespaces/z/namespaces/objectUtil/type-aliases/extendShape.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, \{ `testCaseId`: [`ZodString`](../namespaces/z/classes/ZodString.md); \}\>, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, `EvalDataPoint`\> = [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<[`extendShape`](../namespaces/z/namespaces/objectUtil/type-aliases/extendShape.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, \{ `testCaseId`: [`ZodString`](../namespaces/z/classes/ZodString.md); \}\>, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}\>
+
+• **EvaluatorOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `EvaluatorOptions`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | `object` |
-| `options.configSchema`? | `EvaluatorOptions` |
-| `options.dataPointType`? | `DataPoint` |
-| `options.definition` | `string` |
-| `options.displayName` | `string` |
-| `options.isBilled`? | `boolean` |
-| `options.name` | `string` |
-| `runner` | `EvaluatorFn`\<`EvalDataPoint`, `EvaluatorOptions`\> |
+##### options
+
+###### configSchema
+
+`EvaluatorOptions`
+
+###### dataPointType
+
+`DataPoint`
+
+###### definition
+
+`string`
+
+###### displayName
+
+`string`
+
+###### isBilled
+
+`boolean`
+
+###### name
+
+`string`
+
+##### runner
+
+`EvaluatorFn`\<`EvalDataPoint`, `EvaluatorOptions`\>
 
 #### Returns
 
-[`EvaluatorAction`](../type-aliases/EvaluatorAction.md)\<[`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{
-  `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>;
-  `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md);
-  `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>;
-  `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>;
-  `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>;
-  `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>;
- \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{
-  `context`: `unknown`[];
-  `input`: `unknown`;
-  `output`: `unknown`;
-  `reference`: `unknown`;
-  `testCaseId`: `string`;
-  `traceIds`: `string`[];
- \}, \{
-  `context`: `unknown`[];
-  `input`: `unknown`;
-  `output`: `unknown`;
-  `reference`: `unknown`;
-  `testCaseId`: `string`;
-  `traceIds`: `string`[];
- \}\>, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)\>
+[`EvaluatorAction`](../type-aliases/EvaluatorAction.md)\<[`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}\>, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)\>
 
 #### Defined in
 
-[genkit/src/genkit.ts:569](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L569)
+[genkit/src/genkit.ts:646](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L646)
 
 ***
 
 ### defineFlow()
 
-```ts
-defineFlow<I, O>(config: string | FlowConfig<I, O>, fn: FlowFn<I, O, ZodTypeAny>): CallableFlow<I, O>
-```
+> **defineFlow**\<`I`, `O`, `S`\>(`config`, `fn`): [`CallableFlow`](../interfaces/CallableFlow.md)\<`I`, `O`, `S`\>
 
 Defines and registers a non-streaming flow.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **I** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **S** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `S`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `config` | `string` \| [`FlowConfig`](../interfaces/FlowConfig.md)\<`I`, `O`\> |
-| `fn` | [`FlowFn`](../type-aliases/FlowFn.md)\<`I`, `O`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)\> |
+##### config
+
+`string` | [`StreamingFlowConfig`](../interfaces/StreamingFlowConfig.md)\<`I`, `O`, `S`\>
+
+##### fn
+
+[`FlowFn`](../type-aliases/FlowFn.md)\<`I`, `O`, `S`\>
 
 #### Returns
 
-[`CallableFlow`](../interfaces/CallableFlow.md)\<`I`, `O`\>
+[`CallableFlow`](../interfaces/CallableFlow.md)\<`I`, `O`, `S`\>
 
 #### Todo
 
@@ -349,24 +370,133 @@ TODO: Improve this documentation (show snippets, etc).
 
 #### Defined in
 
-[genkit/src/genkit.ts:198](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L198)
+[genkit/src/genkit.ts:206](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L206)
+
+***
+
+### defineFormat()
+
+> **defineFormat**(`options`, `handler`): `object`
+
+Defines and registers a custom model output formatter.
+
+Here's an example of a custom JSON output formatter:
+
+```ts
+import { extractJson } from 'genkit/extract';
+
+ai.defineFormat(
+  { name: 'customJson' },
+  (schema) => {
+    let instructions: string | undefined;
+    if (schema) {
+      instructions = `Output should be in JSON format and conform to the following schema:
+\`\`\`
+${JSON.stringify(schema)}
+\`\`\`
+`;
+    }
+    return {
+      parseChunk: (chunk) => extractJson(chunk.accumulatedText),
+      parseMessage: (message) => extractJson(message.text),
+      instructions,
+    };
+  }
+);
+
+const { output } = await ai.generate({
+  prompt: 'Invent a menu item for a pirate themed restaurant.',
+  output: { format: 'customJson', schema: MenuItemSchema },
+});
+```
+
+#### Parameters
+
+##### options
+
+`object` & `object`
+
+##### handler
+
+(`schema`?) => `object`
+
+#### Returns
+
+`object`
+
+##### config
+
+> **config**: `undefined` \| \{ `constrained`: `boolean`; `contentType`: `string`; `format`: `string`; `instructions`: `string`; `schema`: `Record`\<`string`, `any`\>; \}
+
+##### handler()
+
+> **handler**: (`schema`?) => `object`
+
+###### Parameters
+
+###### schema?
+
+`any`
+
+###### Returns
+
+`object`
+
+###### instructions?
+
+> `optional` **instructions**: `string`
+
+###### parseChunk()?
+
+> `optional` **parseChunk**: (`chunk`, `cursor`?) => `unknown`
+
+###### Parameters
+
+###### chunk
+
+`GenerateResponseChunk`\<`unknown`\>
+
+###### cursor?
+
+`any`
+
+###### Returns
+
+`unknown`
+
+###### parseMessage()
+
+###### Parameters
+
+###### message
+
+[`Message`](Message.md)\<`unknown`\>
+
+###### Returns
+
+`unknown`
+
+#### Defined in
+
+[genkit/src/genkit.ts:295](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L295)
 
 ***
 
 ### defineHelper()
 
-```ts
-defineHelper(name: string, fn: HelperDelegate): void
-```
+> **defineHelper**(`name`, `fn`): `void`
 
 create a handlebards helper (https://handlebarsjs.com/guide/block-helpers.html) to be used in dotpormpt templates.
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `name` | `string` |
-| `fn` | `HelperDelegate` |
+##### name
+
+`string`
+
+##### fn
+
+`HelperDelegate`
 
 #### Returns
 
@@ -374,49 +504,59 @@ create a handlebards helper (https://handlebarsjs.com/guide/block-helpers.html) 
 
 #### Defined in
 
-[genkit/src/genkit.ts:605](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L605)
+[genkit/src/genkit.ts:682](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L682)
 
 ***
 
 ### defineIndexer()
 
-```ts
-defineIndexer<IndexerOptions>(options: {
-  configSchema: IndexerOptions;
-  embedderInfo: {
-     dimensions: number;
-     label: string;
-     supports: {
-        input: ("text" | "image")[];
-        multilingual: boolean;
-       };
-    };
-  name: string;
-}, runner: IndexerFn<IndexerOptions>): IndexerAction<IndexerOptions>
-```
+> **defineIndexer**\<`IndexerOptions`\>(`options`, `runner`): [`IndexerAction`](../type-aliases/IndexerAction.md)\<`IndexerOptions`\>
 
-Creates an indexer action for the provided IndexerFn implementation.
+Creates an indexer action for the provided [IndexerFn](../retriever/type-aliases/IndexerFn.md) implementation.
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `IndexerOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `IndexerOptions`\> |
+• **IndexerOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `IndexerOptions`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | `object` |
-| `options.configSchema`? | `IndexerOptions` |
-| `options.embedderInfo`? | `object` |
-| `options.embedderInfo.dimensions`? | `number` |
-| `options.embedderInfo.label`? | `string` |
-| `options.embedderInfo.supports`? | `object` |
-| `options.embedderInfo.supports.input`? | (`"text"` \| `"image"`)[] |
-| `options.embedderInfo.supports.multilingual`? | `boolean` |
-| `options.name` | `string` |
-| `runner` | `IndexerFn`\<`IndexerOptions`\> |
+##### options
+
+###### configSchema
+
+`IndexerOptions`
+
+###### embedderInfo
+
+\{ `dimensions`: `number`; `label`: `string`; `supports`: \{ `input`: (`"text"` \| `"image"`)[]; `multilingual`: `boolean`; \}; \}
+
+###### embedderInfo.dimensions
+
+`number`
+
+###### embedderInfo.label
+
+`string`
+
+###### embedderInfo.supports
+
+\{ `input`: (`"text"` \| `"image"`)[]; `multilingual`: `boolean`; \}
+
+###### embedderInfo.supports.input
+
+(`"text"` \| `"image"`)[]
+
+###### embedderInfo.supports.multilingual
+
+`boolean`
+
+###### name
+
+`string`
+
+##### runner
+
+[`IndexerFn`](../retriever/type-aliases/IndexerFn.md)\<`IndexerOptions`\>
 
 #### Returns
 
@@ -424,15 +564,13 @@ Creates an indexer action for the provided IndexerFn implementation.
 
 #### Defined in
 
-[genkit/src/genkit.ts:555](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L555)
+[genkit/src/genkit.ts:632](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L632)
 
 ***
 
 ### defineJsonSchema()
 
-```ts
-defineJsonSchema(name: string, jsonSchema: any): any
-```
+> **defineJsonSchema**(`name`, `jsonSchema`): `any`
 
 Defines and registers a schema from a JSON schema.
 
@@ -440,10 +578,13 @@ Defined schemas can be referenced by `name` in prompts in place of inline schema
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `name` | `string` |
-| `jsonSchema` | `any` |
+##### name
+
+`string`
+
+##### jsonSchema
+
+`any`
 
 #### Returns
 
@@ -451,410 +592,55 @@ Defined schemas can be referenced by `name` in prompts in place of inline schema
 
 #### Defined in
 
-[genkit/src/genkit.ts:255](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L255)
+[genkit/src/genkit.ts:309](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L309)
 
 ***
 
 ### defineModel()
 
-```ts
-defineModel<CustomOptionsSchema>(options: DefineModelOptions<CustomOptionsSchema>, runner: (request: GenerateRequest<CustomOptionsSchema>, streamingCallback?: StreamingCallback<{
-  aggregated: boolean;
-  content: (
-     | {
-     custom: Record<string, unknown>;
-     data: unknown;
-     media: undefined;
-     metadata: Record<string, unknown>;
-     text: string;
-     toolRequest: undefined;
-     toolResponse: undefined;
-    }
-     | {
-     custom: Record<string, unknown>;
-     data: unknown;
-     media: {
-        contentType: string;
-        url: string;
-       };
-     metadata: Record<string, unknown>;
-     text: undefined;
-     toolRequest: undefined;
-     toolResponse: undefined;
-    }
-     | {
-     custom: Record<string, unknown>;
-     data: unknown;
-     media: undefined;
-     metadata: Record<string, unknown>;
-     text: undefined;
-     toolRequest: {
-        input: unknown;
-        name: string;
-        ref: string;
-       };
-     toolResponse: undefined;
-    }
-     | {
-     custom: Record<string, unknown>;
-     data: unknown;
-     media: undefined;
-     metadata: Record<string, unknown>;
-     text: undefined;
-     toolRequest: undefined;
-     toolResponse: {
-        name: string;
-        output: unknown;
-        ref: string;
-       };
-    }
-     | {
-     custom: Record<string, unknown>;
-     data: unknown;
-     media: undefined;
-     metadata: Record<string, unknown>;
-     text: undefined;
-     toolRequest: undefined;
-     toolResponse: undefined;
-    }
-     | {
-     custom: Record<string, any>;
-     data: unknown;
-     media: undefined;
-     metadata: Record<string, unknown>;
-     text: undefined;
-     toolRequest: undefined;
-     toolResponse: undefined;
-    })[];
-  custom: unknown;
-  index: number;
- }>) => Promise<{
-  candidates: {
-     custom: unknown;
-     finishMessage: string;
-     finishReason:   | "length"
-        | "unknown"
-        | "stop"
-        | "blocked"
-        | "other";
-     index: number;
-     message: {
-        content: (
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: string;
-           toolRequest: undefined;
-           toolResponse: undefined;
-          }
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: {
-              contentType: ...;
-              url: ...;
-             };
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: undefined;
-           toolResponse: undefined;
-          }
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: {
-              input: ...;
-              name: ...;
-              ref: ...;
-             };
-           toolResponse: undefined;
-          }
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: undefined;
-           toolResponse: {
-              name: ...;
-              output: ...;
-              ref: ...;
-             };
-          }
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: undefined;
-           toolResponse: undefined;
-          }
-           | {
-           custom: Record<..., ...>;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: undefined;
-           toolResponse: undefined;
-          })[];
-        metadata: Record<string, unknown>;
-        role: "model" | "tool" | "system" | "user";
-       };
-     usage: {
-        custom: Record<string, number>;
-        inputAudioFiles: number;
-        inputCharacters: number;
-        inputImages: number;
-        inputTokens: number;
-        inputVideos: number;
-        outputAudioFiles: number;
-        outputCharacters: number;
-        outputImages: number;
-        outputTokens: number;
-        outputVideos: number;
-        totalTokens: number;
-       };
-    }[];
-  custom: unknown;
-  finishMessage: string;
-  finishReason:   | "length"
-     | "unknown"
-     | "stop"
-     | "blocked"
-     | "other";
-  latencyMs: number;
-  message: {
-     content: (
-        | {
-        custom: Record<string, unknown>;
-        data: unknown;
-        media: undefined;
-        metadata: Record<string, unknown>;
-        text: string;
-        toolRequest: undefined;
-        toolResponse: undefined;
-       }
-        | {
-        custom: Record<string, unknown>;
-        data: unknown;
-        media: {
-           contentType: string;
-           url: string;
-          };
-        metadata: Record<string, unknown>;
-        text: undefined;
-        toolRequest: undefined;
-        toolResponse: undefined;
-       }
-        | {
-        custom: Record<string, unknown>;
-        data: unknown;
-        media: undefined;
-        metadata: Record<string, unknown>;
-        text: undefined;
-        toolRequest: {
-           input: unknown;
-           name: string;
-           ref: string;
-          };
-        toolResponse: undefined;
-       }
-        | {
-        custom: Record<string, unknown>;
-        data: unknown;
-        media: undefined;
-        metadata: Record<string, unknown>;
-        text: undefined;
-        toolRequest: undefined;
-        toolResponse: {
-           name: string;
-           output: unknown;
-           ref: string;
-          };
-       }
-        | {
-        custom: Record<string, unknown>;
-        data: unknown;
-        media: undefined;
-        metadata: Record<string, unknown>;
-        text: undefined;
-        toolRequest: undefined;
-        toolResponse: undefined;
-       }
-        | {
-        custom: Record<string, any>;
-        data: unknown;
-        media: undefined;
-        metadata: Record<string, unknown>;
-        text: undefined;
-        toolRequest: undefined;
-        toolResponse: undefined;
-       })[];
-     metadata: Record<string, unknown>;
-     role: "model" | "tool" | "system" | "user";
-    };
-  raw: unknown;
-  request: {
-     candidates: number;
-     config: any;
-     docs: {
-        content: ({
-           media: ...;
-           text: ...;
-          } | {
-           media: ...;
-           text: ...;
-          })[];
-        metadata: Record<string, any>;
-       }[];
-     messages: {
-        content: (
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: string;
-           toolRequest: undefined;
-           toolResponse: undefined;
-          }
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: {
-              contentType: ...;
-              url: ...;
-             };
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: undefined;
-           toolResponse: undefined;
-          }
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: {
-              input: ...;
-              name: ...;
-              ref: ...;
-             };
-           toolResponse: undefined;
-          }
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: undefined;
-           toolResponse: {
-              name: ...;
-              output: ...;
-              ref: ...;
-             };
-          }
-           | {
-           custom: ... | ...;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: undefined;
-           toolResponse: undefined;
-          }
-           | {
-           custom: Record<..., ...>;
-           data: unknown;
-           media: undefined;
-           metadata: ... | ...;
-           text: undefined;
-           toolRequest: undefined;
-           toolResponse: undefined;
-          })[];
-        metadata: Record<string, unknown>;
-        role: "model" | "tool" | "system" | "user";
-       }[];
-     output: {
-        constrained: boolean;
-        contentType: string;
-        format: string;
-        instructions: string;
-        schema: Record<string, any>;
-       };
-     tools: {
-        description: string;
-        inputSchema: null | Record<string, any>;
-        name: string;
-        outputSchema: null | Record<string, any>;
-       }[];
-    };
-  usage: {
-     custom: Record<string, number>;
-     inputAudioFiles: number;
-     inputCharacters: number;
-     inputImages: number;
-     inputTokens: number;
-     inputVideos: number;
-     outputAudioFiles: number;
-     outputCharacters: number;
-     outputImages: number;
-     outputTokens: number;
-     outputVideos: number;
-     totalTokens: number;
-    };
-}>): ModelAction<CustomOptionsSchema>
-```
+> **defineModel**\<`CustomOptionsSchema`\>(`options`, `runner`): [`ModelAction`](../model/type-aliases/ModelAction.md)\<`CustomOptionsSchema`\>
 
 Defines a new model and adds it to the registry.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptionsSchema` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptionsSchema`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptionsSchema** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptionsSchema`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | `DefineModelOptions`\<`CustomOptionsSchema`\> |
-| `runner` | (`request`: [`GenerateRequest`](../interfaces/GenerateRequest.md)\<`CustomOptionsSchema`\>, `streamingCallback`?: [`StreamingCallback`](../type-aliases/StreamingCallback.md)\<\{ `aggregated`: `boolean`; `content`: ( \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: \{ `contentType`: `string`; `url`: `string`; \}; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: \{ `input`: `unknown`; `name`: `string`; `ref`: `string`; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: `string`; `output`: `unknown`; `ref`: `string`; \}; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `any`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[]; `custom`: `unknown`; `index`: `number`; \}\>) => `Promise`\<\{ `candidates`: \{ `custom`: `unknown`; `finishMessage`: `string`; `finishReason`: \| `"length"` \| `"unknown"` \| `"stop"` \| `"blocked"` \| `"other"`; `index`: `number`; `message`: \{ `content`: ( \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: \{ `contentType`: ...; `url`: ...; \}; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: \{ `input`: ...; `name`: ...; `ref`: ...; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: ...; `output`: ...; `ref`: ...; \}; \} \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<..., ...\>; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[]; `metadata`: `Record`\<`string`, `unknown`\>; `role`: `"model"` \| `"tool"` \| `"system"` \| `"user"`; \}; `usage`: \{ `custom`: `Record`\<`string`, `number`\>; `inputAudioFiles`: `number`; `inputCharacters`: `number`; `inputImages`: `number`; `inputTokens`: `number`; `inputVideos`: `number`; `outputAudioFiles`: `number`; `outputCharacters`: `number`; `outputImages`: `number`; `outputTokens`: `number`; `outputVideos`: `number`; `totalTokens`: `number`; \}; \}[]; `custom`: `unknown`; `finishMessage`: `string`; `finishReason`: \| `"length"` \| `"unknown"` \| `"stop"` \| `"blocked"` \| `"other"`; `latencyMs`: `number`; `message`: \{ `content`: ( \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: \{ `contentType`: `string`; `url`: `string`; \}; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: \{ `input`: `unknown`; `name`: `string`; `ref`: `string`; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: `string`; `output`: `unknown`; `ref`: `string`; \}; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `any`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[]; `metadata`: `Record`\<`string`, `unknown`\>; `role`: `"model"` \| `"tool"` \| `"system"` \| `"user"`; \}; `raw`: `unknown`; `request`: \{ `candidates`: `number`; `config`: `any`; `docs`: \{ `content`: (\{ `media`: ...; `text`: ...; \} \| \{ `media`: ...; `text`: ...; \})[]; `metadata`: `Record`\<`string`, `any`\>; \}[]; `messages`: \{ `content`: ( \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: \{ `contentType`: ...; `url`: ...; \}; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: \{ `input`: ...; `name`: ...; `ref`: ...; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: ...; `output`: ...; `ref`: ...; \}; \} \| \{ `custom`: ... \| ...; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<..., ...\>; `data`: `unknown`; `media`: `undefined`; `metadata`: ... \| ...; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[]; `metadata`: `Record`\<`string`, `unknown`\>; `role`: `"model"` \| `"tool"` \| `"system"` \| `"user"`; \}[]; `output`: \{ `constrained`: `boolean`; `contentType`: `string`; `format`: `string`; `instructions`: `string`; `schema`: `Record`\<`string`, `any`\>; \}; `tools`: \{ `description`: `string`; `inputSchema`: `null` \| `Record`\<`string`, `any`\>; `name`: `string`; `outputSchema`: `null` \| `Record`\<`string`, `any`\>; \}[]; \}; `usage`: \{ `custom`: `Record`\<`string`, `number`\>; `inputAudioFiles`: `number`; `inputCharacters`: `number`; `inputImages`: `number`; `inputTokens`: `number`; `inputVideos`: `number`; `outputAudioFiles`: `number`; `outputCharacters`: `number`; `outputImages`: `number`; `outputTokens`: `number`; `outputVideos`: `number`; `totalTokens`: `number`; \}; \}\> |
+##### options
+
+[`DefineModelOptions`](../model/type-aliases/DefineModelOptions.md)\<`CustomOptionsSchema`\>
+
+##### runner
+
+(`request`, `streamingCallback`?) => `Promise`\<\{ `candidates`: `object`[]; `custom`: `unknown`; `finishMessage`: `string`; `finishReason`: `"length"` \| `"unknown"` \| `"stop"` \| `"blocked"` \| `"other"`; `latencyMs`: `number`; `message`: \{ `content`: (\{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: \{ `contentType`: `string`; `url`: `string`; \}; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: \{ `input`: `unknown`; `name`: `string`; `ref`: `string`; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: `string`; `output`: `unknown`; `ref`: `string`; \}; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `any`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[]; `metadata`: `Record`\<`string`, `unknown`\>; `role`: `"model"` \| `"tool"` \| `"system"` \| `"user"`; \}; `raw`: `unknown`; `request`: \{ `candidates`: `number`; `config`: `any`; `docs`: `object`[]; `messages`: `object`[]; `output`: \{ `constrained`: `boolean`; `contentType`: `string`; `format`: `string`; `instructions`: `string`; `schema`: `Record`\<`string`, `any`\>; \}; `tools`: `object`[]; \}; `usage`: \{ `custom`: `Record`\<`string`, `number`\>; `inputAudioFiles`: `number`; `inputCharacters`: `number`; `inputImages`: `number`; `inputTokens`: `number`; `inputVideos`: `number`; `outputAudioFiles`: `number`; `outputCharacters`: `number`; `outputImages`: `number`; `outputTokens`: `number`; `outputVideos`: `number`; `totalTokens`: `number`; \}; \}\>
 
 #### Returns
 
-`ModelAction`\<`CustomOptionsSchema`\>
+[`ModelAction`](../model/type-aliases/ModelAction.md)\<`CustomOptionsSchema`\>
 
 #### Defined in
 
-[genkit/src/genkit.ts:262](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L262)
+[genkit/src/genkit.ts:316](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L316)
 
 ***
 
 ### definePartial()
 
-```ts
-definePartial(name: string, source: string): void
-```
+> **definePartial**(`name`, `source`): `void`
 
 Creates a handlebars partial (https://handlebarsjs.com/guide/partials.html) to be used in dotpormpt templates.
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `name` | `string` |
-| `source` | `string` |
+##### name
+
+`string`
+
+##### source
+
+`string`
 
 #### Returns
 
@@ -862,19 +648,45 @@ Creates a handlebars partial (https://handlebarsjs.com/guide/partials.html) to b
 
 #### Defined in
 
-[genkit/src/genkit.ts:612](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L612)
+[genkit/src/genkit.ts:689](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L689)
 
 ***
 
 ### definePrompt()
 
-#### definePrompt(options, fn)
+#### Call Signature
 
-```ts
-definePrompt<I, O, CustomOptions>(options: PromptMetadata<I, CustomOptions>, fn: PromptFn<I, ZodTypeAny>): ExecutablePrompt<TypeOf<I>, O, CustomOptions>
-```
+> **definePrompt**\<`I`, `O`, `CustomOptions`\>(`options`, `fn`): `ExecutablePrompt`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>, `O`, `CustomOptions`\>
 
-Defines and registers a function-based prompt.
+Defines and registers a prompt based on a function.
+
+This is an alternative to defining and importing a .prompt file, providing
+the most advanced control over how the final request to the model is made.
+
+##### Type Parameters
+
+• **I** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+##### Parameters
+
+###### options
+
+[`PromptMetadata`](../type-aliases/PromptMetadata.md)\<`I`, `CustomOptions`\>
+
+Prompt metadata including model, model params,
+input/output schemas, etc
+
+###### fn
+
+[`PromptFn`](../type-aliases/PromptFn.md)\<`I`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)\>
+
+A function that returns a [GenerateRequest](../interfaces/GenerateRequest.md). Any config
+parameters specified by the [GenerateRequest](../interfaces/GenerateRequest.md) will take precedence
+over any parameters specified by `options`.
 
 ```ts
 const hi = ai.definePrompt(
@@ -898,20 +710,42 @@ const hi = ai.definePrompt(
 const { text } = await hi({ name: 'Genkit' });
 ```
 
+##### Returns
+
+`ExecutablePrompt`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>, `O`, `CustomOptions`\>
+
+##### Defined in
+
+[genkit/src/genkit.ts:399](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L399)
+
+#### Call Signature
+
+> **definePrompt**\<`I`, `O`, `CustomOptions`\>(`options`, `template`): `ExecutablePrompt`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>, `O`, `CustomOptions`\>
+
+Defines and registers a prompt based on a template.
+
+This is an alternative to defining and importing a .prompt file, in
+situations where a static definition will not suffice.
+
 ##### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **I** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | [`PromptMetadata`](../type-aliases/PromptMetadata.md)\<`I`, `CustomOptions`\> |
-| `fn` | [`PromptFn`](../type-aliases/PromptFn.md)\<`I`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)\> |
+###### options
+
+[`PromptMetadata`](../type-aliases/PromptMetadata.md)\<`I`, `CustomOptions`\>
+
+The first input number
+
+###### template
+
+`string`
 
 ##### Returns
 
@@ -919,93 +753,51 @@ const { text } = await hi({ name: 'Genkit' });
 
 ##### Defined in
 
-[genkit/src/genkit.ts:336](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L336)
-
-#### definePrompt(options, template)
-
-```ts
-definePrompt<I, O, CustomOptions>(options: PromptMetadata<I, CustomOptions>, template: string): ExecutablePrompt<TypeOf<I>, O, CustomOptions>
-```
-
-Defines and registers a dotprompt.
-
-This is an alternative to defining and importing a .prompt file.
-
-```ts
-const hi = ai.definePrompt(
-  {
-    name: 'hi',
-    input: {
-      schema: z.object({
-        name: z.string(),
-      }),
-    },
-  },
-  'hi {{ name }}'
-);
-const { text } = await hi({ name: 'Genkit' });
-```
-
-##### Type Parameters
-
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-
-##### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `options` | [`PromptMetadata`](../type-aliases/PromptMetadata.md)\<`I`, `CustomOptions`\> |
-| `template` | `string` |
-
-##### Returns
-
-`ExecutablePrompt`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>, `O`, `CustomOptions`\>
-
-##### Defined in
-
-[genkit/src/genkit.ts:365](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L365)
+[genkit/src/genkit.ts:432](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L432)
 
 ***
 
 ### defineReranker()
 
-```ts
-defineReranker<OptionsType>(options: {
-  configSchema: OptionsType;
-  info: {
-     label: string;
-     supports: {
-        media: boolean;
-       };
-    };
-  name: string;
-}, runner: RerankerFn<OptionsType>): RerankerAction<OptionsType>
-```
+> **defineReranker**\<`OptionsType`\>(`options`, `runner`): [`RerankerAction`](../type-aliases/RerankerAction.md)\<`OptionsType`\>
 
 Creates a reranker action for the provided RerankerFn implementation.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `OptionsType` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `OptionsType`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **OptionsType** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `OptionsType`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | `object` |
-| `options.configSchema`? | `OptionsType` |
-| `options.info`? | `object` |
-| `options.info.label`? | `string` |
-| `options.info.supports`? | `object` |
-| `options.info.supports.media`? | `boolean` |
-| `options.name` | `string` |
-| `runner` | `RerankerFn`\<`OptionsType`\> |
+##### options
+
+###### configSchema
+
+`OptionsType`
+
+###### info
+
+\{ `label`: `string`; `supports`: \{ `media`: `boolean`; \}; \}
+
+###### info.label
+
+`string`
+
+###### info.supports
+
+\{ `media`: `boolean`; \}
+
+###### info.supports.media
+
+`boolean`
+
+###### name
+
+`string`
+
+##### runner
+
+`RerankerFn`\<`OptionsType`\>
 
 #### Returns
 
@@ -1013,45 +805,51 @@ Creates a reranker action for the provided RerankerFn implementation.
 
 #### Defined in
 
-[genkit/src/genkit.ts:619](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L619)
+[genkit/src/genkit.ts:696](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L696)
 
 ***
 
 ### defineRetriever()
 
-```ts
-defineRetriever<OptionsType>(options: {
-  configSchema: OptionsType;
-  info: {
-     label: string;
-     supports: {
-        media: boolean;
-       };
-    };
-  name: string;
-}, runner: RetrieverFn<OptionsType>): RetrieverAction<OptionsType>
-```
+> **defineRetriever**\<`OptionsType`\>(`options`, `runner`): [`RetrieverAction`](../type-aliases/RetrieverAction.md)\<`OptionsType`\>
 
-Creates a retriever action for the provided RetrieverFn implementation.
+Creates a retriever action for the provided [RetrieverFn](../retriever/type-aliases/RetrieverFn.md) implementation.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `OptionsType` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `OptionsType`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **OptionsType** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `OptionsType`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | `object` |
-| `options.configSchema`? | `OptionsType` |
-| `options.info`? | `object` |
-| `options.info.label`? | `string` |
-| `options.info.supports`? | `object` |
-| `options.info.supports.media`? | `boolean` |
-| `options.name` | `string` |
-| `runner` | `RetrieverFn`\<`OptionsType`\> |
+##### options
+
+###### configSchema
+
+`OptionsType`
+
+###### info
+
+\{ `label`: `string`; `supports`: \{ `media`: `boolean`; \}; \}
+
+###### info.label
+
+`string`
+
+###### info.supports
+
+\{ `media`: `boolean`; \}
+
+###### info.supports.media
+
+`boolean`
+
+###### name
+
+`string`
+
+##### runner
+
+[`RetrieverFn`](../retriever/type-aliases/RetrieverFn.md)\<`OptionsType`\>
 
 #### Returns
 
@@ -1059,15 +857,13 @@ Creates a retriever action for the provided RetrieverFn implementation.
 
 #### Defined in
 
-[genkit/src/genkit.ts:526](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L526)
+[genkit/src/genkit.ts:603](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L603)
 
 ***
 
 ### defineSchema()
 
-```ts
-defineSchema<T>(name: string, schema: T): T
-```
+> **defineSchema**\<`T`\>(`name`, `schema`): `T`
 
 Defines and registers a schema from a Zod schema.
 
@@ -1075,16 +871,17 @@ Defined schemas can be referenced by `name` in prompts in place of inline schema
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `name` | `string` |
-| `schema` | `T` |
+##### name
+
+`string`
+
+##### schema
+
+`T`
 
 #### Returns
 
@@ -1092,32 +889,36 @@ Defined schemas can be referenced by `name` in prompts in place of inline schema
 
 #### Defined in
 
-[genkit/src/genkit.ts:246](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L246)
+[genkit/src/genkit.ts:258](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L258)
 
 ***
 
 ### defineSimpleRetriever()
 
-```ts
-defineSimpleRetriever<C, R>(options: SimpleRetrieverOptions<C, R>, handler: (query: Document, config: TypeOf<C>) => Promise<R[]>): RetrieverAction<C>
-```
+> **defineSimpleRetriever**\<`C`, `R`\>(`options`, `handler`): [`RetrieverAction`](../type-aliases/RetrieverAction.md)\<`C`\>
 
 defineSimpleRetriever makes it easy to map existing data into documents that
 can be used for prompt augmentation.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `C` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `C`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `R` | `any` |
+• **C** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `C`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **R** = `any`
 
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `options` | `SimpleRetrieverOptions`\<`C`, `R`\> | Configuration options for the retriever. |
-| `handler` | (`query`: [`Document`](Document.md), `config`: [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`C`\>) => `Promise`\<`R`[]\> | A function that queries a datastore and returns items from which to extract documents. |
+##### options
+
+[`SimpleRetrieverOptions`](../retriever/interfaces/SimpleRetrieverOptions.md)\<`C`, `R`\>
+
+Configuration options for the retriever.
+
+##### handler
+
+(`query`, `config`) => `Promise`\<`R`[]\>
+
+A function that queries a datastore and returns items from which to extract documents.
 
 #### Returns
 
@@ -1127,52 +928,51 @@ A Genkit retriever.
 
 #### Defined in
 
-[genkit/src/genkit.ts:545](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L545)
+[genkit/src/genkit.ts:622](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L622)
 
 ***
 
-### defineStreamingFlow()
+### ~~defineStreamingFlow()~~
 
-```ts
-defineStreamingFlow<I, O, S>(config: string | StreamingFlowConfig<I, O, S>, fn: FlowFn<I, O, S>): StreamableFlow<I, O, S>
-```
+> **defineStreamingFlow**\<`I`, `O`, `S`\>(`config`, `fn`): [`StreamableFlow`](../interfaces/StreamableFlow.md)\<`I`, `O`, `S`\>
 
 Defines and registers a streaming flow.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `S` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `S`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **I** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **S** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `S`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `config` | `string` \| [`StreamingFlowConfig`](../interfaces/StreamingFlowConfig.md)\<`I`, `O`, `S`\> |
-| `fn` | [`FlowFn`](../type-aliases/FlowFn.md)\<`I`, `O`, `S`\> |
+##### config
+
+`string` | [`StreamingFlowConfig`](../interfaces/StreamingFlowConfig.md)\<`I`, `O`, `S`\>
+
+##### fn
+
+[`FlowFn`](../type-aliases/FlowFn.md)\<`I`, `O`, `S`\>
 
 #### Returns
 
 [`StreamableFlow`](../interfaces/StreamableFlow.md)\<`I`, `O`, `S`\>
 
-#### Todo
+#### Deprecated
 
-TODO: Improve this documentation (show snippetss, etc).
+use [defineFlow](Genkit.md#defineflow)
 
 #### Defined in
 
-[genkit/src/genkit.ts:212](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L212)
+[genkit/src/genkit.ts:224](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L224)
 
 ***
 
 ### defineTool()
 
-```ts
-defineTool<I, O>(config: ToolConfig<I, O>, fn: (input: TypeOf<I>) => Promise<TypeOf<O>>): ToolAction<I, O>
-```
+> **defineTool**\<`I`, `O`\>(`config`, `fn`): [`ToolAction`](../type-aliases/ToolAction.md)\<`I`, `O`\>
 
 Defines and registers a tool.
 
@@ -1180,17 +980,19 @@ Tools can be passed to models by name or value during `generate` calls to be cal
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `I` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> |
+• **I** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\>
+
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `config` | [`ToolConfig`](../interfaces/ToolConfig.md)\<`I`, `O`\> |
-| `fn` | (`input`: [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>) => `Promise`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\> |
+##### config
+
+[`ToolConfig`](../interfaces/ToolConfig.md)\<`I`, `O`\>
+
+##### fn
+
+(`input`) => `Promise`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\>
 
 #### Returns
 
@@ -1198,29 +1000,25 @@ Tools can be passed to models by name or value during `generate` calls to be cal
 
 #### Defined in
 
-[genkit/src/genkit.ts:234](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L234)
+[genkit/src/genkit.ts:246](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L246)
 
 ***
 
 ### embed()
 
-```ts
-embed<CustomOptions>(params: EmbedderParams<CustomOptions>): Promise<number[]>
-```
+> **embed**\<`CustomOptions`\>(`params`): `Promise`\<`number`[]\>
 
 Embeds the given `content` using the specified `embedder`.
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> |
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | [`EmbedderParams`](../interfaces/EmbedderParams.md)\<`CustomOptions`\> |
+##### params
+
+[`EmbedderParams`](../interfaces/EmbedderParams.md)\<`CustomOptions`\>
 
 #### Returns
 
@@ -1228,139 +1026,83 @@ Embeds the given `content` using the specified `embedder`.
 
 #### Defined in
 
-[genkit/src/genkit.ts:633](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L633)
+[genkit/src/genkit.ts:710](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L710)
 
 ***
 
 ### embedMany()
 
-```ts
-embedMany<ConfigSchema>(params: {
-  content: string[] | {
-     content: ({
-        media: undefined;
-        text: string;
-       } | {
-        media: {
-           contentType: string;
-           url: string;
-          };
-        text: undefined;
-       })[];
-     metadata: Record<string, any>;
-    }[];
-  embedder: EmbedderArgument<ConfigSchema>;
-  metadata: Record<string, unknown>;
-  options: TypeOf<ConfigSchema>;
-}): Promise<EmbeddingBatch>
-```
+> **embedMany**\<`ConfigSchema`\>(`params`): `Promise`\<[`EmbeddingBatch`](../embedder/type-aliases/EmbeddingBatch.md)\>
 
 A veneer for interacting with embedder models in bulk.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `ConfigSchema` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `ConfigSchema`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **ConfigSchema** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `ConfigSchema`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | `object` |
-| `params.content` | `string`[] \| \{ `content`: (\{ `media`: `undefined`; `text`: `string`; \} \| \{ `media`: \{ `contentType`: `string`; `url`: `string`; \}; `text`: `undefined`; \})[]; `metadata`: `Record`\<`string`, `any`\>; \}[] |
-| `params.embedder` | [`EmbedderArgument`](../type-aliases/EmbedderArgument.md)\<`ConfigSchema`\> |
-| `params.metadata`? | `Record`\<`string`, `unknown`\> |
-| `params.options`? | [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`ConfigSchema`\> |
+##### params
+
+###### content
+
+`string`[] \| `object`[]
+
+###### embedder
+
+[`EmbedderArgument`](../type-aliases/EmbedderArgument.md)\<`ConfigSchema`\>
+
+###### metadata
+
+`Record`\<`string`, `unknown`\>
+
+###### options
+
+[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`ConfigSchema`\>
 
 #### Returns
 
-`Promise`\<`EmbeddingBatch`\>
+`Promise`\<[`EmbeddingBatch`](../embedder/type-aliases/EmbeddingBatch.md)\>
 
 #### Defined in
 
-[genkit/src/genkit.ts:642](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L642)
+[genkit/src/genkit.ts:719](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L719)
 
 ***
 
 ### evaluate()
 
-```ts
-evaluate<DataPoint, CustomOptions>(params: EvaluatorParams<DataPoint, CustomOptions>): Promise<{
-  evaluation: {
-     details: objectOutputType<{
-        reasoning: ZodOptional<ZodString>;
-       }, ZodTypeAny, "passthrough">;
-     error: string;
-     id: string;
-     score: string | number | boolean;
-    } | {
-     details: objectOutputType<{
-        reasoning: ZodOptional<ZodString>;
-       }, ZodTypeAny, "passthrough">;
-     error: string;
-     id: string;
-     score: string | number | boolean;
-    }[];
-  sampleIndex: number;
-  spanId: string;
-  testCaseId: string;
-  traceId: string;
-}[]>
-```
+> **evaluate**\<`DataPoint`, `CustomOptions`\>(`params`): `Promise`\<`object`[]\>
 
 Evaluates the given `dataset` using the specified `evaluator`.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `DataPoint` *extends* [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, `DataPoint`\> | [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}\> |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **DataPoint** *extends* [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, `DataPoint`\> = [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `context`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md), `"many"`\>\>; `input`: [`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md); `output`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `reference`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodUnknown`](../namespaces/z/classes/ZodUnknown.md)\>; `testCaseId`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; `traceIds`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}, \{ `context`: `unknown`[]; `input`: `unknown`; `output`: `unknown`; `reference`: `unknown`; `testCaseId`: `string`; `traceIds`: `string`[]; \}\>
+
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | [`EvaluatorParams`](../interfaces/EvaluatorParams.md)\<`DataPoint`, `CustomOptions`\> |
+##### params
+
+[`EvaluatorParams`](../interfaces/EvaluatorParams.md)\<`DataPoint`, `CustomOptions`\>
 
 #### Returns
 
-`Promise`\<\{
-  `evaluation`: \{
-     `details`: [`objectOutputType`](../namespaces/z/type-aliases/objectOutputType.md)\<\{
-        `reasoning`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>;
-       \}, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), `"passthrough"`\>;
-     `error`: `string`;
-     `id`: `string`;
-     `score`: `string` \| `number` \| `boolean`;
-    \} \| \{
-     `details`: [`objectOutputType`](../namespaces/z/type-aliases/objectOutputType.md)\<\{
-        `reasoning`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>;
-       \}, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), `"passthrough"`\>;
-     `error`: `string`;
-     `id`: `string`;
-     `score`: `string` \| `number` \| `boolean`;
-    \}[];
-  `sampleIndex`: `number`;
-  `spanId`: `string`;
-  `testCaseId`: `string`;
-  `traceId`: `string`;
- \}[]\>
+`Promise`\<`object`[]\>
 
 #### Defined in
 
-[genkit/src/genkit.ts:654](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L654)
+[genkit/src/genkit.ts:731](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L731)
 
 ***
 
 ### generate()
 
-#### generate(strPrompt)
+#### Call Signature
 
-```ts
-generate<O>(strPrompt: string): Promise<GenerateResponse<TypeOf<O>>>
-```
+> **generate**\<`O`\>(`strPrompt`): `Promise`\<[`GenerateResponse`](GenerateResponse.md)\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\>\>
 
 Make a generate call to the default model with a simple text prompt.
 
@@ -1375,15 +1117,13 @@ const { text } = await ai.generate('hi');
 
 ##### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `strPrompt` | `string` |
+###### strPrompt
+
+`string`
 
 ##### Returns
 
@@ -1391,78 +1131,11 @@ const { text } = await ai.generate('hi');
 
 ##### Defined in
 
-[genkit/src/genkit.ts:700](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L700)
+[genkit/src/genkit.ts:777](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L777)
 
-#### generate(parts)
+#### Call Signature
 
-```ts
-generate<O>(parts: (
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: string;
-  toolRequest: undefined;
-  toolResponse: undefined;
- }
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: {
-     contentType: string;
-     url: string;
-    };
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: undefined;
- }
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: {
-     input: unknown;
-     name: string;
-     ref: string;
-    };
-  toolResponse: undefined;
- }
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: {
-     name: string;
-     output: unknown;
-     ref: string;
-    };
- }
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: undefined;
- }
-  | {
-  custom: Record<string, any>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: undefined;
-})[]): Promise<GenerateResponse<TypeOf<O>>>
-```
+> **generate**\<`O`\>(`parts`): `Promise`\<[`GenerateResponse`](GenerateResponse.md)\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\>\>
 
 Make a generate call to the default model with a multipart request.
 
@@ -1480,15 +1153,13 @@ const { text } = await ai.generate([
 
 ##### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `parts` | ( \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: \{ `contentType`: `string`; `url`: `string`; \}; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: \{ `input`: `unknown`; `name`: `string`; `ref`: `string`; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: `string`; `output`: `unknown`; `ref`: `string`; \}; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `any`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[] |
+###### parts
+
+(\{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: \{ `contentType`: `string`; `url`: `string`; \}; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: \{ `input`: `unknown`; `name`: `string`; `ref`: `string`; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: `string`; `output`: `unknown`; `ref`: `string`; \}; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `any`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[]
 
 ##### Returns
 
@@ -1496,13 +1167,11 @@ const { text } = await ai.generate([
 
 ##### Defined in
 
-[genkit/src/genkit.ts:719](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L719)
+[genkit/src/genkit.ts:796](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L796)
 
-#### generate(opts)
+#### Call Signature
 
-```ts
-generate<O, CustomOptions>(opts: GenerateOptions<O, CustomOptions> | PromiseLike<GenerateOptions<O, CustomOptions>>): Promise<GenerateResponse<TypeOf<O>>>
-```
+> **generate**\<`O`, `CustomOptions`\>(`opts`): `Promise`\<[`GenerateResponse`](GenerateResponse.md)\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\>\>
 
 Generate calls a generative model based on the provided prompt and configuration. If
 `messages` is provided, the generation will include a conversation history in its
@@ -1530,16 +1199,15 @@ const { text } = await ai.generate({
 
 ##### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> | [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `maxOutputTokens`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `stopSequences`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; `temperature`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `topK`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `topP`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `version`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `maxOutputTokens`: `number`; `stopSequences`: `string`[]; `temperature`: `number`; `topK`: `number`; `topP`: `number`; `version`: `string`; \}, \{ `maxOutputTokens`: `number`; `stopSequences`: `string`[]; `temperature`: `number`; `topK`: `number`; `topP`: `number`; `version`: `string`; \}\> |
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> = [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `maxOutputTokens`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `stopSequences`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; `temperature`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `topK`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `topP`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `version`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `maxOutputTokens`: `number`; `stopSequences`: `string`[]; `temperature`: `number`; `topK`: `number`; `topP`: `number`; `version`: `string`; \}, \{ `maxOutputTokens`: `number`; `stopSequences`: `string`[]; `temperature`: `number`; `topK`: `number`; `topP`: `number`; `version`: `string`; \}\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `opts` | [`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\> \| `PromiseLike`\<[`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\>\> |
+###### opts
+
+[`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\> | `PromiseLike`\<[`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\>\>
 
 ##### Returns
 
@@ -1547,17 +1215,15 @@ const { text } = await ai.generate({
 
 ##### Defined in
 
-[genkit/src/genkit.ts:748](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L748)
+[genkit/src/genkit.ts:825](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L825)
 
 ***
 
 ### generateStream()
 
-#### generateStream(strPrompt)
+#### Call Signature
 
-```ts
-generateStream<O>(strPrompt: string): Promise<GenerateStreamResponse<TypeOf<O>>>
-```
+> **generateStream**\<`O`\>(`strPrompt`): `Promise`\<[`GenerateStreamResponse`](../interfaces/GenerateStreamResponse.md)\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\>\>
 
 Make a streaming generate call to the default model with a simple text prompt.
 
@@ -1576,15 +1242,13 @@ console.log((await response).text);
 
 ##### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `strPrompt` | `string` |
+###### strPrompt
+
+`string`
 
 ##### Returns
 
@@ -1592,78 +1256,11 @@ console.log((await response).text);
 
 ##### Defined in
 
-[genkit/src/genkit.ts:796](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L796)
+[genkit/src/genkit.ts:873](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L873)
 
-#### generateStream(parts)
+#### Call Signature
 
-```ts
-generateStream<O>(parts: (
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: string;
-  toolRequest: undefined;
-  toolResponse: undefined;
- }
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: {
-     contentType: string;
-     url: string;
-    };
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: undefined;
- }
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: {
-     input: unknown;
-     name: string;
-     ref: string;
-    };
-  toolResponse: undefined;
- }
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: {
-     name: string;
-     output: unknown;
-     ref: string;
-    };
- }
-  | {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: undefined;
- }
-  | {
-  custom: Record<string, any>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: undefined;
-})[]): Promise<GenerateStreamResponse<TypeOf<O>>>
-```
+> **generateStream**\<`O`\>(`parts`): `Promise`\<[`GenerateStreamResponse`](../interfaces/GenerateStreamResponse.md)\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\>\>
 
 Make a streaming generate call to the default model with a multipart request.
 
@@ -1685,15 +1282,13 @@ console.log((await response).text);
 
 ##### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `parts` | ( \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: \{ `contentType`: `string`; `url`: `string`; \}; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: \{ `input`: `unknown`; `name`: `string`; `ref`: `string`; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: `string`; `output`: `unknown`; `ref`: `string`; \}; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `any`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[] |
+###### parts
+
+(\{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `string`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: \{ `contentType`: `string`; `url`: `string`; \}; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: \{ `input`: `unknown`; `name`: `string`; `ref`: `string`; \}; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: \{ `name`: `string`; `output`: `unknown`; `ref`: `string`; \}; \} \| \{ `custom`: `Record`\<`string`, `unknown`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \} \| \{ `custom`: `Record`\<`string`, `any`\>; `data`: `unknown`; `media`: `undefined`; `metadata`: `Record`\<`string`, `unknown`\>; `text`: `undefined`; `toolRequest`: `undefined`; `toolResponse`: `undefined`; \})[]
 
 ##### Returns
 
@@ -1701,13 +1296,11 @@ console.log((await response).text);
 
 ##### Defined in
 
-[genkit/src/genkit.ts:819](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L819)
+[genkit/src/genkit.ts:896](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L896)
 
-#### generateStream(parts)
+#### Call Signature
 
-```ts
-generateStream<O, CustomOptions>(parts: GenerateOptions<O, CustomOptions> | PromiseLike<GenerateOptions<O, CustomOptions>>): Promise<GenerateStreamResponse<TypeOf<O>>>
-```
+> **generateStream**\<`O`, `CustomOptions`\>(`parts`): `Promise`\<[`GenerateStreamResponse`](../interfaces/GenerateStreamResponse.md)\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`O`\>\>\>
 
 Streaming generate calls a generative model based on the provided prompt and configuration. If
 `messages` is provided, the generation will include a conversation history in its
@@ -1739,16 +1332,15 @@ console.log((await response).text);
 
 ##### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> | [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `maxOutputTokens`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `stopSequences`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; `temperature`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `topK`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `topP`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `version`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `maxOutputTokens`: `number`; `stopSequences`: `string`[]; `temperature`: `number`; `topK`: `number`; `topP`: `number`; `version`: `string`; \}, \{ `maxOutputTokens`: `number`; `stopSequences`: `string`[]; `temperature`: `number`; `topK`: `number`; `topP`: `number`; `version`: `string`; \}\> |
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> = [`ZodObject`](../namespaces/z/classes/ZodObject.md)\<\{ `maxOutputTokens`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `stopSequences`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodArray`](../namespaces/z/classes/ZodArray.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md), `"many"`\>\>; `temperature`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `topK`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `topP`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodNumber`](../namespaces/z/classes/ZodNumber.md)\>; `version`: [`ZodOptional`](../namespaces/z/classes/ZodOptional.md)\<[`ZodString`](../namespaces/z/classes/ZodString.md)\>; \}, `"strip"`, [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md), \{ `maxOutputTokens`: `number`; `stopSequences`: `string`[]; `temperature`: `number`; `topK`: `number`; `topP`: `number`; `version`: `string`; \}, \{ `maxOutputTokens`: `number`; `stopSequences`: `string`[]; `temperature`: `number`; `topK`: `number`; `topP`: `number`; `version`: `string`; \}\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `parts` | [`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\> \| `PromiseLike`\<[`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\>\> |
+###### parts
+
+[`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\> | `PromiseLike`\<[`GenerateOptions`](../interfaces/GenerateOptions.md)\<`O`, `CustomOptions`\>\>
 
 ##### Returns
 
@@ -1756,29 +1348,25 @@ console.log((await response).text);
 
 ##### Defined in
 
-[genkit/src/genkit.ts:852](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L852)
+[genkit/src/genkit.ts:929](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L929)
 
 ***
 
 ### index()
 
-```ts
-index<CustomOptions>(params: IndexerParams<CustomOptions>): Promise<void>
-```
+> **index**\<`CustomOptions`\>(`params`): `Promise`\<`void`\>
 
 Indexes `documents` using the provided `indexer`.
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> |
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | [`IndexerParams`](../interfaces/IndexerParams.md)\<`CustomOptions`\> |
+##### params
+
+[`IndexerParams`](../interfaces/IndexerParams.md)\<`CustomOptions`\>
 
 #### Returns
 
@@ -1786,24 +1374,25 @@ Indexes `documents` using the provided `indexer`.
 
 #### Defined in
 
-[genkit/src/genkit.ts:673](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L673)
+[genkit/src/genkit.ts:750](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L750)
 
 ***
 
 ### loadSession()
 
-```ts
-loadSession(sessionId: string, options: SessionOptions<any>): Promise<Session<any>>
-```
+> **loadSession**(`sessionId`, `options`): `Promise`\<`Session`\<`any`\>\>
 
 Loads a session from the store.
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `sessionId` | `string` |
-| `options` | `SessionOptions`\<`any`\> |
+##### sessionId
+
+`string`
+
+##### options
+
+`SessionOptions`\<`any`\>
 
 #### Returns
 
@@ -1811,35 +1400,35 @@ Loads a session from the store.
 
 #### Defined in
 
-[genkit/src/genkit.ts:964](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L964)
+[genkit/src/genkit.ts:1041](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L1041)
 
 ***
 
 ### prompt()
 
-```ts
-prompt<I, O, CustomOptions>(name: string, options?: {
-  variant: string;
-}): ExecutablePrompt<TypeOf<I>, O, CustomOptions>
-```
+> **prompt**\<`I`, `O`, `CustomOptions`\>(`name`, `options`?): `ExecutablePrompt`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>, `O`, `CustomOptions`\>
 
 Looks up a prompt by `name` and optional `variant`.
 
 #### Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `O` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **I** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `I`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **O** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `O`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `name` | `string` |
-| `options`? | `object` |
-| `options.variant`? | `string` |
+##### name
+
+`string`
+
+##### options?
+
+###### variant
+
+`string`
 
 #### Returns
 
@@ -1851,29 +1440,25 @@ TODO: Show an example of a name and variant.
 
 #### Defined in
 
-[genkit/src/genkit.ts:277](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L277)
+[genkit/src/genkit.ts:331](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L331)
 
 ***
 
 ### rerank()
 
-```ts
-rerank<CustomOptions>(params: RerankerParams<CustomOptions>): Promise<RankedDocument[]>
-```
+> **rerank**\<`CustomOptions`\>(`params`): `Promise`\<[`RankedDocument`](RankedDocument.md)[]\>
 
 Reranks documents from a [RerankerArgument](../type-aliases/RerankerArgument.md) based on the provided query.
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> |
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | [`RerankerParams`](../interfaces/RerankerParams.md)\<`CustomOptions`\> |
+##### params
+
+[`RerankerParams`](../interfaces/RerankerParams.md)\<`CustomOptions`\>
 
 #### Returns
 
@@ -1881,29 +1466,25 @@ Reranks documents from a [RerankerArgument](../type-aliases/RerankerArgument.md)
 
 #### Defined in
 
-[genkit/src/genkit.ts:664](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L664)
+[genkit/src/genkit.ts:741](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L741)
 
 ***
 
 ### retrieve()
 
-```ts
-retrieve<CustomOptions>(params: RetrieverParams<CustomOptions>): Promise<Document[]>
-```
+> **retrieve**\<`CustomOptions`\>(`params`): `Promise`\<[`Document`](Document.md)[]\>
 
 Retrieves documents from the `retriever` based on the provided `query`.
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `CustomOptions` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\> |
+• **CustomOptions** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptions`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | [`RetrieverParams`](../interfaces/RetrieverParams.md)\<`CustomOptions`\> |
+##### params
+
+[`RetrieverParams`](../interfaces/RetrieverParams.md)\<`CustomOptions`\>
 
 #### Returns
 
@@ -1911,37 +1492,33 @@ Retrieves documents from the `retriever` based on the provided `query`.
 
 #### Defined in
 
-[genkit/src/genkit.ts:682](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L682)
+[genkit/src/genkit.ts:759](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L759)
 
 ***
 
 ### startFlowServer()
 
-```ts
-startFlowServer(options: FlowServerOptions): FlowServer
-```
+> **startFlowServer**(`options`): `FlowServer`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | [`FlowServerOptions`](../interfaces/FlowServerOptions.md) |
+##### options
+
+[`FlowServerOptions`](../interfaces/FlowServerOptions.md)
 
 #### Returns
 
-[`FlowServer`](FlowServer.md)
+`FlowServer`
 
 #### Defined in
 
-[genkit/src/genkit.ts:1061](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L1061)
+[genkit/src/genkit.ts:1138](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L1138)
 
 ***
 
 ### stopServers()
 
-```ts
-stopServers(): Promise<void>
-```
+> **stopServers**(): `Promise`\<`void`\>
 
 Stops all servers.
 
@@ -1951,4 +1528,4 @@ Stops all servers.
 
 #### Defined in
 
-[genkit/src/genkit.ts:1032](https://github.com/firebase/genkit/blob/86a563873fbb9affe6f57f066fad8793cf01ed99/js/genkit/src/genkit.ts#L1032)
+[genkit/src/genkit.ts:1109](https://github.com/firebase/genkit/blob/286538acadb0c266800cfa4edc099546226d5af8/js/genkit/src/genkit.ts#L1109)

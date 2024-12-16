@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / AnyZodTuple
+
 # Type Alias: AnyZodTuple
 
-```ts
-type AnyZodTuple: ZodTuple<[ZodTypeAny, ...ZodTypeAny[]] | [], ZodTypeAny | null>;
-```
+> **AnyZodTuple**: [`ZodTuple`](../classes/ZodTuple.md)\<[[`ZodTypeAny`](ZodTypeAny.md), `...ZodTypeAny[]`] \| [], [`ZodTypeAny`](ZodTypeAny.md) \| `null`\>
 
 ## Defined in
 

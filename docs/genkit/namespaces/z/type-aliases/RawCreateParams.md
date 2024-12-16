@@ -1,14 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / RawCreateParams
+
 # Type Alias: RawCreateParams
 
-```ts
-type RawCreateParams: {
-  description: string;
-  errorMap: ZodErrorMap;
-  invalid_type_error: string;
-  message: string;
-  required_error: string;
- } | undefined;
-```
+> **RawCreateParams**: \{ `description`: `string`; `errorMap`: [`ZodErrorMap`](ZodErrorMap.md); `invalid_type_error`: `string`; `message`: `string`; `required_error`: `string`; \} \| `undefined`
 
 ## Defined in
 

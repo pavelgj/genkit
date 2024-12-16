@@ -1,36 +1,57 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / ToolResponsePart
+
 # Type Alias: ToolResponsePart
 
-```ts
-type ToolResponsePart: {
-  custom: Record<string, unknown>;
-  data: unknown;
-  media: undefined;
-  metadata: Record<string, unknown>;
-  text: undefined;
-  toolRequest: undefined;
-  toolResponse: {
-     name: string;
-     output: unknown;
-     ref: string;
-    };
-};
-```
+> **ToolResponsePart**: `object`
+
+Tool response part.
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `custom`? | `Record`\<`string`, `unknown`\> | ai/lib/model.d.ts:178 |
-| `data`? | `unknown` | ai/lib/model.d.ts:182 |
-| `media`? | `undefined` | ai/lib/model.d.ts:180 |
-| `metadata`? | `Record`\<`string`, `unknown`\> | ai/lib/model.d.ts:183 |
-| `text`? | `undefined` | ai/lib/model.d.ts:179 |
-| `toolRequest`? | `undefined` | ai/lib/model.d.ts:181 |
-| `toolResponse` | \{ `name`: `string`; `output`: `unknown`; `ref`: `string`; \} | ai/lib/model.d.ts:173 |
-| `toolResponse.name` | `string` | ai/lib/model.d.ts:174 |
-| `toolResponse.output`? | `unknown` | ai/lib/model.d.ts:175 |
-| `toolResponse.ref`? | `string` | ai/lib/model.d.ts:176 |
+### custom?
+
+> `optional` **custom**: `Record`\<`string`, `unknown`\>
+
+### data?
+
+> `optional` **data**: `unknown`
+
+### media?
+
+> `optional` **media**: `undefined`
+
+### metadata?
+
+> `optional` **metadata**: `Record`\<`string`, `unknown`\>
+
+### text?
+
+> `optional` **text**: `undefined`
+
+### toolRequest?
+
+> `optional` **toolRequest**: `undefined`
+
+### toolResponse
+
+> **toolResponse**: `object`
+
+#### toolResponse.name
+
+> **toolResponse.name**: `string`
+
+#### toolResponse.output?
+
+> `optional` **toolResponse.output**: `unknown`
+
+#### toolResponse.ref?
+
+> `optional` **toolResponse.ref**: `string`
 
 ## Defined in
 
-ai/lib/model.d.ts:197
+ai/lib/model.d.ts:221

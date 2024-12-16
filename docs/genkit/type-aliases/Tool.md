@@ -1,21 +1,27 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / Tool
+
 # Type Alias: Tool
 
-```ts
-type Tool: {
-  description: string;
-  name: string;
-  schema: any;
-};
-```
+> **Tool**: `object`
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `description`? | `string` | ai/lib/types.d.ts:50 |
-| `name` | `string` | ai/lib/types.d.ts:49 |
-| `schema`? | `any` | ai/lib/types.d.ts:51 |
+### description?
+
+> `optional` **description**: `string`
+
+### name
+
+> **name**: `string`
+
+### schema?
+
+> `optional` **schema**: `any`
 
 ## Defined in
 
-ai/lib/types.d.ts:57
+ai/lib/types.d.ts:46

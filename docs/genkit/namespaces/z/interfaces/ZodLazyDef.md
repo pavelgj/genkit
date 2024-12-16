@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodLazyDef
+
 # Interface: ZodLazyDef\<T\>
 
 ## Extends
@@ -6,15 +12,56 @@
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) |
+• **T** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ |
-| `description?` | `string` | [`ZodTypeDef`](ZodTypeDef.md).`description` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23 |
-| `errorMap?` | [`ZodErrorMap`](../type-aliases/ZodErrorMap.md) | [`ZodTypeDef`](ZodTypeDef.md).`errorMap` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22 |
-| `getter` | () => `T` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:742 |
-| `typeName` | `ZodLazy` | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:743 |
+### description?
+
+> `optional` **description**: `string`
+
+#### Inherited from
+
+[`ZodTypeDef`](ZodTypeDef.md).[`description`](ZodTypeDef.md#description)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:23
+
+***
+
+### errorMap?
+
+> `optional` **errorMap**: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md)
+
+#### Inherited from
+
+[`ZodTypeDef`](ZodTypeDef.md).[`errorMap`](ZodTypeDef.md#errormap)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:22
+
+***
+
+### getter()
+
+> **getter**: () => `T`
+
+#### Returns
+
+`T`
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:742
+
+***
+
+### typeName
+
+> **typeName**: [`ZodLazy`](../enumerations/ZodFirstPartyTypeKind.md#zodlazy)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:743

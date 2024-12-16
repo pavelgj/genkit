@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodUnionOptions
+
 # Type Alias: ZodUnionOptions
 
-```ts
-type ZodUnionOptions: Readonly<[ZodTypeAny, ...ZodTypeAny[]]>;
-```
+> **ZodUnionOptions**: `Readonly`\<[[`ZodTypeAny`](ZodTypeAny.md), `...ZodTypeAny[]`]\>
 
 ## Defined in
 

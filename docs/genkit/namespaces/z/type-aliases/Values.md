@@ -1,14 +1,16 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / Values
+
 # Type Alias: Values\<T\>
 
-```ts
-type Values<T>: { [k in T[number]]: k };
-```
+> **Values**\<`T`\>: `{ [k in T[number]]: k }`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`EnumValues`](EnumValues.md) |
+• **T** *extends* [`EnumValues`](EnumValues.md)
 
 ## Defined in
 

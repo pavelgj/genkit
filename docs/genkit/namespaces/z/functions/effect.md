@@ -1,25 +1,30 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / effect
+
 # Function: effect()
 
-```ts
-function effect<I>(
-   schema: I, 
-   effect: Effect<I["_output"]>, 
-params?: RawCreateParams): ZodEffects<I, I["_output"], input<I>>
-```
+> **effect**\<`I`\>(`schema`, `effect`, `params`?): [`ZodEffects`](../classes/ZodEffects.md)\<`I`, `I`\[`"_output"`\], [`input`](../type-aliases/input.md)\<`I`\>\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `I` *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `I`\> |
+• **I** *extends* [`ZodType`](../classes/ZodType.md)\<`any`, `any`, `any`, `I`\>
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `schema` | `I` |
-| `effect` | [`Effect`](../type-aliases/Effect.md)\<`I`\[`"_output"`\]\> |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### schema
+
+`I`
+
+### effect
+
+[`Effect`](../type-aliases/Effect.md)\<`I`\[`"_output"`\]\>
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

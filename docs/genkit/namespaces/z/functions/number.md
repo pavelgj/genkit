@@ -1,22 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / number
+
 # Function: number()
 
-```ts
-function number(params?: {
-  description: string;
-  errorMap: ZodErrorMap;
-  invalid_type_error: string;
-  message: string;
-  required_error: string;
- } & {
-  coerce: boolean;
- }): ZodNumber
-```
+> **number**(`params`?): [`ZodNumber`](../classes/ZodNumber.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params`? | \{ `description`: `string`; `errorMap`: [`ZodErrorMap`](../type-aliases/ZodErrorMap.md); `invalid_type_error`: `string`; `message`: `string`; `required_error`: `string`; \} & \{ `coerce`: `boolean`; \} |
+### params?
+
+`object` & `object`
 
 ## Returns
 

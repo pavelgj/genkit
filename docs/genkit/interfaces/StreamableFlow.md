@@ -1,41 +1,57 @@
-# Interface: StreamableFlow()\<I, O, S\>
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / StreamableFlow
+
+# Interface: ~~StreamableFlow()\<I, O, S\>~~
 
 Streaming flow that can be called directly like a function.
 
+## Deprecated
+
+use [CallableFlow](CallableFlow.md)
+
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `I` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `O` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
-| `S` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **I** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
-```ts
-interface StreamableFlow(input?: TypeOf<I>, opts?: {
-  withLocalAuthContext: unknown;
-}): StreamingResponse<O, S>
-```
+• **O** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+• **S** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
+
+> **StreamableFlow**(`input`?, `opts`?): `StreamingResponse`\<`O`, `S`\>
 
 Streaming flow that can be called directly like a function.
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input`? | [`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\> |
-| `opts`? | `object` |
-| `opts.withLocalAuthContext`? | `unknown` |
+### input?
+
+[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`I`\>
+
+### opts?
+
+`FlowCallOptions`\<[`TypeOf`](../namespaces/z/type-aliases/TypeOf.md)\<`S`\>\>
 
 ## Returns
 
 `StreamingResponse`\<`O`, `S`\>
 
+## Deprecated
+
+use [CallableFlow](CallableFlow.md)
+
 ## Defined in
 
-core/lib/flow.d.ts:77
+core/lib/flow.d.ts:85
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `flow` | [`Flow`](../classes/Flow.md)\<`I`, `O`, `S`\> | core/lib/flow.d.ts:80 |
+### ~~flow~~
+
+> **flow**: [`Flow`](../classes/Flow.md)\<`I`, `O`, `S`\>
+
+#### Defined in
+
+core/lib/flow.d.ts:86

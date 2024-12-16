@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / object
+
 # Function: object()
 
-```ts
-function object<T>(shape: T, params?: RawCreateParams): ZodObject<T, "strip", ZodTypeAny, { [k in string | number | symbol]: addQuestionMarks<baseObjectOutputType<T>, any>[k] }, { [k_1 in string | number | symbol]: baseObjectInputType<T>[k_1] }>
-```
+> **object**\<`T`\>(`shape`, `params`?): [`ZodObject`](../classes/ZodObject.md)\<`T`, `"strip"`, [`ZodTypeAny`](../type-aliases/ZodTypeAny.md), \{ \[k in string \| number \| symbol\]: addQuestionMarks\<baseObjectOutputType\<T\>, any\>\[k\] \}, \{ \[k\_1 in string \| number \| symbol\]: baseObjectInputType\<T\>\[k\_1\] \}\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md) |
+• **T** *extends* [`ZodRawShape`](../type-aliases/ZodRawShape.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `shape` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### shape
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

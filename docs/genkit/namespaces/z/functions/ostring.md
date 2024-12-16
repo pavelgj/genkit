@@ -1,8 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ostring
+
 # Function: ostring()
 
-```ts
-function ostring(): ZodOptional<ZodString>
-```
+> **ostring**(): [`ZodOptional`](../classes/ZodOptional.md)\<[`ZodString`](../classes/ZodString.md)\>
 
 ## Returns
 

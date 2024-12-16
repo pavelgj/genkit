@@ -1,21 +1,28 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / datetimeRegex
+
 # Function: datetimeRegex()
 
-```ts
-function datetimeRegex(args: {
-  local: boolean;
-  offset: boolean;
-  precision: null | number;
- }): RegExp
-```
+> **datetimeRegex**(`args`): `RegExp`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `args` | `object` |
-| `args.local`? | `boolean` |
-| `args.offset`? | `boolean` |
-| `args.precision`? | `null` \| `number` |
+### args
+
+#### local
+
+`boolean`
+
+#### offset
+
+`boolean`
+
+#### precision
+
+`null` \| `number`
 
 ## Returns
 

@@ -1,16 +1,12 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodDateCheck
+
 # Type Alias: ZodDateCheck
 
-```ts
-type ZodDateCheck: {
-  kind: "min";
-  message: string;
-  value: number;
- } | {
-  kind: "max";
-  message: string;
-  value: number;
-};
-```
+> **ZodDateCheck**: \{ `kind`: `"min"`; `message`: `string`; `value`: `number`; \} \| \{ `kind`: `"max"`; `message`: `string`; `value`: `number`; \}
 
 ## Defined in
 

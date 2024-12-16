@@ -1,15 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / OutputTypeOfTupleWithRest
+
 # Type Alias: OutputTypeOfTupleWithRest\<T, Rest\>
 
-```ts
-type OutputTypeOfTupleWithRest<T, Rest>: Rest extends ZodTypeAny ? [...OutputTypeOfTuple<T>, ...Rest["_output"][]] : OutputTypeOfTuple<T>;
-```
+> **OutputTypeOfTupleWithRest**\<`T`, `Rest`\>: `Rest` *extends* [`ZodTypeAny`](ZodTypeAny.md) ? [`...OutputTypeOfTuple<T>`, `...Rest["_output"][]`] : [`OutputTypeOfTuple`](OutputTypeOfTuple.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* [`ZodTupleItems`](ZodTupleItems.md) \| [] | - |
-| `Rest` *extends* [`ZodTypeAny`](ZodTypeAny.md) \| `null` | `null` |
+• **T** *extends* [`ZodTupleItems`](ZodTupleItems.md) \| []
+
+• **Rest** *extends* [`ZodTypeAny`](ZodTypeAny.md) \| `null` = `null`
 
 ## Defined in
 

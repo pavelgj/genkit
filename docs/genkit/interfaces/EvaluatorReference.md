@@ -1,17 +1,49 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / EvaluatorReference
+
 # Interface: EvaluatorReference\<CustomOptions\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `CustomOptions` *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptions** *extends* [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Properties
 
-| Property | Type | Defined in |
-| ------ | ------ | ------ |
-| `configSchema?` | `CustomOptions` | ai/lib/evaluator.d.ts:386 |
-| `info?` | \{ `label`: `string`; `metrics`: `string`[]; \} | ai/lib/evaluator.d.ts:387 |
-| `info.label?` | `string` | ai/lib/evaluator.d.ts:378 |
-| `info.metrics` | `string`[] | ai/lib/evaluator.d.ts:377 |
-| `name` | `string` | ai/lib/evaluator.d.ts:385 |
+### configSchema?
+
+> `optional` **configSchema**: `CustomOptions`
+
+#### Defined in
+
+ai/lib/evaluator.d.ts:386
+
+***
+
+### info?
+
+> `optional` **info**: `object`
+
+#### label?
+
+> `optional` **label**: `string`
+
+#### metrics
+
+> **metrics**: `string`[]
+
+#### Defined in
+
+ai/lib/evaluator.d.ts:387
+
+***
+
+### name
+
+> **name**: `string`
+
+#### Defined in
+
+ai/lib/evaluator.d.ts:385

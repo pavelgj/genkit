@@ -1,20 +1,22 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / StreamingCallback
+
 # Type Alias: StreamingCallback()\<T\>
 
-```ts
-type StreamingCallback<T>: (chunk: T) => void;
-```
+> **StreamingCallback**\<`T`\>: (`chunk`) => `void`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `chunk` | `T` |
+### chunk
+
+`T`
 
 ## Returns
 
@@ -22,4 +24,4 @@ type StreamingCallback<T>: (chunk: T) => void;
 
 ## Defined in
 
-core/lib/action-BLstGZbj.d.ts:249
+core/lib/action-Bp720DPN.d.ts:352

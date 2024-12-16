@@ -1,14 +1,18 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / isAborted
+
 # Function: isAborted()
 
-```ts
-function isAborted(x: ParseReturnType<any>): x is INVALID
-```
+> **isAborted**(`x`): `x is INVALID`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `x` | [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`any`\> |
+### x
+
+[`ParseReturnType`](../type-aliases/ParseReturnType.md)\<`any`\>
 
 ## Returns
 

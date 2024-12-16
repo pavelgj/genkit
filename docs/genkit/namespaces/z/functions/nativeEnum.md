@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / nativeEnum
+
 # Function: nativeEnum()
 
-```ts
-function nativeEnum<T>(values: T, params?: RawCreateParams): ZodNativeEnum<T>
-```
+> **nativeEnum**\<`T`\>(`values`, `params`?): [`ZodNativeEnum`](../classes/ZodNativeEnum.md)\<`T`\>
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`EnumLike`](../type-aliases/EnumLike.md) |
+• **T** *extends* [`EnumLike`](../type-aliases/EnumLike.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `values` | `T` |
-| `params`? | [`RawCreateParams`](../type-aliases/RawCreateParams.md) |
+### values
+
+`T`
+
+### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
 
 ## Returns
 

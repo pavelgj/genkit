@@ -1,14 +1,18 @@
+[**genkit**](../../../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../../../README.md) / [genkit](../../../../../README.md) / [/](../../../../../README.md) / [z](../../../README.md) / [util](../README.md) / assertNever
+
 # Function: assertNever()
 
-```ts
-function assertNever(_x: never): never
-```
+> **assertNever**(`_x`): `never`
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `_x` | `never` |
+### \_x
+
+`never`
 
 ## Returns
 

@@ -1,26 +1,30 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / SafeParseError
+
 # Type Alias: SafeParseError\<Input\>
 
-```ts
-type SafeParseError<Input>: {
-  data: never;
-  error: ZodError<Input>;
-  success: false;
-};
-```
+> **SafeParseError**\<`Input`\>: `object`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `Input` |
+• **Input**
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `data`? | `never` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:44 |
-| `error` | [`ZodError`](../classes/ZodError.md)\<`Input`\> | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:43 |
-| `success` | `false` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:42 |
+### data?
+
+> `optional` **data**: `never`
+
+### error
+
+> **error**: [`ZodError`](../classes/ZodError.md)\<`Input`\>
+
+### success
+
+> **success**: `false`
 
 ## Defined in
 

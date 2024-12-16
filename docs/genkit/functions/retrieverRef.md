@@ -1,22 +1,24 @@
+[**genkit**](../README.md)
+
+***
+
+[Genkit JS API reference](../../README.md) / [genkit](../README.md) / [/](../README.md) / retrieverRef
+
 # Function: retrieverRef()
 
-```ts
-function retrieverRef<CustomOptionsSchema>(options: RetrieverReference<CustomOptionsSchema>): RetrieverReference<CustomOptionsSchema>
-```
+> **retrieverRef**\<`CustomOptionsSchema`\>(`options`): [`RetrieverReference`](../interfaces/RetrieverReference.md)\<`CustomOptionsSchema`\>
 
 Helper method to configure a [RetrieverReference](../interfaces/RetrieverReference.md) to a plugin.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `CustomOptionsSchema` *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptionsSchema`\> | [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md) |
+• **CustomOptionsSchema** *extends* [`ZodType`](../namespaces/z/classes/ZodType.md)\<`any`, `any`, `any`, `CustomOptionsSchema`\> = [`ZodTypeAny`](../namespaces/z/type-aliases/ZodTypeAny.md)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `options` | [`RetrieverReference`](../interfaces/RetrieverReference.md)\<`CustomOptionsSchema`\> |
+### options
+
+[`RetrieverReference`](../interfaces/RetrieverReference.md)\<`CustomOptionsSchema`\>
 
 ## Returns
 
@@ -24,4 +26,4 @@ Helper method to configure a [RetrieverReference](../interfaces/RetrieverReferen
 
 ## Defined in
 
-ai/lib/retriever.d.ts:399
+ai/lib/retriever.d.ts:436

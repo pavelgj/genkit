@@ -1,21 +1,26 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / Refinement
+
 # Type Alias: Refinement()\<T\>
 
-```ts
-type Refinement<T>: (arg: T, ctx: RefinementCtx) => any;
-```
+> **Refinement**\<`T`\>: (`arg`, `ctx`) => `any`
 
 ## Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` |
+• **T**
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `arg` | `T` |
-| `ctx` | [`RefinementCtx`](../interfaces/RefinementCtx.md) |
+### arg
+
+`T`
+
+### ctx
+
+[`RefinementCtx`](../interfaces/RefinementCtx.md)
 
 ## Returns
 

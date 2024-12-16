@@ -1,3 +1,9 @@
+[**genkit**](../../../README.md)
+
+***
+
+[Genkit JS API reference](../../../../README.md) / [genkit](../../../README.md) / [/](../../../README.md) / [z](../README.md) / ZodArray
+
 # Class: ZodArray\<T, Cardinality\>
 
 ## Extends
@@ -6,24 +12,21 @@
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `T` *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md) | - |
-| `Cardinality` *extends* [`ArrayCardinality`](../type-aliases/ArrayCardinality.md) | `"many"` |
+• **T** *extends* [`ZodTypeAny`](../type-aliases/ZodTypeAny.md)
+
+• **Cardinality** *extends* [`ArrayCardinality`](../type-aliases/ArrayCardinality.md) = `"many"`
 
 ## Constructors
 
 ### new ZodArray()
 
-```ts
-new ZodArray<T, Cardinality>(def: ZodArrayDef<T>): ZodArray<T, Cardinality>
-```
+> **new ZodArray**\<`T`, `Cardinality`\>(`def`): [`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`ZodArrayDef`](../interfaces/ZodArrayDef.md)\<`T`\> |
+##### def
+
+[`ZodArrayDef`](../interfaces/ZodArrayDef.md)\<`T`\>
 
 #### Returns
 
@@ -39,14 +42,117 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 ## Properties
 
-| Property | Modifier | Type | Description | Inherited from | Defined in |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| `_def` | `readonly` | [`ZodArrayDef`](../interfaces/ZodArrayDef.md)\<`T`\> | - | [`ZodType`](ZodType.md).`_def` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51 |
-| `_input` | `readonly` | `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][] | - | [`ZodType`](ZodType.md).`_input` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50 |
-| `_output` | `readonly` | [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\> | - | [`ZodType`](ZodType.md).`_output` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49 |
-| `_type` | `readonly` | [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\> | - | [`ZodType`](ZodType.md).`_type` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48 |
-| `spa` | `public` | (`data`: `unknown`, `params`?: `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][], [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>\> | Alias of safeParseAsync | [`ZodType`](ZodType.md).`spa` | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67 |
-| `create` | `static` | \<`T_1`\>(`schema`: `T_1`, `params`?: [`RawCreateParams`](../type-aliases/RawCreateParams.md)) => [`ZodArray`](ZodArray.md)\<`T_1`, `"many"`\> | - | - | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:499 |
+### \_def
+
+> `readonly` **\_def**: [`ZodArrayDef`](../interfaces/ZodArrayDef.md)\<`T`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_def`](ZodType.md#_def)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:51
+
+***
+
+### \_input
+
+> `readonly` **\_input**: `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_input`](ZodType.md#_input)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:50
+
+***
+
+### \_output
+
+> `readonly` **\_output**: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_output`](ZodType.md#_output)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:49
+
+***
+
+### \_type
+
+> `readonly` **\_type**: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`_type`](ZodType.md#_type)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:48
+
+***
+
+### spa()
+
+> **spa**: (`data`, `params`?) => `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][], [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>\>
+
+Alias of safeParseAsync
+
+#### Parameters
+
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
+
+#### Returns
+
+`Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][], [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>\>
+
+#### Inherited from
+
+[`ZodType`](ZodType.md).[`spa`](ZodType.md#spa)
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:67
+
+***
+
+### create()
+
+> `static` **create**: \<`T_1`\>(`schema`, `params`?) => [`ZodArray`](ZodArray.md)\<`T_1`, `"many"`\>
+
+#### Type Parameters
+
+• **T_1** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T_1`\>
+
+#### Parameters
+
+##### schema
+
+`T_1`
+
+##### params?
+
+[`RawCreateParams`](../type-aliases/RawCreateParams.md)
+
+#### Returns
+
+[`ZodArray`](ZodArray.md)\<`T_1`, `"many"`\>
+
+#### Defined in
+
+node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:499
 
 ## Accessors
 
@@ -54,9 +160,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:76
 
 #### Get Signature
 
-```ts
-get description(): undefined | string
-```
+> **get** **description**(): `undefined` \| `string`
 
 ##### Returns
 
@@ -76,9 +180,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:52
 
 #### Get Signature
 
-```ts
-get element(): T
-```
+> **get** **element**(): `T`
 
 ##### Returns
 
@@ -92,16 +194,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:494
 
 ### \_getOrReturnCtx()
 
-```ts
-_getOrReturnCtx(input: ParseInput, ctx?: ParseContext): ParseContext
-```
+> **\_getOrReturnCtx**(`input`, `ctx`?): [`ParseContext`](../interfaces/ParseContext.md)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
-| `ctx`? | [`ParseContext`](../interfaces/ParseContext.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
+
+##### ctx?
+
+[`ParseContext`](../interfaces/ParseContext.md)
 
 #### Returns
 
@@ -119,15 +222,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:55
 
 ### \_getType()
 
-```ts
-_getType(input: ParseInput): string
-```
+> **\_getType**(`input`): `string`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -145,15 +246,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:54
 
 ### \_parse()
 
-```ts
-_parse(input: ParseInput): ParseReturnType<arrayOutputType<T, Cardinality>>
-```
+> **\_parse**(`input`): [`ParseReturnType`](../type-aliases/ParseReturnType.md)\<[`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -171,15 +270,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:493
 
 ### \_parseAsync()
 
-```ts
-_parseAsync(input: ParseInput): AsyncParseReturnType<arrayOutputType<T, Cardinality>>
-```
+> **\_parseAsync**(`input`): [`AsyncParseReturnType`](../type-aliases/AsyncParseReturnType.md)\<[`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -197,15 +294,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:61
 
 ### \_parseSync()
 
-```ts
-_parseSync(input: ParseInput): SyncParseReturnType<arrayOutputType<T, Cardinality>>
-```
+> **\_parseSync**(`input`): [`SyncParseReturnType`](../type-aliases/SyncParseReturnType.md)\<[`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
@@ -223,32 +318,25 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:60
 
 ### \_processInputParams()
 
-```ts
-_processInputParams(input: ParseInput): {
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+> **\_processInputParams**(`input`): `object`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `input` | [`ParseInput`](../type-aliases/ParseInput.md) |
+##### input
+
+[`ParseInput`](../type-aliases/ParseInput.md)
 
 #### Returns
 
-```ts
-{
-  ctx: ParseContext;
-  status: ParseStatus;
-}
-```
+`object`
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `ctx` | [`ParseContext`](../interfaces/ParseContext.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:58 |
-| `status` | [`ParseStatus`](ParseStatus.md) | node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:57 |
+##### ctx
+
+> **ctx**: [`ParseContext`](../interfaces/ParseContext.md)
+
+##### status
+
+> **status**: [`ParseStatus`](ParseStatus.md)
 
 #### Inherited from
 
@@ -262,15 +350,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:56
 
 ### \_refinement()
 
-```ts
-_refinement(refinement: (arg: arrayOutputType<T, Cardinality>, ctx: RefinementCtx) => any): ZodEffects<ZodArray<T, Cardinality>, arrayOutputType<T, Cardinality>, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **\_refinement**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `any` |
+##### refinement
+
+(`arg`, `ctx`) => `any`
 
 #### Returns
 
@@ -288,21 +374,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:72
 
 ### and()
 
-```ts
-and<T>(incoming: T): ZodIntersection<ZodArray<T, Cardinality>, T>
-```
+> **and**\<`T`\>(`incoming`): [`ZodIntersection`](ZodIntersection.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `incoming` | `T` |
+##### incoming
+
+`T`
 
 #### Returns
 
@@ -320,9 +402,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:83
 
 ### array()
 
-```ts
-array(): ZodArray<ZodArray<T, Cardinality>, "many">
-```
+> **array**(): [`ZodArray`](ZodArray.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `"many"`\>
 
 #### Returns
 
@@ -340,21 +420,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:80
 
 ### brand()
 
-```ts
-brand<B>(brand?: B): ZodBranded<ZodArray<T, Cardinality>, B>
-```
+> **brand**\<`B`\>(`brand`?): [`ZodBranded`](ZodBranded.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `B`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `B` *extends* `string` \| `number` \| `symbol` |
+• **B** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `brand`? | `B` |
+##### brand?
+
+`B`
 
 #### Returns
 
@@ -372,17 +448,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:87
 
 ### catch()
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: arrayOutputType<T, Cardinality>): ZodCatch<ZodArray<T, Cardinality>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\> |
+###### def
+
+[`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>
 
 ##### Returns
 
@@ -396,20 +470,15 @@ catch(def: arrayOutputType<T, Cardinality>): ZodCatch<ZodArray<T, Cardinality>>
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:88
 
-#### catch(def)
+#### Call Signature
 
-```ts
-catch(def: (ctx: {
-  error: ZodError<any>;
-  input: Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][];
-}) => arrayOutputType<T, Cardinality>): ZodCatch<ZodArray<T, Cardinality>>
-```
+> **catch**(`def`): [`ZodCatch`](ZodCatch.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | (`ctx`: \{ `error`: [`ZodError`](ZodError.md)\<`any`\>; `input`: `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]; \}) => [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\> |
+###### def
+
+(`ctx`) => [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>
 
 ##### Returns
 
@@ -427,17 +496,15 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:89
 
 ### default()
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: noUndefined<Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>): ZodDefault<ZodArray<T, Cardinality>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\> |
+###### def
+
+[`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Returns
 
@@ -451,17 +518,15 @@ default(def: noUndefined<Cardinality extends "atleastone" ? [T["_input"], ...T["
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:85
 
-#### default(def)
+#### Call Signature
 
-```ts
-default(def: () => noUndefined<Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>): ZodDefault<ZodArray<T, Cardinality>>
-```
+> **default**(`def`): [`ZodDefault`](ZodDefault.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `def` | () => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\> |
+###### def
+
+() => [`noUndefined`](../namespaces/util/type-aliases/noUndefined.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Returns
 
@@ -479,15 +544,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:86
 
 ### describe()
 
-```ts
-describe(description: string): this
-```
+> **describe**(`description`): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `description` | `string` |
+##### description
+
+`string`
 
 #### Returns
 
@@ -505,9 +568,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:93
 
 ### isNullable()
 
-```ts
-isNullable(): boolean
-```
+> **isNullable**(): `boolean`
 
 #### Returns
 
@@ -525,9 +586,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:97
 
 ### isOptional()
 
-```ts
-isOptional(): boolean
-```
+> **isOptional**(): `boolean`
 
 #### Returns
 
@@ -545,16 +604,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:96
 
 ### length()
 
-```ts
-length(len: number, message?: ErrMessage): this
-```
+> **length**(`len`, `message`?): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `len` | `number` |
-| `message`? | `ErrMessage` |
+##### len
+
+`number`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -568,16 +628,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:497
 
 ### max()
 
-```ts
-max(maxLength: number, message?: ErrMessage): this
-```
+> **max**(`maxLength`, `message`?): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `maxLength` | `number` |
-| `message`? | `ErrMessage` |
+##### maxLength
+
+`number`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -591,16 +652,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:496
 
 ### min()
 
-```ts
-min(minLength: number, message?: ErrMessage): this
-```
+> **min**(`minLength`, `message`?): `this`
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `minLength` | `number` |
-| `message`? | `ErrMessage` |
+##### minLength
+
+`number`
+
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -614,15 +676,13 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:495
 
 ### nonempty()
 
-```ts
-nonempty(message?: ErrMessage): ZodArray<T, "atleastone">
-```
+> **nonempty**(`message`?): [`ZodArray`](ZodArray.md)\<`T`, `"atleastone"`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message`? | `ErrMessage` |
+##### message?
+
+`ErrMessage`
 
 #### Returns
 
@@ -636,9 +696,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:498
 
 ### nullable()
 
-```ts
-nullable(): ZodNullable<ZodArray<T, Cardinality>>
-```
+> **nullable**(): [`ZodNullable`](ZodNullable.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>
 
 #### Returns
 
@@ -656,9 +714,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:78
 
 ### nullish()
 
-```ts
-nullish(): ZodOptional<ZodNullable<ZodArray<T, Cardinality>>>
-```
+> **nullish**(): [`ZodOptional`](ZodOptional.md)\<[`ZodNullable`](ZodNullable.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>\>
 
 #### Returns
 
@@ -676,9 +732,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:79
 
 ### optional()
 
-```ts
-optional(): ZodOptional<ZodArray<T, Cardinality>>
-```
+> **optional**(): [`ZodOptional`](ZodOptional.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>
 
 #### Returns
 
@@ -696,21 +750,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:77
 
 ### or()
 
-```ts
-or<T>(option: T): ZodUnion<[ZodArray<T, Cardinality>, T]>
-```
+> **or**\<`T`\>(`option`): [`ZodUnion`](ZodUnion.md)\<[[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `T`]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `option` | `T` |
+##### option
+
+`T`
 
 #### Returns
 
@@ -728,16 +778,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:82
 
 ### parse()
 
-```ts
-parse(data: unknown, params?: Partial<ParseParams>): arrayOutputType<T, Cardinality>
-```
+> **parse**(`data`, `params`?): [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -755,16 +806,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:62
 
 ### parseAsync()
 
-```ts
-parseAsync(data: unknown, params?: Partial<ParseParams>): Promise<arrayOutputType<T, Cardinality>>
-```
+> **parseAsync**(`data`, `params`?): `Promise`\<[`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -782,21 +834,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:64
 
 ### pipe()
 
-```ts
-pipe<T>(target: T): ZodPipeline<ZodArray<T, Cardinality>, T>
-```
+> **pipe**\<`T`\>(`target`): [`ZodPipeline`](ZodPipeline.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `T`\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `T` *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\> |
+• **T** *extends* [`ZodType`](ZodType.md)\<`any`, `any`, `any`, `T`\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `target` | `T` |
+##### target
+
+`T`
 
 #### Returns
 
@@ -814,9 +862,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:94
 
 ### promise()
 
-```ts
-promise(): ZodPromise<ZodArray<T, Cardinality>>
-```
+> **promise**(): [`ZodPromise`](ZodPromise.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>
 
 #### Returns
 
@@ -834,9 +880,7 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:81
 
 ### readonly()
 
-```ts
-readonly(): ZodReadonly<ZodArray<T, Cardinality>>
-```
+> **readonly**(): [`ZodReadonly`](ZodReadonly.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>\>
 
 #### Returns
 
@@ -854,24 +898,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:95
 
 ### refine()
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine<RefinedOutput>(check: (arg: arrayOutputType<T, Cardinality>) => arg is RefinedOutput, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: arrayOutputType<T, Cardinality>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodArray<T, Cardinality>, RefinedOutput, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **refine**\<`RefinedOutput`\>(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `RefinedOutput`, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* [`T`\[`"_output"`\], `...T["_output"][]`] \| `T`\[`"_output"`\][] |
+• **RefinedOutput** *extends* [`T`\[`"_output"`\], `...T["_output"][]`] \| `T`\[`"_output"`\][]
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>) => `arg is RefinedOutput` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -885,18 +928,19 @@ refine<RefinedOutput>(check: (arg: arrayOutputType<T, Cardinality>) => arg is Re
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:68
 
-#### refine(check, message)
+#### Call Signature
 
-```ts
-refine(check: (arg: arrayOutputType<T, Cardinality>) => unknown, message?: string | Partial<Omit<ZodCustomIssue, "code">> | (arg: arrayOutputType<T, Cardinality>) => Partial<Omit<ZodCustomIssue, "code">>): ZodEffects<ZodArray<T, Cardinality>, arrayOutputType<T, Cardinality>, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **refine**(`check`, `message`?): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>) => `unknown` |
-| `message`? | `string` \| `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> \| (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> |
+###### check
+
+(`arg`) => `unknown`
+
+###### message?
+
+`string` | `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\> | (`arg`) => `Partial`\<[`Omit`](../namespaces/util/type-aliases/Omit.md)\<[`ZodCustomIssue`](../interfaces/ZodCustomIssue.md), `"code"`\>\>
 
 ##### Returns
 
@@ -914,24 +958,23 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:69
 
 ### refinement()
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement<RefinedOutput>(check: (arg: arrayOutputType<T, Cardinality>) => arg is RefinedOutput, refinementData: IssueData | (arg: arrayOutputType<T, Cardinality>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodArray<T, Cardinality>, RefinedOutput, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **refinement**\<`RefinedOutput`\>(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `RefinedOutput`, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* [`T`\[`"_output"`\], `...T["_output"][]`] \| `T`\[`"_output"`\][] |
+• **RefinedOutput** *extends* [`T`\[`"_output"`\], `...T["_output"][]`] \| `T`\[`"_output"`\][]
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>) => `arg is RefinedOutput` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `arg is RefinedOutput`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -939,24 +982,25 @@ refinement<RefinedOutput>(check: (arg: arrayOutputType<T, Cardinality>) => arg i
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:70
 
-#### refinement(check, refinementData)
+#### Call Signature
 
-```ts
-refinement(check: (arg: arrayOutputType<T, Cardinality>) => boolean, refinementData: IssueData | (arg: arrayOutputType<T, Cardinality>, ctx: RefinementCtx) => IssueData): ZodEffects<ZodArray<T, Cardinality>, arrayOutputType<T, Cardinality>, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **refinement**(`check`, `refinementData`): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `check` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>) => `boolean` |
-| `refinementData` | [`IssueData`](../type-aliases/IssueData.md) \| (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => [`IssueData`](../type-aliases/IssueData.md) |
+###### check
+
+(`arg`) => `boolean`
+
+###### refinementData
+
+[`IssueData`](../type-aliases/IssueData.md) | (`arg`, `ctx`) => [`IssueData`](../type-aliases/IssueData.md)
 
 ##### Returns
 
@@ -964,7 +1008,7 @@ refinement(check: (arg: arrayOutputType<T, Cardinality>) => boolean, refinementD
 
 ##### Inherited from
 
-[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement)
+[`ZodType`](ZodType.md).[`refinement`](ZodType.md#refinement-1)
 
 ##### Defined in
 
@@ -974,16 +1018,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:71
 
 ### safeParse()
 
-```ts
-safeParse(data: unknown, params?: Partial<ParseParams>): SafeParseReturnType<Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][], arrayOutputType<T, Cardinality>>
-```
+> **safeParse**(`data`, `params`?): [`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][], [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1001,16 +1046,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:63
 
 ### safeParseAsync()
 
-```ts
-safeParseAsync(data: unknown, params?: Partial<ParseParams>): Promise<SafeParseReturnType<Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][], arrayOutputType<T, Cardinality>>>
-```
+> **safeParseAsync**(`data`, `params`?): `Promise`\<[`SafeParseReturnType`](../type-aliases/SafeParseReturnType.md)\<`Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][], [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>\>\>
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `data` | `unknown` |
-| `params`? | `Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\> |
+##### data
+
+`unknown`
+
+##### params?
+
+`Partial`\<[`ParseParams`](../type-aliases/ParseParams.md)\>
 
 #### Returns
 
@@ -1028,23 +1074,19 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:65
 
 ### superRefine()
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine<RefinedOutput>(refinement: (arg: arrayOutputType<T, Cardinality>, ctx: RefinementCtx) => arg is RefinedOutput): ZodEffects<ZodArray<T, Cardinality>, RefinedOutput, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **superRefine**\<`RefinedOutput`\>(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `RefinedOutput`, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `RefinedOutput` *extends* [`T`\[`"_output"`\], `...T["_output"][]`] \| `T`\[`"_output"`\][] |
+• **RefinedOutput** *extends* [`T`\[`"_output"`\], `...T["_output"][]`] \| `T`\[`"_output"`\][]
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `arg is RefinedOutput` |
+###### refinement
+
+(`arg`, `ctx`) => `arg is RefinedOutput`
 
 ##### Returns
 
@@ -1058,17 +1100,15 @@ superRefine<RefinedOutput>(refinement: (arg: arrayOutputType<T, Cardinality>, ct
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:73
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: arrayOutputType<T, Cardinality>, ctx: RefinementCtx) => void): ZodEffects<ZodArray<T, Cardinality>, arrayOutputType<T, Cardinality>, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `void` |
+###### refinement
+
+(`arg`, `ctx`) => `void`
 
 ##### Returns
 
@@ -1082,17 +1122,15 @@ superRefine(refinement: (arg: arrayOutputType<T, Cardinality>, ctx: RefinementCt
 
 node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:74
 
-#### superRefine(refinement)
+#### Call Signature
 
-```ts
-superRefine(refinement: (arg: arrayOutputType<T, Cardinality>, ctx: RefinementCtx) => Promise<void>): ZodEffects<ZodArray<T, Cardinality>, arrayOutputType<T, Cardinality>, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **superRefine**(`refinement`): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `refinement` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `Promise`\<`void`\> |
+###### refinement
+
+(`arg`, `ctx`) => `Promise`\<`void`\>
 
 ##### Returns
 
@@ -1110,21 +1148,17 @@ node\_modules/.pnpm/zod@3.23.8/node\_modules/zod/lib/types.d.ts:75
 
 ### transform()
 
-```ts
-transform<NewOut>(transform: (arg: arrayOutputType<T, Cardinality>, ctx: RefinementCtx) => NewOut | Promise<NewOut>): ZodEffects<ZodArray<T, Cardinality>, NewOut, Cardinality extends "atleastone" ? [T["_input"], ...T["_input"][]] : T["_input"][]>
-```
+> **transform**\<`NewOut`\>(`transform`): [`ZodEffects`](ZodEffects.md)\<[`ZodArray`](ZodArray.md)\<`T`, `Cardinality`\>, `NewOut`, `Cardinality` *extends* `"atleastone"` ? [`T`\[`"_input"`\], `...T["_input"][]`] : `T`\[`"_input"`\][]\>
 
 #### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `NewOut` |
+• **NewOut**
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `transform` | (`arg`: [`arrayOutputType`](../type-aliases/arrayOutputType.md)\<`T`, `Cardinality`\>, `ctx`: [`RefinementCtx`](../interfaces/RefinementCtx.md)) => `NewOut` \| `Promise`\<`NewOut`\> |
+##### transform
+
+(`arg`, `ctx`) => `NewOut` \| `Promise`\<`NewOut`\>
 
 #### Returns
 
