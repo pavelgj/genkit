@@ -26,6 +26,7 @@ import {
 } from '@genkit-ai/google-cloud';
 import { logger } from 'genkit/logging';
 export { defineFirestoreRetriever } from './firestore-retriever.js';
+export { rtdbSessionStore } from './rtdb-session-store.js';
 
 export interface FirebaseTelemetryOptions extends GcpTelemetryConfigOptions {
   // future: firebase specific telemetry options

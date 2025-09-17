@@ -18,6 +18,11 @@ import { Channel } from '@genkit-ai/core/async';
 
 const __flowStreamDelimiter = '\n\n';
 
+export interface StreamResponse<O = any, S = any> {
+  readonly output: Promise<O>;
+  readonly stream: AsyncIterable<S>;
+}
+
 /**
  * Invoke and stream response from a deployed flow.
  *
@@ -50,10 +55,7 @@ export function streamFlow<O = any, S = any>({
   headers?: Record<string, string>;
   /** Abort signal to abort the request. */
   abortSignal?: AbortSignal;
-}): {
-  readonly output: Promise<O>;
-  readonly stream: AsyncIterable<S>;
-} {
+}): StreamResponse<O, S> {
   const channel = new Channel<S>();
 
   const operationPromise = __flowRunEnvelope({

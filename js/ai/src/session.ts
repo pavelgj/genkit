@@ -47,6 +47,8 @@ export interface SessionOptions<S = any> {
   sessionId?: string;
 }
 
+type SessionEventCallback<S> = (update: SessionEvent<S>) => void;
+
 /**
  * Session encapsulates a statful execution environment for chat.
  * Chat session executed within a session in this environment will have acesss to
@@ -63,6 +65,7 @@ export class Session<S = any> {
   readonly id: string;
   private sessionData?: SessionData<S>;
   private store: SessionStore<S>;
+  private _onEventCallbacks = [] as SessionEventCallback<S>[];
 
   constructor(
     readonly registry: Registry,
@@ -74,16 +77,32 @@ export class Session<S = any> {
     }
   ) {
     this.id = options?.id ?? uuidv4();
-    this.sessionData = options?.sessionData ?? {
-      id: this.id,
-    };
+    this.sessionData = options?.sessionData ?? { state: {} as S, threads: {} };
     if (!this.sessionData) {
-      this.sessionData = { id: this.id };
+      this.sessionData = { state: {} as S, threads: {} };
     }
     if (!this.sessionData.threads) {
       this.sessionData!.threads = {};
     }
     this.store = options?.store ?? new InMemorySessionStore<S>();
+  }
+
+  static async load(
+    registry: Registry,
+    options: SessionOptions & {
+      sessionId: string;
+    }
+  ) {
+    if (!options.store) {
+      throw new Error('options.store is required');
+    }
+    const sessionData = await options.store.get(options.sessionId);
+
+    return new Session(registry, {
+      id: options.sessionId,
+      sessionData,
+      store: options.store,
+    });
   }
 
   get state(): S | undefined {
@@ -98,10 +117,37 @@ export class Session<S = any> {
     if (!sessionData) {
       sessionData = {} as SessionData<S>;
     }
-    sessionData.state = data;
+    sessionData.state = {
+      ...sessionData.state,
+      ...data,
+    };
     this.sessionData = sessionData;
 
-    await this.store.save(this.id, sessionData);
+    await this.store.patchState(this.id, data);
+    this.notifyCallbacks({
+      statePatch: data,
+    });
+  }
+
+  private notifyCallbacks(event: SessionEvent<S>) {
+    for (const callback of this._onEventCallbacks) {
+      callback(event);
+    }
+  }
+
+  getMessages(thead?: string): MessageData[] | undefined {
+    return this.sessionData?.threads[thead ?? MAIN_THREAD];
+  }
+
+  onEventAdded(callback: SessionEventCallback<S>): () => void {
+    this._onEventCallbacks.push(callback);
+
+    return () => {
+      const index = this._onEventCallbacks.indexOf(callback);
+      if (this._onEventCallbacks && index > -1) {
+        this._onEventCallbacks.splice(index, 1);
+      }
+    };
   }
 
   /**
@@ -120,7 +166,8 @@ export class Session<S = any> {
     );
     this.sessionData = sessionData;
 
-    await this.store.save(this.id, sessionData);
+    this.notifyCallbacks({ messages: { thread, messages } });
+    await this.store.setMessages(this.id, thread, messages);
   }
 
   /**
@@ -274,10 +321,14 @@ export class Session<S = any> {
   }
 }
 
+export interface SessionEvent<S = any> {
+  statePatch?: Partial<S>;
+  messages?: { thread: string; messages: MessageData[] };
+}
+
 export interface SessionData<S = any> {
-  id: string;
-  state?: S;
-  threads?: Record<string, MessageData[]>;
+  state: S;
+  threads: Record<string, MessageData[]>;
 }
 
 const sessionAlsKey = 'ai.session';
@@ -311,7 +362,15 @@ export class SessionError extends Error {
 export interface SessionStore<S = any> {
   get(sessionId: string): Promise<SessionData<S> | undefined>;
 
-  save(sessionId: string, data: Omit<SessionData<S>, 'id'>): Promise<void>;
+  patchState(sessionId: string, data: Partial<S>): Promise<void>;
+
+  setMessages(
+    sessionId: string,
+    thread: string,
+    messages: MessageData[]
+  ): Promise<void>;
+
+  delete(sessionId: string): Promise<void>;
 }
 
 export function inMemorySessionStore() {
@@ -319,13 +378,39 @@ export function inMemorySessionStore() {
 }
 
 class InMemorySessionStore<S = any> implements SessionStore<S> {
-  private data: Record<string, SessionData<S>> = {};
+  private __data: Record<string, SessionData<S>> = {};
 
   async get(sessionId: string): Promise<SessionData<S> | undefined> {
-    return this.data[sessionId];
+    return this.__data[sessionId];
   }
 
-  async save(sessionId: string, sessionData: SessionData<S>): Promise<void> {
-    this.data[sessionId] = sessionData;
+  async patchState(sessionId: string, data: Partial<S>): Promise<void> {
+    this.maybeInitSession(sessionId);
+    this.__data[sessionId].state = {
+      ...this.__data[sessionId].state,
+      ...data,
+    };
+  }
+
+  async setMessages(
+    sessionId: string,
+    thread: string,
+    messages: MessageData[]
+  ): Promise<void> {
+    this.maybeInitSession(sessionId);
+    this.__data[sessionId].threads[thread] = messages;
+  }
+
+  async delete(sessionId: string): Promise<void> {
+    delete this.__data[sessionId];
+  }
+
+  private maybeInitSession(sessionId: string) {
+    if (!this.__data[sessionId]) {
+      this.__data[sessionId] = {
+        state: {} as S,
+        threads: {},
+      };
+    }
   }
 }

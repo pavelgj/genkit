@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="chat-area">
+    <div #messagesContainer class="messages">
+      @for (message of filteredMessages; track message) {
+        <div class="message" [ngClass]="'message-' + message.role">
+          <div class="message-content">
+            @for (part of message.content; track part) {
+              @if (part.text) {
+                <span>{{ part.text }}</span>
+              }
+            }
+          </div>
+        </div>
+      }
+      @if (chunks) {
+        <div class="message message-model">
+          <div class="message-content">
+            @for (chunk of chunks; track chunk) {
+              @for (part of chunk.content; track part) {
+                @if (part.text) {
+                  <span>{{ part.text }}</span>
+                }
+              }
+            }
+          </div>
+        </div>
+      }
+    </div>
+    <div class="input-area">
+      <input [(ngModel)]="text" (keyup.enter)="sendIt()" />
+      <button (click)="sendIt()">Send</button>
+    </div>
+    @if (session?.isRunning) {
+      <div class="loading-indicator">
+        <span>Thinking...</span>
+      </div>
+    }
+  </div>
+  <div class="state-area">
+    <h2>Fitness State</h2>
+    @if (state?.questionnaire) {
+      <div class="questionnaire">
+        <h3>Questionnaire</h3>
+        <ul>
+          @for (item of questionnaireItems; track item.key) {
+            <li>
+              <strong>{{ item.question }}</strong><br />
+              {{ item.answer }}
+            </li>
+          }
+        </ul>
+      </div>
+    }
+    @if (state?.fitnessPlan; as fitnessPlan) {
+      <div class="fitness-plan">
+        <h3>Fitness Plan</h3>
+        @if (fitnessPlan.dietPlan; as dietPlan) {
+          <div class="diet-plan">
+            <h4>Diet Plan</h4>
+            <p><strong>Breakfast:</strong> {{ dietPlan.breakfast }}</p>
+            <p><strong>Lunch:</strong> {{ dietPlan.lunch }}</p>
+            <p><strong>Dinner:</strong> {{ dietPlan.dinner }}</p>
+            <p><strong>Snacks:</strong> {{ dietPlan.snacks }}</p>
+          </div>
+        }
+        @if (fitnessPlan.workoutPlan) {
+          <div class="workout-plan">
+            <h4>Workout Plan</h4>
+            <div class="calendar">
+              @for (item of workoutPlanItems; track item.day) {
+                <div class="calendar-day">
+                  <div class="day-name">{{ item.day }}</div>
+                  <div class="day-content">
+                    @if (item.plan) {
+                      <div class="focus">{{ item.plan.focus }}</div>
+                      <div class="description">{{ item.plan.description }}</div>
+                    } @else {
+                      <div class="rest-day">Rest</div>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

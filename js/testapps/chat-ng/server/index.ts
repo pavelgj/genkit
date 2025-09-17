@@ -14,24 +14,12 @@
  * limitations under the License.
  */
 
-export {
-  AgentFlowEventSchema,
-  AgentFlowInputSchema,
-  AgentFlowOptions,
-  AgentFlowOutputSchema,
-  type AgentFlowEvent,
-  type AgentFlowInput,
-  type AgentFlowOutput,
-  type AgentFlowSessionData,
-  type AgentFlowStatus,
-  type AgentFlowStoreEvent,
-} from '@genkit-ai/ai/agent-flow';
-export { SessionEvent } from '@genkit-ai/ai/session';
-export * from './common.js';
-export {
-  GenkitBeta,
-  genkit,
-  type AgentFlowStore,
-  type AgentFlowStoreUnsubscribe,
-  type GenkitBetaOptions,
-} from './genkit-beta.js';
+import { startFlowServer } from '@genkit-ai/express';
+import { fitnessAdvisor } from './fitness.js';
+import { generateChatFlow } from './generate.js';
+import { simpleChatFlow } from './simple.js';
+import { slowChatFlow } from './slow.js';
+
+startFlowServer({
+  flows: [simpleChatFlow, slowChatFlow, generateChatFlow, fitnessAdvisor],
+});

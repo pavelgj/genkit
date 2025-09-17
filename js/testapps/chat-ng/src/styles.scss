@@ -14,24 +14,14 @@
  * limitations under the License.
  */
 
-export {
-  AgentFlowEventSchema,
-  AgentFlowInputSchema,
-  AgentFlowOptions,
-  AgentFlowOutputSchema,
-  type AgentFlowEvent,
-  type AgentFlowInput,
-  type AgentFlowOutput,
-  type AgentFlowSessionData,
-  type AgentFlowStatus,
-  type AgentFlowStoreEvent,
-} from '@genkit-ai/ai/agent-flow';
-export { SessionEvent } from '@genkit-ai/ai/session';
-export * from './common.js';
-export {
-  GenkitBeta,
-  genkit,
-  type AgentFlowStore,
-  type AgentFlowStoreUnsubscribe,
-  type GenkitBetaOptions,
-} from './genkit-beta.js';
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevents scrollbar on body */
+  padding: 0;
+}

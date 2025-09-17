@@ -1,0 +1,113 @@
+<!--
+ Copyright 2025 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+@if (!session) {
+  Loading session...
+} @else {
+  <div class="chat-container">
+    <div class="session-info">
+      <div class="session-state">
+        <div class="session-status">
+          @if (session.isRunning) {
+            <span class="status-icon running"></span> Running
+          } @else {
+            <span class="status-icon stopped"></span> Stopped
+          }
+        </div>
+        <strong>Session State:</strong>
+        <pre>{{ session.state | json }}</pre>
+        <strong>Last response:</strong>
+        <pre>{{ lastResponse | json }}</pre>
+      </div>
+
+      <div class="chat-area">
+        <div class="messages" #messagesContainer>
+          @for (message of session.messages; track $index) {
+            <div class="message" [ngClass]="'message-' + message.role">
+              <div class="message-content">
+                @for (part of message.content; track $index) {
+                  @if (part.text) {
+                    <span [innerHTML]="part.text | safeHtml"></span>
+                  }
+                  @if (part.toolRequest) {
+                    <div class="tool-request">
+                      <div>
+                        Tool call:
+                        <strong>{{ part.toolRequest.name }}</strong>
+                      </div>
+                      <pre>{{ part.toolRequest.input | json }}</pre>
+                    </div>
+                  }
+                  @if (part.toolResponse) {
+                    <div class="tool-response">
+                      <div>
+                        Tool response:
+                        <strong>{{ part.toolResponse.name }}</strong>
+                      </div>
+                      <pre>{{ part.toolResponse.output | json }}</pre>
+                    </div>
+                  }
+                }
+              </div>
+            </div>
+          } @empty {
+            <div class="message message-system">
+              <div class="message-content">There are no messages.</div>
+            </div>
+          }
+          @if (chunks) {
+            <div class="message message-model">
+              <div class="message-content">
+                @for (message of chunks; track $index) {
+                  @for (part of message.content; track $index) {
+                    @if (part.text) {
+                      <span [innerHTML]="part.text | safeHtml"></span>
+                    }
+                    @if (part.toolRequest) {
+                      <div class="tool-request">
+                        <div>
+                          Tool call:
+                          <strong>{{ part.toolRequest.name }}</strong>
+                        </div>
+                        <pre>{{ part.toolRequest.input | json }}</pre>
+                      </div>
+                    }
+                    @if (part.toolResponse) {
+                      <div class="tool-response">
+                        <div>
+                          Tool response:
+                          <strong>{{ part.toolResponse.name }}</strong>
+                        </div>
+                        <pre>{{ part.toolResponse.output | json }}</pre>
+                      </div>
+                    }
+                  }
+                }
+              </div>
+            </div>
+          }
+        </div>
+        <div class="input-area">
+          <input
+            type="text"
+            [(ngModel)]="text"
+            (keyup.enter)="sendIt()"
+            placeholder="Type your message..." />
+          <button (click)="sendIt()">Send it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

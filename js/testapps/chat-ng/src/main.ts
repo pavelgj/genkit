@@ -14,24 +14,10 @@
  * limitations under the License.
  */
 
-export {
-  AgentFlowEventSchema,
-  AgentFlowInputSchema,
-  AgentFlowOptions,
-  AgentFlowOutputSchema,
-  type AgentFlowEvent,
-  type AgentFlowInput,
-  type AgentFlowOutput,
-  type AgentFlowSessionData,
-  type AgentFlowStatus,
-  type AgentFlowStoreEvent,
-} from '@genkit-ai/ai/agent-flow';
-export { SessionEvent } from '@genkit-ai/ai/session';
-export * from './common.js';
-export {
-  GenkitBeta,
-  genkit,
-  type AgentFlowStore,
-  type AgentFlowStoreUnsubscribe,
-  type GenkitBetaOptions,
-} from './genkit-beta.js';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { appConfig } from './app/app.config';
+
+bootstrapApplication(AppComponent, appConfig).catch((err) =>
+  console.error(err)
+);

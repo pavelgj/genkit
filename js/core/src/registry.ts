@@ -55,6 +55,7 @@ const ACTION_TYPES = [
   'tool',
   'util',
   'resource',
+  'agent-flow',
 ] as const;
 export type ActionType = (typeof ACTION_TYPES)[number];
 

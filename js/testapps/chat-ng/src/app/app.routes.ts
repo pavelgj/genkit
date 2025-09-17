@@ -14,24 +14,22 @@
  * limitations under the License.
  */
 
-export {
-  AgentFlowEventSchema,
-  AgentFlowInputSchema,
-  AgentFlowOptions,
-  AgentFlowOutputSchema,
-  type AgentFlowEvent,
-  type AgentFlowInput,
-  type AgentFlowOutput,
-  type AgentFlowSessionData,
-  type AgentFlowStatus,
-  type AgentFlowStoreEvent,
-} from '@genkit-ai/ai/agent-flow';
-export { SessionEvent } from '@genkit-ai/ai/session';
-export * from './common.js';
-export {
-  GenkitBeta,
-  genkit,
-  type AgentFlowStore,
-  type AgentFlowStoreUnsubscribe,
-  type GenkitBetaOptions,
-} from './genkit-beta.js';
+import { Routes } from '@angular/router';
+import { ChatComponent } from './chat/chat.component';
+import { FitnessComponent } from './fitness/fitness.component';
+import { IndexComponent } from './index/index.component';
+
+export const routes: Routes = [
+  {
+    path: '',
+    component: IndexComponent,
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
+  },
+  {
+    path: 'fitness',
+    component: FitnessComponent,
+  },
+];

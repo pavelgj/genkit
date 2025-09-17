@@ -40,3 +40,9 @@
  * @module beta/client
  */
 export { runFlow, streamFlow } from './client.js';
+export {
+  defineSessionClient,
+  type Session,
+  type SessionClient,
+  type SessionClientOptions,
+} from './session.js';

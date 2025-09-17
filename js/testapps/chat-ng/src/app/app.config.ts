@@ -14,24 +14,14 @@
  * limitations under the License.
  */
 
-export {
-  AgentFlowEventSchema,
-  AgentFlowInputSchema,
-  AgentFlowOptions,
-  AgentFlowOutputSchema,
-  type AgentFlowEvent,
-  type AgentFlowInput,
-  type AgentFlowOutput,
-  type AgentFlowSessionData,
-  type AgentFlowStatus,
-  type AgentFlowStoreEvent,
-} from '@genkit-ai/ai/agent-flow';
-export { SessionEvent } from '@genkit-ai/ai/session';
-export * from './common.js';
-export {
-  GenkitBeta,
-  genkit,
-  type AgentFlowStore,
-  type AgentFlowStoreUnsubscribe,
-  type GenkitBetaOptions,
-} from './genkit-beta.js';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+  ],
+};

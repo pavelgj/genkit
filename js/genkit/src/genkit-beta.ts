@@ -29,7 +29,17 @@ import {
   type InterruptConfig,
   type ToolAction,
 } from '@genkit-ai/ai';
-import type { Chat, ChatOptions } from '@genkit-ai/ai/chat';
+import {
+  AgentFlowEventSchema,
+  AgentFlowInputSchema,
+  AgentFlowOptions,
+  AgentFlowOutputSchema,
+  defineAgentFlow,
+  type AgentFlowStore,
+  type AgentFlowStoreEvent,
+  type AgentFlowStoreUnsubscribe,
+} from '@genkit-ai/ai/agent-flow';
+import { type Chat, type ChatOptions } from '@genkit-ai/ai/chat';
 import { defineFormat } from '@genkit-ai/ai/formats';
 import {
   getCurrentSession,
@@ -38,12 +48,17 @@ import {
   type SessionData,
   type SessionOptions,
 } from '@genkit-ai/ai/session';
-import type { Operation, z } from '@genkit-ai/core';
+import type { Flow, Operation, z } from '@genkit-ai/core';
 import { v4 as uuidv4 } from 'uuid';
 import type { Formatter } from './formats';
 import { Genkit, type GenkitOptions } from './genkit';
 
-export type { GenkitOptions as GenkitBetaOptions }; // in case they drift later
+export type {
+  AgentFlowStore,
+  AgentFlowStoreEvent,
+  AgentFlowStoreUnsubscribe,
+  GenkitOptions as GenkitBetaOptions,
+}; // in case they drift later
 
 /**
  * WARNING: these APIs are considered unstable and subject to frequent breaking changes that may not honor semver.
@@ -143,8 +158,8 @@ export class GenkitBeta extends Genkit {
   createSession<S = any>(options?: SessionOptions<S>): Session<S> {
     const sessionId = options?.sessionId?.trim() || uuidv4();
     const sessionData: SessionData = {
-      id: sessionId,
       state: options?.initialState,
+      threads: {},
     };
     return new Session(this.registry, {
       id: sessionId,
@@ -162,14 +177,9 @@ export class GenkitBeta extends Genkit {
     sessionId: string,
     options: SessionOptions
   ): Promise<Session> {
-    if (!options.store) {
-      throw new Error('options.store is required');
-    }
-    const sessionData = await options.store.get(sessionId);
-
-    return new Session(this.registry, {
-      id: sessionId,
-      sessionData,
+    return Session.load(this.registry, {
+      sessionId,
+      ...options,
       store: options.store,
     });
   }
@@ -288,5 +298,15 @@ export class GenkitBeta extends Genkit {
    */
   defineResource(opts: ResourceOptions, fn: ResourceFn): ResourceAction {
     return defineResource(this.registry, opts, fn);
+  }
+
+  defineAgentFlow<S extends z.ZodTypeAny = z.ZodTypeAny>(
+    opts: AgentFlowOptions<S>
+  ): Flow<
+    typeof AgentFlowInputSchema,
+    typeof AgentFlowOutputSchema,
+    typeof AgentFlowEventSchema
+  > {
+    return defineAgentFlow(this.registry, opts);
   }
 }

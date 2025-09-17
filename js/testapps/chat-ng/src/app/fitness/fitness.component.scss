@@ -1,0 +1,284 @@
+:host {
+  display: block;
+  height: 100vh;
+
+  // Custom Scrollbar
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+:host.dark-theme {
+  background-color: #121212;
+  color: #fff;
+
+  ::-webkit-scrollbar-track {
+    background: #2c2c2c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
+
+  .container {
+    background-color: #121212;
+  }
+
+  .chat-area {
+    border-right-color: #444;
+  }
+
+  .input-area {
+    background-color: transparent;
+  }
+
+  input {
+    background-color: #333;
+    border-color: #555;
+    color: #fff;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .state-area {
+    background: #1e1e1e;
+  }
+  
+  .questionnaire, .fitness-plan {
+    background: #2c2c2c;
+    box-shadow: none;
+  }
+
+  .message-user .message-content {
+    background-image: linear-gradient(to bottom, #444, #333);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    border: none;
+  }
+
+  .message-model .message-content {
+    background-image: linear-gradient(to bottom, #007bff, #0056b3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+  }
+
+  .message-tool .message-content,
+  .message-system .message-content {
+    background-color: #444;
+  }
+
+  h2, h3, h4 {
+    color: #eee;
+  }
+
+  strong {
+    color: #00aaff;
+  }
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 8px;
+  max-width: 80%;
+}
+
+.message-content {
+  border-radius: 18px;
+  padding: 10px 15px;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  white-space: pre-wrap;
+}
+
+.message-content:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.message-user {
+  align-self: flex-start;
+}
+
+.message-user .message-content {
+  background-image: linear-gradient(to bottom, #e6ffde, #dcf8c6);
+  color: black;
+}
+
+.message-model {
+  align-self: flex-end;
+}
+
+.message-model .message-content {
+  background-image: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
+  border: 1px solid #ddd;
+  color: black;
+}
+
+.message-tool,
+.message-system {
+  align-self: center;
+  color: #666;
+  font-size: 0.8em;
+  max-width: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.message-tool .message-content,
+.message-system .message-content {
+  background-color: #f0f0f0;
+  display: inline-block;
+  text-align: left;
+}
+
+.input-area {
+  display: flex;
+  padding-top: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid #007bff;
+  background-color: transparent;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.state-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f9f9f9;
+}
+
+.questionnaire,
+.fitness-plan {
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h2, h3, h4 {
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+strong {
+  color: #0056b3;
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-style: italic;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-day {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.day-name {
+  font-weight: bold;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.day-content .focus {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.day-content .description {
+  font-size: 0.9em;
+}
+
+.rest-day {
+  text-align: center;
+  color: #999;
+}
+
+:host.dark-theme {
+  .calendar-day {
+    border-color: #444;
+  }
+
+  .rest-day {
+    color: #666;
+  }
+}

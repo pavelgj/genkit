@@ -15,23 +15,26 @@
  */
 
 export {
+  defineAgentFlow,
+  type AgentFlowOptions,
+  type AgentFlowSendOptions,
+  type FromClientTransformer,
+  type ToClientTransformer,
+} from './flow.js';
+export {
+  type AgentFlowSessionData,
+  type AgentFlowStatus,
+  type AgentFlowStore,
+  type AgentFlowStoreEvent,
+  type AgentFlowStoreUnsubscribe,
+} from './store.js';
+export {
   AgentFlowEventSchema,
   AgentFlowInputSchema,
-  AgentFlowOptions,
   AgentFlowOutputSchema,
+  ClientStateSchema,
   type AgentFlowEvent,
   type AgentFlowInput,
   type AgentFlowOutput,
-  type AgentFlowSessionData,
-  type AgentFlowStatus,
-  type AgentFlowStoreEvent,
-} from '@genkit-ai/ai/agent-flow';
-export { SessionEvent } from '@genkit-ai/ai/session';
-export * from './common.js';
-export {
-  GenkitBeta,
-  genkit,
-  type AgentFlowStore,
-  type AgentFlowStoreUnsubscribe,
-  type GenkitBetaOptions,
-} from './genkit-beta.js';
+  type ClientState,
+} from './types.js';

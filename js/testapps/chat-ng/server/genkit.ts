@@ -14,24 +14,14 @@
  * limitations under the License.
  */
 
-export {
-  AgentFlowEventSchema,
-  AgentFlowInputSchema,
-  AgentFlowOptions,
-  AgentFlowOutputSchema,
-  type AgentFlowEvent,
-  type AgentFlowInput,
-  type AgentFlowOutput,
-  type AgentFlowSessionData,
-  type AgentFlowStatus,
-  type AgentFlowStoreEvent,
-} from '@genkit-ai/ai/agent-flow';
-export { SessionEvent } from '@genkit-ai/ai/session';
-export * from './common.js';
-export {
-  GenkitBeta,
-  genkit,
-  type AgentFlowStore,
-  type AgentFlowStoreUnsubscribe,
-  type GenkitBetaOptions,
-} from './genkit-beta.js';
+import googleAI from '@genkit-ai/googleai';
+import { initializeApp } from 'firebase-admin/app';
+import { genkit } from 'genkit/beta';
+
+export const ai = genkit({
+  plugins: [googleAI()],
+  model: googleAI.model('gemini-2.5-flash'),
+  promptDir: './prompts',
+});
+
+initializeApp();
