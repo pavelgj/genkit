@@ -1,5 +1,5 @@
 /**
- * Copyright 2026 Google LLC
+ * Copyright 2024 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,9 @@
  * limitations under the License.
  */
 
-import { type BaseGenkitPluginV2 } from '@genkit-ai/core';
-import { type GenerateMiddleware } from './generate/middleware.js';
-import { type ModelAction } from './model.js';
+import { defineConfig, type Options } from 'tsup';
+import { defaultOptions } from '../../tsup.common';
 
-export { type BaseGenkitPluginV2 };
-
-export interface GenkitPluginV2 extends BaseGenkitPluginV2 {
-  // Returns a list of generate middleware to be used in `generate({use: [...])`.
-  generateMiddleware?: () => GenerateMiddleware<any>[];
-
-  // A shortcut for resolving a model.
-  model(name: string): Promise<ModelAction>;
-}
+export default defineConfig({
+  ...(defaultOptions as Options),
+});

@@ -14,16 +14,26 @@
  * limitations under the License.
  */
 
-import { type BaseGenkitPluginV2 } from '@genkit-ai/core';
-import { type GenerateMiddleware } from './generate/middleware.js';
-import { type ModelAction } from './model.js';
+import { googleAI } from '@genkit-ai/google-genai';
+import { genkit } from 'genkit';
+import { filesystem } from '../src/index.js';
 
-export { type BaseGenkitPluginV2 };
+const ai = genkit({
+  plugins: [googleAI()],
+});
 
-export interface GenkitPluginV2 extends BaseGenkitPluginV2 {
-  // Returns a list of generate middleware to be used in `generate({use: [...])`.
-  generateMiddleware?: () => GenerateMiddleware<any>[];
-
-  // A shortcut for resolving a model.
-  model(name: string): Promise<ModelAction>;
+async function main() {
+  const { text } = await ai.generate({
+    model: googleAI.model('gemini-3-flash-preview'),
+    prompt:
+      'Can you list the files in my temporary directory and read whatever is in `hello.txt`?',
+    use: [
+      filesystem({
+        rootDirectory: process.env.TEMP_DIR || '/tmp',
+      }),
+    ],
+  });
+  console.log(text);
 }
+
+main().catch(console.error);
