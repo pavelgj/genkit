@@ -38,6 +38,10 @@ export {
 } from '@genkit-ai/ai';
 export { Session, type Artifact } from '@genkit-ai/ai/session';
 export {
+  createAgentAPI,
+  type AgentTransport,
+} from '@genkit-ai/ai/agent-core';
+export {
   AgentError,
   remoteAgent,
   type AgentAPI,
