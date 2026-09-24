@@ -56,8 +56,10 @@ enum ActorState {
 }
 
 message WorkerAssignment {
+  string worker_pool = 2;
   string worker_pod = 3;
   string worker_pod_ip = 5;
+  ObjectRef worker = 6;
 }
 
 message ActorStatus {
@@ -92,6 +94,34 @@ message ListActorsRequest {
 }
 message ListActorsResponse {
   repeated Actor actors = 1;
+  string next_page_token = 2;
+}
+
+enum WorkerState {
+  WORKER_STATE_UNSPECIFIED = 0;
+  WORKER_STATE_ACTIVE = 1;
+  WORKER_STATE_DRAINING = 2;
+}
+message WorkerResources { int32 actors = 2; }
+message WorkerStatus {
+  WorkerState state = 1;
+  WorkerResources capacity = 2;
+  WorkerResources allocated = 3;
+}
+message Worker {
+  ResourceMetadata metadata = 1;
+  string worker_namespace = 2;
+  string worker_pool = 3;
+  string worker_pod = 4;
+  string node_name = 6;
+  WorkerStatus status = 11;
+}
+message ListWorkersRequest {
+  int32 page_size = 1;
+  string page_token = 2;
+}
+message ListWorkersResponse {
+  repeated Worker workers = 1;
   string next_page_token = 2;
 }
 

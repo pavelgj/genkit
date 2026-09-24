@@ -107,10 +107,33 @@ substrate repo), plus `kubectl-ate` on PATH. Then:
 export GEMINI_API_KEY=...
 ./substrate/setup.sh          # image, WorkerPool, ActorTemplate, creds, port-forwards
 source substrate/.env
-pnpm genkit:dev:substrate
+pnpm start:substrate          # builds web/, serves the demo UI on :8080
 ```
 
-Try it in the Dev UI:
+### Demo UI (`web/`)
+
+Open http://localhost:8080. Each column is a chat session with its own boxed
+agent; the panel on top is the substrate worker pool:
+
+- **Worker cards** show which session each worker is running right now, or
+  `free`.
+- **Session badges** show what the session's actor is doing: `starting`,
+  `waiting for a worker`, `running on <worker>`, `suspended`.
+- **Send to all sessions** starts a turn in every column at once. With 3
+  sessions on 2 workers, one waits, then takes the first worker to free up.
+
+The state comes from `GET /api/state` (`src/substrate-state.ts`), which joins
+ate-api's `ListWorkers` and `ListActors` with `runner.boxes()`. Substrate knows
+which actor is on which worker; only the runner knows which session an actor
+belongs to, and that a turn is waiting for a worker.
+
+For UI work, run the server and Vite's dev server side by side
+(`pnpm start:substrate` and `pnpm web:dev`, then open :5173). `pnpm
+genkit:dev:substrate` also serves the demo UI, next to the Genkit Dev UI.
+
+### Dev UI
+
+Or try the flows in the Genkit Dev UI (`pnpm genkit:dev:substrate`):
 
 - `chatWithAgent` with `{ "message": "My favorite color is teal. Save it to color.txt." }`.
   It returns a `sessionId`. Pass it back with

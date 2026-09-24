@@ -123,9 +123,36 @@ interface ActorInstance {
    * make it stale (a failed call) resets it to `unknown`.
    */
   state: 'running' | 'suspended' | 'paused' | 'unknown';
+  /** A lifecycle operation in progress, for {@link SubstrateRunner.boxes}. */
+  activity?: 'starting' | 'waiting-for-worker' | 'suspending' | 'pausing';
+  /** When `state` or `activity` last changed (ms epoch). */
+  since: number;
   idleTimer?: ReturnType<typeof setTimeout>;
   /** Tail of the lifecycle-operation queue; never rejects. */
   lock: Promise<void>;
+}
+
+/** What a box is doing, as seen by this runner. */
+export type SubstrateBoxPhase =
+  | 'starting'
+  | 'waiting-for-worker'
+  | 'running'
+  | 'suspending'
+  | 'pausing'
+  | 'suspended'
+  | 'paused'
+  | 'unknown';
+
+/** A box this runner tracks, for dashboards ({@link SubstrateRunner.boxes}). */
+export interface SubstrateBoxInfo {
+  /** The route key, e.g. a session id. */
+  key: string;
+  actor: SubstrateRef;
+  phase: SubstrateBoxPhase;
+  /** Calls currently keeping the box awake. */
+  inFlight: number;
+  /** When the phase started (ms epoch). */
+  since: number;
 }
 
 const DNS_LABEL = /^[a-z]([-a-z0-9]*[a-z0-9])?$/;
@@ -246,6 +273,22 @@ export class SubstrateRunner implements BoxRunner {
     };
   }
 
+  /**
+   * The boxes this runner tracks and what each is doing, from this runner's
+   * point of view (substrate is not queried). For dashboards: join with
+   * `listWorkers`/`listActors` on the actor name to see which route key a
+   * worker is serving.
+   */
+  boxes(): SubstrateBoxInfo[] {
+    return [...this.instances.entries()].map(([key, inst]) => ({
+      key,
+      actor: inst.ref,
+      phase: inst.activity ?? inst.state,
+      inFlight: inst.holds,
+      since: inst.since,
+    }));
+  }
+
   async acquire(key: string, signal?: AbortSignal): Promise<BoxConnection> {
     if (this.closed) throw new Error('substrateRunner is closed.');
     if (this.reclaimStale) {
@@ -354,11 +397,25 @@ export class SubstrateRunner implements BoxRunner {
         }),
         holds: 0,
         state: 'unknown',
+        since: Date.now(),
         lock: Promise.resolve(),
       };
       this.instances.set(key, inst);
     }
     return inst;
+  }
+
+  /** Records a state/activity change (and when it happened, for `boxes()`). */
+  private mark(
+    inst: ActorInstance,
+    state: ActorInstance['state'],
+    activity?: ActorInstance['activity']
+  ): void {
+    if (inst.state !== state || inst.activity !== activity) {
+      inst.since = Date.now();
+    }
+    inst.state = state;
+    inst.activity = activity;
   }
 
   /** Runs `op` after every earlier lifecycle operation on `inst` settles. */
@@ -390,7 +447,7 @@ export class SubstrateRunner implements BoxRunner {
       return await fn();
     } catch (e) {
       // A failed call may mean the actor crashed or was moved; re-check next time.
-      inst.state = 'unknown';
+      this.mark(inst, 'unknown');
       throw e;
     } finally {
       inst.holds--;
@@ -430,14 +487,14 @@ export class SubstrateRunner implements BoxRunner {
     }
     // Stop trusting `running` before the snapshot starts, so a call arriving
     // now queues behind the lock instead of reaching a box mid-checkpoint.
-    inst.state = 'unknown';
+    this.mark(inst, 'unknown', action === 'pause' ? 'pausing' : 'suspending');
     try {
       if (action === 'pause') await this.control.pauseActor(inst.ref);
       else await this.control.suspendActor(inst.ref);
-      inst.state = action === 'pause' ? 'paused' : 'suspended';
+      this.mark(inst, action === 'pause' ? 'paused' : 'suspended');
       logger.debug(`substrateRunner: ${action}ed ${fmt(inst.ref)}`);
     } catch (e) {
-      inst.state = 'unknown';
+      this.mark(inst, 'unknown');
       // Not running (never started, crashed, already snapshotted): nothing to free.
       if (isSubstrateError(e, 'FAILED_PRECONDITION', 'NOT_FOUND')) return;
       throw e;
@@ -464,56 +521,77 @@ export class SubstrateRunner implements BoxRunner {
     const deadline = Date.now() + this.readyTimeoutMs;
     let delay = 100;
     let lastErr: unknown;
-    while (!abort.aborted) {
-      try {
-        await this.control.resumeActor(ref, { signal });
-        inst.state = 'running';
-        return;
-      } catch (e) {
-        lastErr = e;
-        if (isSubstrateError(e, 'NOT_FOUND')) {
-          await this.createActor(ref, signal);
-          continue;
-        }
-        if (isSubstrateError(e, 'FAILED_PRECONDITION')) {
-          const state = (await this.control.getActor(ref, { signal })).status
-            ?.state;
-          if (state === 'ACTOR_STATE_RUNNING') {
-            inst.state = 'running';
+    this.mark(inst, inst.state, 'starting');
+    try {
+      while (!abort.aborted) {
+        try {
+          await this.control.resumeActor(ref, { signal });
+          this.mark(inst, 'running');
+          return;
+        } catch (e) {
+          lastErr = e;
+          if (isSubstrateError(e, 'RESOURCE_EXHAUSTED')) {
+            this.mark(inst, inst.state, 'waiting-for-worker');
+          }
+          const next = await this.handleStartError(ref, e, signal);
+          if (next === 'running') {
+            this.mark(inst, 'running');
             return;
           }
-          if (state === 'ACTOR_STATE_CRASHED') {
-            // Back to the last durable snapshot, then resume from it.
-            logger.warn(`substrateRunner: ${fmt(ref)} crashed; reverting.`);
-            await this.control.revertActor(ref, { signal });
-            continue;
-          }
-          if (!state || !TRANSIENT_STATES.includes(state)) throw e;
-          // Mid-transition (e.g. an idle suspend from another host): wait it out.
-        } else if (
-          // Lease held by a concurrent operation, pool saturated, or a
-          // control-plane blip: all transient. A connection that never came up
-          // (nothing listening, TLS rejected) is not: fail fast.
-          !isSubstrateError(
-            e,
-            'ABORTED',
-            'RESOURCE_EXHAUSTED',
-            'UNAVAILABLE'
-          ) ||
-          /No connection established/.test(e.message)
-        ) {
-          throw e;
+          if (next === 'retry-now') continue;
         }
+        if (Date.now() + delay > deadline) break;
+        await sleep(delay, abort);
+        delay = Math.min(delay * 2, 2_000);
       }
-      if (Date.now() + delay > deadline) break;
-      await sleep(delay, abort);
-      delay = Math.min(delay * 2, 2_000);
+    } finally {
+      if (inst.activity) this.mark(inst, inst.state);
     }
     if (abort.aborted)
       throw new Error(`Aborted while starting box ${fmt(ref)}.`);
     throw new Error(
       `Timed out after ${this.readyTimeoutMs}ms starting box ${fmt(ref)}: ${lastErr}`
     );
+  }
+
+  /**
+   * Decides what a failed ResumeActor means: fixes what it can (create,
+   * revert) and asks for an immediate retry, asks for a backoff on transient
+   * conditions, and throws for anything else.
+   */
+  private async handleStartError(
+    ref: SubstrateRef,
+    e: unknown,
+    signal: AbortSignal | undefined
+  ): Promise<'running' | 'retry-now' | 'backoff'> {
+    if (isSubstrateError(e, 'NOT_FOUND')) {
+      await this.createActor(ref, signal);
+      return 'retry-now';
+    }
+    if (isSubstrateError(e, 'FAILED_PRECONDITION')) {
+      const state = (await this.control.getActor(ref, { signal })).status
+        ?.state;
+      if (state === 'ACTOR_STATE_RUNNING') return 'running';
+      if (state === 'ACTOR_STATE_CRASHED') {
+        // Back to the last durable snapshot, then resume from it.
+        logger.warn(`substrateRunner: ${fmt(ref)} crashed; reverting.`);
+        await this.control.revertActor(ref, { signal });
+        return 'retry-now';
+      }
+      // Mid-transition (e.g. an idle suspend from another host): wait it out.
+      if (state && TRANSIENT_STATES.includes(state)) return 'backoff';
+      throw e;
+    }
+    // Lease held by a concurrent operation, pool saturated, or a control-plane
+    // blip: all transient. A connection that never came up (nothing
+    // listening, TLS rejected) is not: fail fast.
+    if (
+      isSubstrateError(e, 'ABORTED', 'RESOURCE_EXHAUSTED', 'UNAVAILABLE') &&
+      !/No connection established/.test(e.message)
+    ) {
+      return 'backoff';
+    }
+    throw e;
   }
 
   private async createActor(

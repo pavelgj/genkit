@@ -28,6 +28,8 @@ export {
   type SubstrateEgressRule,
   type SubstrateRef,
   type SubstrateStatusCode,
+  type SubstrateWorker,
+  type SubstrateWorkerState,
 } from './control.js';
 export {
   GrpcSubstrateControl,
@@ -39,6 +41,8 @@ export {
   SubstrateRunner,
   substrateActorName,
   type SubstrateBoxCloseAction,
+  type SubstrateBoxInfo,
+  type SubstrateBoxPhase,
   type SubstrateIdleAction,
   type SubstrateRunnerOptions,
 } from './runner.js';

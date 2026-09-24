@@ -26,6 +26,7 @@ import {
   type SubstrateEgressRule,
   type SubstrateRef,
   type SubstrateStatusCode,
+  type SubstrateWorker,
 } from './control.js';
 
 /** A bearer token, or a function returning one (called per RPC). */
@@ -284,6 +285,23 @@ export class GrpcSubstrateControl implements SubstrateControl {
         typeof page.nextPageToken === 'string' ? page.nextPageToken : '';
     } while (pageToken);
     return actors;
+  }
+
+  async listWorkers(opts?: SubstrateCallOptions): Promise<SubstrateWorker[]> {
+    const workers: SubstrateWorker[] = [];
+    let pageToken = '';
+    do {
+      const page = await this.call(
+        'ListWorkers',
+        ['ListWorkersRequest', 'ListWorkersResponse'],
+        { pageSize: 500, pageToken },
+        opts
+      );
+      workers.push(...((page.workers ?? []) as SubstrateWorker[]));
+      pageToken =
+        typeof page.nextPageToken === 'string' ? page.nextPageToken : '';
+    } while (pageToken);
+    return workers;
   }
 
   close(): void {

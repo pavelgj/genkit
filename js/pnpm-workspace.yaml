@@ -17,6 +17,7 @@ packages:
   - 'plugins/*'
   - 'testapps/*'
   - 'testapps/agents/web'
+  - 'testapps/box/web'
   - 'testapps/a2ui/web'
   - '!testapps/bleigh-scratch'
   - '!testapps/firebase-functions-sample1'

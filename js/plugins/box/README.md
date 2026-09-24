@@ -333,9 +333,27 @@ Things to know:
   or a JWT from any provider configured in its authentication config.
 - **Custom transport or auth:** pass `control` (any `SubstrateControl`)
   instead of `api`.
+- **Dashboards:** `runner.boxes()` lists the boxes the runner tracks with
+  their route key and phase (`starting`, `waiting-for-worker`, `running`,
+  `suspended`, ...). Join it with `control.listWorkers()` and
+  `control.listActors()` on the actor name to see which key each worker is
+  serving:
 
-See `js/testapps/box` (`index-substrate.ts`, `substrate/setup.sh`) for an
-end-to-end local setup on kind.
+  ```ts
+  const control = grpcSubstrateControl({ endpoint, ca, token });
+  const runner = substrateRunner({ control, routerUrl, template });
+  // later
+  const [workers, actors] = await Promise.all([
+    control.listWorkers(),
+    control.listActors('my-atespace'),
+  ]);
+  const keyByActor = new Map(runner.boxes().map((b) => [b.actor.name, b.key]));
+  // actor.status.workerAssignment.worker.name matches worker.metadata.name
+  ```
+
+See `js/testapps/box` (`index-substrate.ts`, `substrate/setup.sh`, and the
+`web/` demo UI with a live view of the worker pool) for an end-to-end local
+setup on kind.
 
 ## Lifecycle: route + retention
 

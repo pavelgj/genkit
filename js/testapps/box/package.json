@@ -12,18 +12,25 @@
     "dev": "tsx --watch src/index.ts",
     "genkit:dev": "genkit start -- tsx --watch src/index.ts",
     "genkit:dev:podman": "pnpm compile && genkit start -- tsx src/index-podman.ts",
-    "genkit:dev:substrate": "genkit start -- tsx src/index-substrate.ts"
+    "genkit:dev:substrate": "genkit start -- tsx src/index-substrate.ts",
+    "start:substrate": "pnpm build:web && tsx src/index-substrate.ts",
+    "build:web": "cd web && pnpm build",
+    "web:dev": "cd web && pnpm dev",
+    "test": "tsx --test ./tests/*_test.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@genkit-ai/box": "workspace:*",
-    "@genkit-ai/middleware": "workspace:*",
+    "@genkit-ai/express": "workspace:*",
     "@genkit-ai/google-genai": "workspace:*",
+    "@genkit-ai/middleware": "workspace:*",
+    "express": "^4.22.1",
     "genkit": "workspace:*"
   },
   "devDependencies": {
+    "@types/express": "^4.17.25",
     "cross-env": "^7.0.3",
     "rimraf": "^6.0.1",
     "tsx": "^4.19.2",

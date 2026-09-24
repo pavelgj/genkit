@@ -554,6 +554,60 @@ describe('substrateRunner', () => {
     });
   });
 
+  describe('boxes()', () => {
+    const phaseOf = (r: ReturnType<typeof make>, k: string) =>
+      r.boxes().find((b) => b.key === k)?.phase;
+
+    it('reports the lifecycle phases a dashboard shows', async () => {
+      const runner = make({ whenIdle: 'suspend' });
+      assert.deepStrictEqual(runner.boxes(), []);
+
+      control.delayMs = 40;
+      const acquiring = runner.acquire('k');
+      await tick(10);
+      assert.strictEqual(phaseOf(runner, 'k'), 'starting');
+      const conn = await acquiring;
+      control.delayMs = 0;
+
+      const long = conn.runAction({ key: '/flow/hold' });
+      await tick();
+      const [info] = runner.boxes();
+      assert.strictEqual(info.phase, 'running');
+      assert.strictEqual(info.inFlight, 1);
+      assert.deepStrictEqual(info.actor, runner.actorFor('k'));
+      router.release();
+      await long;
+      await tick();
+      assert.strictEqual(phaseOf(runner, 'k'), 'suspended');
+      assert.strictEqual(runner.boxes()[0].inFlight, 0);
+      await runner.close();
+    });
+
+    it("reports 'waiting-for-worker' while the pool is full", async () => {
+      const runner = make();
+      control.actors.set(key(runner.actorFor('k')), 'ACTOR_STATE_SUSPENDED');
+      control.failNext.set('resume', [
+        new SubstrateApiError(
+          'RESOURCE_EXHAUSTED',
+          'no free workers available'
+        ),
+        new SubstrateApiError(
+          'RESOURCE_EXHAUSTED',
+          'no free workers available'
+        ),
+      ]);
+      const before = Date.now();
+      const acquiring = runner.acquire('k');
+      await tick(50);
+      const waiting = runner.boxes()[0];
+      assert.strictEqual(waiting.phase, 'waiting-for-worker');
+      assert.ok(waiting.since >= before);
+      await acquiring;
+      assert.strictEqual(phaseOf(runner, 'k'), 'running');
+      await runner.close();
+    });
+  });
+
   describe('release and close', () => {
     it('release deletes the actor, even while running', async () => {
       const runner = make();

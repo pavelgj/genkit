@@ -47,7 +47,35 @@ export interface SubstrateActor {
   actorTemplate?: SubstrateRef;
   status?: {
     state?: SubstrateActorState;
-    workerAssignment?: { workerPod?: string; workerPodIp?: string };
+    workerAssignment?: {
+      /** The Worker's name (workers are global, so no atespace). */
+      worker?: { name?: string };
+      workerPool?: string;
+      workerPod?: string;
+      workerPodIp?: string;
+    };
+  };
+}
+
+/** Mirrors `ateapi.WorkerState`. */
+export type SubstrateWorkerState =
+  | 'WORKER_STATE_UNSPECIFIED'
+  | 'WORKER_STATE_ACTIVE'
+  | 'WORKER_STATE_DRAINING';
+
+/** The fields of `ateapi.Worker` exposed here (a schedulable worker pod). */
+export interface SubstrateWorker {
+  metadata?: { name?: string; uid?: string };
+  workerNamespace?: string;
+  workerPool?: string;
+  workerPod?: string;
+  nodeName?: string;
+  status?: {
+    state?: SubstrateWorkerState;
+    /** `actors` is how many actors the worker can host at once. */
+    capacity?: { actors?: number };
+    /** `actors` is how many it hosts right now. */
+    allocated?: { actors?: number };
   };
 }
 
@@ -157,6 +185,11 @@ export interface SubstrateControl {
     atespace: string,
     opts?: SubstrateCallOptions
   ): Promise<SubstrateActor[]>;
+  /**
+   * Lists every worker in the cluster (all pages, all pools). Optional: the
+   * runner never needs it; it is for dashboards and tooling.
+   */
+  listWorkers?(opts?: SubstrateCallOptions): Promise<SubstrateWorker[]>;
   /** Releases the underlying connection. */
   close(): void;
 }
