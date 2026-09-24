@@ -1,0 +1,6 @@
+# The boxed side of the substrate demo. setup.sh bundles src/boxed-substrate.ts
+# (with genkit) into a single file first, so the image needs no node_modules
+# and no pnpm workspace symlinks.
+FROM docker.io/library/node:22-slim
+COPY boxed.js /app/boxed.js
+CMD ["node", "/app/boxed.js"]

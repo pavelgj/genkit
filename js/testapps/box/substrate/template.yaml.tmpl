@@ -1,0 +1,45 @@
+# ActorTemplate for the boxed agent. setup.sh fills in ATESPACE, TEMPLATE,
+# IMAGE (pinned by digest, as substrate requires), BUCKET and GEMINI_API_KEY.
+metadata:
+  atespace: ${ATESPACE}
+  name: ${TEMPLATE}
+workerSelector:
+  matchLabels:
+    workload: ${ATESPACE}
+containers:
+- name: box
+  image: ${IMAGE}
+  env:
+  # Serve Genkit's V1 reflection API on the port atenet-router targets.
+  - name: GENKIT_ENV
+    value: dev
+  - name: GENKIT_REFLECTION_HOST
+    value: 0.0.0.0
+  - name: GENKIT_REFLECTION_PORT
+    value: "80"
+  # Demo shortcut: the key sits in the template (readable by anyone with
+  # ate-api access, captured in every snapshot, and visible to the tools). See
+  # the README for injecting it at the egress gateway instead.
+  - name: GEMINI_API_KEY
+    value: ${GEMINI_API_KEY}
+  # The golden snapshot (and every resume) waits for this.
+  wakeupProbe:
+    httpGet:
+      path: /api/__health
+      port: 80
+resources:
+  limits:
+  - name: cpu
+    quantity: "1"
+  - name: memory
+    quantity: 512Mi
+snapshotConfig:
+  # FULL: suspend/pause capture process memory as well as the filesystem, so
+  # a resumed box continues exactly where it left off.
+  onPause: SNAPSHOT_CONTENT_SCOPE_FULL
+  onCommit: SNAPSHOT_CONTENT_SCOPE_FULL
+  # gs:// even on kind: the kind install maps it onto its in-cluster rustfs.
+  storageLocation: gs://${BUCKET}/${ATESPACE}/
+sandboxConfig:
+  sandboxClass: SANDBOX_CLASS_GVISOR
+  configName: gvisor-default

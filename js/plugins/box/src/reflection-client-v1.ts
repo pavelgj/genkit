@@ -41,6 +41,15 @@ interface RunActionEnvelope<O> {
   telemetry?: { traceId?: string };
 }
 
+/** Options for {@link ReflectionClientV1}. */
+export interface ReflectionClientV1Options {
+  /**
+   * Headers sent with every request. Used to address a box behind a shared
+   * gateway, e.g. substrate's router routes on `ate-target-actor`.
+   */
+  headers?: Record<string, string>;
+}
+
 /**
  * Talks to a Genkit **reflection V1** server over HTTP.
  *
@@ -53,8 +62,15 @@ interface RunActionEnvelope<O> {
  * (V2's `streamInput`) has no V1 equivalent, but box never uses it.
  */
 export class ReflectionClientV1 implements BoxConnection {
+  private readonly headers: Record<string, string>;
+
   /** @param baseUrl e.g. `http://127.0.0.1:54321` (no trailing slash). */
-  constructor(private readonly baseUrl: string) {}
+  constructor(
+    private readonly baseUrl: string,
+    options?: ReflectionClientV1Options
+  ) {
+    this.headers = options?.headers ?? {};
+  }
 
   /**
    * Polls `/api/__health` until the runtime answers. Replaces V2's
@@ -67,6 +83,7 @@ export class ReflectionClientV1 implements BoxConnection {
       if (signal?.aborted) throw new Error('Aborted while waiting for box.');
       try {
         const res = await fetch(`${this.baseUrl}/api/__health`, {
+          headers: this.headers,
           signal: AbortSignal.timeout(2_000),
         });
         if (res.ok) return;
@@ -84,7 +101,9 @@ export class ReflectionClientV1 implements BoxConnection {
   }
 
   async listActions(): Promise<Record<string, ActionMetadata>> {
-    const res = await fetch(`${this.baseUrl}/api/actions`);
+    const res = await fetch(`${this.baseUrl}/api/actions`, {
+      headers: this.headers,
+    });
     if (!res.ok) {
       throw new Error(`Box listActions failed: ${res.status}`);
     }
@@ -120,7 +139,7 @@ export class ReflectionClientV1 implements BoxConnection {
     try {
       const res = await fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { ...this.headers, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           key: req.key,
           input: req.input,
@@ -217,7 +236,7 @@ export class ReflectionClientV1 implements BoxConnection {
   async cancelAction(traceId: string): Promise<void> {
     await fetch(`${this.baseUrl}/api/cancelAction`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { ...this.headers, 'Content-Type': 'application/json' },
       body: JSON.stringify({ traceId }),
     });
   }
@@ -226,6 +245,7 @@ export class ReflectionClientV1 implements BoxConnection {
   async quit(): Promise<void> {
     try {
       await fetch(`${this.baseUrl}/api/__quitquitquit`, {
+        headers: this.headers,
         signal: AbortSignal.timeout(2_000),
       });
     } catch {

@@ -19,6 +19,19 @@
       "import": "./lib/index.mjs",
       "types": "./lib/index.d.ts",
       "default": "./lib/index.js"
+    },
+    "./substrate": {
+      "require": "./lib/runners/substrate/index.js",
+      "import": "./lib/runners/substrate/index.mjs",
+      "types": "./lib/runners/substrate/index.d.ts",
+      "default": "./lib/runners/substrate/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "substrate": [
+        "lib/runners/substrate/index"
+      ]
     }
   },
   "type": "commonjs",
@@ -38,15 +51,27 @@
   "author": "genkit",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "genkit": "workspace:^"
+    "@grpc/grpc-js": "^1.14.3",
+    "genkit": "workspace:^",
+    "protobufjs": "^7.5.4"
+  },
+  "peerDependenciesMeta": {
+    "@grpc/grpc-js": {
+      "optional": true
+    },
+    "protobufjs": {
+      "optional": true
+    }
   },
   "dependencies": {
     "ws": "^8.18.0"
   },
   "devDependencies": {
+    "@grpc/grpc-js": "^1.14.3",
     "@types/node": "^20.11.16",
     "@types/ws": "^8.5.10",
     "npm-run-all": "^4.1.5",
+    "protobufjs": "^7.5.4",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",

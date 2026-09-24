@@ -14,8 +14,9 @@ Two reasons to box:
 
 Box is the execution framework under Genkit Channels, and is usable directly.
 
-> Status: experimental. `podmanRunner` (containers) is included; the
-> `substrate` runner is not in this release.
+> Status: experimental. Runners: `execRunner` (subprocess / local sandbox),
+> `podmanRunner` (containers), and `substrateRunner` (Agent Substrate actors,
+> from `@genkit-ai/box/substrate`).
 
 ## Install
 
@@ -96,6 +97,7 @@ restricts:
 | `sandboxExec()` (macOS) | **full** | blocked except `/tmp` | **full** | none |
 | `bubblewrap()` (Linux) | confined: ro `/usr /bin /lib /lib64 /etc` + tmpfs; home/repo/creds not present | `/tmp` tmpfs only | **full** | none |
 | `podmanRunner()` (any OS) | only what you mount | only what you mount rw | **blocked** by default | yes, via `extraArgs` |
+| `substrateRunner()` (cluster) | the image only; gVisor sandbox | image fs, persisted in snapshots | **blocked** unless `egress` allows it | yes, set by the ActorTemplate |
 
 Specifics and caveats:
 
@@ -113,9 +115,8 @@ Specifics and caveats:
 - **No resource limits anywhere.** No CPU/memory/pid caps and no seccomp syscall
   filtering on either provider. A boxed tool can peg the CPU or fork-bomb.
 
-For untrusted or hostile code, use `podmanRunner()` (below) or a stronger
-runtime (Cloud Run sandbox, gVisor-class). The local providers above are not
-containment.
+For untrusted or hostile code, use `podmanRunner()` or `substrateRunner()`
+(gVisor), both below. The local providers above are not containment.
 
 ## Containers: `podmanRunner()`
 
@@ -230,6 +231,111 @@ sandboxExec({ profile: '(version 1)\n(deny default)\n(allow network* (local ip))
 Note: `bubblewrap({ unshareNet: true })` isolates the network namespace, but
 that currently breaks the reflection dial-back (the host binds the host's
 loopback, not the namespace's), so it is not usable for local boxes yet.
+
+## Agent Substrate: `substrateRunner()`
+
+Runs each box as an [Agent Substrate](https://github.com/agent-substrate/substrate)
+Actor: a gVisor-sandboxed process that can be snapshotted (memory and disk)
+and resumed on any worker in about 200ms. That makes a box per chat session
+cheap: with `whenIdle`, the actor is suspended as soon as a call ends, so it
+holds a worker only while it is actually doing something.
+
+```ts
+import { box } from '@genkit-ai/box';
+import { substrateRunner } from '@genkit-ai/box/substrate';
+import { readFileSync } from 'node:fs';
+
+const sandbox = box(ai, {
+  runner: substrateRunner({
+    api: {
+      endpoint: 'localhost:8443', // ate-api (gRPC)
+      ca: readFileSync('ca.pem'), // servicedns.podcert.ate.dev trust bundle
+      token: () => readFileSync('token', 'utf8'), // re-read per call
+    },
+    routerUrl: 'http://localhost:8000', // atenet-router
+    template: 'genkit-box/tools', // <atespace>/<ActorTemplate>
+    whenIdle: 'suspend', // free the worker between calls
+    idleGraceMs: 2_000, // but not between the tool calls of one turn
+  }),
+  route: () => ai.currentSession().sessionId, // one sandbox per chat
+  retention: {}, // the runner does the idling
+});
+
+const runShell = sandbox.defineTool({ name: 'runShell', inputSchema, outputSchema });
+```
+
+Or box the whole agent, one actor per session. Sessions then take turns on
+the pool's workers: each holds one only while a turn runs. Route by a session
+id you pass as context; `agent()` sends that context with every call:
+
+```ts
+const sandbox = box(ai, {
+  runner: substrateRunner({ ...conn, whenIdle: 'suspend', egress: [{ all: true }] }),
+  route: (_req, ctx) => String(ctx?.sessionId ?? 'default'),
+});
+
+// e.g. in a flow; proxies are cheap, build one per call
+const agent = sandbox.agent({ name: 'sandboxAgent', context: { sessionId } });
+const res = await agent.chat({ sessionId }).send(message);
+```
+
+The boxed agent needs a store (`InMemorySessionStore` is fine: FULL snapshots
+keep process memory), and its model key and egress then live in the box; see
+the testapp README for the trade-offs and the credential-injection setup.
+
+Install the optional peers it needs: `npm i @grpc/grpc-js protobufjs`.
+
+How it maps:
+
+| box | substrate |
+| --- | --- |
+| a box (per route key) | an Actor named `<namePrefix>-<hash(template, key)>`, created on first use |
+| a call | reflection V1 HTTP through atenet-router, addressed with `ate-target-actor` |
+| `whenIdle: 'suspend'` | `SuspendActor` once no calls are in flight: durable snapshot, worker freed |
+| `whenIdle: 'pause'` | `PauseActor`: node-local snapshot, worker freed, resume prefers that node |
+| next call | `ResumeActor`, then the call (a connection held across a suspend just works) |
+| `release(key)` / `close()` | `DeleteActor`; `onBoxClose: 'suspend' \| 'leave'` keeps them instead |
+
+Because names are derived from the route key, a restarted host finds the same
+actor, files and memory intact. On first use the runner also snapshots
+actors with its prefix that are still running (`reclaimStale`), so a host
+that crashed mid-call doesn't leave workers pinned.
+
+The **ActorTemplate is operator-owned**: it pins the image (by digest), sizes
+the sandbox, and must serve reflection V1 on port 80:
+
+```yaml
+containers:
+- name: box
+  image: registry.example.com/my-tools@sha256:...
+  env:
+  - { name: GENKIT_ENV, value: dev }
+  - { name: GENKIT_REFLECTION_HOST, value: 0.0.0.0 }
+  - { name: GENKIT_REFLECTION_PORT, value: "80" }
+  wakeupProbe:
+    httpGet: { path: /api/__health, port: 80 }
+snapshotConfig:
+  onPause: SNAPSHOT_CONTENT_SCOPE_FULL   # FULL: memory survives suspend
+  onCommit: SNAPSHOT_CONTENT_SCOPE_FULL
+```
+
+Things to know:
+
+- **Egress is denied** unless you pass `egress` rules, applied when the actor
+  is created: `egress: [{ hostnames: ['api.github.com'] }]`, `{ cidrs: [...] }`
+  or `{ all: true }`. Hostname rules only match traffic the egress gateway can
+  read; on a gateway that doesn't terminate TLS, match HTTPS by `cidrs`.
+- **The router does not authenticate callers**, and reflection has no auth
+  either: anyone who can reach atenet-router can run actions in any box. Keep
+  it on a private network (the port-forward in the testapp binds loopback).
+- **Tokens:** ate-api accepts a Kubernetes service account token
+  (`kubectl create token ate-client -n ate-system --audience api.ate-system.svc`)
+  or a JWT from any provider configured in its authentication config.
+- **Custom transport or auth:** pass `control` (any `SubstrateControl`)
+  instead of `api`.
+
+See `js/testapps/box` (`index-substrate.ts`, `substrate/setup.sh`) for an
+end-to-end local setup on kind.
 
 ## Lifecycle: route + retention
 

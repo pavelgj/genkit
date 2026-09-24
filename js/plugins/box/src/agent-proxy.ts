@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
-import { createAgentAPI, type AgentAPI, type AgentTransport } from 'genkit/beta';
+import type { ActionContext } from 'genkit';
+import {
+  createAgentAPI,
+  type AgentAPI,
+  type AgentTransport,
+} from 'genkit/beta';
 import { Channel } from './channel.js';
 import type { ProxyDispatcher } from './proxy.js';
 
@@ -34,7 +39,13 @@ import type { ProxyDispatcher } from './proxy.js';
  */
 export function createAgentProxy<State = unknown>(
   dispatcher: ProxyDispatcher,
-  name: string
+  name: string,
+  /**
+   * Routing context for every call this proxy makes (turns, snapshot reads,
+   * aborts). Fixed per proxy because `AgentChat` has no per-call context yet;
+   * build one proxy per routing key (they are cheap).
+   */
+  context?: ActionContext
 ): AgentAPI<State> {
   const agentKey = `/agent/${name}`;
   const snapshotKey = `/agent-snapshot/${name}`;
@@ -44,10 +55,10 @@ export function createAgentProxy<State = unknown>(
     runTurn(input, init, opts) {
       const chunks = new Channel<unknown>();
       const output = dispatcher
-        .acquire(undefined, opts.abortSignal)
+        .acquire(context, opts.abortSignal)
         .then((conn) =>
           conn.runAction(
-            { key: agentKey, input, init },
+            { key: agentKey, input, init, context },
             {
               onChunk: (chunk) => chunks.send(chunk),
               abortSignal: opts.abortSignal,
@@ -71,20 +82,23 @@ export function createAgentProxy<State = unknown>(
     },
 
     async getSnapshot(lookup) {
-      const conn = await dispatcher.acquire(undefined);
-      const res = await conn.runAction({ key: snapshotKey, input: lookup });
+      const conn = await dispatcher.acquire(context);
+      const res = await conn.runAction({
+        key: snapshotKey,
+        input: lookup,
+        context,
+      });
       return res.result as Awaited<ReturnType<AgentTransport['getSnapshot']>>;
     },
 
     async abort(snapshotId: string) {
-      const conn = await dispatcher.acquire(undefined);
+      const conn = await dispatcher.acquire(context);
       const res = await conn.runAction<{ status?: unknown }>({
         key: abortKey,
         input: { snapshotId },
+        context,
       });
-      return res.result?.status as Awaited<
-        ReturnType<AgentTransport['abort']>
-      >;
+      return res.result?.status as Awaited<ReturnType<AgentTransport['abort']>>;
     },
   };
 

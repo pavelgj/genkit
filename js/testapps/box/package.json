@@ -11,7 +11,8 @@
     "build:watch": "tsc --watch",
     "dev": "tsx --watch src/index.ts",
     "genkit:dev": "genkit start -- tsx --watch src/index.ts",
-    "genkit:dev:podman": "pnpm compile && genkit start -- tsx src/index-podman.ts"
+    "genkit:dev:podman": "pnpm compile && genkit start -- tsx src/index-podman.ts",
+    "genkit:dev:substrate": "genkit start -- tsx src/index-substrate.ts"
   },
   "keywords": [],
   "author": "",

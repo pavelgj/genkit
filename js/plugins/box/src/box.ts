@@ -16,6 +16,7 @@
 
 import type {
   Action,
+  ActionContext,
   ActionMetadata,
   Flow,
   Genkit,
@@ -291,24 +292,41 @@ export class Box {
     return proxy;
   }
 
+  // TODO(defineAgent): a registered agent proxy (`box.defineAgent`), so a boxed
+  // agent shows up in (and is chattable from) the Dev UI. Needs: a bidi action
+  // of type `agent` plus `agent-snapshot`/`agent-abort` companions carrying the
+  // boxed agent's metadata; a host-side loop that feeds each item of the input
+  // stream to one boxed turn (V1 reflection has no input streaming) and threads
+  // `snapshotId` between them; and per-call context on AgentChat
+  // (send/sendStream/...) so routing can follow the caller instead of being
+  // fixed per proxy as below.
+
   /**
    * A boxed {@link AgentAPI} for the agent named `spec.name`. Calls surface the
    * self-runtime guard lazily on first turn (via the dispatcher), matching the
    * tool/flow behavior.
+   *
+   * `spec.context` is passed to `route` (and on to the boxed agent) for every
+   * call through this proxy. Proxies are cheap, so to route per session build
+   * one per call: `box.agent({ name, context: { sessionId } })`.
    */
-  agent<State = unknown>(spec: { name: string }): AgentAPI<State> {
-    return createAgentProxy<State>(this.dispatcher(), spec.name);
+  agent<State = unknown>(spec: {
+    name: string;
+    context?: ActionContext;
+  }): AgentAPI<State> {
+    return createAgentProxy<State>(this.dispatcher(), spec.name, spec.context);
   }
 
   /** A boxed {@link AgentAPI} from a real agent (same-language sugar). */
-  fromAgent<State = unknown>(agent: {
-    __action?: { name: string };
-  }): AgentAPI<State> {
+  fromAgent<State = unknown>(
+    agent: { __action?: { name: string } },
+    opts?: { context?: ActionContext }
+  ): AgentAPI<State> {
     const name = agent.__action?.name;
     if (!name) {
       throw new Error('fromAgent: could not determine the agent name.');
     }
-    return createAgentProxy<State>(this.dispatcher(), name);
+    return createAgentProxy<State>(this.dispatcher(), name, opts?.context);
   }
 
   /** Registers a proxy in the Genkit registry so the Dev UI can see it. */

@@ -1,0 +1,28 @@
+# Kubernetes side: a namespace and a pool of gVisor workers the actors are
+# multiplexed onto. setup.sh fills in the worker image and node version label
+# from the cluster's existing substrate install.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ${ATESPACE}
+---
+apiVersion: ate.dev/v1alpha1
+kind: WorkerPool
+metadata:
+  name: ${ATESPACE}
+  namespace: ${ATESPACE}
+  labels:
+    workload: ${ATESPACE}
+spec:
+  replicas: 2
+  workerImage: ${WORKER_IMAGE}
+  template:
+    nodeSelector:
+      ate.dev/substrate-version: "${SUBSTRATE_VERSION}"
+    resources:
+      limits:
+        cpu: "1"
+        memory: 1Gi
+      requests:
+        cpu: 250m
+        memory: 1Gi
