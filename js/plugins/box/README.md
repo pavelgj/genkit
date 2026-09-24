@@ -14,8 +14,8 @@ Two reasons to box:
 
 Box is the execution framework under Genkit Channels, and is usable directly.
 
-> Status: experimental. `substrate` and `container` runners are not in this
-> release.
+> Status: experimental. `podmanRunner` (containers) is included; the
+> `substrate` runner is not in this release.
 
 ## Install
 
@@ -95,6 +95,7 @@ restricts:
 | none (no `isolate`) | full | full | full | none |
 | `sandboxExec()` (macOS) | **full** | blocked except `/tmp` | **full** | none |
 | `bubblewrap()` (Linux) | confined: ro `/usr /bin /lib /lib64 /etc` + tmpfs; home/repo/creds not present | `/tmp` tmpfs only | **full** | none |
+| `podmanRunner()` (any OS) | only what you mount | only what you mount rw | **blocked** by default | yes, via `extraArgs` |
 
 Specifics and caveats:
 
@@ -112,9 +113,109 @@ Specifics and caveats:
 - **No resource limits anywhere.** No CPU/memory/pid caps and no seccomp syscall
   filtering on either provider. A boxed tool can peg the CPU or fork-bomb.
 
-For untrusted or hostile code, use stronger isolation (a container, Cloud Run
-sandbox, or a gVisor-class runtime). Those runners are planned but not in this
-release.
+For untrusted or hostile code, use `podmanRunner()` (below) or a stronger
+runtime (Cloud Run sandbox, gVisor-class). The local providers above are not
+containment.
+
+## Containers: `podmanRunner()`
+
+The container runner is a **runner**, not an `isolate:` provider, because it
+swaps the reflection direction: the box serves the **V1** HTTP reflection API
+and the runner publishes that port to the host loopback (`-p`). Nothing dials
+out of the container.
+
+```ts
+import { box, podmanRunner } from '@genkit-ai/box';
+
+const myBox = box(ai, {
+  runner: podmanRunner({
+    image: 'node:22-slim',
+    cmd: 'node dist/boxed.js',       // runs INSIDE the container
+    extraArgs: ['--memory=512m', '--pids-limit=256'],
+  }),
+});
+```
+
+This is the first option with real containment:
+
+- **Egress is blocked by default.** Boxes run on an auto-created `--internal`
+  podman network, so a boxed tool cannot reach the internet. Published ports
+  still work, so reflection is unaffected. Opt out with `network: 'bridge'`.
+- **Resource caps actually exist.** Pass `--memory`, `--cpus`, `--pids-limit`
+  via `extraArgs`; the local providers cannot do this at all.
+- **Nothing is inherited.** Unlike the subprocess runners, a container gets no
+  host env and no host filesystem. Your `GEMINI_API_KEY` does not leak into the
+  box unless you pass it explicitly via `env:`.
+- **`docker` works too**, via `engine: 'docker'`.
+
+### Why V1 here, and not V2
+
+Everything else in Genkit (and the rest of box) uses reflection V2, where the
+runtime dials *out* to a WebSocket server. V1 is deliberate here, and the reason
+is load-bearing rather than stylistic: **blocking egress and dialing back out
+are mutually exclusive, because they are the same route.**
+
+V2 in a container is otherwise perfectly workable. The box would dial
+`ws://host.containers.internal:<port>` instead of `127.0.0.1`, and that reaches
+a loopback-bound host server via the gateway relay (gvproxy on macOS, pasta on
+rootless Linux). On a normal bridge it just works.
+
+But on an `--internal` network the gateway is unreachable by construction: the
+DNS name still resolves, and nothing can connect to it. Published ports are
+unaffected because the engine injects them from the host side rather than
+routing them out of the container. So:
+
+| | V2 (dial out) | V1 + `-p` (dial in) |
+| --- | --- | --- |
+| normal bridge | works | works |
+| **egress blocked (`--internal`)** | **impossible** | **works** |
+
+Since the whole point of this runner is isolation, V1 is the only option that
+keeps egress blocked. Put differently: V2 is fine when you box for
+*relocation*, V1 is required when you box for *isolation*.
+
+Workarounds exist for egress-restricted V2, but none are general: a unix socket
+with `--network=none` is Linux-only (`ws+unix:` is a `ws`-specific URL form, and
+the socket cannot cross the macOS VM boundary or map to a Windows named pipe),
+and a `socat` relay sidecar costs an extra container per box.
+
+### Self-entry mode
+
+`self: true` runs *this same program* in the container. The project is mounted
+at its **own absolute path**, so `process.argv` and loader flags (tsx's
+`--import`, source maps) carry over verbatim and relative symlinks still
+resolve.
+
+```ts
+podmanRunner({
+  image: 'node:22-slim',
+  self: true,
+  modulesVolume: 'genkit-box-modules',
+});
+```
+
+The catch is `node_modules`: host-installed deps are built for the host OS/arch
+and **cannot load in a Linux container** (esbuild and other native addons fail
+outright). `modulesVolume` shadows the mounted `node_modules` with a named
+volume holding Linux-built deps. Prime it once:
+
+```bash
+podman run --rm -v "$PWD:$PWD" -w "$PWD" \
+  -v genkit-box-modules:"$PWD/node_modules" node:22-slim npm ci
+```
+
+### Port contract
+
+The box's reflection server must land on a known port for publishing to work.
+The runner sets `GENKIT_REFLECTION_PORT=3100` (bind exactly that port, no
+probing) and `GENKIT_REFLECTION_HOST=0.0.0.0` (published ports arrive on the
+container's eth0, so the default loopback bind would be unreachable). The host
+side is always bound to `127.0.0.1`, since the reflection API is
+unauthenticated.
+
+> Cross-language boxes: `GENKIT_REFLECTION_PORT` is honored by JS and Go today.
+> Go additionally hardcodes a loopback bind, so Go boxes need a host override
+> before they work in a container. Python supports neither yet.
 
 ### Tightening the defaults
 

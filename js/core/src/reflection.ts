@@ -110,8 +110,24 @@ export class ReflectionServer {
 
   /**
    * Finds a free port to run the server on based on the original chosen port and environment.
+   *
+   * `GENKIT_REFLECTION_PORT` pins the port exactly: no probing, and a hard
+   * failure if it is taken. Callers that assign the port up front (a container
+   * supervisor publishing it, for example) need the runtime to land on that
+   * port or not start at all, since silently shifting to the next free port
+   * would leave them talking to nothing.
    */
   async findPort(): Promise<number> {
+    const envPort = process.env.GENKIT_REFLECTION_PORT;
+    if (envPort) {
+      const pinned = Number.parseInt(envPort, 10);
+      if (!Number.isInteger(pinned) || pinned < 0 || pinned > 65535) {
+        throw new Error(
+          `Invalid GENKIT_REFLECTION_PORT: '${envPort}' is not a valid port number.`
+        );
+      }
+      return pinned;
+    }
     const chosenPort = this.options.port!;
     const freePort = await getPort({
       port: makeRange(chosenPort, chosenPort + 100),
@@ -485,9 +501,14 @@ export class ReflectionServer {
     if (!this.server) {
       return;
     }
+    // Claim the server up front: `cleanupRuntimeFile` below yields, and a
+    // second concurrent stop (e.g. /api/__quitquitquit racing a SIGTERM) would
+    // otherwise pass the guard above and close a null server.
+    const server = this.server;
+    this.server = null;
     return new Promise<void>(async (resolve, reject) => {
       await this.cleanupRuntimeFile();
-      this.server!.close(async (err) => {
+      server.close(async (err) => {
         if (err) {
           logger.error(
             `Error shutting down reflection server on port ${this.port}: ${err}`
@@ -502,7 +523,6 @@ export class ReflectionServer {
           `Reflection server on port ${this.port} has successfully shut down.`
         );
         this.port = null;
-        this.server = null;
         resolve();
       });
     });

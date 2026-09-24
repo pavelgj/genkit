@@ -139,6 +139,10 @@ export function createProxyAction<
   callable.__action = {
     name,
     ...(meta ?? {}),
+    // The registry rejects an action whose `actionType` does not match the type
+    // it is registered under, so the proxy has to carry it (not just
+    // `metadata.type`) for the `define*` variants to register.
+    actionType: kind,
     metadata: {
       ...(meta?.metadata ?? {}),
       ...(kind === 'tool' ? { type: 'tool' } : {}),

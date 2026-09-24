@@ -174,3 +174,55 @@ describe('ReflectionServer API', () => {
     );
   });
 });
+
+describe('ReflectionServer GENKIT_REFLECTION_PORT', () => {
+  const original = process.env.GENKIT_REFLECTION_PORT;
+
+  afterEach(() => {
+    if (original === undefined) delete process.env.GENKIT_REFLECTION_PORT;
+    else process.env.GENKIT_REFLECTION_PORT = original;
+  });
+
+  it('pins the port exactly, ignoring the configured one', async () => {
+    const pinned = await getPort();
+    process.env.GENKIT_REFLECTION_PORT = String(pinned);
+    // A different `port` option must lose to the env var: callers that assign
+    // the port up front (e.g. a container publishing it) need it honored.
+    const server = new ReflectionServer(new Registry(), { port: pinned + 1 });
+    assert.strictEqual(await server.findPort(), pinned);
+  });
+
+  it('does not probe for the next free port when pinned', async () => {
+    // Occupy the port, then confirm we still get it back rather than a
+    // silently shifted one (which would leave the caller talking to nothing).
+    const taken = await getPort();
+    const blocker = http.createServer();
+    await new Promise<void>((resolve) => blocker.listen(taken, resolve));
+    try {
+      process.env.GENKIT_REFLECTION_PORT = String(taken);
+      const server = new ReflectionServer(new Registry(), {});
+      assert.strictEqual(await server.findPort(), taken);
+    } finally {
+      await new Promise<void>((resolve) => blocker.close(() => resolve()));
+    }
+  });
+
+  it('rejects a non-numeric port', async () => {
+    process.env.GENKIT_REFLECTION_PORT = 'not-a-port';
+    const server = new ReflectionServer(new Registry(), {});
+    await assert.rejects(
+      () => server.findPort(),
+      /Invalid GENKIT_REFLECTION_PORT/
+    );
+  });
+
+  it('falls back to probing when unset', async () => {
+    delete process.env.GENKIT_REFLECTION_PORT;
+    const start = await getPort();
+    const server = new ReflectionServer(new Registry(), { port: start });
+    // Probing may shift upward if the port is taken between check and use, so
+    // assert the range rather than an exact port.
+    const found = await server.findPort();
+    assert.ok(found >= start && found <= start + 100);
+  });
+});
