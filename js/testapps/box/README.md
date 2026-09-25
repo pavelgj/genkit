@@ -80,23 +80,51 @@ podman rm -f $(podman ps -aq --filter label=genkit-box)
 Boxed **agents** on [Agent Substrate](https://github.com/agent-substrate/substrate),
 taking turns on shared workers.
 
-The whole agent (model calls, tools, conversation history) runs in a gVisor
-sandbox, one substrate Actor per chat session (`src/boxed-substrate.ts`).
-The host process only routes: it has no model, no tools, and no state. With
-`whenIdle: 'suspend'`, a session's actor holds a worker only while a turn is
-running. Between turns it is snapshotted (memory and disk) and the worker is
-freed, so many chats share a small pool. When every worker is busy, a turn
-waits for one (retrying until `readyTimeoutMs`, 60s by default).
+The whole agent (tools, conversation history, the generate loop) runs in a
+gVisor sandbox, one substrate Actor per chat session (`src/boxed-substrate.ts`).
+The host process only routes: it has no model, no tools, and no state. Model
+calls go to a **model gateway** (`src/gateway-main.ts`, in-cluster), the only
+holder of the API key and the only host a box may reach.
+
+An agent holds a worker only while it has work to do:
+
+- **Between turns:** with `whenIdle: 'suspend'`, a session's actor is
+  snapshotted (memory and disk) once its turn ends.
+- **During model calls (background tasks):** the gateway pauses the actor
+  while the model works, and resumes it when the answer is in. A model call
+  takes seconds; resuming takes about 200ms.
+
+When every worker is busy, a turn waits for one (retrying until
+`readyTimeoutMs`, 60s by default).
 
 ```ts
 const sandbox = box(ai, {
-  runner: substrateRunner({ ...conn, whenIdle: 'suspend', egress: [{ all: true }] }),
+  runner: substrateRunner({
+    ...conn,
+    whenIdle: 'suspend',
+    egress: [{ hostnames: ['model-gateway.genkit-box.svc'] }], // nothing else
+  }),
   route: (_req, ctx) => String(ctx?.sessionId ?? 'default'),
 });
 
-// in a flow: the session id routes the turn, and keys the boxed agent's history
-const agent = sandbox.agent({ name: 'sandboxAgent', context: { sessionId } });
+// Foreground turn: streams, never paused. The session id routes the turn and
+// keys the boxed agent's history; the gateway token names the actor.
+const agent = sandbox.agent({ name: 'sandboxAgent', context: gatewayContext(sessionId, false) });
 const res = await agent.chat({ sessionId }).send(message);
+
+// Background task: the call returns once the turn is detached, and the
+// gateway may park the actor during its model calls.
+const release = runner.hold(sessionId); // keep whenIdle off until it ends
+const bg = sandbox.agent({ name: 'sandboxAgent', context: gatewayContext(sessionId, true) });
+const task = await bg.chat({ sessionId }).detach(message);
+```
+
+In the box, the model is just a name: the `modelGateway` plugin forwards
+`gateway/<model>` to the gateway.
+
+```ts
+const ai = genkit({ plugins: [modelGateway({ url: process.env.MODEL_GATEWAY_URL! })] });
+ai.defineAgent({ model: 'gateway/googleai/gemini-flash-latest', tools, store });
 ```
 
 Needs a local substrate on kind (`hack/create-kind-cluster.sh` and
@@ -105,10 +133,13 @@ substrate repo), plus `kubectl-ate` on PATH. Then:
 
 ```bash
 export GEMINI_API_KEY=...
-./substrate/setup.sh          # image, WorkerPool, ActorTemplate, creds, port-forwards
+./substrate/setup.sh          # images, model gateway, WorkerPool, ActorTemplate, creds, port-forwards
 source substrate/.env
 pnpm start:substrate          # builds web/, serves the demo UI on :8080
 ```
+
+`GEMINI_API_KEY` goes into a Kubernetes Secret mounted by the gateway only.
+Neither the ActorTemplate nor any snapshot contains it.
 
 ### Demo UI (`web/`)
 
@@ -121,6 +152,10 @@ agent; the panel on top is the substrate worker pool:
   `waiting for a worker`, `running on <worker>`, `suspended`.
 - **Send to all sessions** starts a turn in every column at once. With 3
   sessions on 2 workers, one waits, then takes the first worker to free up.
+- **Background** (per column) or **Start 6 background tasks** runs detached
+  turns. Watch the "parked on the model" row: agents waiting on Gemini hold
+  no worker, so 6 agents make progress on 2 workers. To compare, start the
+  server with `PARK=0` (background tasks, but never paused).
 
 The state comes from `GET /api/state` (`src/substrate-state.ts`), which joins
 ate-api's `ListWorkers` and `ListActors` with `runner.boxes()`. Substrate knows
@@ -149,39 +184,81 @@ Or try the flows in the Genkit Dev UI (`pnpm genkit:dev:substrate`):
   watch kubectl ate get actors -a genkit-box
   ```
 
-Re-run `setup.sh` after changing `src/boxed-substrate.ts` or the key. Either
-gets a new template, so old sessions are never resumed onto new code.
+Re-run `setup.sh` after changing `src/boxed-substrate.ts` (a new template, so
+old sessions are never resumed onto new code), `src/gateway-main.ts`, or the
+key (the gateway is redeployed).
 
-### Keeping the API key out of the box
+### The model gateway (`src/model-gateway/`)
 
-The demo takes shortcuts: `GEMINI_API_KEY` goes into the ActorTemplate env,
-and the actor gets open egress (`egress: [{ all: true }]`) so it can reach
-Gemini. That means:
+Why it exists:
 
-- the key is readable by anyone with ate-api access (it is in the template),
-  and captured in every snapshot;
-- the agent's own tools can read it (`printenv`), and with open egress a
-  prompt-injected `runShell` can send it anywhere.
+- **Workers are freed during model calls.** Pausing an actor severs its
+  connections, so the box can't hold a request open while the model works.
+  Parked calls are fire-and-poll instead: start a call, then long-poll for
+  the result. The gateway pauses the caller once a call runs longer than
+  `PAUSE_AFTER_MS` (1.5s), and resumes it when the result is ready; the
+  box's next poll gets it.
+- **The API key stays out of the box.** Boxes may reach the gateway and
+  nothing else, so a prompt-injected `runShell` can't leak a key or reach
+  the internet.
 
-The proper setup uses substrate's egress credential injection: the egress
-gateway adds the key header on the way out, so it never enters the box, and
-egress can be narrowed to the model endpoint:
+```
+PUT /v1/calls/{callId}           { model, request, park }  -> 202 { status }
+GET /v1/calls/{callId}?waitMs=N                            -> { status: pending | done | error }
+POST /v1/generate                { model, request }        -> NDJSON chunks, then the response
+```
 
-1. Install substrate with `--experimental-egress-credential-injection` (it
-   implies the sdsmint gateway, which terminates TLS) and deploy its
-   credential provider (`manifests/egress-credential-injection/`). Store the
-   key in a Kubernetes Secret the provider may read.
-2. Project the gateway's CA into the actor (a `systemInfo` volume with the
-   `egress-mitm.ate.dev` trust bundle) and set
-   `NODE_EXTRA_CA_CERTS=/run/ate/trust-bundle.pem`
-   (see substrate's `docs/egress-trust-bundle.md`).
-3. Give the actor an egress policy that allows only
-   `generativelanguage.googleapis.com` and injects `x-goog-api-key` from the
-   secret (`inject_static_headers` with an `ate-secret://...` credential URI).
-   The runner's `egress` option supports hostname rules today; header
-   injection effects are not wired up yet.
-4. Drop `GEMINI_API_KEY` from the template, and pass the Google AI plugin a
-   placeholder key: the gateway replaces the header.
+| Piece | Where | What it does |
+| --- | --- | --- |
+| `client.ts` | box | `modelGateway()` plugin: fresh connection per request, retries through dropped connections |
+| `server.ts` | gateway | runs the model action with the box's `GenerateRequest` |
+| `parker.ts` | gateway | pause after a delay, resume on completion; if the node stays full, suspend and resume elsewhere |
+| `token.ts` | host + gateway | HMAC caller tokens naming the actor |
 
-If the tools run untrusted code, also consider splitting again: model and key
-on the host, only the tools in the box (the other variants in this app).
+What decides pausing:
+
+- Only background tasks (`park: true`) are paused. A foreground turn has a
+  live inbound request (the streamed reply), which a pause would cut.
+- A background task makes one model call at a time and nothing else goes
+  in or out of the box meanwhile, so nothing else can break. Tools that
+  need connections (a download, a subprocess talking to a server) would; a
+  real client should only set `park` when the model call is the box's only
+  outbound work.
+- Call ids are scoped to the caller. Actors are restored from a shared golden
+  snapshot, so their random number caches start identical (the client uses
+  `randomUUID({ disableEntropyCache: true })` for that reason too).
+
+**Caller identity (demo-grade).** The gateway pauses whatever actor a call
+comes from, so it can't trust the box to say which one that is. The host
+mints an HMAC token for the actor it starts (`runner.actorFor(sessionId)`)
+and passes it in the turn's context; genkit propagates action context into
+model calls, so no agent changes are needed. A token leaked from a box can
+only pause that box.
+
+The proper source is substrate itself: its egress gateway verifies each
+actor's client certificate and hands the actor's SPIFFE ID to a credential
+provider (`credproviderpb`). A provider that returns per-actor tokens, with
+the egress policy injecting them as a header (`inject_static_headers`), would
+give the gateway an identity the actor can't forge and the host doesn't need
+to mint. That needs substrate's experimental TLS-terminating egress mode.
+
+**Task status.** The host follows each background task by polling the boxed
+agent's snapshot. Any request through the router resumes a paused actor, so
+the host first asks ate-api whether the actor is `PAUSED` and skips the poll
+if so. The boxed store also reports a fresh heartbeat on reads, since a read
+it can answer proves the process is alive, even after a long pause.
+
+TODO, the proper setup: keep sessions in an external store shared by host
+and box (Firestore, Postgres). Status reads then never touch the actor, the
+PAUSED check goes away, and the store has to know when an actor is parked on
+the model so a stale heartbeat doesn't mark the task `expired`.
+
+**Other rough edges:**
+
+- ate-api has no RBAC yet: the gateway's service account token (used to
+  pause and resume) has full control of the cluster, like the host's.
+- The gateway keeps calls in memory: a restart loses in-flight calls, and
+  their boxes time out and retry the call.
+- The runner doesn't know when the gateway pauses its box. That is fine: its
+  next call goes through the router, which resumes paused actors itself.
+

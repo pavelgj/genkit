@@ -77,6 +77,18 @@ describe('buildDemoState', () => {
         since: 9_500,
       },
     ],
+    tasks: new Map([
+      ['session-1', { status: 'pending', startedAt: 6_000 }],
+      [
+        'session-2',
+        {
+          status: 'completed',
+          text: 'done',
+          startedAt: 1_000,
+          finishedAt: 4_000,
+        },
+      ],
+    ]),
   });
 
   it('lists only the pool workers, in a stable order', () => {
@@ -98,7 +110,7 @@ describe('buildDemoState', () => {
     ]);
   });
 
-  it('reports session phases with elapsed time and worker', () => {
+  it('reports session phases, substrate state, worker and task', () => {
     assert.deepStrictEqual(state.sessions, [
       {
         sessionId: 'session-1',
@@ -106,7 +118,14 @@ describe('buildDemoState', () => {
         phase: 'running',
         phaseMs: 3_000,
         inFlight: 1,
+        actorState: 'RUNNING',
         workerPod: 'genkit-box-x-bbbbb',
+        task: {
+          status: 'pending',
+          text: undefined,
+          error: undefined,
+          elapsedMs: 4_000,
+        },
       },
       {
         sessionId: 'session-2',
@@ -114,7 +133,14 @@ describe('buildDemoState', () => {
         phase: 'waiting-for-worker',
         phaseMs: 500,
         inFlight: 1,
+        actorState: 'SUSPENDED',
         workerPod: undefined,
+        task: {
+          status: 'completed',
+          text: 'done',
+          error: undefined,
+          elapsedMs: 3_000,
+        },
       },
     ]);
   });

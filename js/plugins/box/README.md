@@ -333,6 +333,16 @@ Things to know:
   or a JWT from any provider configured in its authentication config.
 - **Custom transport or auth:** pass `control` (any `SubstrateControl`)
   instead of `api`.
+- **Work that outlives the call:** `runner.hold(key)` keeps `whenIdle` away
+  from a box until the returned function is called. Use it for detached
+  (background) agent turns, whose starting call returns right away:
+
+  ```ts
+  const release = runner.hold(sessionId);
+  const task = await agent.chat({ sessionId }).detach(message);
+  task.wait().finally(release); // suspended once the task ends
+  ```
+
 - **Dashboards:** `runner.boxes()` lists the boxes the runner tracks with
   their route key and phase (`starting`, `waiting-for-worker`, `running`,
   `suspended`, ...). Join it with `control.listWorkers()` and

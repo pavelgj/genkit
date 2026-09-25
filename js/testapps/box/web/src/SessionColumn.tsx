@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { streamFlow } from 'genkit/beta/client';
+import { runFlow, streamFlow } from 'genkit/beta/client';
 import {
   forwardRef,
   useCallback,
@@ -24,27 +24,38 @@ import {
   useState,
 } from 'react';
 import { shortPod, type SessionStyle } from './WorkerPool';
-import type { ChatOutput, SessionView } from './types';
+import {
+  displayPhase,
+  type ChatOutput,
+  type DisplayPhase,
+  type SessionView,
+} from './types';
 
 interface Message {
-  role: 'user' | 'model' | 'error';
+  role: 'user' | 'model' | 'error' | 'task';
   text: string;
 }
 
 export interface SessionColumnHandle {
+  /** A foreground (streamed) turn. */
   send(text: string): void;
+  /** A background task: the model calls may park the agent. */
+  startTask(text: string): void;
 }
 
-const PHASE_LABEL: Record<string, string> = {
+const PHASE_LABEL: Record<DisplayPhase, string> = {
   starting: 'starting',
   'waiting-for-worker': 'waiting for a worker',
   running: 'running',
+  parked: 'parked on the model',
   suspending: 'suspending',
-  pausing: 'pausing',
+  pausing: 'parking',
   suspended: 'suspended',
   paused: 'paused',
   unknown: 'idle',
 };
+
+const seconds = (ms: number) => `${(ms / 1000).toFixed(1)}s`;
 
 /**
  * Renders the two bits of markdown the agent actually uses (`**bold**` and
@@ -117,9 +128,54 @@ export const SessionColumn = forwardRef<
     [sessionId]
   );
 
-  useImperativeHandle(ref, () => ({ send }), [send]);
+  const [taskStarting, setTaskStarting] = useState(false);
+  const startTask = useCallback(
+    async (text: string) => {
+      if (!text.trim() || busyRef.current) return;
+      setMessages((m) => [
+        ...m,
+        { role: 'user', text: `[background] ${text}` },
+      ]);
+      setTaskStarting(true);
+      try {
+        // Returns once the turn is detached; progress comes via /api/state.
+        await runFlow({
+          url: '/api/startTask',
+          input: { sessionId, message: text },
+        });
+      } catch (e) {
+        setMessages((m) => [...m, { role: 'error', text: String(e) }]);
+      } finally {
+        setTaskStarting(false);
+      }
+    },
+    [sessionId]
+  );
 
-  const phase = view?.phase ?? 'unknown';
+  // Background task results arrive through the polled state.
+  const task = view?.task;
+  const taskRunning = taskStarting || task?.status === 'pending';
+  const reported = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    if (!task || task.status === 'pending') return;
+    const key = `${task.status}:${task.elapsedMs}`;
+    if (reported.current === key) return;
+    reported.current = key;
+    setMessages((m) => [
+      ...m,
+      task.status === 'completed'
+        ? { role: 'model', text: task.text ?? '' }
+        : { role: 'error', text: `task ${task.status}: ${task.error ?? ''}` },
+      {
+        role: 'task',
+        text: `background task ${task.status} in ${seconds(task.elapsedMs)}`,
+      },
+    ]);
+  }, [task]);
+
+  useImperativeHandle(ref, () => ({ send, startTask }), [send, startTask]);
+
+  const phase: DisplayPhase = displayPhase(view) ?? 'unknown';
   return (
     <section className="session" style={{ borderTopColor: style.color }}>
       <header className="session-header">
@@ -161,6 +217,14 @@ export const SessionColumn = forwardRef<
             )}
           </div>
         )}
+        {taskRunning && (
+          <div className="message model streaming">
+            <span className="muted">
+              working in the background
+              {task ? ` (${seconds(task.elapsedMs)})` : ''}...
+            </span>
+          </div>
+        )}
       </div>
 
       <form
@@ -174,10 +238,23 @@ export const SessionColumn = forwardRef<
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           placeholder="Message this session's agent"
-          disabled={streaming !== undefined}
+          disabled={streaming !== undefined || taskRunning}
         />
-        <button type="submit" disabled={streaming !== undefined}>
+        <button
+          type="submit"
+          disabled={streaming !== undefined || taskRunning}
+          title="Foreground turn: streams the reply">
           Send
+        </button>
+        <button
+          type="button"
+          disabled={streaming !== undefined || taskRunning || !draft.trim()}
+          title="Background task: the agent is parked (no worker held) while the model works"
+          onClick={() => {
+            startTask(draft);
+            setDraft('');
+          }}>
+          Background
         </button>
       </form>
     </section>

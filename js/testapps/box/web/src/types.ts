@@ -38,10 +38,21 @@ export interface WorkerView {
 export interface SessionView {
   sessionId: string;
   actor: string;
+  /** What the host's runner is doing with the actor. */
   phase: BoxPhase;
   phaseMs: number;
   inFlight: number;
+  /** Substrate's view (RUNNING, PAUSED, SUSPENDED, ...). */
+  actorState?: string;
   workerPod?: string;
+  task?: TaskSummary;
+}
+
+export interface TaskSummary {
+  status: string;
+  text?: string;
+  error?: string;
+  elapsedMs: number;
 }
 
 export interface DemoState {
@@ -55,4 +66,18 @@ export interface DemoState {
 export interface ChatOutput {
   sessionId: string;
   text: string;
+}
+
+/**
+ * The one-word status shown for a session. Substrate's PAUSED wins over the
+ * runner's phase: the runner doesn't know the gateway parked the actor.
+ */
+export type DisplayPhase = BoxPhase | 'parked';
+
+export function displayPhase(view?: SessionView): DisplayPhase | undefined {
+  if (!view) return undefined;
+  if (view.actorState === 'PAUSED') return 'parked';
+  // Snapshot in progress: still on its worker, about to be parked.
+  if (view.actorState === 'PAUSING') return 'pausing';
+  return view.phase;
 }

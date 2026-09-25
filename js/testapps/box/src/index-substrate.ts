@@ -17,32 +17,44 @@
 // Genkit in a Box, substrate edition: boxed agents taking turns on shared
 // workers.
 //
-// The whole agent (model calls, tools, conversation history) runs in the box
-// (src/boxed-substrate.ts), one substrate Actor per chat session. This process
-// only routes: it holds no model, no tools, and no state.
+// The whole agent (tools, conversation history, the generate loop) runs in
+// the box (src/boxed-substrate.ts), one substrate Actor per chat session. This
+// process only routes: it holds no model, no tools, and no state. Model calls
+// go from the box to the model gateway (src/gateway-main.ts, in-cluster),
+// which holds the API key.
 //
-// With `whenIdle: 'suspend'`, a session's actor holds a worker only while a
-// turn runs. Between turns it is snapshotted (memory + disk) and the worker is
-// free for other sessions, so many chats share a small pool, taking turns. If
-// every worker is busy, a turn waits (up to readyTimeoutMs) for one to free.
+// Workers are freed two ways:
+// - between turns: `whenIdle: 'suspend'` snapshots a session's actor once its
+//   turn ends, so many chats share a small pool, taking turns.
+// - during model calls, for background tasks: the gateway pauses the actor
+//   while the model works (seconds, usually) and resumes it when the answer
+//   is in. A paused agent holds no worker, so other agents run meanwhile.
+//
+// If every worker is busy, a turn waits (up to readyTimeoutMs) for one.
 //
 // Setup (once, against a local kind cluster; see README):
 //   GEMINI_API_KEY=... ./substrate/setup.sh
 // Run:
-//   source substrate/.env && pnpm genkit:dev:substrate
+//   source substrate/.env && pnpm start:substrate
 
 import { box } from '@genkit-ai/box';
 import {
   grpcSubstrateControl,
   substrateRunner,
+  type SubstrateRef,
 } from '@genkit-ai/box/substrate';
 import { expressHandler } from '@genkit-ai/express';
 import express from 'express';
 import { z } from 'genkit';
-import { genkit } from 'genkit/beta';
+import { genkit, type SessionSnapshot } from 'genkit/beta';
 import { randomUUID } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import {
+  MODEL_GATEWAY_CONTEXT_KEY,
+  type ModelGatewayContext,
+} from './model-gateway/protocol.js';
+import { mintCallerToken } from './model-gateway/token.js';
 import { buildDemoState } from './substrate-state.js';
 
 const ai = genkit({});
@@ -77,10 +89,22 @@ const runner = substrateRunner({
   // back-to-back calls on the same session.
   whenIdle: 'suspend',
   idleGraceMs: 1_000,
-  // The agent calls Gemini from inside the box. Demo shortcut; see the
-  // README for locking this down to the model endpoint.
-  egress: [{ all: true }],
+  // The box may talk to the model gateway, and nothing else: no API key in
+  // the box, and a prompt-injected runShell can't reach the internet.
+  egress: [{ hostnames: [new URL(env('MODEL_GATEWAY_URL')).hostname] }],
 });
+
+// Caller tokens tell the gateway which actor a model call comes from (so it
+// knows what to pause). Minted here, where the actor ref is known.
+const GATEWAY_SECRET = readFileSync(env('MODEL_GATEWAY_SECRET'), 'utf8').trim();
+
+function gatewayContext(sessionId: string, park: boolean) {
+  const gw: ModelGatewayContext = {
+    token: mintCallerToken(GATEWAY_SECRET, runner.actorFor(sessionId)),
+    park,
+  };
+  return { sessionId, [MODEL_GATEWAY_CONTEXT_KEY]: gw };
+}
 
 const sandbox = box(ai, {
   name: 'substrate-agents',
@@ -128,9 +152,10 @@ export const chatWithAgent = ai.defineFlow(
   async ({ sessionId = randomUUID(), message }, { sendChunk }) => {
     // TODO: pass the context per call once AgentChat.send accepts it. Until
     // then routing context is fixed per proxy, and proxies are cheap.
+    // Foreground turns stream, so the gateway never pauses them.
     const agent = sandbox.agent({
       name: 'sandboxAgent',
-      context: { sessionId },
+      context: gatewayContext(sessionId, false),
     });
     const turn = agent.chat({ sessionId }).sendStream(message);
     for await (const chunk of turn.stream) {
@@ -138,6 +163,156 @@ export const chatWithAgent = ai.defineFlow(
     }
     return { sessionId, text: (await turn.response).text };
   }
+);
+
+// ---------------------------------------------------------------------------
+// Background tasks: detached agent turns. The call that starts one returns as
+// soon as the turn is queued, so no inbound connection is open while the
+// agent works, and the gateway can pause the actor during model calls.
+// ---------------------------------------------------------------------------
+
+type TaskStatus = NonNullable<SessionSnapshot['status']> | 'unknown';
+
+interface TaskView {
+  sessionId: string;
+  snapshotId: string;
+  status: TaskStatus;
+  /** The agent's final reply, once completed. */
+  text?: string;
+  error?: string;
+  startedAt: number;
+  finishedAt?: number;
+}
+
+/** Latest known state of each task, by session (one task per session at a time). */
+const tasks = new Map<string, TaskView>();
+
+const TERMINAL: ReadonlySet<TaskStatus> = new Set([
+  'completed',
+  'failed',
+  'aborted',
+  'expired',
+]);
+
+/**
+ * Follows a task to the end, then lets the box be suspended.
+ *
+ * Status lives in the box (InMemorySessionStore), and any request through the
+ * router resumes a paused actor. So each poll first asks substrate whether
+ * the actor is PAUSED; if it is, the agent is waiting on the model and the
+ * poll is skipped rather than waking it up.
+ *
+ * TODO: keep sessions in an external store (e.g. Firestore/Postgres) shared by
+ * host and box. Status reads then never touch the actor, the PAUSED check
+ * goes away, and heartbeats keep working while the box is paused.
+ */
+async function watchTask(task: TaskView, release: () => void): Promise<void> {
+  const actor = runner.actorFor(task.sessionId);
+  const agent = sandbox.agent({
+    name: 'sandboxAgent',
+    context: { sessionId: task.sessionId },
+  });
+  // A failed poll is not a failed task. The PAUSED check races the gateway
+  // (it can pause the actor right after), and the poll then fails: cut off
+  // mid-pause, or the router can't resume the actor while the pool is full.
+  // The runner resumes it properly (waiting for a worker) on the next try.
+  let pollErrors = 0;
+  try {
+    while (!TERMINAL.has(task.status)) {
+      await new Promise((r) => setTimeout(r, 1_000));
+      if (await isPaused(actor)) continue;
+      let snap: SessionSnapshot | undefined;
+      try {
+        snap = await agent.getSnapshot(task.snapshotId);
+        pollErrors = 0;
+      } catch (e) {
+        if (++pollErrors >= 10) throw e;
+        continue;
+      }
+      task.status = snap?.status ?? 'unknown';
+      if (snap?.status === 'completed') {
+        const last = snap.state?.messages?.at(-1);
+        task.text = last?.content.map((p) => p.text ?? '').join('');
+      } else if (snap?.status === 'failed') {
+        task.error = snap.error?.message ?? 'failed';
+      } else if (!snap) {
+        task.status = 'failed';
+        task.error = 'snapshot not found (box restarted?)';
+      }
+    }
+  } catch (e) {
+    task.status = 'failed';
+    task.error = String(e);
+  } finally {
+    task.finishedAt = Date.now();
+    release(); // whenIdle may suspend the box now
+  }
+}
+
+async function isPaused(actor: SubstrateRef): Promise<boolean> {
+  const state = (await control.getActor(actor)).status?.state;
+  return state === 'ACTOR_STATE_PAUSED' || state === 'ACTOR_STATE_PAUSING';
+}
+
+/** Starts a background task in a session's box. */
+export const startTask = ai.defineFlow(
+  {
+    name: 'startTask',
+    inputSchema: SessionInput.extend({
+      message: z
+        .string()
+        .default(
+          'Write a limerick about sandboxes to limerick.txt, then count its words with wc.'
+        ),
+    }),
+    outputSchema: z.object({ sessionId: z.string(), snapshotId: z.string() }),
+  },
+  async ({ sessionId = randomUUID(), message }) => {
+    // Held until the watcher sees the task end: the detach call below
+    // returns right away, and whenIdle must not suspend a working agent.
+    const release = runner.hold(sessionId);
+    try {
+      const agent = sandbox.agent({
+        name: 'sandboxAgent',
+        // park: the gateway may pause the actor during model calls.
+        // PARK=0 turns that off, to compare against.
+        context: gatewayContext(sessionId, process.env.PARK !== '0'),
+      });
+      const detached = await agent.chat({ sessionId }).detach(message);
+      const task: TaskView = {
+        sessionId,
+        snapshotId: detached.snapshotId,
+        status: 'pending',
+        startedAt: Date.now(),
+      };
+      tasks.set(sessionId, task);
+      void watchTask(task, release);
+      return { sessionId, snapshotId: task.snapshotId };
+    } catch (e) {
+      release();
+      throw e;
+    }
+  }
+);
+
+/** A session's latest background task, as last seen by its watcher. */
+export const getTask = ai.defineFlow(
+  {
+    name: 'getTask',
+    inputSchema: z.object({ sessionId: z.string() }),
+    outputSchema: z
+      .object({
+        sessionId: z.string(),
+        snapshotId: z.string(),
+        status: z.string(),
+        text: z.string().optional(),
+        error: z.string().optional(),
+        startedAt: z.number(),
+        finishedAt: z.number().optional(),
+      })
+      .nullable(),
+  },
+  async ({ sessionId }) => tasks.get(sessionId) ?? null
 );
 
 /** Runs a command in a session's sandbox directly, no model involved. */
@@ -168,6 +343,8 @@ const app = express();
 app.use(express.json());
 app.post('/api/chatWithAgent', expressHandler(chatWithAgent));
 app.post('/api/runInSandbox', expressHandler(runInSandbox));
+app.post('/api/startTask', expressHandler(startTask));
+app.post('/api/getTask', expressHandler(getTask));
 
 app.get('/api/state', async (_req, res) => {
   try {
@@ -181,6 +358,7 @@ app.get('/api/state', async (_req, res) => {
         workers,
         actors,
         boxes: runner.boxes(),
+        tasks,
         now: Date.now(),
       })
     );

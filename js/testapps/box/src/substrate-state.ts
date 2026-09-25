@@ -44,12 +44,30 @@ export interface WorkerView {
 export interface SessionView {
   sessionId: string;
   actor: string;
+  /** What this host's runner is doing with the actor. */
   phase: SubstrateBoxPhase;
   /** ms since `phase` started. */
   phaseMs: number;
   inFlight: number;
+  /**
+   * The actor's state according to substrate (RUNNING, PAUSED, ...). Differs
+   * from `phase` when someone else acted on it: PAUSED while `phase` says
+   * running means the model gateway parked it during a model call.
+   */
+  actorState?: string;
   /** Pod of the worker hosting it, when running. */
   workerPod?: string;
+  /** The session's latest background task, if any. */
+  task?: TaskSummary;
+}
+
+/** A background task, as tracked by the host. */
+export interface TaskSummary {
+  status: string;
+  text?: string;
+  error?: string;
+  /** Run time so far, or total once finished. */
+  elapsedMs: number;
 }
 
 export interface DemoState {
@@ -65,14 +83,29 @@ export function buildDemoState(input: {
   workers: SubstrateWorker[];
   actors: SubstrateActor[];
   boxes: SubstrateBoxInfo[];
+  /** Background tasks by session id. */
+  tasks?: Map<
+    string,
+    {
+      status: string;
+      text?: string;
+      error?: string;
+      startedAt: number;
+      finishedAt?: number;
+    }
+  >;
   now: number;
 }): DemoState {
   const sessionByActor = new Map(input.boxes.map((b) => [b.actor.name, b.key]));
 
   const runningOn = new Map<string, WorkerView['running']>();
   const podByActor = new Map<string, string>();
+  const stateByActor = new Map<string, string>();
   for (const a of input.actors) {
     const name = a.metadata?.name;
+    if (name && a.status?.state) {
+      stateByActor.set(name, a.status.state.replace('ACTOR_STATE_', ''));
+    }
     const assignment = a.status?.workerAssignment;
     const worker = assignment?.worker?.name;
     if (!name || !worker) continue;
@@ -93,14 +126,24 @@ export function buildDemoState(input: {
     }))
     .sort((a, b) => a.pod.localeCompare(b.pod));
 
-  const sessions: SessionView[] = input.boxes.map((b) => ({
-    sessionId: b.key,
-    actor: b.actor.name,
-    phase: b.phase,
-    phaseMs: Math.max(0, input.now - b.since),
-    inFlight: b.inFlight,
-    workerPod: podByActor.get(b.actor.name) || undefined,
-  }));
+  const sessions: SessionView[] = input.boxes.map((b) => {
+    const task = input.tasks?.get(b.key);
+    return {
+      sessionId: b.key,
+      actor: b.actor.name,
+      phase: b.phase,
+      phaseMs: Math.max(0, input.now - b.since),
+      inFlight: b.inFlight,
+      actorState: stateByActor.get(b.actor.name),
+      workerPod: podByActor.get(b.actor.name) || undefined,
+      task: task && {
+        status: task.status,
+        text: task.text,
+        error: task.error,
+        elapsedMs: (task.finishedAt ?? input.now) - task.startedAt,
+      },
+    };
+  });
 
   const otherActors = input.actors
     .filter((a) => a.metadata?.name && !sessionByActor.has(a.metadata.name))

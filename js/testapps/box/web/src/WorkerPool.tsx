@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import type { DemoState, SessionView } from './types';
+import { displayPhase, type DemoState, type SessionView } from './types';
 
 export interface SessionStyle {
   label: string;
@@ -37,6 +37,8 @@ export function WorkerPool({
   const waiting = state.sessions.filter(
     (s) => s.phase === 'waiting-for-worker'
   );
+  // Parked: paused by the model gateway during a model call. No worker held.
+  const parked = state.sessions.filter((s) => displayPhase(s) === 'parked');
   const busy = state.workers.filter((w) => w.running.length > 0).length;
 
   return (
@@ -74,7 +76,9 @@ export function WorkerPool({
                   </span>
                   <span className="worker-detail">
                     {session
-                      ? `${session.phase} ${seconds(session.phaseMs)}`
+                      ? session.task?.status === 'pending'
+                        ? 'background task'
+                        : `${session.phase} ${seconds(session.phaseMs)}`
                       : run.actor}
                   </span>
                 </div>
@@ -86,26 +90,57 @@ export function WorkerPool({
         })}
       </div>
 
-      <div className="waiting">
-        {waiting.length === 0 ? (
-          <span className="muted">No session is waiting for a worker.</span>
-        ) : (
-          <>
-            <span>Waiting for a worker:</span>
-            {waiting.map((s) => {
-              const style = styleFor(s.sessionId);
-              return (
-                <span
-                  key={s.sessionId}
-                  className="session-chip"
-                  style={{ background: style?.color ?? '#52525b' }}>
-                  {style?.label ?? s.sessionId.slice(0, 8)} {seconds(s.phaseMs)}
-                </span>
-              );
-            })}
-          </>
-        )}
-      </div>
+      <ChipRow
+        label="Parked on the model (no worker held):"
+        empty="No agent is parked."
+        sessions={parked}
+        styleFor={styleFor}
+      />
+      <ChipRow
+        label="Waiting for a worker:"
+        empty="No session is waiting for a worker."
+        sessions={waiting}
+        styleFor={styleFor}
+        showTime
+      />
     </section>
+  );
+}
+
+function ChipRow({
+  label,
+  empty,
+  sessions,
+  styleFor,
+  showTime,
+}: {
+  label: string;
+  empty: string;
+  sessions: SessionView[];
+  styleFor: (sessionId: string) => SessionStyle | undefined;
+  showTime?: boolean;
+}) {
+  return (
+    <div className="chip-row">
+      {sessions.length === 0 ? (
+        <span className="muted">{empty}</span>
+      ) : (
+        <>
+          <span>{label}</span>
+          {sessions.map((s) => {
+            const style = styleFor(s.sessionId);
+            return (
+              <span
+                key={s.sessionId}
+                className="session-chip"
+                style={{ background: style?.color ?? '#52525b' }}>
+                {style?.label ?? s.sessionId.slice(0, 8)}
+                {showTime ? ` ${seconds(s.phaseMs)}` : ''}
+              </span>
+            );
+          })}
+        </>
+      )}
+    </div>
   );
 }

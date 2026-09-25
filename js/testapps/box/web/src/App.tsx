@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { SessionColumn, type SessionColumnHandle } from './SessionColumn';
 import { WorkerPool, type SessionStyle } from './WorkerPool';
 import { useDemoState } from './useDemoState';
@@ -57,6 +57,13 @@ function countByState(actors: Array<{ state: string }>): string {
 const BROADCAST =
   'Pick a random animal, write it to animal.txt, then tell me which one.';
 
+// Long model calls, so the agents spend most of the task parked.
+const BACKGROUND_TASK =
+  'Write a detailed 600-word essay on the history of process isolation ' +
+  '(chroot, jails, containers, gVisor) to essay.txt, then run wc -w ' +
+  'essay.txt and report the count.';
+const BACKGROUND_SESSIONS = 6;
+
 export default function App() {
   const [sessions, setSessions] = useState<Session[]>(() => [
     newSession(),
@@ -65,11 +72,21 @@ export default function App() {
   ]);
   const handles = useRef(new Map<string, SessionColumnHandle>());
   const { state, error } = useDemoState();
+  // Set when more columns are needed first; runs once they have mounted.
+  const [pendingBackground, setPendingBackground] = useState(false);
 
   const styleFor = useCallback(
     (sessionId: string) => sessions.find((s) => s.id === sessionId),
     [sessions]
   );
+
+  useEffect(() => {
+    if (!pendingBackground) return;
+    setPendingBackground(false);
+    sessions.forEach((s) =>
+      handles.current.get(s.id)?.startTask(BACKGROUND_TASK)
+    );
+  }, [pendingBackground, sessions]);
 
   return (
     <div className="app">
@@ -77,9 +94,11 @@ export default function App() {
         <div>
           <h1>Agents in a Box, on Substrate</h1>
           <p className="muted">
-            Each session is a boxed agent (model, tools, history) in its own
-            gVisor actor. It holds a worker only while a turn runs, then is
-            snapshotted and suspended, so sessions take turns on a small pool.
+            Each session is a boxed agent (tools, history) in its own gVisor
+            actor. It holds a worker only while it has work to do: between turns
+            it is suspended, and during a background task's model calls the
+            model gateway parks it (paused, no worker held), so more agents than
+            workers make progress at once.
           </p>
         </div>
         <div className="top-actions">
@@ -91,6 +110,20 @@ export default function App() {
             }
             title={BROADCAST}>
             Send to all sessions
+          </button>
+          <button
+            onClick={() => {
+              setSessions((s) => [
+                ...s,
+                ...Array.from(
+                  { length: Math.max(0, BACKGROUND_SESSIONS - s.length) },
+                  newSession
+                ),
+              ]);
+              setPendingBackground(true);
+            }}
+            title={BACKGROUND_TASK}>
+            Start {BACKGROUND_SESSIONS} background tasks
           </button>
           <button onClick={() => setSessions((s) => [...s, newSession()])}>
             + New session

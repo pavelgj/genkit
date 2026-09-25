@@ -21,24 +21,34 @@
 // atenet-router routes to.
 //
 // Conversation history lives in this process (InMemorySessionStore). The
-// template snapshots memory on suspend, so history survives the actor being
-// suspended between turns and resumed on whichever worker is free.
+// template snapshots memory on suspend/pause, so history survives the actor
+// being snapshotted and resumed on whichever worker is free.
 //
-// Demo shortcut: GEMINI_API_KEY comes from the template env and the actor has
-// open egress, so a prompt-injected runShell could read and exfiltrate it. See
-// the testapp README ("Keeping the API key out of the box") for the proper
-// setup.
+// No API key here: models are called through the model gateway
+// (MODEL_GATEWAY_URL, the only host this box may reach). The host passes a
+// caller token in the action context of each turn; genkit propagates it to
+// the model calls.
 
-import { googleAI } from '@genkit-ai/google-genai';
 import { retry } from '@genkit-ai/middleware';
 import { z } from 'genkit';
-import { genkit, InMemorySessionStore } from 'genkit/beta';
+import {
+  genkit,
+  InMemorySessionStore,
+  type SessionSnapshot,
+  type SessionStore,
+} from 'genkit/beta';
 import { exec } from 'node:child_process';
 import { promisify } from 'node:util';
+import { modelGateway } from './model-gateway/client.js';
 
 const run = promisify(exec);
 
-const ai = genkit({ plugins: [googleAI(), retry.plugin()] });
+const MODEL_GATEWAY_URL = process.env.MODEL_GATEWAY_URL;
+if (!MODEL_GATEWAY_URL) throw new Error('MODEL_GATEWAY_URL is not set');
+
+const ai = genkit({
+  plugins: [modelGateway({ url: MODEL_GATEWAY_URL }), retry.plugin()],
+});
 
 const runShell = ai.defineTool(
   {
@@ -88,13 +98,39 @@ ai.defineAgent({
     'You are a helpful assistant with a persistent Linux sandbox. Use ' +
     'runShell to run commands there; files you create persist across turns. ' +
     'Keep answers concise.',
-  model: googleAI.model('gemini-flash-latest'),
+  model: 'gateway/googleai/gemini-flash-latest',
   tools: [runShell, boxInfo],
   maxTurns: 20,
   use: [retry()],
   // Server-managed state, keyed by the sessionId the host sends in `init`.
-  store: new InMemorySessionStore(),
+  store: freshHeartbeatOnRead(new InMemorySessionStore()),
 });
+
+/**
+ * A pending (background) task's heartbeat stops while the actor is paused,
+ * and a read after a long pause would report it `expired`. But in this
+ * store, a read is proof of life: the store lives in this process, so if it
+ * can answer, the process is alive (a dead box can't serve reads at all). So
+ * reads report pending snapshots with a fresh heartbeat.
+ *
+ * TODO: with an external session store (see index-substrate.ts), reads no
+ * longer prove anything; there the store (or the host) must know the actor
+ * is paused waiting on the model and hold off expiry while it is.
+ */
+function freshHeartbeatOnRead<S>(store: SessionStore<S>): SessionStore<S> {
+  return {
+    async getSnapshot(opts) {
+      const snap: SessionSnapshot<S> | undefined =
+        await store.getSnapshot(opts);
+      return snap?.status === 'pending'
+        ? { ...snap, heartbeatAt: new Date().toISOString() }
+        : snap;
+    },
+    saveSnapshot: (id, mutator, options) =>
+      store.saveSnapshot(id, mutator, options),
+    onSnapshotStateChange: store.onSnapshotStateChange?.bind(store),
+  };
+}
 
 // Small flows used by the box plugin's substrate e2e test
 // (js/plugins/box/tests/substrate-e2e_test.ts), which runs against this image.

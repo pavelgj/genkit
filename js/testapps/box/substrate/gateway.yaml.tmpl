@@ -1,0 +1,72 @@
+# The model gateway (src/gateway-main.ts): the only holder of the Gemini key,
+# and the only host boxed agents may reach. setup.sh fills in ATESPACE and
+# GATEWAY_IMAGE, and creates the secrets it mounts:
+#   model-gateway-keys: GEMINI_API_KEY, gateway-secret (HMAC, shared with host)
+#   model-gateway-ate-ca: ca.pem (ate-api's CA)
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: model-gateway
+  namespace: ${ATESPACE}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: model-gateway
+  namespace: ${ATESPACE}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: model-gateway }
+  template:
+    metadata:
+      labels: { app: model-gateway }
+    spec:
+      serviceAccountName: model-gateway
+      containers:
+      - name: gateway
+        image: ${GATEWAY_IMAGE}
+        ports:
+        - containerPort: 8080
+        env:
+        - name: GEMINI_API_KEY
+          valueFrom:
+            secretKeyRef: { name: model-gateway-keys, key: GEMINI_API_KEY }
+        - { name: GATEWAY_SECRET_FILE, value: /keys/gateway-secret }
+        - { name: ATE_API, value: api.ate-system.svc:443 }
+        - { name: ATE_CA_FILE, value: /ate-ca/ca.pem }
+        - { name: ATE_TOKEN_FILE, value: /ate-token/token }
+        readinessProbe:
+          httpGet: { path: /healthz, port: 8080 }
+        volumeMounts:
+        - { name: keys, mountPath: /keys, readOnly: true }
+        - { name: ate-ca, mountPath: /ate-ca, readOnly: true }
+        - { name: ate-token, mountPath: /ate-token, readOnly: true }
+      volumes:
+      - name: keys
+        secret:
+          secretName: model-gateway-keys
+          items: [{ key: gateway-secret, path: gateway-secret }]
+      - name: ate-ca
+        secret: { secretName: model-gateway-ate-ca }
+      # Pauses/resumes callers through ate-api. Any authenticated identity
+      # has full control there today (substrate has no RBAC yet), so this
+      # token is as powerful as the host's.
+      - name: ate-token
+        projected:
+          sources:
+          - serviceAccountToken:
+              path: token
+              audience: api.ate-system.svc
+              expirationSeconds: 3600
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: model-gateway
+  namespace: ${ATESPACE}
+spec:
+  selector: { app: model-gateway }
+  ports:
+  - port: 80
+    targetPort: 8080

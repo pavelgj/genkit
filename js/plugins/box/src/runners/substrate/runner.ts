@@ -310,6 +310,30 @@ export class SubstrateRunner implements BoxRunner {
     };
   }
 
+  /**
+   * Keeps `whenIdle` away from the box for `key` until the returned function
+   * is called (idempotent). For work that outlives the calls into the box,
+   * such as a detached (background) agent turn: the call that starts it
+   * returns right away, but the box must not be suspended mid-task.
+   *
+   * Something else (e.g. a model gateway) may still pause the box meanwhile.
+   * The runner is not told, so it keeps believing the box is running; its
+   * next call reaches the router, which resumes a paused actor on its own.
+   */
+  hold(key: string): () => void {
+    const inst = this.instanceFor(key);
+    inst.holds++;
+    clearTimeout(inst.idleTimer);
+    inst.idleTimer = undefined;
+    let released = false;
+    return () => {
+      if (released) return;
+      released = true;
+      inst.holds--;
+      if (inst.holds === 0) this.scheduleIdle(inst);
+    };
+  }
+
   /** Durably suspends the actor for `key` (box core's retention hook). */
   async suspend(key: string): Promise<void> {
     const inst = this.instances.get(key);

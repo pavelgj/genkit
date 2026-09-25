@@ -554,6 +554,26 @@ describe('substrateRunner', () => {
     });
   });
 
+  describe('hold()', () => {
+    it('keeps whenIdle off the box until released', async () => {
+      const runner = make({ whenIdle: 'suspend' });
+      const conn = await runner.acquire('k');
+      const release = runner.hold('k');
+      await conn.runAction({ key: '/flow/echo', input: 'x' });
+      await tick(50);
+      assert.ok(
+        !control.calls.includes(`suspend ${runner.actorFor('k').name}`)
+      );
+      assert.strictEqual(runner.boxes()[0].inFlight, 1);
+      release();
+      release(); // idempotent
+      await tick(50);
+      assert.ok(control.calls.includes(`suspend ${runner.actorFor('k').name}`));
+      assert.strictEqual(runner.boxes()[0].inFlight, 0);
+      await runner.close();
+    });
+  });
+
   describe('boxes()', () => {
     const phaseOf = (r: ReturnType<typeof make>, k: string) =>
       r.boxes().find((b) => b.key === k)?.phase;

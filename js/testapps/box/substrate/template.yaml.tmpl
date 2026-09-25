@@ -1,5 +1,6 @@
 # ActorTemplate for the boxed agent. setup.sh fills in ATESPACE, TEMPLATE,
-# IMAGE (pinned by digest, as substrate requires), BUCKET and GEMINI_API_KEY.
+# IMAGE (pinned by digest, as substrate requires), BUCKET and
+# MODEL_GATEWAY_URL. No secrets: the box calls models through the gateway.
 metadata:
   atespace: ${ATESPACE}
   name: ${TEMPLATE}
@@ -17,11 +18,10 @@ containers:
     value: 0.0.0.0
   - name: GENKIT_REFLECTION_PORT
     value: "80"
-  # Demo shortcut: the key sits in the template (readable by anyone with
-  # ate-api access, captured in every snapshot, and visible to the tools). See
-  # the README for injecting it at the egress gateway instead.
-  - name: GEMINI_API_KEY
-    value: ${GEMINI_API_KEY}
+  # Models are called through the gateway, the one host the egress policy
+  # allows (see index-substrate.ts).
+  - name: MODEL_GATEWAY_URL
+    value: ${MODEL_GATEWAY_URL}
   # The golden snapshot (and every resume) waits for this.
   wakeupProbe:
     httpGet:

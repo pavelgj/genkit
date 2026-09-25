@@ -18,16 +18,17 @@
 # already runs substrate (hack/create-kind-cluster.sh +
 # hack/install-ate-kind.sh --deploy-ate-system):
 #
-#   1. bundles src/boxed-substrate.ts (the whole agent) and pushes it as an
-#      image to the kind registry (localhost:5001)
-#   2. creates the atespace, a gVisor WorkerPool and the ActorTemplate, with
-#      GEMINI_API_KEY in the template env (demo shortcut, see README)
-#   3. exports ate-api's CA and mints a client token into substrate/.creds/
-#   4. starts port-forwards for ate-api (:8443) and atenet-router (:8000)
-#   5. writes substrate/.env for index-substrate.ts
+#   1. bundles src/boxed-substrate.ts (the whole agent) and src/gateway-main.ts
+#      (the model gateway), and pushes both as images to the kind registry
+#   2. deploys the model gateway (the only holder of GEMINI_API_KEY) with its
+#      secrets: the key, and the HMAC secret it shares with the host
+#   3. creates the atespace, a gVisor WorkerPool and the ActorTemplate
+#   4. exports ate-api's CA and mints a client token into substrate/.creds/
+#   5. starts port-forwards for ate-api (:8443) and atenet-router (:8000)
+#   6. writes substrate/.env for index-substrate.ts
 #
-# Idempotent: re-run after changing the boxed code or the key. Either one gets
-# a new template name, so existing actors are never resumed onto new code.
+# Idempotent: re-run after changing the boxed code. That gets a new template
+# name, so existing actors are never resumed onto new code.
 #
 # Needs: GEMINI_API_KEY, kubectl, kubectl-ate (substrate's `make build-atectl`),
 # podman or docker, envsubst, jq.
@@ -35,11 +36,11 @@
 set -o errexit -o nounset -o pipefail
 
 if [[ -z "${GEMINI_API_KEY:-}" ]]; then
-  echo "error: GEMINI_API_KEY is not set (the boxed agent calls Gemini)" >&2
+  echo "error: GEMINI_API_KEY is not set (the model gateway calls Gemini)" >&2
   exit 1
 fi
 missing=()
-for tool in kubectl kubectl-ate envsubst jq curl; do
+for tool in kubectl kubectl-ate envsubst jq curl openssl; do
   command -v "${tool}" >/dev/null || missing+=("${tool}")
 done
 if ((${#missing[@]})); then
@@ -62,30 +63,61 @@ K=(kubectl --context "${CONTEXT}")
 
 step() { printf '\n\033[1;36m==> %s\033[0m\n' "$*"; }
 
-step "Bundling the boxed entry"
-mkdir -p "${HERE}/.build"
-# esbuild ships with tsx; bundling avoids copying a pnpm workspace into the image.
+# esbuild ships with tsx; bundling avoids copying a pnpm workspace into images.
 ESBUILD="$(cd "${JS}" && node -p "require.resolve('esbuild/bin/esbuild', { paths: [require.resolve('tsx')] })")"
-"${ESBUILD}" "${APP}/src/boxed-substrate.ts" --bundle --platform=node \
-  --target=node22 --log-level=warning --outfile="${HERE}/.build/boxed.js"
-cp "${HERE}/Containerfile" "${HERE}/.build/Containerfile"
 
-step "Building and pushing the image"
-IMAGE_REPO="${REGISTRY}/genkit-box-tools"
-"${ENGINE}" build -q -t "${IMAGE_REPO}:latest" "${HERE}/.build" >/dev/null
-"${ENGINE}" push --tls-verify=false "${IMAGE_REPO}:latest" >/dev/null 2>&1 ||
-  "${ENGINE}" push "${IMAGE_REPO}:latest" >/dev/null
-DIGEST="$(curl -fsS -I \
-  -H 'Accept: application/vnd.oci.image.manifest.v1+json' \
-  -H 'Accept: application/vnd.docker.distribution.manifest.v2+json' \
-  "http://${REGISTRY}/v2/genkit-box-tools/manifests/latest" |
-  awk -F': ' 'tolower($1)=="docker-content-digest" {print $2}' | tr -d '\r')"
-IMAGE="${IMAGE_REPO}@${DIGEST}"
+# build_image <entry.ts> <repo name>: bundles, builds, pushes; prints the
+# digest-pinned image reference.
+build_image() {
+  local entry="$1" name="$2" dir="${HERE}/.build/$2"
+  mkdir -p "${dir}"
+  "${ESBUILD}" "${APP}/src/${entry}" --bundle --platform=node \
+    --target=node22 --log-level=error --outfile="${dir}/boxed.js"
+  cp "${HERE}/Containerfile" "${dir}/Containerfile"
+  "${ENGINE}" build -q -t "${REGISTRY}/${name}:latest" "${dir}" >/dev/null
+  "${ENGINE}" push --tls-verify=false "${REGISTRY}/${name}:latest" >/dev/null 2>&1 ||
+    "${ENGINE}" push "${REGISTRY}/${name}:latest" >/dev/null
+  local digest
+  digest="$(curl -fsS -I \
+    -H 'Accept: application/vnd.oci.image.manifest.v1+json' \
+    -H 'Accept: application/vnd.docker.distribution.manifest.v2+json' \
+    "http://${REGISTRY}/v2/${name}/manifests/latest" |
+    awk -F': ' 'tolower($1)=="docker-content-digest" {print $2}' | tr -d '\r')"
+  echo "${REGISTRY}/${name}@${digest}"
+}
+
+step "Building and pushing images"
+IMAGE="$(build_image boxed-substrate.ts genkit-box-tools)"
+GATEWAY_IMAGE="$(build_image gateway-main.ts genkit-box-model-gateway)"
+DIGEST="${IMAGE#*@}"
 # Templates are immutable, and a template change must not resume old actors:
-# name the template after the image and the key (hashed, never printed).
-KEY_HASH="$(printf '%s' "${GEMINI_API_KEY}" | shasum -a 256 | cut -c1-6)"
-TEMPLATE="agent-${DIGEST:7:10}-${KEY_HASH}"
-echo "image: ${IMAGE}"
+# name the template after the image.
+TEMPLATE="agent-${DIGEST:7:12}"
+echo "box image:     ${IMAGE}"
+echo "gateway image: ${GATEWAY_IMAGE}"
+
+step "Deploying the model gateway"
+"${K[@]}" create namespace "${ATESPACE}" --dry-run=client -o yaml | "${K[@]}" apply -f - >/dev/null
+mkdir -p "${CREDS}"
+# HMAC secret for caller tokens: minted by the host, verified by the gateway.
+[[ -s "${CREDS}/gateway-secret" ]] || openssl rand -hex 32 >"${CREDS}/gateway-secret"
+chmod 600 "${CREDS}/gateway-secret"
+"${K[@]}" -n "${ATESPACE}" create secret generic model-gateway-keys \
+  --from-literal=GEMINI_API_KEY="${GEMINI_API_KEY}" \
+  --from-file=gateway-secret="${CREDS}/gateway-secret" \
+  --dry-run=client -o yaml | "${K[@]}" apply -f - >/dev/null
+"${K[@]}" get clustertrustbundles -l podcert.ate.dev/canarying=live \
+  -o jsonpath='{range .items[?(@.spec.signerName=="servicedns.podcert.ate.dev/identity")]}{.spec.trustBundle}{end}' \
+  >"${CREDS}/ca.pem"
+"${K[@]}" -n "${ATESPACE}" create secret generic model-gateway-ate-ca \
+  --from-file=ca.pem="${CREDS}/ca.pem" \
+  --dry-run=client -o yaml | "${K[@]}" apply -f - >/dev/null
+export ATESPACE GATEWAY_IMAGE
+envsubst '${ATESPACE} ${GATEWAY_IMAGE}' <"${HERE}/gateway.yaml.tmpl" | "${K[@]}" apply -f - >/dev/null
+# Roll pods when the secrets change (e.g. a new key); the image digest covers code.
+"${K[@]}" -n "${ATESPACE}" rollout restart deploy/model-gateway >/dev/null
+"${K[@]}" -n "${ATESPACE}" rollout status deploy/model-gateway --timeout=120s
+MODEL_GATEWAY_URL="http://model-gateway.${ATESPACE}.svc"
 
 step "Creating atespace, WorkerPool and ActorTemplate"
 # Reuse the worker image and node label of the existing substrate install.
@@ -96,13 +128,12 @@ if [[ -z "${WORKER_IMAGE}" || "${WORKER_IMAGE}" == "null" || -z "${SUBSTRATE_VER
   echo "error: no gVisor WorkerPool / version label found; deploy substrate and its counter demo first" >&2
   exit 1
 fi
-export ATESPACE TEMPLATE IMAGE BUCKET WORKER_IMAGE SUBSTRATE_VERSION GEMINI_API_KEY
+export TEMPLATE IMAGE BUCKET WORKER_IMAGE SUBSTRATE_VERSION MODEL_GATEWAY_URL
 envsubst '${ATESPACE} ${WORKER_IMAGE} ${SUBSTRATE_VERSION}' \
   <"${HERE}/workerpool.yaml.tmpl" | "${K[@]}" apply -f -
 kubectl ate --context "${CONTEXT}" create atespace "${ATESPACE}" >/dev/null 2>&1 || true
 if ! kubectl ate --context "${CONTEXT}" get actor-template "${TEMPLATE}" -a "${ATESPACE}" >/dev/null 2>&1; then
-  # Output suppressed: kubectl-ate echoes the created template, key included.
-  envsubst '${ATESPACE} ${TEMPLATE} ${IMAGE} ${BUCKET} ${GEMINI_API_KEY}' \
+  envsubst '${ATESPACE} ${TEMPLATE} ${IMAGE} ${BUCKET} ${MODEL_GATEWAY_URL}' \
     <"${HERE}/template.yaml.tmpl" |
     kubectl ate --context "${CONTEXT}" create actor-template -f - >/dev/null
   echo "created template ${ATESPACE}/${TEMPLATE}"
@@ -118,11 +149,7 @@ for _ in $(seq 1 60); do
   sleep 2
 done
 
-step "Exporting ate-api credentials"
-mkdir -p "${CREDS}"
-"${K[@]}" get clustertrustbundles -l podcert.ate.dev/canarying=live \
-  -o jsonpath='{range .items[?(@.spec.signerName=="servicedns.podcert.ate.dev/identity")]}{.spec.trustBundle}{end}' \
-  >"${CREDS}/ca.pem"
+step "Minting an ate-api client token"
 "${K[@]}" create token ate-client -n ate-system \
   --audience api.ate-system.svc --duration 24h >"${CREDS}/token"
 chmod 600 "${CREDS}/token"
@@ -149,7 +176,9 @@ export SUBSTRATE_ROUTER=http://localhost:8000
 export SUBSTRATE_CA=${CREDS}/ca.pem
 export SUBSTRATE_TOKEN=${CREDS}/token
 export SUBSTRATE_TEMPLATE=${ATESPACE}/${TEMPLATE}
+export MODEL_GATEWAY_URL=${MODEL_GATEWAY_URL}
+export MODEL_GATEWAY_SECRET=${CREDS}/gateway-secret
 EOF
 
 step "Done"
-echo "source ${HERE}/.env && pnpm genkit:dev:substrate"
+echo "source ${HERE}/.env && pnpm start:substrate"
