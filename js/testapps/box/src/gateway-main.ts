@@ -25,13 +25,15 @@
 //   ATE_API                 ate-api endpoint (default api.ate-system.svc:443)
 //   ATE_CA_FILE             ate-api CA bundle
 //   ATE_TOKEN_FILE          projected service account token for ate-api
-//   PAUSE_AFTER_MS          pause only calls running longer (default 1500)
+//   PAUSE_AFTER_MS          pause only calls running longer (default 0)
+//   MIN_AWAKE_MS            never pause an actor sooner after it came up (default 500)
 
 import { grpcSubstrateControl } from '@genkit-ai/box/substrate';
 import { googleAI } from '@genkit-ai/google-genai';
 import express from 'express';
 import { genkit } from 'genkit';
 import { readFileSync } from 'node:fs';
+import { defineFakeAgentModel } from './model-gateway/fake-model.js';
 import { Parker } from './model-gateway/parker.js';
 import { modelGatewayServer } from './model-gateway/server.js';
 
@@ -44,6 +46,8 @@ function env(name: string, fallback?: string): string {
 const log = (msg: string) => console.log(`${new Date().toISOString()} ${msg}`);
 
 const ai = genkit({ plugins: [googleAI()] });
+// Deterministic stand-in for benchmarks (see fake-model.ts).
+defineFakeAgentModel(ai);
 
 const control = grpcSubstrateControl({
   endpoint: env('ATE_API', 'api.ate-system.svc:443'),
@@ -56,12 +60,15 @@ const gateway = modelGatewayServer(ai, {
   secret: readFileSync(env('GATEWAY_SECRET_FILE'), 'utf8').trim(),
   parker: new Parker({
     control,
-    pauseAfterMs: Number(env('PAUSE_AFTER_MS', '1500')),
+    pauseAfterMs: Number(env('PAUSE_AFTER_MS', '0')),
+    minAwakeMs: Number(env('MIN_AWAKE_MS', '500')),
     log,
   }),
   allowModels: [
+    'googleai/gemini-3.6-flash',
     'googleai/gemini-flash-latest',
     'googleai/gemini-3.5-flash-lite',
+    'fake/agent',
   ],
   log,
 });

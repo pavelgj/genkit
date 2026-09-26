@@ -439,6 +439,22 @@ describe('substrateRunner', () => {
       await runner.close();
     });
 
+    it('names the template when it does not exist', async () => {
+      const runner = make();
+      control.failNext.set('create', [
+        new SubstrateApiError(
+          'FAILED_PRECONDITION',
+          'actor template not found'
+        ),
+      ]);
+      await assert.rejects(runner.acquire('k'), (e: Error) => {
+        assert.match(e.message, /actor template .* does not exist/);
+        assert.ok(e.message.includes(`${TEMPLATE.atespace}/${TEMPLATE.name}`));
+        return true;
+      });
+      await runner.close();
+    });
+
     it('reverts a crashed actor to its last snapshot', async () => {
       const runner = make();
       const ref = runner.actorFor('k');

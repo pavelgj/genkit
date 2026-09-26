@@ -89,6 +89,8 @@ const runner = substrateRunner({
   // back-to-back calls on the same session.
   whenIdle: 'suspend',
   idleGraceMs: 1_000,
+  // Many agents share 2 workers here; a start can queue for a while.
+  readyTimeoutMs: 5 * 60_000,
   // The box may talk to the model gateway, and nothing else: no API key in
   // the box, and a prompt-injected runShell can't reach the internet.
   egress: [{ hostnames: [new URL(env('MODEL_GATEWAY_URL')).hostname] }],

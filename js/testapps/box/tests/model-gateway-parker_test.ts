@@ -31,7 +31,12 @@ describe('Parker', () => {
   let parker: Parker;
   beforeEach(() => {
     control = new FakeControl();
-    parker = new Parker({ control, pauseAfterMs: 20, resumeTimeoutMs: 150 });
+    parker = new Parker({
+      control,
+      pauseAfterMs: 20,
+      resumeTimeoutMs: 150,
+      minAwakeMs: 0,
+    });
   });
 
   /** Lets queued pause/resume operations run to completion. */
@@ -86,7 +91,12 @@ describe('Parker', () => {
   });
 
   it('retries resume while the pool is full', async () => {
-    parker = new Parker({ control, pauseAfterMs: 20, resumeTimeoutMs: 2_000 });
+    parker = new Parker({
+      control,
+      pauseAfterMs: 20,
+      resumeTimeoutMs: 2_000,
+      minAwakeMs: 0,
+    });
     control.resumeErrors.push(poolFull(), poolFull());
     const call = deferred();
     parker.track(ACTOR, call.promise);
@@ -112,6 +122,30 @@ describe('Parker', () => {
     const suspendAt = control.calls.indexOf('suspend box-1');
     assert.ok(suspendAt > 0, control.calls.join(', '));
     assert.strictEqual(control.calls.at(-1), 'resume box-1');
+  });
+
+  it('never pauses an actor within minAwakeMs of it coming up', async () => {
+    parker = new Parker({ control, pauseAfterMs: 0, minAwakeMs: 60 });
+    // First call: the actor just came up, so the pause waits ~60ms.
+    const first = deferred();
+    parker.track(ACTOR, first.promise);
+    await tick(25);
+    assert.deepStrictEqual(control.calls, []);
+    await tick(60);
+    await settle();
+    assert.deepStrictEqual(control.calls, ['pause box-1']);
+    // Woken again: the next call waits another minAwakeMs.
+    first.resolve();
+    await settle();
+    const second = deferred();
+    parker.track(ACTOR, second.promise);
+    await tick(25);
+    assert.deepStrictEqual(control.calls, ['pause box-1', 'resume box-1']);
+    await tick(60);
+    await settle();
+    assert.strictEqual(control.calls.at(-1), 'pause box-1');
+    second.resolve();
+    await settle();
   });
 
   it('leaves an actor alone if it cannot be paused', async () => {

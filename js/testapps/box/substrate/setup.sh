@@ -86,15 +86,62 @@ build_image() {
   echo "${REGISTRY}/${name}@${digest}"
 }
 
+step "Checking the cluster"
+# Right after a restart (teardown.sh, then starting the machine) substrate's
+# pods take a minute or two to come back.
+for _ in $(seq 1 90); do
+  "${K[@]}" get --raw /readyz --request-timeout=3s >/dev/null 2>&1 && break
+  sleep 2
+done
+"${K[@]}" -n ate-system wait --for=condition=Available deployment --all --timeout=240s >/dev/null
+"${K[@]}" wait --for=condition=Ready pod -A -l ate.dev/worker-pool --timeout=240s >/dev/null
+# After the kind node restarts (e.g. teardown.sh, then podman machine start),
+# pods come back with new IPs, but substrate keeps each Worker's registered IP
+# (immutable today) and routes to the old one: actors never start. Workers are
+# stateless (snapshots live in object storage), so replace any whose pod IP no
+# longer matches; the new pods register fresh.
+if command -v kubectl-ate >/dev/null; then
+  stale="$(kubectl ate --context "${CONTEXT}" get workers -o json 2>/dev/null |
+    jq -r '.workers[]? | "\(.workerNamespace) \(.workerPod) \(.ip)"' |
+    while read -r ns pod ip; do
+      [[ "$("${K[@]}" -n "${ns}" get pod "${pod}" -o jsonpath='{.status.podIP}' 2>/dev/null)" == "${ip}" ]] ||
+        echo "${ns}/${pod}"
+    done)"
+  if [[ -n "${stale}" ]]; then
+    echo "replacing workers with stale IPs (cluster restarted):"
+    while read -r ref; do
+      echo "  ${ref}"
+      "${K[@]}" -n "${ref%%/*}" delete pod "${ref#*/}" --wait=false >/dev/null 2>&1 || true
+    done <<<"${stale}"
+    # Done once every live worker pod is registered with ate-api at its IP.
+    for _ in $(seq 1 60); do
+      sleep 2
+      registered="$(kubectl ate --context "${CONTEXT}" get workers -o json 2>/dev/null |
+        jq -r '.workers[]? | "\(.workerPod) \(.ip)"' | sort)"
+      live="$("${K[@]}" get pods -A -l ate.dev/worker-pool -o json 2>/dev/null |
+        jq -r '.items[] | select(.metadata.deletionTimestamp == null and .status.podIP != null)
+          | "\(.metadata.name) \(.status.podIP)"' | sort)"
+      [[ -n "${live}" && "$(comm -23 <(echo "${live}") <(echo "${registered}"))" == "" ]] && break
+    done
+  else
+    echo "workers ok"
+  fi
+fi
+
 step "Building and pushing images"
 IMAGE="$(build_image boxed-substrate.ts genkit-box-tools)"
 GATEWAY_IMAGE="$(build_image gateway-main.ts genkit-box-model-gateway)"
 DIGEST="${IMAGE#*@}"
+# The model the boxed agent uses (through the gateway). fake/agent is a
+# deterministic stand-in for benchmarks (src/model-gateway/fake-model.ts).
+AGENT_MODEL="${AGENT_MODEL:-googleai/gemini-3.6-flash}"
 # Templates are immutable, and a template change must not resume old actors:
-# name the template after the image.
-TEMPLATE="agent-${DIGEST:7:12}"
+# name the template after the image and the model.
+MODEL_HASH="$(printf '%s' "${AGENT_MODEL}" | shasum -a 256 | cut -c1-4)"
+TEMPLATE="agent-${DIGEST:7:12}-${MODEL_HASH}"
 echo "box image:     ${IMAGE}"
 echo "gateway image: ${GATEWAY_IMAGE}"
+echo "agent model:   ${AGENT_MODEL}"
 
 step "Deploying the model gateway"
 "${K[@]}" create namespace "${ATESPACE}" --dry-run=client -o yaml | "${K[@]}" apply -f - >/dev/null
@@ -128,12 +175,12 @@ if [[ -z "${WORKER_IMAGE}" || "${WORKER_IMAGE}" == "null" || -z "${SUBSTRATE_VER
   echo "error: no gVisor WorkerPool / version label found; deploy substrate and its counter demo first" >&2
   exit 1
 fi
-export TEMPLATE IMAGE BUCKET WORKER_IMAGE SUBSTRATE_VERSION MODEL_GATEWAY_URL
+export TEMPLATE IMAGE BUCKET WORKER_IMAGE SUBSTRATE_VERSION MODEL_GATEWAY_URL AGENT_MODEL
 envsubst '${ATESPACE} ${WORKER_IMAGE} ${SUBSTRATE_VERSION}' \
   <"${HERE}/workerpool.yaml.tmpl" | "${K[@]}" apply -f -
 kubectl ate --context "${CONTEXT}" create atespace "${ATESPACE}" >/dev/null 2>&1 || true
 if ! kubectl ate --context "${CONTEXT}" get actor-template "${TEMPLATE}" -a "${ATESPACE}" >/dev/null 2>&1; then
-  envsubst '${ATESPACE} ${TEMPLATE} ${IMAGE} ${BUCKET} ${MODEL_GATEWAY_URL}' \
+  envsubst '${ATESPACE} ${TEMPLATE} ${IMAGE} ${BUCKET} ${MODEL_GATEWAY_URL} ${AGENT_MODEL}' \
     <"${HERE}/template.yaml.tmpl" |
     kubectl ate --context "${CONTEXT}" create actor-template -f - >/dev/null
   echo "created template ${ATESPACE}/${TEMPLATE}"
@@ -181,4 +228,4 @@ export MODEL_GATEWAY_SECRET=${CREDS}/gateway-secret
 EOF
 
 step "Done"
-echo "source ${HERE}/.env && pnpm start:substrate"
+echo "pnpm start:substrate   (reads ${HERE}/.env)"

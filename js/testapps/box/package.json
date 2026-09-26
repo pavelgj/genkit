@@ -12,8 +12,8 @@
     "dev": "tsx --watch src/index.ts",
     "genkit:dev": "genkit start -- tsx --watch src/index.ts",
     "genkit:dev:podman": "pnpm compile && genkit start -- tsx src/index-podman.ts",
-    "genkit:dev:substrate": "genkit start -- tsx src/index-substrate.ts",
-    "start:substrate": "pnpm build:web && tsx src/index-substrate.ts",
+    "genkit:dev:substrate": ". substrate/.env && genkit start -- tsx src/index-substrate.ts",
+    "start:substrate": "pnpm build:web && . substrate/.env && tsx src/index-substrate.ts",
     "build:web": "cd web && pnpm build",
     "web:dev": "cd web && pnpm dev",
     "test": "tsx --test ./tests/*_test.ts"

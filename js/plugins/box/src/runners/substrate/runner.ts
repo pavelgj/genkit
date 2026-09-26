@@ -627,6 +627,18 @@ export class SubstrateRunner implements BoxRunner {
     } catch (e) {
       // Lost a create race (another call or host): the winner set it up.
       if (isSubstrateError(e, 'ALREADY_EXISTS')) return;
+      // Substrate reports this as a bare FAILED_PRECONDITION; usually a stale
+      // template name (templates are immutable, so setups create new ones).
+      if (
+        isSubstrateError(e, 'FAILED_PRECONDITION') &&
+        /actor template not found/i.test(e.message)
+      ) {
+        throw new Error(
+          `substrateRunner: actor template ${fmt(this.template)} does not exist. ` +
+            `Check the configured template name (it may be stale).`,
+          { cause: e }
+        );
+      }
       throw e;
     }
     logger.debug(`substrateRunner: created ${fmt(ref)}`);

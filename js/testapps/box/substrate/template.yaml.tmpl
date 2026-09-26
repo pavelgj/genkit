@@ -1,6 +1,6 @@
 # ActorTemplate for the boxed agent. setup.sh fills in ATESPACE, TEMPLATE,
-# IMAGE (pinned by digest, as substrate requires), BUCKET and
-# MODEL_GATEWAY_URL. No secrets: the box calls models through the gateway.
+# IMAGE (pinned by digest, as substrate requires), BUCKET, MODEL_GATEWAY_URL
+# and AGENT_MODEL. No secrets: the box calls models through the gateway.
 metadata:
   atespace: ${ATESPACE}
   name: ${TEMPLATE}
@@ -22,6 +22,8 @@ containers:
   # allows (see index-substrate.ts).
   - name: MODEL_GATEWAY_URL
     value: ${MODEL_GATEWAY_URL}
+  - name: AGENT_MODEL
+    value: ${AGENT_MODEL}
   # The golden snapshot (and every resume) waits for this.
   wakeupProbe:
     httpGet:

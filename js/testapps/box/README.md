@@ -124,7 +124,7 @@ In the box, the model is just a name: the `modelGateway` plugin forwards
 
 ```ts
 const ai = genkit({ plugins: [modelGateway({ url: process.env.MODEL_GATEWAY_URL! })] });
-ai.defineAgent({ model: 'gateway/googleai/gemini-flash-latest', tools, store });
+ai.defineAgent({ model: 'gateway/googleai/gemini-3.6-flash', tools, store });
 ```
 
 Needs a local substrate on kind (`hack/create-kind-cluster.sh` and
@@ -134,9 +134,36 @@ substrate repo), plus `kubectl-ate` on PATH. Then:
 ```bash
 export GEMINI_API_KEY=...
 ./substrate/setup.sh          # images, model gateway, WorkerPool, ActorTemplate, creds, port-forwards
-source substrate/.env
-pnpm start:substrate          # builds web/, serves the demo UI on :8080
+pnpm start:substrate          # reads substrate/.env, builds web/, serves the demo UI on :8080
 ```
+
+The `substrate` scripts read `substrate/.env` on every start. Each `setup.sh`
+run can write a new template name there (templates are immutable), so a shell
+that sourced an older `.env` would otherwise point at a template that no
+longer exists.
+
+When you're done, shut it all down so nothing keeps running:
+
+```bash
+./substrate/teardown.sh          # suspend actors, stop port-forwards, kind and the podman VM
+./substrate/teardown.sh --demo   # or: remove only this demo; substrate keeps running
+./substrate/teardown.sh --purge  # or: delete the kind cluster and registry
+```
+
+The default keeps everything, including sessions (actors are suspended, not
+deleted). To come back:
+
+```bash
+podman machine start substrate
+podman --connection substrate-root start kind-registry kind-control-plane
+./substrate/setup.sh             # waits for substrate, repairs workers, new token
+pnpm start:substrate
+```
+
+After the kind node restarts, substrate's workers come back with new pod IPs
+that substrate doesn't pick up (a worker's registered IP is immutable), so
+actors can't start. `setup.sh` detects this and replaces those workers. They
+are stateless, so nothing is lost.
 
 `GEMINI_API_KEY` goes into a Kubernetes Secret mounted by the gateway only.
 Neither the ActorTemplate nor any snapshot contains it.
@@ -161,6 +188,32 @@ The state comes from `GET /api/state` (`src/substrate-state.ts`), which joins
 ate-api's `ListWorkers` and `ListActors` with `runner.boxes()`. Substrate knows
 which actor is on which worker; only the runner knows which session an actor
 belongs to, and that a turn is waiting for a worker.
+
+### Benchmarking with a fake model
+
+Real model latency and 429/503s make pause/resume numbers noisy. The gateway
+also serves `fake/agent`, a deterministic agent script
+(`src/model-gateway/fake-model.ts`) configured by the message itself:
+
+```bash
+AGENT_MODEL=fake/agent ./substrate/setup.sh   # new template, same image
+pnpm start:substrate
+# then send: "bench steps=3 modelMs=5000 toolMs=300"
+```
+
+Each task is `steps + 1` model calls of `modelMs` each (the time the gateway
+can park the agent) and `steps` `runShell` calls of `toolMs` each (the work
+that needs a worker). Re-run `setup.sh` without `AGENT_MODEL` to go back to
+`googleai/gemini-3.6-flash`.
+
+On the local kind cluster (2 workers, 1 actor each), with
+`bench steps=3 modelMs=5000 toolMs=300`:
+
+| Agents | Parked: batch / worker-s per task | `PARK=0`: batch / worker-s per task |
+| --- | --- | --- |
+| 6 | 28s / 4.5 | 66s / 21.3 |
+| 12 | 59s / 5.3 | 134s / 21.6 |
+| 24 | 104s / 6.8 | 270s / 21.6 |
 
 For UI work, run the server and Vite's dev server side by side
 (`pnpm start:substrate` and `pnpm web:dev`, then open :5173). `pnpm

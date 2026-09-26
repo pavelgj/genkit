@@ -98,7 +98,9 @@ ai.defineAgent({
     'You are a helpful assistant with a persistent Linux sandbox. Use ' +
     'runShell to run commands there; files you create persist across turns. ' +
     'Keep answers concise.',
-  model: 'gateway/googleai/gemini-flash-latest',
+  // Set by the template. `fake/agent` is a deterministic stand-in the
+  // gateway serves for benchmarks (see model-gateway/fake-model.ts).
+  model: `gateway/${process.env.AGENT_MODEL ?? 'googleai/gemini-3.6-flash'}`,
   tools: [runShell, boxInfo],
   maxTurns: 20,
   use: [retry()],

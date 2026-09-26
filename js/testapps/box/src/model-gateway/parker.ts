@@ -26,6 +26,11 @@
 // A paused actor can only resume on the node holding its local snapshot. If
 // no worker frees up there within `resumeTimeoutMs`, the actor is suspended
 // (uploading the snapshot, dropping the node pin) and resumed anywhere.
+//
+// Actors are never paused within `minAwakeMs` of coming up (resumed by us,
+// or first seen: resumed by its host). On kind, pausing a gVisor actor
+// ~100ms after its restore sometimes left it dead on the next resume (its
+// wakeup probe never passed; 5 of 89 such pauses, none of 84 later ones).
 
 import {
   isSubstrateError,
@@ -39,6 +44,8 @@ export interface ParkerOptions {
   pauseAfterMs?: number;
   /** Give up waiting for a worker on the snapshot's node after this. Default 20s. */
   resumeTimeoutMs?: number;
+  /** Never pause an actor sooner than this after it came up. Default 500ms. */
+  minAwakeMs?: number;
   log?: (msg: string) => void;
 }
 
@@ -50,6 +57,10 @@ interface ActorParking {
   pending: number;
   state: ParkState;
   since: number;
+  /** When the actor last came up (first seen, or woken by us). */
+  upSince: number;
+  /** When a parked call for it last started or settled. */
+  lastActivity: number;
   pauseTimer?: ReturnType<typeof setTimeout>;
   /** Tail of this actor's operation queue; never rejects. */
   lock: Promise<void>;
@@ -67,6 +78,7 @@ export class Parker {
   private readonly control: SubstrateControl;
   private readonly pauseAfterMs: number;
   private readonly resumeTimeoutMs: number;
+  private readonly minAwakeMs: number;
   private readonly log: (msg: string) => void;
   private readonly actors = new Map<string, ActorParking>();
 
@@ -74,6 +86,7 @@ export class Parker {
     this.control = options.control;
     this.pauseAfterMs = options.pauseAfterMs ?? 1_500;
     this.resumeTimeoutMs = options.resumeTimeoutMs ?? 20_000;
+    this.minAwakeMs = options.minAwakeMs ?? 500;
     this.log = options.log ?? (() => {});
   }
 
@@ -87,12 +100,17 @@ export class Parker {
     p.pending++;
     if (p.pending === 1 && p.state === 'awake') {
       clearTimeout(p.pauseTimer);
+      const delay = Math.max(
+        this.pauseAfterMs,
+        p.upSince + this.minAwakeMs - Date.now()
+      );
       p.pauseTimer = setTimeout(() => {
         p.pauseTimer = undefined;
         if (p.pending > 0) this.enqueue(p, () => this.pause(p));
-      }, this.pauseAfterMs);
+      }, delay);
     }
     const done = () => {
+      p.lastActivity = Date.now();
       p.pending--;
       if (p.pending > 0) return;
       clearTimeout(p.pauseTimer);
@@ -126,17 +144,29 @@ export class Parker {
 
   private entry(ref: SubstrateRef): ActorParking {
     const key = `${ref.atespace}/${ref.name}`;
+    const now = Date.now();
     let p = this.actors.get(key);
     if (!p) {
       p = {
         ref,
         pending: 0,
         state: 'awake',
-        since: Date.now(),
+        since: now,
+        upSince: now,
+        lastActivity: now,
         lock: Promise.resolve(),
       };
       this.actors.set(key, p);
+    } else if (
+      p.pending === 0 &&
+      p.state === 'awake' &&
+      now - p.lastActivity > 5_000
+    ) {
+      // Quiet for a while: its host may have suspended and resumed it since
+      // (between turns), which the gateway doesn't see. Treat it as fresh.
+      p.upSince = now;
     }
+    p.lastActivity = now;
     return p;
   }
 
@@ -185,6 +215,7 @@ export class Parker {
       this.log(`woke ${p.ref.name} in ${Date.now() - started}ms`);
     } finally {
       this.set(p, 'awake');
+      p.upSince = Date.now();
     }
   }
 

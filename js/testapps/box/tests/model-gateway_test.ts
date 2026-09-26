@@ -87,7 +87,7 @@ describe('model gateway (client + server)', () => {
     control = new FakeControl();
     const gateway = modelGatewayServer(gwAi, {
       secret: SECRET,
-      parker: new Parker({ control, pauseAfterMs: 50 }),
+      parker: new Parker({ control, pauseAfterMs: 50, minAwakeMs: 0 }),
       allowModels: ['fake/echo'],
     });
     const app = express();
