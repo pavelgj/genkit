@@ -16,7 +16,9 @@
     "start:substrate": "pnpm build:web && . substrate/.env && tsx src/index-substrate.ts",
     "build:web": "cd web && pnpm build",
     "web:dev": "cd web && pnpm dev",
-    "test": "tsx --test ./tests/*_test.ts"
+    "test": "tsx --test ./tests/*_test.ts",
+    "genkit:dev:durable": "genkit start -- tsx src/index-durable.ts",
+    "durable:crash-demo": "tsx src/durable-crash-demo.ts"
   },
   "keywords": [],
   "author": "",

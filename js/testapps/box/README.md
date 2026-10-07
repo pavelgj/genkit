@@ -75,6 +75,68 @@ If the host process is killed before `close()`, strays are labelled:
 podman rm -f $(podman ps -aq --filter label=genkit-box)
 ```
 
+## Durable agents (`src/index-durable.ts`, prototype)
+
+An agent whose loop runs as committed steps, so it survives the process dying
+mid-turn. Design: `js/plugins/box/durable-agents-design.local.md`. The engine
+is in `src/durable/` and is built on top of GiaB, not into it.
+
+```ts
+const sandbox = defineEnvironment(ai, {
+  name: 'sandbox',
+  runner: execRunner({ self: true, isolate: localSandbox() }),
+  tools: [runShell], // runs in a per-session box
+  lifecycle: { short: 'keep', long: 'release' },
+});
+
+export const durableCoder = defineDurableAgent(ai, {
+  name: 'durableCoder',
+  model: 'googleai/gemini-flash-latest',
+  tools: [readFileTool],
+  environments: [sandbox],
+  replay: { readFile: 'safe' }, // runShell is not: never repeated after a crash
+  store: new FileSessionStore('.durable'), // any genkit SessionStore
+});
+```
+
+It's a normal agent (`chat`, `detach`, `getSnapshot`, `abort`, Dev UI). Under
+the hood every model call and tool call is an effect in one run document per
+session (transcript, business state and queue together), committed through
+`SessionStore.saveSnapshot`. A lease-based scheduler runs whatever is ready;
+the loop itself (`src/durable/step.ts`) never waits on anything.
+
+```bash
+# Headless: start a turn, kill the engine mid-tool, restart, watch it finish.
+GEMINI_API_KEY=... pnpm durable:crash-demo
+DURABLE_MODEL=durable/script pnpm durable:crash-demo   # scripted, no key
+
+# Dev UI
+GEMINI_API_KEY=... pnpm genkit:dev:durable
+```
+
+In the Dev UI:
+
+- `startTask` with `{ "message": "Use runShell to run `sleep 8 && date`, then
+tell me the time" }` starts a background turn; keep its `sessionId`.
+- `crashEngine` while the shell command runs: in-flight work is dropped, like a
+  real crash. `restartEngine` starts a new engine on the same store; it finds
+  the expired lease, abandons the unsafe `runShell`, and the model is told the
+  call was interrupted (it usually checks the state and retries).
+- `inspectRun` with the `sessionId` shows the run document: effects with their
+  attempts and leases, the transcript, and the sandbox lifecycle hints.
+- `steer` adds a note to a running turn; it joins after the current tool calls.
+- Killing the whole process (Ctrl-C) and starting it again works too: state is
+  in `.durable/`, and the new engine recovers active sessions on start.
+
+Tests: `tests/durable_test.ts` (loop, steering, interrupts, abort,
+exactly-once, crash recovery, leases) and `tests/durable-environment_test.ts`.
+
+Prototype limits: one process per store (FileSessionStore locks are
+in-process), waiting facades are in-process, only `run` completion mode is
+implemented (timers, signals, polled operations are designed, not built), and
+no substrate runner integration yet (the environment maps hints onto
+`suspend`/`release`; a substrate `pause` needs a runner hook).
+
 ## Substrate variant (`src/index-substrate.ts`)
 
 Boxed **agents** on [Agent Substrate](https://github.com/agent-substrate/substrate),
