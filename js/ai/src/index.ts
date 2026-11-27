@@ -166,3 +166,5 @@ export {
   type ToolConfig,
 } from './tool.js';
 export * from './types.js';
+
+export { resolveMaxTurns } from './generate/turn-budget.js';
