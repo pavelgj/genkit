@@ -287,13 +287,29 @@ export async function embedMany<
   if (!embedder) {
     throw new Error('Unable to utilize the provided embedder');
   }
-  const response = await embedder({
-    input: params.content.map((i) =>
-      typeof i === 'string' ? Document.fromText(i, params.metadata) : i
-    ),
-    options: params.options,
-  });
-  return response.embeddings;
+  const docs = params.content.map((i) =>
+    typeof i === 'string' ? Document.fromText(i, params.metadata) : i
+  );
+  const batchSize: number = (params as any).batchSize || 100;
+  if (docs.length <= batchSize) {
+    const response = await embedder({
+      input: docs,
+      options: params.options,
+    });
+    return response.embeddings;
+  }
+  const chunks: DocumentData[][] = [];
+  for (let i = 0; i < docs.length; i += batchSize) {
+    chunks.push(docs.slice(i, i + batchSize));
+  }
+  const results: EmbeddingBatch = [];
+  await Promise.all(
+    chunks.map(async (chunk) => {
+      const res = await embedder({ input: chunk, options: params.options });
+      results.push(...res.embeddings);
+    })
+  );
+  return results;
 }
 
 /**
