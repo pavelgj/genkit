@@ -15,6 +15,7 @@
  */
 
 import {
+  GenkitError,
   action,
   defineAction,
   z,
@@ -261,18 +262,27 @@ async function resolveEmbedder<
 }
 
 /**
+ * Options of an `embedMany` function.
+ */
+export interface EmbedManyParams<
+  ConfigSchema extends z.ZodTypeAny = z.ZodTypeAny,
+> {
+  embedder: EmbedderArgument<ConfigSchema>;
+  content: string[] | DocumentData[];
+  metadata?: Record<string, unknown>;
+  options?: z.infer<ConfigSchema>;
+  /** Maximum number of documents to send per embedder call. Defaults to 100. */
+  batchSize?: number;
+}
+
+/**
  * A veneer for interacting with embedder models in bulk.
  */
 export async function embedMany<
   ConfigSchema extends z.ZodTypeAny = z.ZodTypeAny,
 >(
   registry: Registry,
-  params: {
-    embedder: EmbedderArgument<ConfigSchema>;
-    content: string[] | DocumentData[];
-    metadata?: Record<string, unknown>;
-    options?: z.infer<ConfigSchema>;
-  }
+  params: EmbedManyParams<ConfigSchema>
 ): Promise<EmbeddingBatch> {
   let embedder: EmbedderAction<ConfigSchema>;
   if (typeof params.embedder === 'string') {
@@ -287,10 +297,16 @@ export async function embedMany<
   if (!embedder) {
     throw new Error('Unable to utilize the provided embedder');
   }
+  const batchSize = params.batchSize ?? 100;
+  if (!Number.isInteger(batchSize) || batchSize < 1) {
+    throw new GenkitError({
+      status: 'INVALID_ARGUMENT',
+      message: `batchSize must be a positive integer, got ${batchSize}`,
+    });
+  }
   const docs = params.content.map((i) =>
     typeof i === 'string' ? Document.fromText(i, params.metadata) : i
   );
-  const batchSize: number = (params as any).batchSize || 100;
   if (docs.length <= batchSize) {
     const response = await embedder({
       input: docs,
@@ -302,14 +318,10 @@ export async function embedMany<
   for (let i = 0; i < docs.length; i += batchSize) {
     chunks.push(docs.slice(i, i + batchSize));
   }
-  const results: EmbeddingBatch = [];
-  await Promise.all(
-    chunks.map(async (chunk) => {
-      const res = await embedder({ input: chunk, options: params.options });
-      results.push(...res.embeddings);
-    })
+  const responses = await Promise.all(
+    chunks.map((chunk) => embedder({ input: chunk, options: params.options }))
   );
-  return results;
+  return responses.flatMap((res) => res.embeddings);
 }
 
 /**

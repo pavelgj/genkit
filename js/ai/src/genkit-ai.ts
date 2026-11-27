@@ -25,11 +25,10 @@ import {
 import { type Registry } from '@genkit-ai/core/registry';
 import { cancelOperation } from './cancel-operation.js';
 import { checkOperation } from './check-operation.js';
-import { type DocumentData } from './document.js';
 import {
   embed,
   embedMany,
-  type EmbedderArgument,
+  type EmbedManyParams,
   type EmbedderParams,
   type Embedding,
   type EmbeddingBatch,
@@ -68,12 +67,9 @@ export class GenkitAI {
   /**
    * A veneer for interacting with embedder models in bulk.
    */
-  embedMany<ConfigSchema extends z.ZodTypeAny = z.ZodTypeAny>(params: {
-    embedder: EmbedderArgument<ConfigSchema>;
-    content: string[] | DocumentData[];
-    metadata?: Record<string, unknown>;
-    options?: z.infer<ConfigSchema>;
-  }): Promise<EmbeddingBatch> {
+  embedMany<ConfigSchema extends z.ZodTypeAny = z.ZodTypeAny>(
+    params: EmbedManyParams<ConfigSchema>
+  ): Promise<EmbeddingBatch> {
     return embedMany(this.registry, params);
   }
 
