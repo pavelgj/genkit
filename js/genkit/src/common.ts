@@ -55,6 +55,7 @@ export {
   retrieverRef,
   type DocumentData,
   type DynamicResourceAction,
+  type EmbedManyParams,
   type EmbedderAction,
   type EmbedderArgument,
   type EmbedderInfo,

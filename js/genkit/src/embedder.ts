@@ -30,6 +30,7 @@
 export {
   EmbedderInfoSchema,
   embedderRef,
+  type EmbedManyParams,
   type EmbedRequest,
   type EmbedderAction,
   type EmbedderArgument,

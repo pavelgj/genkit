@@ -22,6 +22,7 @@ export {
   embed,
   embedderActionMetadata,
   embedderRef,
+  type EmbedManyParams,
   type EmbedderAction,
   type EmbedderArgument,
   type EmbedderInfo,
