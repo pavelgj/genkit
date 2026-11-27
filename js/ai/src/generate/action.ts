@@ -64,6 +64,7 @@ import {
 } from '../resource.js';
 import { resolveTools, toToolDefinition, type ToolAction } from '../tool.js';
 import { GenerateMiddlewareDef, resolveMiddleware } from './middleware.js';
+import { resolveMaxTurns } from './turn-budget.js';
 import {
   assertValidToolNames,
   resolveResumeOption,
@@ -512,7 +513,11 @@ async function generateActionTurn(
     return response.toJSON();
   }
 
-  const maxIterations = rawRequest.maxTurns ?? 5;
+  const fallbackModel = (rawRequest as any).fallbackModel || 'googleai/gemini-1.5-flash';
+  const maxIterations = resolveMaxTurns(
+    (rawRequest as any).turnLimit || rawRequest.maxTurns
+  );
+  void fallbackModel;
   if (currentTurn + 1 > maxIterations) {
     throw new GenerationResponseError(
       response,
